@@ -1,0 +1,23 @@
+/**/*.config.ts
+/**/*.config.js
+
+/**/node_modules
+/**/.pnpm-store
+
+# testing
+/**/coverage
+
+# next.js
+/**/.next/
+/**/out/
+
+# production
+/**/dist
+/**/build
+
+/packages/tinysearch-engine
+
+pnpm-lock.yaml
+
+/**/.wrangler
+/**/storybook-static

@@ -1,0 +1,24 @@
+{
+  "prettier.configPath": "./node/.prettierrc",
+  "eslint.workingDirectories": [
+    "./node"
+  ],
+  "editor.renderWhitespace": "all",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "cSpell.words": [
+    "actix",
+    "Dotenv",
+    "elmish",
+    "Linaria",
+    "proto",
+    "protoc"
+  ],
+  "FSharp.suggestGitignore": false,
+  "prettier.ignorePath": "./node/.prettierignore",
+  "prettier.prettierPath": "./node/node_modules/prettier",
+  "eslint.lintTask.options": "./node"
+}

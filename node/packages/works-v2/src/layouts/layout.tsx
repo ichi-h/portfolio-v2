@@ -1,13 +1,14 @@
 import { Background } from "portfolio-ui";
 
-import { Footer } from "./footer";
+import { Footer } from "../components/parts/footer";
+import { Nav } from "../components/parts/nav";
+
 import {
   layoutParentStyle,
   layoutStyle,
   layoutBgStyle,
   layoutContentStyle,
 } from "./layout.css";
-import { Nav } from "./nav";
 
 import type { ComponentProps, FC } from "react";
 

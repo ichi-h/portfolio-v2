@@ -6,9 +6,9 @@ import type { ComponentProps, FC, AnchorHTMLAttributes } from "react";
 
 type Props = Omit<ComponentProps<"nav">, "children">;
 
-const Anchor: FC<AnchorHTMLAttributes<HTMLAnchorElement>> = (props) => {
-  return <a {...props} />;
-};
+const Anchor: FC<AnchorHTMLAttributes<HTMLAnchorElement>> = (props) => (
+  <a {...props} />
+);
 
 export const Nav: FC<Props> = ({ ...props }) => (
   <nav className={navStyle} {...props}>

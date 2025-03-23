@@ -5,14 +5,6 @@
   "main": "./dist/portfolio-ui.umd.js",
   "module": "./dist/portfolio-ui.es.js",
   "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/portfolio-ui.es.js",
-      "require": "./dist/portfolio-ui.umd.js",
-      "types": "./dist/index.d.ts"
-    },
-    "./style.css": "./dist/portfolio-ui.css"
-  },
   "files": [
     "dist"
   ],

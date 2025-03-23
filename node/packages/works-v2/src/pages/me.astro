@@ -1,0 +1,18 @@
+---
+import Index from "../components/pages/me/route";
+
+import { MeMeta } from "../components/pages/me/meta";
+import HTML from "../layouts/html.astro";
+import ArticleLayout from "../layouts/article.astro";
+---
+
+<HTML>
+  <Fragment slot="head">
+    <MeMeta />
+  </Fragment>
+  <Fragment slot="head">
+    <ArticleLayout>
+      <Index />
+    </ArticleLayout>
+  </Fragment>
+</HTML>

@@ -1,5 +1,5 @@
 ---
-import uiStyle from "portfolio-ui/dist/style.css?url";
+import uiStyle from "portfolio-ui/style.css";
 
 import { html } from "./html.css";
 ---
@@ -13,6 +13,6 @@ import { html } from "./html.css";
     <link rel="stylesheet" href={uiStyle} />
   </head>
   <body>
-    <slot />
+    <slot name="content" />
   </body>
 </html>

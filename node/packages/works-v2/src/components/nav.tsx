@@ -1,18 +1,22 @@
-import { Link as _Link } from "@remix-run/react";
 import { Link } from "portfolio-ui";
-import { ComponentProps, FC } from "react";
 
 import { navStyle, navLinksStyle, navLinkStyle } from "./nav.css";
 
+import type { ComponentProps, FC, AnchorHTMLAttributes } from "react";
+
 type Props = Omit<ComponentProps<"nav">, "children">;
+
+const Anchor: FC<AnchorHTMLAttributes<HTMLAnchorElement>> = (props) => {
+  return <a {...props} />;
+};
 
 export const Nav: FC<Props> = ({ ...props }) => (
   <nav className={navStyle} {...props}>
     <div className={navLinksStyle}>
       <Link
         className={navLinkStyle}
-        as={_Link}
-        asProps={{ to: "/" }}
+        as={Anchor}
+        asProps={{ href: "/" }}
         color="mono.50"
       >
         ichi-h.com
@@ -21,24 +25,24 @@ export const Nav: FC<Props> = ({ ...props }) => (
     <div className={navLinksStyle}>
       <Link
         className={navLinkStyle}
-        as={_Link}
-        asProps={{ to: "/works" }}
+        as={Anchor}
+        asProps={{ href: "/works" }}
         color="mono.50"
       >
         Works
       </Link>
       <Link
         className={navLinkStyle}
-        as={_Link}
-        asProps={{ to: "/me" }}
+        as={Anchor}
+        asProps={{ href: "/me" }}
         color="mono.50"
       >
         Me
       </Link>
       <Link
         className={navLinkStyle}
-        as={_Link}
-        asProps={{ to: "/contact" }}
+        as={Anchor}
+        asProps={{ href: "/contact" }}
         color="mono.50"
       >
         Contact

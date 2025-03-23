@@ -1,7 +1,8 @@
 import { Background as Bg } from "portfolio-ui";
-import { ComponentProps, FC } from "react";
 
 import { backgroundParentStyle, backgroundChildStyle } from "./background.css";
+
+import type { ComponentProps, FC } from "react";
 
 type Props = ComponentProps<"div">;
 

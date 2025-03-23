@@ -1,7 +1,8 @@
 import { Icon, OpenInNewIcon, Paragraph, Text } from "portfolio-ui";
-import { FC } from "react";
 
 import { linkCardStyles } from "./linkCard.css";
+
+import type { FC } from "react";
 
 type Props = {
   href: string;

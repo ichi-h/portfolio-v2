@@ -1,5 +1,4 @@
 import { Background } from "portfolio-ui";
-import { ComponentProps, FC } from "react";
 
 import { Footer } from "./footer";
 import {
@@ -9,6 +8,8 @@ import {
   layoutContentStyle,
 } from "./layout.css";
 import { Nav } from "./nav";
+
+import type { ComponentProps, FC } from "react";
 
 type Props = ComponentProps<"div">;
 

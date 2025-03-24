@@ -1,4 +1,4 @@
-const keys = ["APP_URL", "WORKS_SERVER_URL", "OG_IMAGE_SERVER_URL"] as const;
+const keys = ["APP_URL", "OG_IMAGE_SERVER_URL"] as const;
 
 export const useEnv = () => {
   const env = {

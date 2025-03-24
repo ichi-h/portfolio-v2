@@ -11,10 +11,10 @@ type Props = {
   color?: keyof typeof COLOR;
 } & ComponentProps<"div">;
 
-export const Icon = ({ className, icon, size = 4, color, ...props }: Props) => {
+export const Icon = ({ className, icon, size, color, ...props }: Props) => {
   const Component = icon;
   return (
-    <div className={clsx([styles.w[size], className])} {...props}>
+    <div className={clsx([className, size && styles.w[size]])} {...props}>
       <Component color={color} />
     </div>
   );

@@ -15,7 +15,8 @@ export default function Index() {
         ichi-h
       </Text>
       <Text className={styles.subtext} color="mono.900">
-        考えること。作ること。
+        To live is to think, create and sing.<br />
+        考えることと作ることと歌うことが好きです。
       </Text>
       <div className={styles.snsLinks}>
         <Link
@@ -27,7 +28,7 @@ export default function Index() {
         </Link>
         <Link
           className={styles.snsLink}
-          href="https://twitter.com/ichi_h3"
+          href="https://x.com/ichi_h3"
           openInNewTab
         >
           <Icon className={styles.snsIcon} icon={XIcon} />

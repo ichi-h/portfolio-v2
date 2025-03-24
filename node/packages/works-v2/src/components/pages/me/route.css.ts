@@ -11,6 +11,7 @@ import {
   gap,
   h,
   w,
+  textAlign,
 } from "portfolio-styles";
 
 export const layout = style([
@@ -27,6 +28,7 @@ export const name = style([
 
 export const subtext = style([
   fontSize["6"],
+  textAlign["center"],
   applyMedia({ max: "768" }, fontSize["4"]),
 ]);
 

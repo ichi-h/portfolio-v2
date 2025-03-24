@@ -1,6 +1,7 @@
 ---
 import uiStyle from "portfolio-ui/style.css";
 
+import { Background } from "../components/parts/background";
 import { html } from "./html.css";
 ---
 
@@ -13,6 +14,8 @@ import { html } from "./html.css";
     <link rel="stylesheet" href={uiStyle} />
   </head>
   <body>
-    <slot name="content" />
+    <Background>
+      <slot name="content" />
+    </Background>
   </body>
 </html>

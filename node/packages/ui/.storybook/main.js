@@ -1,5 +1,7 @@
 import { dirname, join } from "path";
+
 const path = require("path");
+
 const { vanillaExtractPlugin } = require("@vanilla-extract/vite-plugin");
 const { mergeConfig } = require("vite");
 module.exports = {

@@ -1,4 +1,4 @@
-const keys = ["APP_URL", "OG_IMAGE_SERVER_URL"] as const;
+type Keys = "APP_URL" | "OG_IMAGE_SERVER_URL";
 
 export const useEnv = () => {
   const env = {
@@ -14,5 +14,5 @@ export const useEnv = () => {
     throw new Error(`Missing environment variables: ${missingEnv.join(", ")}`);
   }
 
-  return env as Record<(typeof keys)[number], string>;
+  return env as Record<Keys, string>;
 };

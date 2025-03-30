@@ -1,7 +1,7 @@
 import { Link } from "portfolio-ui";
 
-import { navStyle, navLinksStyle, navLinkStyle } from "./nav.css";
 import { Anchor } from "./anchor";
+import { navStyle, navLinksStyle, navLinkStyle } from "./nav.css";
 
 import type { ComponentProps, FC } from "react";
 

@@ -15,7 +15,8 @@ export default function Index() {
         ichi-h
       </Text>
       <Text className={styles.subtext} color="mono.900">
-        To live is to think, create and sing.<br />
+        To live is to think, create and sing.
+        <br />
         考えることと作ることと歌うことが好きです。
       </Text>
       <div className={styles.snsLinks}>

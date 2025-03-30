@@ -1,61 +1,109 @@
-import { Headline, Link, Text, Avatar } from "portfolio-ui";
+import {
+  Headline,
+  Link,
+  Text,
+  Avatar,
+  Button,
+  Icon,
+  GitHubIcon,
+  XIcon,
+  YouTubeIcon,
+  SoundCloudIcon,
+} from "portfolio-ui";
 
 import me from "../../../assets/me_512x512.webp?url";
+import { Anchor } from "../../parts/anchor";
 import { Footer } from "../../parts/footer";
 
-import { outer, headline, links, link, footer, avatar } from "./index.css";
-import { Anchor } from "../../parts/anchor";
+import * as styles from "./index.css";
 
 export default function Index() {
   return (
-    <div className={outer}>
-      <Link as={Anchor} asProps={{ href: "/me" }}>
-        <Avatar className={avatar} src={me} size={64} />
-      </Link>
-      <Headline level="1">
-        <Text className={headline} color="mono.50" fontSize="16">
-          ichi-h.com
-        </Text>
-      </Headline>
-      <div className={links}>
-        <Link
-          as={Anchor}
-          asProps={{ href: "/works?category=development" }}
-          color="mono.50"
-        >
-          <Text className={link} fontSize="8">
-            Development
-          </Text>
+    <div className={styles.outer}>
+      <div className={styles.me}>
+        <Link as={Anchor} asProps={{ href: "/me" }}>
+          <Avatar className={styles.avatar} src={me} />
         </Link>
-        <Link
-          as={Anchor}
-          asProps={{ href: "/works?category=music" }}
-          color="mono.50"
-        >
-          <Text className={link} fontSize="8">
-            Music
+        <Headline level="1">
+          <Text className={styles.title} color="mono.50">
+            ichi-h.com
           </Text>
-        </Link>
-        <Link
-          as={Anchor}
-          asProps={{ href: "/works?category=photograph" }}
-          color="mono.50"
-        >
-          <Text className={link} fontSize="8">
-            Photograph
-          </Text>
-        </Link>
-        <Link
-          as={Anchor}
-          asProps={{ href: "/works?category=philosophy" }}
-          color="mono.50"
-        >
-          <Text className={link} fontSize="8">
-            Philosophy
-          </Text>
-        </Link>
+        </Headline>
       </div>
-      <div className={footer}>
+      <div className={styles.content}>
+        <div className={styles.contentBox}>
+          <Headline level="2">
+            <Text className={styles.categoryTitle} color="mono.50">
+              Tech
+            </Text>
+          </Headline>
+          <div className={styles.links}>
+            <Link
+              className={styles.snsLink}
+              href="https://x.com/ichi_h3"
+              openInNewTab
+            >
+              <Icon className={styles.snsIcon} icon={XIcon} color="mono.50" />
+            </Link>
+            <Link
+              className={styles.snsLink}
+              href="https://github.com/ichi-h"
+              openInNewTab
+            >
+              <Icon
+                className={styles.snsIcon}
+                icon={GitHubIcon}
+                color="mono.50"
+              />
+            </Link>
+          </div>
+        </div>
+        <div className={styles.separator} />
+        <div className={styles.contentBox}>
+          <Headline level="2">
+            <Text className={styles.categoryTitle} color="mono.50">
+              Creative
+            </Text>
+          </Headline>
+          <div className={styles.links}>
+            <Link
+              className={styles.snsLink}
+              href="https://x.com/ichi_h4"
+              openInNewTab
+            >
+              <Icon className={styles.snsIcon} icon={XIcon} color="mono.50" />
+            </Link>
+            <Link
+              className={styles.snsLink}
+              href="https://www.youtube.com/@ichi-h"
+              openInNewTab
+            >
+              <Icon
+                className={styles.snsIcon}
+                icon={YouTubeIcon}
+                color="mono.50"
+              />
+            </Link>
+            <Link
+              className={styles.snsLink}
+              href="https://soundcloud.com/ichi-h"
+              openInNewTab
+            >
+              <Icon
+                className={styles.snsIcon}
+                icon={SoundCloudIcon}
+                color="mono.50"
+              />
+            </Link>
+          </div>
+        </div>
+      </div>
+      <Anchor href="/works">
+        <Button variant="white" size="xl" bold>
+          Enter
+        </Button>
+      </Anchor>
+      <div className={styles.footer}>
         <Footer />
       </div>
     </div>

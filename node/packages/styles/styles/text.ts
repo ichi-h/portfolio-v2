@@ -11,6 +11,7 @@ const fontSizeData = {
   "8": REM[8],
   "12": REM[12],
   "16": REM[16],
+  "24": REM[24],
   "32": REM[32],
 };
 

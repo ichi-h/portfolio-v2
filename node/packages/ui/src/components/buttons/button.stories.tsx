@@ -12,6 +12,12 @@ const meta: Meta<typeof Button> = {
       },
       options: ["xs", "sm", "md", "lg", "xl"],
     },
+    variant: {
+      control: {
+        type: "select",
+      },
+      options: ["black", "white"],
+    },
     rounded: {
       control: {
         type: "boolean",

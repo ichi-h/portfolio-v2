@@ -38,6 +38,9 @@ export const REM = {
   /** 128px */
   32: "8rem",
 
+  /** 192px */
+  48: "12rem",
+
   /** 256px */
   64: "16rem",
 

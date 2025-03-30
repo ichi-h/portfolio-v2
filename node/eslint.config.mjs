@@ -10,17 +10,16 @@ import _import from "eslint-plugin-import";
 import unusedImports from "eslint-plugin-unused-imports";
 import globals from "globals";
 
-
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const compat = new FlatCompat({
-    baseDirectory: __dirname,
-    recommendedConfig: js.configs.recommended,
-    allConfig: js.configs.all
+  baseDirectory: __dirname,
+  recommendedConfig: js.configs.recommended,
+  allConfig: js.configs.all,
 });
 
-export default defineConfig([globalIgnores([
+export default defineConfig([
+  globalIgnores([
     "**/*.config.ts",
     "**/*.config.js",
     "**/node_modules",
@@ -34,45 +33,66 @@ export default defineConfig([globalIgnores([
     "**/.storybook",
     "**/.astro",
     "packages/works",
-]), {
-    extends: compat.extends("prettier", "plugin:@typescript-eslint/recommended"),
+  ]),
+  {
+    extends: compat.extends(
+      "prettier",
+      "plugin:@typescript-eslint/recommended",
+    ),
 
     plugins: {
-        import: fixupPluginRules(_import),
-        "unused-imports": unusedImports,
-        "@typescript-eslint": typescriptEslint,
+      import: fixupPluginRules(_import),
+      "unused-imports": unusedImports,
+      "@typescript-eslint": typescriptEslint,
     },
 
     languageOptions: {
-        globals: {
-            ...globals.browser,
-            ...globals.node,
-        },
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
     },
 
     rules: {
-        "@typescript-eslint/no-unused-vars": ["error", {
-            argsIgnorePattern: "^_",
-        }],
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          argsIgnorePattern: "^_",
+        },
+      ],
 
-        "react-hooks/rules-of-hooks": "off",
-        "unused-imports/no-unused-imports": "warn",
-        "@typescript-eslint/no-explicit-any": "warn",
+      "react-hooks/rules-of-hooks": "off",
+      "unused-imports/no-unused-imports": "warn",
+      "@typescript-eslint/no-explicit-any": "warn",
 
-        "import/order": ["error", {
-            groups: ["builtin", "external", "parent", "sibling", "index", "object", "type"],
+      "import/order": [
+        "error",
+        {
+          groups: [
+            "builtin",
+            "external",
+            "parent",
+            "sibling",
+            "index",
+            "object",
+            "type",
+          ],
 
-            pathGroups: [{
-                pattern: "@/**",
-                group: "parent",
-                position: "before",
-            }],
-
-            alphabetize: {
-                order: "asc",
+          pathGroups: [
+            {
+              pattern: "@/**",
+              group: "parent",
+              position: "before",
             },
+          ],
 
-            "newlines-between": "always",
-        }],
+          alphabetize: {
+            order: "asc",
+          },
+
+          "newlines-between": "always",
+        },
+      ],
     },
-}]);
+  },
+]);

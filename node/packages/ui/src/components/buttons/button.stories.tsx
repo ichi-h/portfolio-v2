@@ -18,6 +18,11 @@ const meta: Meta<typeof Button> = {
       },
       options: ["black", "white"],
     },
+    bold: {
+      control: {
+        type: "boolean",
+      },
+    },
     rounded: {
       control: {
         type: "boolean",

@@ -6,6 +6,7 @@ type Props = {
   children?: React.ReactNode;
   size?: "xs" | "sm" | "md" | "lg" | "xl";
   variant?: "black" | "white";
+  bold?: boolean;
   rounded?: boolean;
 } & ComponentProps<"button">;
 
@@ -14,6 +15,7 @@ export const Button = ({
   children,
   size = "md",
   variant = "black",
+  bold = false,
   rounded = false,
   ...props
 }: Props) => {
@@ -23,6 +25,7 @@ export const Button = ({
       className={clsx([
         styles.buttonBase,
         styles.buttonVariant[variant],
+        styles.buttonWeight[`${bold}`],
         styles.buttonSize[size],
         styles.buttonRound[rounded ? "rounded" : "default"],
         className,

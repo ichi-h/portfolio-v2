@@ -11,6 +11,8 @@ import {
   UpdateIcon,
   XIcon,
   Icon,
+  YouTubeIcon,
+  SoundCloudIcon,
 } from "./";
 
 const icons = {
@@ -21,6 +23,8 @@ const icons = {
   SearchIcon,
   UpdateIcon,
   XIcon,
+  YouTubeIcon,
+  SoundCloudIcon,
 };
 
 const meta: Meta<typeof Icon> = {

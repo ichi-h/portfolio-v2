@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import * as styles from "portfolio-styles/components/avatar.css";
+import { w } from "portfolio-styles";
 
 import { Avatar } from "./avatar";
 
@@ -16,7 +16,7 @@ const meta: Meta<typeof Avatar> = {
       control: {
         type: "select",
       },
-      options: Object.keys(styles.avatar) as Array<keyof typeof styles.avatar>,
+      options: Object.keys(w) as Array<keyof typeof w>,
     },
   },
 };

@@ -1,14 +1,11 @@
 import { Link } from "portfolio-ui";
 
 import { navStyle, navLinksStyle, navLinkStyle } from "./nav.css";
+import { Anchor } from "./anchor";
 
-import type { ComponentProps, FC, AnchorHTMLAttributes } from "react";
+import type { ComponentProps, FC } from "react";
 
 type Props = Omit<ComponentProps<"nav">, "children">;
-
-const Anchor: FC<AnchorHTMLAttributes<HTMLAnchorElement>> = (props) => (
-  <a {...props} />
-);
 
 export const Nav: FC<Props> = ({ ...props }) => (
   <nav className={navStyle} {...props}>

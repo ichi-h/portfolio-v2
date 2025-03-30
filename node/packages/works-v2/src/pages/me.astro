@@ -1,14 +1,14 @@
 ---
 import Index from "../components/pages/me/route";
 
-import { MeMeta } from "../components/pages/me/meta";
+import { Head } from "../components/parts/head";
 import HTML from "../layouts/html.astro";
 import ArticleLayout from "../layouts/article.astro";
 ---
 
 <HTML>
   <Fragment slot="head">
-    <MeMeta />
+    <Head title="Me - ichi-h.com" url="/me" ogType="article" />
   </Fragment>
   <Fragment slot="content">
     <ArticleLayout>

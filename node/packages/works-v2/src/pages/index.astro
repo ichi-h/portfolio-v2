@@ -1,11 +1,15 @@
 ---
-import Welcome from "../components/Welcome.astro";
-import HTML from "../layouts/html.astro";
+import Home from "../components/pages/home";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import { Head } from "../components/parts/head";
+import HTML from "../layouts/html.astro";
 ---
 
 <HTML>
-  <Welcome />
+  <Fragment slot="head">
+    <Head url="/" ogType="website" />
+  </Fragment>
+  <Fragment slot="content">
+    <Home />
+  </Fragment>
 </HTML>

@@ -4,7 +4,7 @@ import me from "../../../assets/me_512x512.webp?url";
 import { Hr } from "../../parts/hr";
 import { Title } from "../../parts/title";
 
-import * as styles from "./route.css";
+import * as styles from "./index.css";
 
 export default function Index() {
   return (

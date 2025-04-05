@@ -1,10 +1,10 @@
 ---
-import { Index } from "../components/pages/works";
-import type { Model } from "../components/pages/works";
+import { Works } from "../../components/pages/works";
+import type { Model } from "../../components/pages/works";
 
-import { Head } from "../components/parts/head";
-import HTML from "../layouts/html.astro";
-import ArticleLayout from "../layouts/article.astro";
+import { Head } from "../../components/parts/head";
+import HTML from "../../layouts/html.astro";
+import ArticleLayout from "../../layouts/article.astro";
 
 export const mockWorksResponse: Model = {
   total: 30,
@@ -69,7 +69,7 @@ export const mockWorksResponse: Model = {
   </Fragment>
   <Fragment slot="content">
     <ArticleLayout>
-      <Index model={mockWorksResponse} />
+      <Works model={mockWorksResponse} />
     </ArticleLayout>
   </Fragment>
 </HTML>

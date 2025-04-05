@@ -32,7 +32,7 @@ interface Props {
   model: Model;
 }
 
-export const Index: FC<Props> = ({ model }) => {
+export const Works: FC<Props> = ({ model }) => {
   return (
     <div className={styles.layout}>
       <Title>Works</Title>

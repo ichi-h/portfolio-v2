@@ -17,7 +17,7 @@ import { Footer } from "../../parts/footer";
 
 import * as styles from "./index.css";
 
-export default function Index() {
+export const Home = () => {
   return (
     <div className={styles.outer}>
       <div className={styles.me}>
@@ -108,4 +108,4 @@ export default function Index() {
       </div>
     </div>
   );
-}
+};

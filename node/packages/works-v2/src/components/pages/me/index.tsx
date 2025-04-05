@@ -6,7 +6,7 @@ import { Title } from "../../parts/title";
 
 import * as styles from "./index.css";
 
-export default function Index() {
+export const Me = () => {
   return (
     <div className={styles.layout}>
       <Title>About me</Title>
@@ -41,4 +41,4 @@ export default function Index() {
       </Text>
     </div>
   );
-}
+};

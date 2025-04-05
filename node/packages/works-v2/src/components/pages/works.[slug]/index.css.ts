@@ -1,6 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import {
   flex,
+  flexAlign,
   flexDirection,
   flexJustify,
   flexWrap,
@@ -16,4 +17,4 @@ export const matter = style([
   gap[2],
 ]);
 
-export const date = style([flex, gap[1]]);
+export const date = style([flex, gap[1], flexAlign["center"]]);

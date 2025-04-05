@@ -1,9 +1,10 @@
-import { ReactElement } from "react";
 import { renderToString } from "react-dom/server";
 import { remark } from "remark";
 import html from "remark-html";
 
-import { LinkCard } from "@/components/linkCard";
+import { LinkCard } from "../../parts/linkCard";
+
+import type { ReactElement } from "react";
 
 type Template =
   | {

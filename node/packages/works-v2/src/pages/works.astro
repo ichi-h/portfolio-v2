@@ -1,0 +1,75 @@
+---
+import { Index } from "../components/pages/works";
+import type { Model } from "../components/pages/works";
+
+import { Head } from "../components/parts/head";
+import HTML from "../layouts/html.astro";
+import ArticleLayout from "../layouts/article.astro";
+
+export const mockWorksResponse: Model = {
+  total: 30,
+  works: [
+    {
+      slug: "slug1",
+      category: "philosophy",
+      title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis aliquam ultricies, nisl nisl aliquet nisl, nec ali",
+      thumbnailUrl: "https://picsum.photos/200",
+      publishedAt: "2024-01-01 00:00:00",
+      updatedAt: "2024-01-01 00:00:00",
+    },
+    {
+      slug: "slug2",
+      category: "philosophy",
+      title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis aliquam ultricies, nisl nisl aliquet nisl, nec ali",
+      thumbnailUrl: "https://picsum.photos/200",
+      publishedAt: "2024-01-01 00:00:00",
+      updatedAt: "2024-01-01 00:00:00",
+    },
+    {
+      slug: "slug3",
+      category: "philosophy",
+      title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis aliquam ultricies, nisl nisl aliquet nisl, nec ali",
+      thumbnailUrl: "https://picsum.photos/200",
+      publishedAt: "2024-01-01 00:00:00",
+      updatedAt: "2024-01-01 00:00:00",
+    },
+    {
+      slug: "slug4",
+      category: "philosophy",
+      title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis aliquam ultricies, nisl nisl aliquet nisl, nec ali",
+      thumbnailUrl: "https://picsum.photos/200",
+      publishedAt: "2024-01-01 00:00:00",
+      updatedAt: "2024-01-01 00:00:00",
+    },
+    {
+      slug: "slug5",
+      category: "philosophy",
+      title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis aliquam ultricies, nisl nisl aliquet nisl, nec ali",
+      thumbnailUrl: "https://picsum.photos/200",
+      publishedAt: "2024-01-01 00:00:00",
+      updatedAt: "2024-01-01 00:00:00",
+    },
+  ],
+};
+---
+
+<HTML>
+  <Fragment slot="head">
+    <Head title="Works - ichi-h.com" url="/works" ogType="article" />
+  </Fragment>
+  <Fragment slot="content">
+    <ArticleLayout>
+      <Index model={mockWorksResponse} />
+    </ArticleLayout>
+  </Fragment>
+</HTML>

@@ -1,9 +1,17 @@
-type Keys = "APP_URL" | "OG_IMAGE_SERVER_URL";
+type Keys =
+  | "ENVIRONMENT"
+  | "APP_URL"
+  | "OG_IMAGE_SERVER_URL"
+  | "NOTION_SECRET_KEY"
+  | "NOTION_DATABASE_ID";
 
 export const useEnv = () => {
   const env = {
+    ENVIRONMENT: import.meta.env.ENVIRONMENT,
     APP_URL: import.meta.env.APP_URL,
     OG_IMAGE_SERVER_URL: import.meta.env.OG_IMAGE_SERVER_URL,
+    NOTION_SECRET_KEY: import.meta.env.NOTION_SECRET_KEY,
+    NOTION_DATABASE_ID: import.meta.env.NOTION_DATABASE_ID,
   } as const;
 
   const missingEnv = Object.entries(env)

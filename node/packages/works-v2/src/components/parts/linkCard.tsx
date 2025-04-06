@@ -32,7 +32,7 @@ export const LinkCard: FC<Props> = ({
                 <Text fontSize="5" weight="bold">
                   {title}
                 </Text>
-                <Icon icon={OpenInNewIcon} />
+                <Icon icon={OpenInNewIcon} size={4} />
               </div>
             </Paragraph>
             <Paragraph textOverflow="ellipsis" overflow="hidden" lineClamp={2}>

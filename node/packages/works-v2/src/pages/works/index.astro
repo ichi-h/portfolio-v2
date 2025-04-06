@@ -3,7 +3,7 @@ import { Works } from "../../components/pages/works";
 
 import { Head } from "../../components/parts/head";
 import HTML from "../../layouts/html.astro";
-import ArticleLayout from "../../layouts/article.astro";
+import { ArticleLayout } from "../../layouts/articleLayout";
 import { getWorks } from "../../api/notion/works";
 
 const works = await getWorks();
@@ -14,7 +14,7 @@ const works = await getWorks();
     <Head title="Works - ichi-h.com" url="/works" ogType="article" />
   </Fragment>
   <Fragment slot="content">
-    <ArticleLayout>
+    <ArticleLayout title="Works">
       <Works works={works} />
     </ArticleLayout>
   </Fragment>

@@ -4,7 +4,7 @@ import meMd from "../components/pages/about/me.md?raw";
 
 import { Head } from "../components/parts/head";
 import HTML from "../layouts/html.astro";
-import ArticleLayout from "../layouts/article.astro";
+import { ArticleLayout } from "../layouts/articleLayout";
 import { parseMd2Html } from "../components/pages/works.[slug]/parseMd2Html";
 
 const meHtml = await parseMd2Html(meMd);
@@ -12,10 +12,10 @@ const meHtml = await parseMd2Html(meMd);
 
 <HTML>
   <Fragment slot="head">
-    <Head title="Me - ichi-h.com" url="/about" ogType="article" />
+    <Head title="About - ichi-h.com" url="/about" ogType="article" />
   </Fragment>
   <Fragment slot="content">
-    <ArticleLayout>
+    <ArticleLayout title="About Me">
       <AboutPage body={meHtml} />
     </ArticleLayout>
   </Fragment>

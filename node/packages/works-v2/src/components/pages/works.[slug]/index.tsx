@@ -7,7 +7,6 @@ import "../../parts/linkCard.css";
 import { useEnv } from "../../../utils/env";
 import { Anchor } from "../../parts/anchor";
 import { Head } from "../../parts/head";
-import { Title } from "../../parts/title";
 
 import * as styles from "./index.css";
 
@@ -43,7 +42,6 @@ interface Props {
 export const WorkPage: FC<Props> = ({ work, body }) => {
   return (
     <div className={styles.layout}>
-      <Title>{work.title}</Title>
       <div className={styles.matter}>
         <Link
           as={Anchor}

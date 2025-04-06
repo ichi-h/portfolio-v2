@@ -56,4 +56,9 @@ export const layoutStyle = style([
 
 export const layoutBgStyle = style([borderRadius[4]]);
 
-export const layoutContentStyle = style([m[8]]);
+export const layoutContentStyle = style([
+  flex,
+  flexDirection["column"],
+  gap[4],
+  m[8],
+]);

@@ -2,7 +2,6 @@ import { Article, Avatar, Text } from "portfolio-ui";
 
 import me from "../../../assets/me_512x512.webp?url";
 import { Hr } from "../../parts/hr";
-import { Title } from "../../parts/title";
 
 import * as styles from "./index.css";
 
@@ -15,7 +14,6 @@ interface Props {
 export const About: FC<Props> = ({ body }) => {
   return (
     <div className={styles.layout}>
-      <Title>About me</Title>
       <Avatar className={styles.avatar} src={me} />
       <Text className={styles.name} color="mono.900">
         ichi-h

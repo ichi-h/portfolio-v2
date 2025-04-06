@@ -3,7 +3,7 @@ import { Category as CategoryPage } from "../../components/pages/categories.[cat
 
 import { Head } from "../../components/parts/head";
 import HTML from "../../layouts/html.astro";
-import ArticleLayout from "../../layouts/article.astro";
+import { ArticleLayout } from "../../layouts/articleLayout";
 import { getWorks } from "../../api/notion/works";
 
 export async function getStaticPaths() {
@@ -29,8 +29,8 @@ const works = await getWorks({ category });
     />
   </Fragment>
   <Fragment slot="content">
-    <ArticleLayout>
-      <CategoryPage category={category} works={works} />
+    <ArticleLayout title={`#${category}`}>
+      <CategoryPage works={works} />
     </ArticleLayout>
   </Fragment>
 </HTML>

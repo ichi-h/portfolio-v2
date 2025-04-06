@@ -18,8 +18,70 @@ export interface Work {
   updatedAt: string;
 }
 
+const mockedWorksResponse: Work[] = [
+  {
+    id: "1",
+    slug: "slug1",
+    category: "philosophy",
+    title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis aliquam ultricies, nisl nisl aliquet nisl, nec ali",
+    thumbnailUrl: "https://picsum.photos/200",
+    publishedAt: "2024-01-01 00:00:00",
+    updatedAt: "2024-01-01 00:00:00",
+  },
+  {
+    id: "2",
+    slug: "slug2",
+    category: "development",
+    title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis aliquam ultricies, nisl nisl aliquet nisl, nec ali",
+    thumbnailUrl: "https://picsum.photos/200",
+    publishedAt: "2024-01-01 00:00:00",
+    updatedAt: "2024-01-01 00:00:00",
+  },
+  {
+    id: "3",
+    slug: "slug3",
+    category: "photography",
+    title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis aliquam ultricies, nisl nisl aliquet nisl, nec ali",
+    thumbnailUrl: "https://picsum.photos/200",
+    publishedAt: "2024-01-01 00:00:00",
+    updatedAt: "2024-01-01 00:00:00",
+  },
+  {
+    id: "4",
+    slug: "slug4",
+    category: "music",
+    title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis aliquam ultricies, nisl nisl aliquet nisl, nec ali",
+    thumbnailUrl: "https://picsum.photos/200",
+    publishedAt: "2024-01-01 00:00:00",
+    updatedAt: "2024-01-01 00:00:00",
+  },
+  {
+    id: "5",
+    slug: "slug5",
+    category: "philosophy",
+    title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis aliquam ultricies, nisl nisl aliquet nisl, nec ali",
+    thumbnailUrl: "https://picsum.photos/200",
+    publishedAt: "2024-01-01 00:00:00",
+    updatedAt: "2024-01-01 00:00:00",
+  },
+];
+
 export const getWorks = async (props?: Props): Promise<Work[]> => {
-  const { NOTION_SECRET_KEY, NOTION_DATABASE_ID } = useEnv();
+  const { ENVIRONMENT, NOTION_SECRET_KEY, NOTION_DATABASE_ID } = useEnv();
+
+  if (ENVIRONMENT === "development") {
+    return mockedWorksResponse;
+  }
 
   const notion = new Client({ auth: `${NOTION_SECRET_KEY}` });
   const response = await notion.databases.query({

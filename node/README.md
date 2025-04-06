@@ -1,9 +1,5 @@
 # node
 
-- mock
-  - Launch a backend mock server from openapi.
-- notion
-  - Communicate with Notion using the Notion API mainly for fetching pages.
 - og-image
   - Generate og:image from given query parameters.
 - styles
@@ -12,4 +8,4 @@
 - ui
   - Defines React UI components.
 - works
-  - Defines the presentation layer for the works server.
+  - Implementation of the works page.

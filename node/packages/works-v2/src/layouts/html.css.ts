@@ -18,6 +18,8 @@ globalStyle(
 
 globalStyle(`${html} body`, m[0]);
 
+globalStyle(`${html} ul`, m[0]);
+
 globalStyle(`${html} code`, {
   fontFamily:
     '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace, "Segoe UI Emoji"',

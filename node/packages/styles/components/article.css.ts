@@ -52,8 +52,6 @@ globalStyle(`${article} h4`, flattenStyle([headlineRule[4], mt[2]]));
 globalStyle(`${article} h5`, flattenStyle([headlineRule[5], mt[2]]));
 globalStyle(`${article} h6`, flattenStyle([headlineRule[6], mt[2]]));
 
-globalStyle(`${article} ul`, m[0]);
-
 globalStyle(
   `${article} img`,
   flattenStyle([

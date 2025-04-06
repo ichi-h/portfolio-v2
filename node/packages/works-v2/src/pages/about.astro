@@ -1,6 +1,6 @@
 ---
-import { Me as MePage } from "../components/pages/me";
-import meMd from "../components/pages/me/me.md?raw";
+import { About as AboutPage } from "../components/pages/about";
+import meMd from "../components/pages/about/me.md?raw";
 
 import { Head } from "../components/parts/head";
 import HTML from "../layouts/html.astro";
@@ -12,11 +12,11 @@ const meHtml = await parseMd2Html(meMd);
 
 <HTML>
   <Fragment slot="head">
-    <Head title="Me - ichi-h.com" url="/me" ogType="article" />
+    <Head title="Me - ichi-h.com" url="/about" ogType="article" />
   </Fragment>
   <Fragment slot="content">
     <ArticleLayout>
-      <MePage body={meHtml} />
+      <AboutPage body={meHtml} />
     </ArticleLayout>
   </Fragment>
 </HTML>

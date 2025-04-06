@@ -12,7 +12,7 @@ interface Props {
   body: string;
 }
 
-export const Me: FC<Props> = ({ body }) => {
+export const About: FC<Props> = ({ body }) => {
   return (
     <div className={styles.layout}>
       <Title>About me</Title>

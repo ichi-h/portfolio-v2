@@ -21,7 +21,7 @@ export const Home = () => {
   return (
     <div className={styles.outer}>
       <div className={styles.me}>
-        <Link as={Anchor} asProps={{ href: "/me" }}>
+        <Link as={Anchor} asProps={{ href: "/about" }}>
           <Avatar className={styles.avatar} src={me} />
         </Link>
         <Headline level="1">

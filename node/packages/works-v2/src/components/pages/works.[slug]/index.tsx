@@ -11,7 +11,7 @@ import { Title } from "../../parts/title";
 
 import * as styles from "./index.css";
 
-import type { Work } from "./types";
+import type { Work } from "../../../api/notion/works";
 
 interface MetaProps {
   slug: string;
@@ -37,9 +37,10 @@ export const WorkHead: FC<MetaProps> = ({ slug, title, description }) => {
 
 interface Props {
   work: Work;
+  body: string;
 }
 
-export const WorkPage: FC<Props> = ({ work }) => {
+export const WorkPage: FC<Props> = ({ work, body }) => {
   return (
     <div className={styles.layout}>
       <Title>{work.title}</Title>
@@ -56,7 +57,7 @@ export const WorkPage: FC<Props> = ({ work }) => {
         <Text color="mono.900">Published: {work.publishedAt}</Text>
         <Text color="mono.900">Updated: {work.updatedAt}</Text>
       </div>
-      <Article dangerouslySetInnerHTML={{ __html: work.body }} />
+      <Article dangerouslySetInnerHTML={{ __html: body }} />
     </div>
   );
 };

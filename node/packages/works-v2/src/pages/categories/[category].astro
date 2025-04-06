@@ -4,12 +4,20 @@ import { Category as CategoryPage } from "../../components/pages/categories.[cat
 import { Head } from "../../components/parts/head";
 import HTML from "../../layouts/html.astro";
 import ArticleLayout from "../../layouts/article.astro";
+import { getWorks } from "../../api/notion/works";
 
-export function getStaticPaths() {
-  return [{ params: { category: "philosophy" } }];
+export async function getStaticPaths() {
+  const works = await getWorks();
+  const categories = new Set(
+    works.map((work) => work.category).filter((category) => category !== "")
+  );
+  return Array.from(categories).map((category) => {
+    return { params: { category } };
+  });
 }
 
 const { category } = Astro.params;
+const works = await getWorks({ category });
 ---
 
 <HTML>
@@ -22,7 +30,7 @@ const { category } = Astro.params;
   </Fragment>
   <Fragment slot="content">
     <ArticleLayout>
-      <CategoryPage category={category} />
+      <CategoryPage category={category} works={works} />
     </ArticleLayout>
   </Fragment>
 </HTML>

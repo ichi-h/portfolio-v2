@@ -1,109 +1,24 @@
 ---
 import { WorkPage, WorkHead } from "../../components/pages/works.[slug]";
-import type { Work } from "../../components/pages/works.[slug]/types";
 
 import HTML from "../../layouts/html.astro";
 import ArticleLayout from "../../layouts/article.astro";
 import { parseMd2Html } from "../../components/pages/works.[slug]/parseMd2Html";
+import { getWorks } from "../../api/notion/works";
+import { getMarkdownBody } from "../../api/notion/markdownBody";
 
-export function getStaticPaths() {
-  return [{ params: { slug: "slug1" } }];
+export async function getStaticPaths() {
+  const works = await getWorks();
+  return works.map((work) => {
+    return { params: { slug: work.slug } };
+  });
 }
 
 const { slug } = Astro.params;
 
-const work: Work = {
-  slug: slug,
-  category: "philosophy",
-  title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  body: `## Headline 2
-
-親譲りの無鉄砲で小供の時から損ばかりしている。  
-小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。  
-なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。  
-新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。  
-弱虫やーい。と囃したからである。  
-小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰を抜かす奴があるかと云ったから、この次は抜かさずに飛んで見せますと答えた。（青空文庫より）
-
-### Headline 3-1
-
-Facilisis imperdiet porta facilisis conubia posuere non potenti tempor tortor, quis aenean egestas id lacinia dui conubia eros facilisis hac orci sem conubia consequat ad.
-
-Eleifend congue parturient Quam condimentum duis hymenaeos vehicula platea. Ut, imperdiet ullamcorper tempor condimentum, iaculis. Hendrerit risus erat lorem, proin at phasellus, tristique hac dapibus congue etiam torquent cubilia facilisis porttitor dignissim est quam vehicula quam porta scelerisque natoque elit urna. Erat aenean integer. Eros interdum leo.
-
-Iaculis nunc magnis lectus. Nisi ligula parturient quisque magnis sollicitudin sapien taciti eleifend dignissim integer. Hendrerit tincidunt lobortis diam varius ullamcorper facilisis. Interdum tempus magnis dictumst phasellus ultricies.
-
-### Headline 3-2
-
-Facilisis imperdiet porta facilisis conubia posuere non potenti tempor tortor, quis aenean egestas id lacinia dui conubia eros facilisis hac orci sem conubia consequat ad.
-
-Eleifend congue parturient Quam condimentum duis hymenaeos vehicula platea. Ut, imperdiet ullamcorper tempor condimentum, iaculis. Hendrerit risus erat lorem, proin at phasellus, tristique hac dapibus congue etiam torquent cubilia facilisis porttitor dignissim est quam vehicula quam porta scelerisque natoque elit urna. Erat aenean integer. Eros interdum leo.
-
-Iaculis nunc magnis lectus. Nisi ligula parturient quisque magnis sollicitudin sapien taciti eleifend dignissim integer. Hendrerit tincidunt lobortis diam varius ullamcorper facilisis. Interdum tempus magnis dictumst phasellus ultricies.
-
-#### Headline 4
-
-- list1
-- list2
-- list3
-  - list3-1
-  - list3-2
-  - list3-3
--  list4
-
-[google](http://www.google.com) is a search engine.
-
-##### Headline 5
-
-{{%
-  "type": "text",
-  "style": ["center", "gray"],
-  "text": "The time to create a Markov Chain model from each of the dummy texts of 100, 500, and 1000 words."
-%}}
-
-![image](https://raw.githubusercontent.com/ichi-h/markov_rs/main/imgs/create_model.jpg)
-
-## YouTube
-
-{{% "type": "youtube", "id": "CvglW3KNSsQ" %}}
-
-## Quote
-
-> This is a quote.  
-> This is a quote.  
-> This is a quote.
-
-## Code
-
-\`\`\`python
-def main():
-    print("Hello World!")
-main()
-\`\`\`
-
-## Expand
-
-{{% "type": "text", "style": ["bold"], "text": "強調" %}}
-
-{{% "type": "text", "style": ["bold", "blue"], "text": "強調" %}}
-
-{{% "type": "text", "style": ["bold", "blue", "3"], "text": "強調" %}}
-
-{{% "type": "text", "style": ["bold", "red"], "text": "強調" %}}
-
-{{% "type": "text", "style": ["bold", "red", "5"], "text": "強調" %}}
-
-{{% "type": "text", "style": ["bold", "red", "8"], "text": "強調" %}}
-
-{{% "type": "text", "style": ["bold", "red", "12"], "text": "強調" %}}
-`,
-  description: "Lorem ipsum dolor sit amet, consecte",
-  thumbnailUrl: "https://picsum.photos/200",
-  publishedAt: "2024-01-01",
-  updatedAt: "2024-01-01",
-};
-
-work.body = await parseMd2Html(work.body);
+const work = (await getWorks({ slug }))[0];
+const bodyMd = await getMarkdownBody(work.id);
+const body = await parseMd2Html(bodyMd);
 ---
 
 <HTML>
@@ -116,7 +31,7 @@ work.body = await parseMd2Html(work.body);
   </Fragment>
   <Fragment slot="content">
     <ArticleLayout>
-      <WorkPage work={work} />
+      <WorkPage work={work} body={body} />
     </ArticleLayout>
   </Fragment>
 </HTML>

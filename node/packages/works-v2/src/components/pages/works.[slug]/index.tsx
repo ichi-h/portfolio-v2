@@ -1,17 +1,11 @@
 import codeStyle from "highlight.js/styles/base16/snazzy.min.css?url";
-import {
-  Article,
-  Button,
-  Icon,
-  PublishIcon,
-  Text,
-  UpdateIcon,
-} from "portfolio-ui";
+import { Article, Link, Text } from "portfolio-ui";
 import { type FC } from "react";
 
 import "../../parts/linkCard.css";
 
 import { useEnv } from "../../../utils/env";
+import { Anchor } from "../../parts/anchor";
 import { Head } from "../../parts/head";
 import { Title } from "../../parts/title";
 
@@ -50,19 +44,17 @@ export const WorkPage: FC<Props> = ({ work }) => {
     <div className={styles.layout}>
       <Title>{work.title}</Title>
       <div className={styles.matter}>
-        <Button size="sm" rounded>
-          # {work.category}
-        </Button>
+        <Link
+          as={Anchor}
+          asProps={{ href: `/categories/${work.category}` }}
+          color="mono.500"
+        >
+          #{work.category}
+        </Link>
       </div>
       <div className={styles.matter}>
-        <div className={styles.date}>
-          <Icon icon={PublishIcon} size={4} />
-          <Text color="mono.900">{work.publishedAt}</Text>
-        </div>
-        <div className={styles.date}>
-          <Icon icon={UpdateIcon} size={4} />
-          <Text color="mono.900">{work.updatedAt}</Text>
-        </div>
+        <Text color="mono.900">Published: {work.publishedAt}</Text>
+        <Text color="mono.900">Updated: {work.updatedAt}</Text>
       </div>
       <Article dangerouslySetInnerHTML={{ __html: work.body }} />
     </div>

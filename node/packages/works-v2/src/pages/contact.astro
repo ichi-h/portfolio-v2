@@ -1,0 +1,18 @@
+---
+import { Contact as ContactPage } from "../components/pages/contact";
+
+import { Head } from "../components/parts/head";
+import HTML from "../layouts/html.astro";
+import ArticleLayout from "../layouts/article.astro";
+---
+
+<HTML>
+  <Fragment slot="head">
+    <Head title="Contact - ichi-h.com" url="/contact" ogType="article" />
+  </Fragment>
+  <Fragment slot="content">
+    <ArticleLayout>
+      <ContactPage />
+    </ArticleLayout>
+  </Fragment>
+</HTML>

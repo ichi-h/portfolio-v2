@@ -4,6 +4,18 @@ import { Categories } from "../../components/pages/categories";
 import { Head } from "../../components/parts/head";
 import HTML from "../../layouts/html.astro";
 import ArticleLayout from "../../layouts/article.astro";
+import { getWorks } from "../../api/notion/works";
+
+const works = await getWorks();
+const categories = Array.from(
+  new Set(
+    works.map((work) => work.category).filter((category) => category !== "")
+  )
+).sort((a, b) => {
+  if (a < b) return -1;
+  if (a > b) return 1;
+  return 0;
+});
 ---
 
 <HTML>
@@ -12,7 +24,7 @@ import ArticleLayout from "../../layouts/article.astro";
   </Fragment>
   <Fragment slot="content">
     <ArticleLayout>
-      <Categories />
+      <Categories categories={categories} />
     </ArticleLayout>
   </Fragment>
 </HTML>

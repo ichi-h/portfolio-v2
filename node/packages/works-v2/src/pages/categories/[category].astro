@@ -1,0 +1,28 @@
+---
+import { Category as CategoryPage } from "../../components/pages/categories.[category]";
+
+import { Head } from "../../components/parts/head";
+import HTML from "../../layouts/html.astro";
+import ArticleLayout from "../../layouts/article.astro";
+
+export function getStaticPaths() {
+  return [{ params: { category: "philosophy" } }];
+}
+
+const { category } = Astro.params;
+---
+
+<HTML>
+  <Fragment slot="head">
+    <Head
+      title={`#${category} - ichi-h.com`}
+      url={`/categories/${category}`}
+      ogType="article"
+    />
+  </Fragment>
+  <Fragment slot="content">
+    <ArticleLayout>
+      <CategoryPage category={category} />
+    </ArticleLayout>
+  </Fragment>
+</HTML>

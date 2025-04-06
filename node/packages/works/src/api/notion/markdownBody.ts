@@ -87,7 +87,7 @@ main()
 export const getMarkdownBody = async (pageId: string) => {
   const { ENVIRONMENT, NOTION_SECRET_KEY } = useEnv();
 
-  if (ENVIRONMENT === "development") {
+  if (ENVIRONMENT !== "production") {
     return mockedBody;
   }
 

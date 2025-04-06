@@ -79,7 +79,7 @@ const mockedWorksResponse: Work[] = [
 export const getWorks = async (props?: Props): Promise<Work[]> => {
   const { ENVIRONMENT, NOTION_SECRET_KEY, NOTION_DATABASE_ID } = useEnv();
 
-  if (ENVIRONMENT === "development") {
+  if (ENVIRONMENT !== "production") {
     return mockedWorksResponse;
   }
 

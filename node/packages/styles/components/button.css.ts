@@ -46,12 +46,18 @@ export const buttonWeight = styleVariants({
   false: [border["1"], fontWeight["normal"]],
 });
 
+export const buttonXsSizeProps = [fontSize[3], px[2]];
+export const buttonSmSizeProps = [fontSize[4], px[2]];
+export const buttonMdSizeProps = [fontSize[5], px[3]];
+export const buttonLgSizeProps = [fontSize[6], px[4]];
+export const buttonXlSizeProps = [fontSize[7], px[5]];
+
 export const buttonSize = styleVariants({
-  xs: [fontSize[3], px[2]],
-  sm: [fontSize[4], px[2]],
-  md: [fontSize[5], px[3]],
-  lg: [fontSize[6], px[4]],
-  xl: [fontSize[7], px[5]],
+  xs: buttonXsSizeProps,
+  sm: buttonSmSizeProps,
+  md: buttonMdSizeProps,
+  lg: buttonLgSizeProps,
+  xl: buttonXlSizeProps,
 });
 
 export const buttonRound = styleVariants({

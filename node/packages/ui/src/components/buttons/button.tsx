@@ -13,7 +13,7 @@ type Props = {
 export const Button = ({
   className,
   children,
-  size = "md",
+  size,
   variant = "black",
   bold = false,
   rounded = false,
@@ -26,7 +26,7 @@ export const Button = ({
         styles.buttonBase,
         styles.buttonVariant[variant],
         styles.buttonWeight[`${bold}`],
-        styles.buttonSize[size],
+        size && styles.buttonSize[size],
         styles.buttonRound[rounded ? "rounded" : "default"],
         className,
       ])}

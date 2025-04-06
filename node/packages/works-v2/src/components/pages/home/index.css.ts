@@ -15,13 +15,17 @@ import {
   flattenStyle,
   fontSize,
   lineHeight,
-  mb,
   borderL,
   borderY,
   borderR,
   borderColor,
   borderStyle,
 } from "portfolio-styles";
+import {
+  buttonLgSizeProps,
+  buttonMdSizeProps,
+  buttonXlSizeProps,
+} from "portfolio-styles/components/button.css";
 
 export const outer = style([
   position["relative"],
@@ -32,6 +36,7 @@ export const outer = style([
   gap[12],
   w["1/1"],
   h["vh"],
+  applyMedia({ max: "768" }, flattenStyle([gap[6]])),
   applyMedia({ max: "480" }, flattenStyle([gap[4]])),
 ]);
 
@@ -58,13 +63,19 @@ export const title = style([
   applyMedia({ max: "480" }, flattenStyle([fontSize[12], lineHeight[3]])),
 ]);
 
+export const description = style([
+  lineHeight[7],
+  fontSize[8],
+  applyMedia({ max: "768" }, flattenStyle([fontSize[6], lineHeight[4]])),
+  applyMedia({ max: "480" }, flattenStyle([fontSize[4], lineHeight[3]])),
+]);
+
 export const content = style([
   flex,
   flexDirection["row"],
   flexJustify["center"],
   flexAlign["center"],
   gap[12],
-  mb[3],
   w["1/1"],
   applyMedia(
     { max: "768" },
@@ -124,6 +135,12 @@ export const separator = style([
       display: "none",
     },
   ),
+]);
+
+export const enterButton = style([
+  flattenStyle(buttonXlSizeProps),
+  applyMedia({ max: "768" }, flattenStyle(buttonLgSizeProps)),
+  applyMedia({ max: "375" }, flattenStyle(buttonMdSizeProps)),
 ]);
 
 export const footer = style([position["absolute"], bottom[0], w["1/1"]]);

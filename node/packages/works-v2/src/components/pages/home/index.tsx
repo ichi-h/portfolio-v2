@@ -29,6 +29,9 @@ export const Home = () => {
             ichi-h.com
           </Text>
         </Headline>
+        <Text className={styles.description} color="mono.50">
+          To live is to think, create and sing.
+        </Text>
       </div>
       <div className={styles.content}>
         <div className={styles.contentBox}>
@@ -99,7 +102,7 @@ export const Home = () => {
         </div>
       </div>
       <Anchor href="/works">
-        <Button variant="white" size="xl" bold>
+        <Button className={styles.enterButton} variant="white" bold>
           Enter
         </Button>
       </Anchor>

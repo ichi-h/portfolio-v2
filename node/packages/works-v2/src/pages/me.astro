@@ -1,9 +1,13 @@
 ---
 import { Me as MePage } from "../components/pages/me";
+import meMd from "../components/pages/me/me.md?raw";
 
 import { Head } from "../components/parts/head";
 import HTML from "../layouts/html.astro";
 import ArticleLayout from "../layouts/article.astro";
+import { parseMd2Html } from "../components/pages/works.[slug]/parseMd2Html";
+
+const meHtml = await parseMd2Html(meMd);
 ---
 
 <HTML>
@@ -12,7 +16,7 @@ import ArticleLayout from "../layouts/article.astro";
   </Fragment>
   <Fragment slot="content">
     <ArticleLayout>
-      <MePage />
+      <MePage body={meHtml} />
     </ArticleLayout>
   </Fragment>
 </HTML>

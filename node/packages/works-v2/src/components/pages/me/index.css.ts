@@ -27,13 +27,15 @@ export const name = style([
 ]);
 
 export const subtext = style([
-  fontSize["6"],
+  fontSize["5"],
   textAlign["center"],
   applyMedia({ max: "768" }, fontSize["4"]),
 ]);
 
 export const avatar = style([
   dropShadow["md"],
+  w[64],
+  h[64],
   applyMedia({ max: "768" }, flattenStyle([w[32], h[32]])),
 ]);
 

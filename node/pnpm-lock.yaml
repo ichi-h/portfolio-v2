@@ -223,6 +223,9 @@ importers:
       '@astrojs/react':
         specifier: ^4.2.3
         version: 4.2.3(@types/node@22.13.11)(@types/react-dom@19.0.4(@types/react@19.0.12))(@types/react@19.0.12)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(yaml@2.7.0)
+      '@notionhq/client':
+        specifier: ^2.2.14
+        version: 2.2.15
       astro:
         specifier: ^5.6.1
         version: 5.6.1(@types/node@22.13.11)(rollup@4.34.7)(typescript@5.8.2)(yaml@2.7.0)
@@ -232,6 +235,9 @@ importers:
       mermaid:
         specifier: ^10.9.0
         version: 10.9.3
+      notion-to-md:
+        specifier: ^3.1.1
+        version: 3.1.5
       portfolio-styles:
         specifier: workspace:*
         version: link:../styles

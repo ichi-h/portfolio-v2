@@ -1,6 +1,8 @@
+import { Hono } from "hono";
+import { cache } from "hono/cache";
 import satori from "satori";
 
-export const ogpUseCase = async (title: string, imageUrl: string) => {
+const ogpUseCase = async (title: string, imageUrl: string) => {
   const fontData = await fetch(
     "https://github.com/googlefonts/zen-kakugothic/raw/main/fonts/ttf/ZenKakuGothicNew-Regular.ttf",
   ).then((res) => res.arrayBuffer());
@@ -100,3 +102,24 @@ export const ogpUseCase = async (title: string, imageUrl: string) => {
     );
   return await generateOgpSvg();
 };
+
+const app = new Hono();
+
+app.get(
+  "/",
+  cache({
+    cacheName: (c) => c.req.query("title") || "ogp",
+    cacheControl: "public, max-age=86400",
+  }),
+  async (c) => {
+    const title = c.req.query("title") || "";
+    const imageUrl = `${c.env?.RESOURCE_SERVER_ORIGIN}/bg_ogp.jpg`;
+    const svg = await ogpUseCase(title, imageUrl);
+    c.status(200);
+    c.header("Content-Type", "image/svg+xml");
+    c.header("Vary", "Accept-Encoding");
+    return c.body(svg);
+  },
+);
+
+export default app;

@@ -1,8 +1,8 @@
 {
   "name": "portfolio-og-image",
   "scripts": {
-    "dev": "wrangler dev src/index.ts --port 8900",
-    "deploy": "wrangler deploy --minify src/index.ts"
+    "dev": "wrangler dev index.ts --port 8900",
+    "deploy": "wrangler deploy --minify index.ts"
   },
   "dependencies": {
     "satori": "^0.7.3"

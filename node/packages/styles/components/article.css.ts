@@ -28,7 +28,7 @@ import {
   lineHeight,
 } from "../styles";
 
-import { headlineRule } from "./headline.css";
+import { headingRule } from "./heading.css";
 import { defaultFontColor, linkHoverRule, linkRule } from "./link.css";
 import { paragraphRule } from "./paragraph.css";
 
@@ -45,12 +45,12 @@ globalStyle(`${article} *`, m[0]);
 
 globalStyle(`${article} p`, flattenStyle([paragraphRule, lineHeight["7"]]));
 
-globalStyle(`${article} h1`, headlineRule[1]);
-globalStyle(`${article} h2`, flattenStyle([headlineRule[2], mt[2]]));
-globalStyle(`${article} h3`, flattenStyle([headlineRule[3], mt[2]]));
-globalStyle(`${article} h4`, flattenStyle([headlineRule[4], mt[2]]));
-globalStyle(`${article} h5`, flattenStyle([headlineRule[5], mt[2]]));
-globalStyle(`${article} h6`, flattenStyle([headlineRule[6], mt[2]]));
+globalStyle(`${article} h1`, headingRule[1]);
+globalStyle(`${article} h2`, flattenStyle([headingRule[2], mt[2]]));
+globalStyle(`${article} h3`, flattenStyle([headingRule[3], mt[2]]));
+globalStyle(`${article} h4`, flattenStyle([headingRule[4], mt[2]]));
+globalStyle(`${article} h5`, flattenStyle([headingRule[5], mt[2]]));
+globalStyle(`${article} h6`, flattenStyle([headingRule[6], mt[2]]));
 
 globalStyle(
   `${article} img`,

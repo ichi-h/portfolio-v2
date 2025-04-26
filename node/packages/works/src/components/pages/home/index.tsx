@@ -1,5 +1,5 @@
 import {
-  Headline,
+  Heading,
   Link,
   Text,
   Avatar,
@@ -24,22 +24,22 @@ export const Home = () => {
         <Link as={Anchor} asProps={{ href: "/about" }}>
           <Avatar className={styles.avatar} src={me} />
         </Link>
-        <Headline level="1">
+        <Heading level="1">
           <Text className={styles.title} color="mono.50">
             ichi-h.com
           </Text>
-        </Headline>
+        </Heading>
         <Text className={styles.description} color="mono.50">
           To live is to think, create and sing.
         </Text>
       </div>
       <div className={styles.content}>
         <div className={styles.contentBox}>
-          <Headline level="2">
+          <Heading level="2">
             <Text className={styles.categoryTitle} color="mono.50">
               Tech
             </Text>
-          </Headline>
+          </Heading>
           <div className={styles.links}>
             <Link
               className={styles.snsLink}
@@ -63,11 +63,11 @@ export const Home = () => {
         </div>
         <div className={styles.separator} />
         <div className={styles.contentBox}>
-          <Headline level="2">
+          <Heading level="2">
             <Text className={styles.categoryTitle} color="mono.50">
               Creative
             </Text>
-          </Headline>
+          </Heading>
           <div className={styles.links}>
             <Link
               className={styles.snsLink}

@@ -3,7 +3,7 @@ export * from "./avatar";
 export * from "./background";
 export * from "./buttons";
 export * from "./dialog";
-export * from "./headline";
+export * from "./heading";
 export * from "./icons";
 export * from "./link";
 export * from "./paragraph";

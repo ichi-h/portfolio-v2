@@ -3,7 +3,7 @@ import { NotionToMarkdown } from "notion-to-md";
 
 import { useEnv } from "../../utils/env";
 
-const mockedBody = `## Headline 2
+const mockedBody = `## Heading 2
 親譲りの無鉄砲で小供の時から損ばかりしている。
 小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。
 なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。
@@ -11,7 +11,7 @@ const mockedBody = `## Headline 2
 弱虫やーい。と囃したからである。
 小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰を抜かす奴があるかと云ったから、この次は抜かさずに飛んで見せますと答えた。（青空文庫より）
 
-### Headline 3-1
+### Heading 3-1
 
 Facilisis imperdiet porta facilisis conubia posuere non potenti tempor tortor, quis aenean egestas id lacinia dui conubia eros facilisis hac orci sem conubia consequat ad.
 
@@ -19,7 +19,7 @@ Eleifend congue parturient Quam condimentum duis hymenaeos vehicula platea. Ut, 
 
 Iaculis nunc magnis lectus. Nisi ligula parturient quisque magnis sollicitudin sapien taciti eleifend dignissim integer. Hendrerit tincidunt lobortis diam varius ullamcorper facilisis. Interdum tempus magnis dictumst phasellus ultricies.
 
-### Headline 3-2
+### Heading 3-2
 
 Facilisis imperdiet porta facilisis conubia posuere non potenti tempor tortor, quis aenean egestas id lacinia dui conubia eros facilisis hac orci sem conubia consequat ad.
 
@@ -27,7 +27,7 @@ Eleifend congue parturient Quam condimentum duis hymenaeos vehicula platea. Ut, 
 
 Iaculis nunc magnis lectus. Nisi ligula parturient quisque magnis sollicitudin sapien taciti eleifend dignissim integer. Hendrerit tincidunt lobortis diam varius ullamcorper facilisis. Interdum tempus magnis dictumst phasellus ultricies.
 
-#### Headline 4
+#### Heading 4
 
 - list1
 - list2
@@ -39,7 +39,7 @@ Iaculis nunc magnis lectus. Nisi ligula parturient quisque magnis sollicitudin s
 
 [google](http://www.google.com) is a search engine.
 
-##### Headline 5
+##### Heading 5
 
 {{%
   "type": "text",

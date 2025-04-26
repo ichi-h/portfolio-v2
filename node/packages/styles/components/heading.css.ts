@@ -16,38 +16,38 @@ import {
   fontWeight,
 } from "../styles";
 
-const headlineBaseRule = styleRule(
+const headingBaseRule = styleRule(
   flattenStyle([fontColor["mono.900"], textAlign["left"], m[0], p[0]]),
 );
 
-export const headlineRule = styleMap({
+export const headingRule = styleMap({
   1: flattenStyle([
-    headlineBaseRule,
+    headingBaseRule,
     fontSize[12],
     applyMedia({ max: "768" }, flattenStyle([fontSize[8]])),
   ]),
   2: flattenStyle([
-    headlineBaseRule,
+    headingBaseRule,
     fontSize[8],
     applyMedia({ max: "768" }, flattenStyle([fontSize[7]])),
   ]),
   3: flattenStyle([
-    headlineBaseRule,
+    headingBaseRule,
     fontSize[7],
     applyMedia({ max: "768" }, flattenStyle([fontSize[6]])),
   ]),
   4: flattenStyle([
-    headlineBaseRule,
+    headingBaseRule,
     fontSize[6],
     applyMedia({ max: "768" }, flattenStyle([fontSize[5]])),
   ]),
   5: flattenStyle([
-    headlineBaseRule,
+    headingBaseRule,
     fontSize[5],
     applyMedia({ max: "768" }, flattenStyle([fontSize[4]])),
   ]),
   6: flattenStyle([
-    headlineBaseRule,
+    headingBaseRule,
     fontSize[4],
     applyMedia(
       { max: "768" },
@@ -56,4 +56,4 @@ export const headlineRule = styleMap({
   ]),
 });
 
-export const headline = styleVariants(headlineRule);
+export const heading = styleVariants(headingRule);

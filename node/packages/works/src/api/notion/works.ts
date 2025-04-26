@@ -118,6 +118,12 @@ export const getWorks = async (props?: Props): Promise<Work[]> => {
   const notion = new Client({ auth: `${NOTION_SECRET_KEY}` });
   const response = await notion.databases.query({
     database_id: `${NOTION_DATABASE_ID}`,
+    sorts: [
+      {
+        property: "publishedAt",
+        direction: "descending",
+      },
+    ],
     filter: {
       and: [
         {

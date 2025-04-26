@@ -55,6 +55,9 @@ export default meta;
 type Story = StoryObj<typeof Icon>;
 
 export const Default: Story = {
+  args: {
+    size: 8,
+  },
   render: ({ icon: _icon, ...args }) => (
     <>
       {Object.entries(icons).map(([name, Component]) => (

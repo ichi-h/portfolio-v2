@@ -45,6 +45,9 @@ export const COLOR = {
   "green.700": "#6B7F2A",
   "green.800": "#526610",
   "green.900": "#394E00",
+
+  youtube: "#FF0000",
+  soundcloud: "#F26F23",
 } as const;
 
 export const COLOR_OPACITY = {

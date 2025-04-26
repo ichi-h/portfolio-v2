@@ -4,6 +4,7 @@ import {
   applyMedia,
   bg,
   borderRadius,
+  bottom,
   dropShadow,
   flattenStyle,
   flex,
@@ -19,6 +20,8 @@ import {
   h,
   lineHeight,
   p,
+  position,
+  right,
   textDecoration,
   w,
 } from "portfolio-styles";
@@ -61,9 +64,22 @@ export const cardLayout = style([flex, flexDirection["column"], gap[3], p[5]]);
 
 export const cardLink = style([animateZoomOnHover["md"]]);
 
+export const cardThumbnailBox = style([
+  position["relative"],
+  {
+    aspectRatio: "1200 / 630",
+  },
+]);
+
+export const cardThumbnailIcon = style([
+  position["absolute"],
+  bottom[0],
+  right[1],
+]);
+
 export const cardThumbnail = style([
   w["1/1"],
-  h["auto"],
+  h["1/1"],
   {
     objectFit: "cover",
     aspectRatio: "1200 / 630",

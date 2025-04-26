@@ -9,9 +9,11 @@ import { getMarkdownBody } from "../../api/notion/markdownBody";
 
 export async function getStaticPaths() {
   const works = await getWorks();
-  return works.map((work) => {
-    return { params: { slug: work.slug } };
-  });
+  return works
+    .filter((work) => work.slug !== "")
+    .map((work) => {
+      return { params: { slug: work.slug } };
+    });
 }
 
 const { slug } = Astro.params;

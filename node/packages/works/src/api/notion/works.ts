@@ -10,6 +10,7 @@ interface Props {
 export interface Work {
   id: string;
   slug: string;
+  redirectTo: string;
   category: string;
   title: string;
   description: string;
@@ -22,8 +23,9 @@ const mockedWorksResponse: Work[] = [
   {
     id: "1",
     slug: "slug1",
+    redirectTo: "",
     category: "philosophy",
-    title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    title: "Example Work 1",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis aliquam ultricies, nisl nisl aliquet nisl, nec ali",
     thumbnailUrl: "https://picsum.photos/200",
@@ -33,8 +35,9 @@ const mockedWorksResponse: Work[] = [
   {
     id: "2",
     slug: "slug2",
+    redirectTo: "",
     category: "development",
-    title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    title: "Example Work 2",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis aliquam ultricies, nisl nisl aliquet nisl, nec ali",
     thumbnailUrl: "https://picsum.photos/200",
@@ -44,8 +47,9 @@ const mockedWorksResponse: Work[] = [
   {
     id: "3",
     slug: "slug3",
+    redirectTo: "",
     category: "photography",
-    title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    title: "Example Work 3",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis aliquam ultricies, nisl nisl aliquet nisl, nec ali",
     thumbnailUrl: "https://picsum.photos/200",
@@ -55,8 +59,9 @@ const mockedWorksResponse: Work[] = [
   {
     id: "4",
     slug: "slug4",
+    redirectTo: "",
     category: "music",
-    title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    title: "Example Work 4",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis aliquam ultricies, nisl nisl aliquet nisl, nec ali",
     thumbnailUrl: "https://picsum.photos/200",
@@ -66,11 +71,38 @@ const mockedWorksResponse: Work[] = [
   {
     id: "5",
     slug: "slug5",
+    redirectTo: "",
     category: "philosophy",
-    title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    title: "Example Work 5",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis aliquam ultricies, nisl nisl aliquet nisl, nec ali",
     thumbnailUrl: "https://picsum.photos/200",
+    publishedAt: "2024-01-01 00:00:00",
+    updatedAt: "2024-01-01 00:00:00",
+  },
+  {
+    id: "6",
+    slug: "",
+    redirectTo: "https://youtu.be/XhfNs3fSm2k?si=NMCefbtk6uN9JPAk",
+    category: "music",
+    title: "God's Warrior - Move It",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis aliquam ultricies, nisl nisl aliquet nisl, nec ali",
+    thumbnailUrl: "https://i.ytimg.com/vi/XhfNs3fSm2k/maxresdefault.jpg",
+    publishedAt: "2024-01-01 00:00:00",
+    updatedAt: "2024-01-01 00:00:00",
+  },
+  {
+    id: "6",
+    slug: "",
+    redirectTo:
+      "https://soundcloud.com/imkotori/wisteria?si=d2d12a8a0b224d779aef793aa39827cd&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
+    category: "music",
+    title: "Wisteria by Kotori",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis aliquam ultricies, nisl nisl aliquet nisl, nec ali",
+    thumbnailUrl:
+      "https://i1.sndcdn.com/avatars-cLQysnY81lvRmbyb-XzS62w-t500x500.jpg",
     publishedAt: "2024-01-01 00:00:00",
     updatedAt: "2024-01-01 00:00:00",
   },
@@ -143,7 +175,6 @@ export const getWorks = async (props?: Props): Promise<Work[]> => {
               ? page.properties.category.select.name
               : ""
             : "",
-        languages: [],
         unpublishedAt:
           page.properties.unpublishedAt.type === "date"
             ? (page.properties.unpublishedAt.date?.start ?? "")
@@ -151,6 +182,12 @@ export const getWorks = async (props?: Props): Promise<Work[]> => {
         slug:
           page.properties.slug.type === "rich_text"
             ? (page.properties.slug.rich_text.pop()?.plain_text ?? "")
+            : "",
+        redirectTo:
+          page.properties.redirectTo.type === "url"
+            ? page.properties.redirectTo.url
+              ? page.properties.redirectTo.url.toString()
+              : ""
             : "",
         thumbnailUrl:
           page.properties.thumbnailUrl.type === "rich_text"

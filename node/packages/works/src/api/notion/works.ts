@@ -162,7 +162,9 @@ export const getWorks = async (props?: Props): Promise<Work[]> => {
         id: page.id,
         updatedAt:
           page.properties.updatedAt.type === "last_edited_time"
-            ? page.properties.updatedAt.last_edited_time.toString()
+            ? page.properties.updatedAt.last_edited_time
+                .toString()
+                .split("T")[0]
             : "",
         description:
           page.properties.description.type === "rich_text"
@@ -199,7 +201,7 @@ export const getWorks = async (props?: Props): Promise<Work[]> => {
             : "",
         createdAt:
           page.properties.createdAt.type === "created_time"
-            ? page.properties.createdAt.created_time
+            ? page.properties.createdAt.created_time.split("T")[0]
             : "",
         title:
           page.properties.title.type === "title"

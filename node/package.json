@@ -11,7 +11,7 @@
     "lint": "eslint .",
     "lintfix": "eslint . --fix"
   },
-  "packageManager": "pnpm@10.7.1",
+  "packageManager": "pnpm@10.10.0",
   "dependencies": {
     "clsx": "^2.1.1",
     "hono": "^4.7.5",

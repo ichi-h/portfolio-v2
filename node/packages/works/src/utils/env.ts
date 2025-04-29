@@ -7,11 +7,11 @@ type Keys =
 
 export const useEnv = () => {
   const env = {
-    ENVIRONMENT: import.meta.env.VITE_ENVIRONMENT,
-    APP_URL: import.meta.env.VITE_APP_URL,
-    OG_IMAGE_SERVER_URL: import.meta.env.VITE_OG_IMAGE_SERVER_URL,
-    NOTION_SECRET_KEY: import.meta.env.VITE_NOTION_SECRET_KEY,
-    NOTION_DATABASE_ID: import.meta.env.VITE_NOTION_DATABASE_ID,
+    ENVIRONMENT: import.meta.env.ENVIRONMENT,
+    APP_URL: import.meta.env.APP_URL,
+    OG_IMAGE_SERVER_URL: import.meta.env.OG_IMAGE_SERVER_URL,
+    NOTION_SECRET_KEY: import.meta.env.NOTION_SECRET_KEY,
+    NOTION_DATABASE_ID: import.meta.env.NOTION_DATABASE_ID,
   } as const;
 
   const missingEnv = Object.entries(env)

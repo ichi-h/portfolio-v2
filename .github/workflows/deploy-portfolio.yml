@@ -51,11 +51,11 @@ jobs:
         run: pnpm build
         working-directory: ./node
         env:
-          ENVIRONMENT: production
-          APP_URL: ${{ vars.APP_URL }}
-          OG_IMAGE_SERVER_URL: ${{ vars.OG_IMAGE_SERVER_URL }}
-          NOTION_SECRET_KEY: ${{ secrets.NOTION_SECRET_KEY }}
-          NOTION_DATABASE_ID: ${{ vars.NOTION_DATABASE_ID }}
+          VITE_ENVIRONMENT: production
+          VITE_APP_URL: ${{ vars.APP_URL }}
+          VITE_OG_IMAGE_SERVER_URL: ${{ vars.OG_IMAGE_SERVER_URL }}
+          VITE_NOTION_SECRET_KEY: ${{ secrets.NOTION_SECRET_KEY }}
+          VITE_NOTION_DATABASE_ID: ${{ vars.NOTION_DATABASE_ID }}
 
       - name: Publish works
         if: steps.changes.outputs.works == 'true'

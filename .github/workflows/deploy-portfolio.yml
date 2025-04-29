@@ -1,0 +1,89 @@
+name: deploy portfolio
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  repository-projects: write
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    strategy:
+      matrix:
+        node-version: [22.x]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: 📥 Monorepo install
+        uses: ./.github/actions/pnpm-install
+
+      - uses: dorny/paths-filter@v3
+        id: changes
+        with:
+          filters: |
+            works:
+              - 'node/packages/works/**'
+              - .github/workflows/deploy-portfolio.yml
+            og-image:
+              - 'node/packages/og-image/**'
+              - .github/workflows/deploy-portfolio.yml
+            ui:
+              - 'node/packages/ui/**'
+              - .github/workflows/deploy-portfolio.yml
+
+      - name: Build
+        run: pnpm build
+        working-directory: ./node
+        env:
+          ENVIRONMENT: production
+          APP_URL: ${{ vars.APP_URL }}
+          OG_IMAGE_SERVER_URL: ${{ vars.OG_IMAGE_SERVER_URL }}
+          NOTION_SECRET_KEY: ${{ secrets.NOTION_SECRET_KEY }}
+          NOTION_DATABASE_ID: ${{ vars.NOTION_DATABASE_ID }}
+
+      - name: Publish works
+        if: steps.changes.outputs.works == 'true'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          environment: production
+          workingDirectory: ./node/packages/works
+          command: pages deploy dist/ --project-name portfolio
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish ui
+        if: steps.changes.outputs.ui == 'true'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          environment: production
+          workingDirectory: ./node/packages/ui
+          command: pages deploy ./storybook-static --project-name portfolio-ui
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish og-image
+        if: steps.changes.outputs.og-image == 'true'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          environment: production
+          workingDirectory: ./node/packages/og-image
+          command: deploy --minify index.ts
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}

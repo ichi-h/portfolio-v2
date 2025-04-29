@@ -21,6 +21,10 @@ inputs:
     description: "Enable corepack"
     required: false
     default: "false"
+  working-directory:
+    description: "Working directory"
+    required: false
+    default: "."
 
 runs:
   using: "composite"
@@ -29,7 +33,7 @@ runs:
     - name: ⚙️ Enable Corepack
       if: ${{ inputs.enable-corepack }} == 'true'
       shell: bash
-      working-directory: ${{ inputs.cwd }}
+      working-directory: ${{ inputs.working-directory }}
       run: corepack enable
 
     - uses: pnpm/action-setup@v4
@@ -68,6 +72,7 @@ runs:
     - name: Install dependencies
       shell: bash
       run: pnpm install --frozen-lockfile --prefer-offline
+      working-directory: ${{ inputs.working-directory }}
       env:
         # Other environment variables
         HUSKY: "0" # By default do not run HUSKY install

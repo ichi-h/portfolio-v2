@@ -29,8 +29,12 @@ const youtubeLinks = [
 ];
 
 const caseOfUrl =
-  <T,>(pattern: { youtube: () => T; soundcloud: () => T; others: () => T }) =>
-  (url: string): T => {
+  <T,>(pattern: {
+    youtube: () => T;
+    soundcloud: () => T;
+    others: () => T | null;
+  }) =>
+  (url: string): T | null => {
     if (youtubeLinks.some((link) => url.includes(link))) {
       return pattern.youtube();
     }
@@ -39,6 +43,36 @@ const caseOfUrl =
     }
     return pattern.others();
   };
+
+interface ThumbnailIconProps {
+  work: Work;
+}
+
+const ThumbnailIcon: FC<ThumbnailIconProps> = ({ work }) => {
+  const icon = caseOfUrl({
+    youtube: () => YouTubeIcon,
+    soundcloud: () => SoundCloudIcon,
+    others: () => null,
+  })(work.redirectTo);
+
+  if (icon === null) return null;
+
+  const color =
+    caseOfUrl<keyof typeof COLOR>({
+      youtube: () => "youtube",
+      soundcloud: () => "soundcloud",
+      others: () => "transparent",
+    })(work.redirectTo) ?? "transparent";
+
+  return (
+    <Icon
+      className={styles.cardThumbnailIcon}
+      size={7}
+      icon={icon}
+      color={color}
+    />
+  );
+};
 
 export const GridWorks: FC<Props> = ({ works }) => {
   return (
@@ -58,22 +92,7 @@ export const GridWorks: FC<Props> = ({ works }) => {
           <div className={styles.card}>
             <div className={styles.cardLayout}>
               <div className={styles.cardThumbnailBox}>
-                {work.redirectTo !== "" && (
-                  <Icon
-                    className={styles.cardThumbnailIcon}
-                    size={7}
-                    icon={caseOfUrl({
-                      youtube: () => YouTubeIcon,
-                      soundcloud: () => SoundCloudIcon,
-                      others: () => OpenInNewIcon,
-                    })(work.redirectTo)}
-                    color={caseOfUrl<keyof typeof COLOR>({
-                      youtube: () => "youtube",
-                      soundcloud: () => "soundcloud",
-                      others: () => "mono.500",
-                    })(work.redirectTo)}
-                  />
-                )}
+                <ThumbnailIcon work={work} />
                 <img
                   className={styles.cardThumbnail}
                   src={
@@ -100,6 +119,9 @@ export const GridWorks: FC<Props> = ({ works }) => {
                 lineClamp={3}
               >
                 <Text className={styles.cardTitle}>{work.title}</Text>
+                {work.redirectTo !== "" && (
+                  <Icon size={4} icon={OpenInNewIcon} color="mono.500" />
+                )}
               </Paragraph>
             </div>
           </div>

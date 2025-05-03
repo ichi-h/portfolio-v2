@@ -88,7 +88,7 @@ export const cardThumbnail = style([
 
 export const cardTitle = style([
   fontSize[5],
-  lineHeight[5],
+  lineHeight[7],
   textDecoration["none"],
   applyMedia({ max: "768" }, flattenStyle([fontSize[4], lineHeight[4]])),
 ]);

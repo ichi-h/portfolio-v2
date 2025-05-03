@@ -29,20 +29,20 @@ const mockedWorksResponse: Work[] = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis aliquam ultricies, nisl nisl aliquet nisl, nec ali",
     thumbnailUrl: "https://picsum.photos/200",
-    publishedAt: "2024-01-01 00:00:00",
-    updatedAt: "2024-01-01 00:00:00",
+    publishedAt: "2024-01-01",
+    updatedAt: "2024-01-01",
   },
   {
     id: "2",
-    slug: "slug2",
-    redirectTo: "",
+    slug: "",
+    redirectTo: "https://google.com",
     category: "development",
-    title: "Example Work 2",
+    title: "Google",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis aliquam ultricies, nisl nisl aliquet nisl, nec ali",
     thumbnailUrl: "https://picsum.photos/200",
-    publishedAt: "2024-01-01 00:00:00",
-    updatedAt: "2024-01-01 00:00:00",
+    publishedAt: "2024-01-01",
+    updatedAt: "2024-01-01",
   },
   {
     id: "3",
@@ -53,8 +53,8 @@ const mockedWorksResponse: Work[] = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis aliquam ultricies, nisl nisl aliquet nisl, nec ali",
     thumbnailUrl: "https://picsum.photos/200",
-    publishedAt: "2024-01-01 00:00:00",
-    updatedAt: "2024-01-01 00:00:00",
+    publishedAt: "2024-01-01",
+    updatedAt: "2024-01-01",
   },
   {
     id: "4",
@@ -65,8 +65,8 @@ const mockedWorksResponse: Work[] = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis aliquam ultricies, nisl nisl aliquet nisl, nec ali",
     thumbnailUrl: "https://picsum.photos/200",
-    publishedAt: "2024-01-01 00:00:00",
-    updatedAt: "2024-01-01 00:00:00",
+    publishedAt: "2024-01-01",
+    updatedAt: "2024-01-01",
   },
   {
     id: "5",
@@ -77,8 +77,8 @@ const mockedWorksResponse: Work[] = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis aliquam ultricies, nisl nisl aliquet nisl, nec ali",
     thumbnailUrl: "https://picsum.photos/200",
-    publishedAt: "2024-01-01 00:00:00",
-    updatedAt: "2024-01-01 00:00:00",
+    publishedAt: "2024-01-01",
+    updatedAt: "2024-01-01",
   },
   {
     id: "6",
@@ -89,8 +89,8 @@ const mockedWorksResponse: Work[] = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis aliquam ultricies, nisl nisl aliquet nisl, nec ali",
     thumbnailUrl: "https://i.ytimg.com/vi/XhfNs3fSm2k/maxresdefault.jpg",
-    publishedAt: "2024-01-01 00:00:00",
-    updatedAt: "2024-01-01 00:00:00",
+    publishedAt: "2024-01-01",
+    updatedAt: "2024-01-01",
   },
   {
     id: "6",
@@ -103,8 +103,8 @@ const mockedWorksResponse: Work[] = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis aliquam ultricies, nisl nisl aliquet nisl, nec ali",
     thumbnailUrl:
       "https://i1.sndcdn.com/avatars-cLQysnY81lvRmbyb-XzS62w-t500x500.jpg",
-    publishedAt: "2024-01-01 00:00:00",
-    updatedAt: "2024-01-01 00:00:00",
+    publishedAt: "2024-01-01",
+    updatedAt: "2024-01-01",
   },
 ];
 
@@ -140,23 +140,23 @@ export const getWorks = async (props?: Props): Promise<Work[]> => {
         },
         ...(props && props.category
           ? [
-              {
-                property: "category",
-                select: {
-                  equals: props.category,
-                },
+            {
+              property: "category",
+              select: {
+                equals: props.category,
               },
-            ]
+            },
+          ]
           : []),
         ...(props && props.slug
           ? [
-              {
-                property: "slug",
-                rich_text: {
-                  equals: props.slug,
-                },
+            {
+              property: "slug",
+              rich_text: {
+                equals: props.slug,
               },
-            ]
+            },
+          ]
           : []),
       ],
     },
@@ -169,8 +169,8 @@ export const getWorks = async (props?: Props): Promise<Work[]> => {
         updatedAt:
           page.properties.updatedAt.type === "last_edited_time"
             ? page.properties.updatedAt.last_edited_time
-                .toString()
-                .split("T")[0]
+              .toString()
+              .split("T")[0]
             : "",
         description:
           page.properties.description.type === "rich_text"

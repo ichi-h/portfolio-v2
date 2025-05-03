@@ -73,7 +73,7 @@ export const cardThumbnailBox = style([
 
 export const cardThumbnailIcon = style([
   position["absolute"],
-  bottom[0],
+  bottom[1],
   right[1],
 ]);
 

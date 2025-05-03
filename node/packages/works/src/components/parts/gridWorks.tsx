@@ -61,7 +61,7 @@ export const GridWorks: FC<Props> = ({ works }) => {
                 {work.redirectTo !== "" && (
                   <Icon
                     className={styles.cardThumbnailIcon}
-                    size={8}
+                    size={7}
                     icon={caseOfUrl({
                       youtube: () => YouTubeIcon,
                       soundcloud: () => SoundCloudIcon,

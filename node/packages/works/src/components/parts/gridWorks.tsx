@@ -83,10 +83,15 @@ export const GridWorks: FC<Props> = ({ works }) => {
                   alt={work.title}
                 />
               </div>
-              <div className={styles.cardPublishedAt}>
-                <Icon size={3} icon={UpdateIcon} />
-                <Text fontSize="3" color="mono.900">
-                  {work.publishedAt}
+              <div className={styles.cardDateAndCategory}>
+                <div className={styles.cardPublishedAt}>
+                  <Icon size={3} icon={UpdateIcon} />
+                  <Text fontSize="3" color="mono.900">
+                    {work.publishedAt}
+                  </Text>
+                </div>
+                <Text fontSize="3" color="mono.500">
+                  # {work.category}
                 </Text>
               </div>
               <Paragraph

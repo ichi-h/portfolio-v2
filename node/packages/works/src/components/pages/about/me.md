@@ -10,6 +10,13 @@
   - Windows 11 Pro
 - DAW
   - Cubase Pro 13
+- Favorite Developers
+  - MeldaProduction
+  - Steinberg
+  - KV331 Audio
+  - Kilohearts
+  - iZotope
+  - etc.
 
 ### Hardware
 
@@ -20,6 +27,8 @@
   - Tago Studio T3-03
 - Microphone
   - Australian Audio OC818
+  - audio-technica AT4080
+  - Shure SM57
 - Mic Preamp
   - Aurora Audio GT500
   - Focusrite ISA Two
@@ -35,9 +44,14 @@
   - Mogami 3368
   - Mogami 2524
   - Belden 8412
-- Guitar Processor/Cabinet Simulator
+- Guitar Amp
+  - Roland JC-60A
+- Effects Pedals
   - BOSS GT-1000CORE
+  - Fender Hammertone Fuzz
   - Universal Audio OX Stomp
+  - Eden WTDI
+  - etc.
 
 ### Instruments
 

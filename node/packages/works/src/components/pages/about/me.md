@@ -12,6 +12,7 @@
   - Cubase Pro 13
 - Favorite Developers
   - MeldaProduction
+  - T.K.Drums
   - Steinberg
   - KV331 Audio
   - Kilohearts

@@ -1,8 +1,10 @@
 ## Private Studio
 
-![overview](https://static.ichi-h.com/share/private_studio/DSCF0305.min.jpg)
+![overview](https://static.ichi-h.com/share/private_studio/DSCF0463.webp)
 
-![equipment](https://static.ichi-h.com/share/private_studio/DSCF0413.min.jpg)
+![equipment](https://static.ichi-h.com/share/private_studio/DSCF0413.webp)
+
+![jc](https://static.ichi-h.com/share/private_studio/DSCF0550_2.webp)
 
 ### Software
 
@@ -14,8 +16,8 @@
   - MeldaProduction
   - T.K.Drums
   - Steinberg
-  - KV331 Audio
   - Kilohearts
+  - KV331 Audio
   - iZotope
   - etc.
 

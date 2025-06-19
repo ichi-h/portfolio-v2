@@ -11,7 +11,7 @@ interface Props {
 export const Head = ({
   title = "ichi-h.com",
   url,
-  description = "To live is to think, create and sing.",
+  description = "ichi-h.com",
   ogImage,
   ogType,
 }: Props) => {

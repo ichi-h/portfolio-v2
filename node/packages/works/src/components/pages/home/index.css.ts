@@ -49,7 +49,6 @@ export const me = style([
 ]);
 
 export const avatar = style([
-  animateZoomOnHover["md"],
   dropShadow["md"],
   w[64],
   h[64],

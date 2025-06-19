@@ -21,17 +21,12 @@ export const Home = () => {
   return (
     <div className={styles.outer}>
       <div className={styles.me}>
-        <Link as={Anchor} asProps={{ href: "/about" }}>
-          <Avatar className={styles.avatar} src={me} />
-        </Link>
+        <Avatar className={styles.avatar} src={me} />
         <Heading level="1">
           <Text className={styles.title} color="mono.50">
             ichi-h.com
           </Text>
         </Heading>
-        <Text className={styles.description} color="mono.50">
-          To live is to think, create and sing.
-        </Text>
       </div>
       <div className={styles.content}>
         <div className={styles.contentBox}>

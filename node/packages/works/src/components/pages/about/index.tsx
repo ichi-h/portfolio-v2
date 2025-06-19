@@ -18,11 +18,6 @@ export const About: FC<Props> = ({ body }) => {
       <Text className={styles.name} color="mono.900">
         ichi-h
       </Text>
-      <Text className={styles.subtext} color="mono.900">
-        To live is to think, create and sing.
-        <br />
-        考えることと作ることと歌うことが好きです。
-      </Text>
       <Hr />
       <Article dangerouslySetInnerHTML={{ __html: body }} />
     </div>

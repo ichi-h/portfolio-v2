@@ -37,9 +37,6 @@ jobs:
         id: changes
         with:
           filters: |
-            works:
-              - 'node/packages/works/**'
-              - .github/workflows/deploy-portfolio.yml
             og-image:
               - 'node/packages/og-image/**'
               - .github/workflows/deploy-portfolio.yml
@@ -61,7 +58,6 @@ jobs:
         working-directory: ./node
 
       - name: Publish works
-        if: steps.changes.outputs.works == 'true'
         uses: cloudflare/wrangler-action@v3
         with:
           accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}

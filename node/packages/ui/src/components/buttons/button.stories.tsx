@@ -28,6 +28,11 @@ const meta: Meta<typeof Button> = {
         type: "boolean",
       },
     },
+    disabled: {
+      control: {
+        type: "boolean",
+      },
+    },
     onClick: {
       action: "click",
     },

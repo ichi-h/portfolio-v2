@@ -8,6 +8,7 @@ type Props = {
   variant?: "black" | "white";
   bold?: boolean;
   rounded?: boolean;
+  disabled?: boolean;
 } & ComponentProps<"button">;
 
 export const Button = ({
@@ -17,6 +18,7 @@ export const Button = ({
   variant = "black",
   bold = false,
   rounded = false,
+  disabled = false,
   ...props
 }: Props) => {
   return (
@@ -24,12 +26,14 @@ export const Button = ({
       {...props}
       className={clsx([
         styles.buttonBase,
-        styles.buttonVariant[variant],
+        !disabled && styles.buttonVariant[variant],
+        disabled && styles.buttonDisabled,
         styles.buttonWeight[`${bold}`],
         size && styles.buttonSize[size],
         styles.buttonRound[rounded ? "rounded" : "default"],
         className,
       ])}
+      disabled={disabled}
     >
       {children}
     </button>

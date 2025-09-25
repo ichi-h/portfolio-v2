@@ -41,6 +41,14 @@ export const buttonVariant = styleVariants({
   ],
 });
 
+export const buttonDisabled = style([
+  {
+    pointerEvents: "none",
+  },
+  fontColor["mono.400"],
+  borderColor["mono.400"],
+]);
+
 export const buttonWeight = styleVariants({
   true: [border["2"], fontWeight["bold"]],
   false: [border["1"], fontWeight["normal"]],

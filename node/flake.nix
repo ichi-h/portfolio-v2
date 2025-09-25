@@ -1,5 +1,5 @@
 {
-  description = "A very basic flake";
+  description = "node.js";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
@@ -13,7 +13,17 @@
       in
       {
         devShells = {
-          default = import ./node/shell.nix { inherit packages; };
+          default = packages.mkShell {
+            buildInputs = with packages; [
+              nodejs_22
+              nodePackages.pnpm
+            ];
+
+            shellHook = ''
+              echo "Node.js version: $(node --version)"
+              echo "pnpm version: $(pnpm --version)" 
+            '';
+          };
         };
       }
     );

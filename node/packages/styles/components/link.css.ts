@@ -14,6 +14,7 @@ export const linkRule = styleRule(
     textDecoration["none"],
     {
       cursor: "pointer",
+      wordBreak: "break-word",
     },
   ]),
 );

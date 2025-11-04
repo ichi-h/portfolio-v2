@@ -36,14 +36,6 @@ export const Nav: FC<Props> = ({ ...props }) => (
       >
         About
       </Link>
-      <Link
-        className={navLinkStyle}
-        as={Anchor}
-        asProps={{ href: "/contact" }}
-        color="mono.50"
-      >
-        Contact
-      </Link>
     </div>
   </nav>
 );

@@ -5,5 +5,6 @@ export const BREAK_POINT = {
   "768": "768px",
   "1024": "1024px",
   "1280": "1280px",
+  "1512": "1512px",
   "9999": "9999px",
 } as const;

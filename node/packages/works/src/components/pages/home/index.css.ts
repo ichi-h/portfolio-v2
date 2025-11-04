@@ -36,7 +36,7 @@ export const outer = style([
   gap[12],
   w["1/1"],
   h["vh"],
-  applyMedia({ max: "768" }, flattenStyle([gap[6]])),
+  applyMedia({ max: "1280" }, flattenStyle([gap[6]])),
   applyMedia({ max: "480" }, flattenStyle([gap[4]])),
 ]);
 
@@ -52,7 +52,7 @@ export const avatar = style([
   dropShadow["md"],
   w[64],
   h[64],
-  applyMedia({ max: "1024" }, flattenStyle([w[48], h[48]])),
+  applyMedia({ max: "1512" }, flattenStyle([w[48], h[48]])),
   applyMedia({ max: "480" }, flattenStyle([w[32], h[32]])),
 ]);
 

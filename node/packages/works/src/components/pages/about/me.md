@@ -51,6 +51,7 @@
   - Roland JC-60A
 - Effects Pedals
   - BOSS GT-1000CORE
+  - BOSS BD-2W
   - Fender Hammertone Fuzz
   - Universal Audio OX Stomp
   - Eden WTDI

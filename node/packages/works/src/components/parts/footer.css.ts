@@ -20,7 +20,7 @@ export const footerStyle = style([
   flexDirection["column"],
   gap[1],
   w["1/1"],
-  mt[4],
+  mt[0],
   pb[4],
   mx[0],
   textAlign["center"],

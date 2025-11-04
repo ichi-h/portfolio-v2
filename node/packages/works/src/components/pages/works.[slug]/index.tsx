@@ -1,5 +1,5 @@
 import codeStyle from "highlight.js/styles/base16/snazzy.min.css?url";
-import { Article, Link, Text } from "portfolio-ui";
+import { Article, Link, Paragraph, Text } from "portfolio-ui";
 import { type FC } from "react";
 
 import "../../parts/linkCard.css";
@@ -56,6 +56,19 @@ export const WorkPage: FC<Props> = ({ work, body }) => {
         <Text color="mono.900">Updated: {work.updatedAt}</Text>
       </div>
       <Article dangerouslySetInnerHTML={{ __html: body }} />
+      <Paragraph align="right">
+        <Link
+          className={styles.ccImage}
+          href="http://creativecommons.org/licenses/by/4.0/"
+          rel="license"
+          openInNewTab={true}
+        >
+          <img
+            alt="Creative Commons License"
+            src="https://i.creativecommons.org/l/by/4.0/88x31.png"
+          />
+        </Link>
+      </Paragraph>
     </div>
   );
 };

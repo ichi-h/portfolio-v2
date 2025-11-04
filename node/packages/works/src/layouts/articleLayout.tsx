@@ -31,7 +31,7 @@ export const ArticleLayout: FC<Props> = ({ title, children }) => (
           {children}
         </div>
       </Background>
-      <Footer useCC={true} />
+      <Footer />
     </div>
   </div>
 );

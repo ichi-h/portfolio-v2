@@ -61,4 +61,5 @@ export const layoutContentStyle = style([
   flexDirection["column"],
   gap[4],
   m[8],
+  applyMedia({ max: "768" }, flattenStyle([m[6]])),
 ]);

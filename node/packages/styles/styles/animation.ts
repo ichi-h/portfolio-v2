@@ -1,81 +1,127 @@
-import { flattenStyle, styleMap, styleRule } from "../libs/vanillaExtract";
+import { flattenStyle, styleMap } from "../libs/vanillaExtract";
 
-import { opacity } from "./opacity";
+export const animationName = (name: string) => {
+  return flattenStyle([
+    {
+      animationName: name,
+    }
+  ]);
+};
 
-export const duration = styleMap({
-  75: {
-    transitionDuration: "75ms",
+export const animationFillMode = styleMap({
+  none: {
+    animationFillMode: "none",
   },
-  100: {
-    transitionDuration: "100ms",
+  forwards: {
+    animationFillMode: "forwards",
   },
-  150: {
-    transitionDuration: "150ms",
+  backwards: {
+    animationFillMode: "backwards",
   },
-  200: {
-    transitionDuration: "200ms",
-  },
-  300: {
-    transitionDuration: "300ms",
-  },
-  500: {
-    transitionDuration: "500ms",
-  },
-  700: {
-    transitionDuration: "700ms",
-  },
-  1000: {
-    transitionDuration: "1000ms",
+  both: {
+    animationFillMode: "both",
   },
 });
 
-export const timingFunction = styleMap({
-  easeIn: {
-    transitionTimingFunction: "ease-in",
-  },
-  easeOut: {
-    transitionTimingFunction: "ease-out",
-  },
-  easeInOut: {
-    transitionTimingFunction: "ease-in-out",
-  },
-  linear: {
-    transitionTimingFunction: "linear",
-  },
-  stepStart: {
-    transitionTimingFunction: "step-start",
-  },
-  stepEnd: {
-    transitionTimingFunction: "step-end",
-  },
-});
+const createDurationStyleMap = (
+  property: "transition" | "animation",
+) => {
+  const duration = `${property}Duration`;
+  return styleMap({
+    75: {
+      [duration]: "75ms",
+    },
+    100: {
+      [duration]: "100ms",
+    },
+    150: {
+      [duration]: "150ms",
+    },
+    200: {
+      [duration]: "200ms",
+    },
+    300: {
+      [duration]: "300ms",
+    },
+    500: {
+      [duration]: "500ms",
+    },
+    700: {
+      [duration]: "700ms",
+    },
+    1000: {
+      [duration]: "1000ms",
+    },
+  });
+};
+export const duration = createDurationStyleMap("transition");
+export const animationDuration = createDurationStyleMap("animation");
 
-export const delay = styleMap({
-  75: {
-    transitionDelay: "75ms",
-  },
-  100: {
-    transitionDelay: "100ms",
-  },
-  150: {
-    transitionDelay: "150ms",
-  },
-  200: {
-    transitionDelay: "200ms",
-  },
-  300: {
-    transitionDelay: "300ms",
-  },
-  500: {
-    transitionDelay: "500ms",
-  },
-  700: {
-    transitionDelay: "700ms",
-  },
-  1000: {
-    transitionDelay: "1000ms",
-  },
-});
+const createTimingFunctionStyleMap = (
+  property: "transition" | "animation",
+) => {
+  const timingFunction = `${property}TimingFunction`;
+  return styleMap({
+    easeIn: {
+      [timingFunction]: "ease-in",
+    },
+    easeOut: {
+      [timingFunction]: "ease-out",
+    },
+    easeInOut: {
+      [timingFunction]: "ease-in-out",
+    },
+    linear: {
+      [timingFunction]: "linear",
+    },
+    stepStart: {
+      [timingFunction]: "step-start",
+    },
+    stepEnd: {
+      [timingFunction]: "step-end",
+    },
+  });
+};
+export const timingFunction = createTimingFunctionStyleMap(
+  "transition",
+);
+export const animationTimingFunction = createTimingFunctionStyleMap(
+  "animation",
+);
+
+const createDelayStyleMap = (
+  property: "transition" | "animation",
+) => {
+  const delay = `${property}Delay`;
+  return styleMap({
+    75: {
+      [delay]: "75ms",
+    },
+    100: {
+      [delay]: "100ms",
+    },
+    150: {
+      [delay]: "150ms",
+    },
+    200: {
+      [delay]: "200ms",
+    },
+    300: {
+      [delay]: "300ms",
+    },
+    500: {
+      [delay]: "500ms",
+    },
+    700: {
+      [delay]: "700ms",
+    },
+    1000: {
+      [delay]: "1000ms",
+    },
+  });
+};
+export const delay = createDelayStyleMap("transition");
+export const animationDelay = createDelayStyleMap("animation");
 
 export const animateZoomOnHover = styleMap({
   sm: {
@@ -103,25 +149,3 @@ export const animateZoomOnHover = styleMap({
     ]),
   },
 });
-
-export const animateFadeOut = styleRule(
-  flattenStyle([
-    {
-      visibility: "hidden",
-    },
-    opacity[0],
-    duration[300],
-    timingFunction.easeInOut,
-  ]),
-);
-
-export const animateFadeIn = styleRule(
-  flattenStyle([
-    {
-      visibility: "visible",
-    },
-    opacity[100],
-    duration[300],
-    timingFunction.easeInOut,
-  ]),
-);

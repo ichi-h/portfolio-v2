@@ -1,4 +1,4 @@
-import { style } from "@vanilla-extract/css";
+import { keyframes, style } from "@vanilla-extract/css";
 import {
   w,
   h,
@@ -20,12 +20,57 @@ import {
   borderR,
   borderColor,
   borderStyle,
+  top,
+  left,
+  bg,
+  opacity,
+  visibility,
+  animationName,
+  animationDuration,
+  animationTimingFunction,
+  animationFillMode,
+  animationDelay,
 } from "portfolio-styles";
 import {
   buttonLgSizeProps,
   buttonMdSizeProps,
   buttonXlSizeProps,
 } from "portfolio-styles/components/button.css";
+
+const fadeOut = keyframes({
+  "0%": flattenStyle([
+    opacity[100],
+    visibility["visible"],
+  ]),
+  "100%": flattenStyle([
+    opacity[0],
+    visibility["hidden"],
+  ]),
+});
+
+const fadeIn = keyframes({
+  "0%": flattenStyle([
+    opacity[0],
+    visibility["hidden"],
+  ]),
+  "100%": flattenStyle([
+    opacity[100],
+    visibility["visible"],
+  ]),
+});
+
+export const overlay = style([
+  position["fixed"],
+  top[0],
+  left[0],
+  w["svw"],
+  h["svh"],
+  bg["mono.900"],
+  animationName(fadeOut),
+  animationDuration["500"],
+  animationTimingFunction["easeInOut"],
+  animationFillMode["forwards"],
+]);
 
 export const outer = style([
   position["relative"],
@@ -36,8 +81,14 @@ export const outer = style([
   gap[12],
   w["1/1"],
   h["vh"],
+  opacity[0],
   applyMedia({ max: "1280" }, flattenStyle([gap[6]])),
   applyMedia({ max: "480" }, flattenStyle([gap[4]])),
+  animationName(fadeIn),
+  animationDuration["500"],
+  animationTimingFunction["easeInOut"],
+  animationFillMode["forwards"],
+  animationDelay["500"],
 ]);
 
 export const me = style([

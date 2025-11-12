@@ -2,9 +2,12 @@ export {
   duration,
   timingFunction,
   delay,
+  animationName,
+  animationFillMode,
+  animationDuration,
+  animationTimingFunction,
+  animationDelay,
   animateZoomOnHover,
-  animateFadeIn,
-  animateFadeOut,
 } from "./animation";
 export { bg, bgSize, bgPosition } from "./background";
 export { blur } from "./blur";
@@ -75,3 +78,4 @@ export {
   textDecoration,
   textVerticalAlign,
 } from "./text";
+export { visibility } from "./visibility";

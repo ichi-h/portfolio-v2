@@ -1,40 +1,13 @@
-import codeStyle from "highlight.js/styles/base16/snazzy.min.css?url";
-import lgStyle from "lightgallery/css/lightgallery.css?url";
 import { Article, Link, Paragraph, Text } from "portfolio-ui";
 import { type FC } from "react";
 
 import "../../parts/linkCard.css";
 
-import { useEnv } from "../../../utils/env";
 import { Anchor } from "../../parts/anchor";
-import { Head } from "../../parts/head";
 
 import * as styles from "./index.css";
 
 import type { Work } from "../../../api/notion/works";
-
-interface MetaProps {
-  slug: string;
-  title: string;
-  description: string;
-}
-
-export const WorkHead: FC<MetaProps> = ({ slug, title, description }) => {
-  const { OG_IMAGE_SERVER_URL } = useEnv();
-  return (
-    <>
-      <Head
-        url={`/works/${slug}`}
-        title={`${title} - ichi-h.com`}
-        description={description}
-        ogType="article"
-        ogImage={`${OG_IMAGE_SERVER_URL}?title=${title}`}
-      />
-      <link rel="stylesheet" href={codeStyle} />
-      <link rel="stylesheet" href={lgStyle} />
-    </>
-  );
-};
 
 interface Props {
   work: Work;

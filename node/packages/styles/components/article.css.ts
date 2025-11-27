@@ -26,6 +26,7 @@ import {
   borderRadius,
   mt,
   lineHeight,
+  flexWrap,
 } from "../styles";
 
 import { headingRule } from "./heading.css";
@@ -67,8 +68,14 @@ globalStyle(
   ]),
 );
 
+globalStyle(`${article} .gallery`, flattenStyle([
+  flex,
+  flexWrap["wrap"],
+  gap[1],
+]));
+
 globalStyle(`${article} .gallery-item`, flattenStyle([
-  p[1],
+  w["1/1"],
   {
     maxWidth: "calc(100% / 2 - 8px)",
     boxSizing: "border-box",

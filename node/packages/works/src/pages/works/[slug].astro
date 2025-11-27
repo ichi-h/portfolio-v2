@@ -1,11 +1,18 @@
 ---
-import { WorkPage, WorkHead } from "../../components/pages/works.[slug]";
+import codeStyle from "highlight.js/styles/base16/snazzy.min.css?url";
+import lgStyle from "lightgallery/css/lightgallery.css?url";
+
+import { WorkPage } from "../../components/pages/works.[slug]";
 
 import HTML from "../../layouts/html.astro";
 import { ArticleLayout } from "../../layouts/articleLayout";
 import { parseMd2Html } from "../../components/pages/works.[slug]/parseMd2Html";
 import { getWorks } from "../../api/notion/works";
 import { getMarkdownBody } from "../../api/notion/markdownBody";
+import { useEnv } from "../../utils/env";
+import { Head } from "../../components/parts/head";
+
+const { OG_IMAGE_SERVER_URL } = useEnv();
 
 export async function getStaticPaths() {
   const works = await getWorks();
@@ -25,11 +32,15 @@ const body = await parseMd2Html(bodyMd);
 
 <HTML>
   <Fragment slot="head">
-    <WorkHead
-      slug={work.slug}
-      title={work.title}
+    <Head
+      url={`/works/${slug}`}
+      title={`${work.title} - ichi-h.com`}
       description={work.description}
+      ogType="article"
+      ogImage={`${OG_IMAGE_SERVER_URL}?title=${work.title}`}
     />
+    <link rel="stylesheet" href={codeStyle} />
+    <link rel="stylesheet" href={lgStyle} />
   </Fragment>
   <Fragment slot="content">
     <ArticleLayout title={work.title}>
@@ -52,5 +63,4 @@ const body = await parseMd2Html(bodyMd);
       thumbnail: true,
     });
   }
-
 </script>

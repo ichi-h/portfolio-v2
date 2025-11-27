@@ -22,7 +22,9 @@ export const Home = () => {
     <>
       <div className={styles.outer}>
         <div className={styles.me}>
-          <Avatar className={styles.avatar} src={me} />
+          <Link className={styles.avatarLink} href="/about">
+            <Avatar className={styles.avatar} src={me} />
+          </Link>
           <Heading level="1">
             <Text className={styles.title} color="mono.50">
               ichi-h.com

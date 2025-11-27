@@ -87,6 +87,8 @@ export const me = style([
   gap[4],
 ]);
 
+export const avatarLink = style([animateZoomOnHover["md"]]);
+
 export const avatar = style([
   dropShadow["md"],
   w[64],

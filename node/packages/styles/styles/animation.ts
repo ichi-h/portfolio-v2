@@ -4,7 +4,7 @@ export const animationName = (name: string) => {
   return flattenStyle([
     {
       animationName: name,
-    }
+    },
   ]);
 };
 
@@ -23,9 +23,7 @@ export const animationFillMode = styleMap({
   },
 });
 
-const createDurationStyleMap = (
-  property: "transition" | "animation",
-) => {
+const createDurationStyleMap = (property: "transition" | "animation") => {
   const duration = `${property}Duration`;
   return styleMap({
     75: {
@@ -57,9 +55,7 @@ const createDurationStyleMap = (
 export const duration = createDurationStyleMap("transition");
 export const animationDuration = createDurationStyleMap("animation");
 
-const createTimingFunctionStyleMap = (
-  property: "transition" | "animation",
-) => {
+const createTimingFunctionStyleMap = (property: "transition" | "animation") => {
   const timingFunction = `${property}TimingFunction`;
   return styleMap({
     easeIn: {
@@ -82,16 +78,11 @@ const createTimingFunctionStyleMap = (
     },
   });
 };
-export const timingFunction = createTimingFunctionStyleMap(
-  "transition",
-);
-export const animationTimingFunction = createTimingFunctionStyleMap(
-  "animation",
-);
+export const timingFunction = createTimingFunctionStyleMap("transition");
+export const animationTimingFunction =
+  createTimingFunctionStyleMap("animation");
 
-const createDelayStyleMap = (
-  property: "transition" | "animation",
-) => {
+const createDelayStyleMap = (property: "transition" | "animation") => {
   const delay = `${property}Delay`;
   return styleMap({
     75: {

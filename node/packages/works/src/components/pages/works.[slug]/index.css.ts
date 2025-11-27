@@ -19,6 +19,4 @@ export const matter = style([
 
 export const date = style([flex, gap[1], flexAlign["center"]]);
 
-export const ccImage = style([
-  mt[1],
-]);
+export const ccImage = style([mt[1]]);

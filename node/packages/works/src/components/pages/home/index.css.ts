@@ -38,25 +38,13 @@ import {
 } from "portfolio-styles/components/button.css";
 
 const fadeOut = keyframes({
-  "0%": flattenStyle([
-    opacity[100],
-    visibility["visible"],
-  ]),
-  "100%": flattenStyle([
-    opacity[0],
-    visibility["hidden"],
-  ]),
+  "0%": flattenStyle([opacity[100], visibility["visible"]]),
+  "100%": flattenStyle([opacity[0], visibility["hidden"]]),
 });
 
 const fadeIn = keyframes({
-  "0%": flattenStyle([
-    opacity[0],
-    visibility["hidden"],
-  ]),
-  "100%": flattenStyle([
-    opacity[100],
-    visibility["visible"],
-  ]),
+  "0%": flattenStyle([opacity[0], visibility["hidden"]]),
+  "100%": flattenStyle([opacity[100], visibility["visible"]]),
 });
 
 export const overlay = style([

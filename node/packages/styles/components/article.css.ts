@@ -68,24 +68,29 @@ globalStyle(
   ]),
 );
 
-globalStyle(`${article} .gallery`, flattenStyle([
-  flex,
-  flexWrap["wrap"],
-  gap[1],
-]));
+globalStyle(
+  `${article} .gallery`,
+  flattenStyle([flex, flexWrap["wrap"], gap[1]]),
+);
 
-globalStyle(`${article} .gallery-item`, flattenStyle([
-  w["1/1"],
-  {
-    maxWidth: "calc(100% / 2 - 8px)",
-    boxSizing: "border-box",
-  },
-  applyMedia({ max: "768" }, flattenStyle([
+globalStyle(
+  `${article} .gallery-item`,
+  flattenStyle([
+    w["1/1"],
     {
-      maxWidth: "calc(100% - 8px)",
-    }
-  ]))
-]));
+      maxWidth: "calc(100% / 2 - 8px)",
+      boxSizing: "border-box",
+    },
+    applyMedia(
+      { max: "768" },
+      flattenStyle([
+        {
+          maxWidth: "calc(100% - 8px)",
+        },
+      ]),
+    ),
+  ]),
+);
 
 globalStyle(
   `${article} a`,

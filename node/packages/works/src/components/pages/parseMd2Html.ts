@@ -1,41 +1,58 @@
 import { renderToString } from "react-dom/server";
-import { remark } from "remark";
-import html from "remark-html";
+import { unified } from "unified";
+import rehypeStringify from "rehype-stringify";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
+import rehypeSlug from "rehype-slug";
 
-import { LinkCard } from "../../parts/linkCard";
+import { LinkCard } from "../parts/linkCard";
 
 import type { ReactElement } from "react";
 
 type Template =
   | {
-    type: "text";
-    style: string[];
-    text: string;
-  }
+      type: "text";
+      style: string[];
+      text: string;
+    }
   | {
-    type: "youtube";
-    id: string;
-  }
+      type: "youtube";
+      id: string;
+    }
   | {
-    type: "linkCard";
-    href: string;
-    title: string;
-    description: string;
-    thumbnailUrl?: string;
-  }
+      type: "soundcloud";
+      trackId: string;
+      href: string;
+      title: string;
+      user?: string;
+    }
   | {
-    type: "gallery";
-    images: {
-      url: string;
-      alt: string;
-      width: number;
-      height: number;
-    }[];
-  };
+      type: "linkCard";
+      href: string;
+      title: string;
+      description: string;
+      thumbnailUrl?: string;
+    }
+  | {
+      type: "gallery";
+      images: {
+        url: string;
+        alt: string;
+        width: number;
+        height: number;
+      }[];
+    };
 
 export const parseMd2Html = async (markdown: string) => {
   const mdToHtml = async (md: string) =>
-    (await remark().use(html).process(md)).toString();
+    (
+      await unified()
+        .use(remarkParse)
+        .use(remarkRehype)
+        .use(rehypeSlug)
+        .use(rehypeStringify)
+        .process(md)
+    ).toString();
   const docs = (await mdToHtml(markdown))
     .replace(
       /<pre><code class="language-mermaid">(.*?)<\/code><\/pre>/gs,
@@ -57,6 +74,12 @@ export const parseMd2Html = async (markdown: string) => {
     }
     if (template.type === "youtube") {
       return `<div class="text-center"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/${template.id}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen ></iframe></div>`;
+    }
+    if (template.type === "soundcloud") {
+      const user =
+        template.user ??
+        template.href.replace("https://soundcloud.com/", "").split("/")[0];
+      return `<div class="text-center"><iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A${template.trackId}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/${user}" title="ichi-h" target="_blank" style="color: #cccccc; text-decoration: none;">${user}</a> · <a href="${template.href}" title="${template.title}" target="_blank" style="color: #cccccc; text-decoration: none;">${template.title}</a></div></div>`;
     }
     if (template.type === "linkCard") {
       return renderToString(
@@ -82,18 +105,18 @@ export const parseMd2Html = async (markdown: string) => {
   };
 
   return docs
-    .replace(/<p>{{%([^%]+)%}}<\/p>/g, (value) => {
+    .replace(/<p>{{%([\s\S]*?)%}}<\/p>/g, (value) => {
       const template = JSON.parse(
         value
           .replace(/<p>/, "")
           .replace(/<\/p>/, "")
-          .replace(/{{%([^%]+)%}}/g, "{$1}"),
+          .replace(/{{%([\s\S]*?)%}}/g, "{$1}"),
       ) as Template;
       return templateToHtml(template);
     })
-    .replace(/{{%([^%]+)%}}/g, (value) => {
+    .replace(/{{%([\s\S]*?)%}}/g, (value) => {
       const template = JSON.parse(
-        value.replace(/{{%([^%]+)%}}/g, "{$1}"),
+        value.replace(/{{%([\s\S]*?)%}}/g, "{$1}"),
       ) as Template;
       return templateToHtml(template);
     });

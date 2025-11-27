@@ -1,11 +1,13 @@
 ---
+import lgStyle from "lightgallery/css/lightgallery.css?url";
+
 import { About as AboutPage } from "../components/pages/about";
 import meMd from "../components/pages/about/me.md?raw";
 
 import { Head } from "../components/parts/head";
 import HTML from "../layouts/html.astro";
 import { ArticleLayout } from "../layouts/articleLayout";
-import { parseMd2Html } from "../components/pages/works.[slug]/parseMd2Html";
+import { parseMd2Html } from "../components/pages/parseMd2Html";
 
 const meHtml = await parseMd2Html(meMd);
 ---
@@ -13,6 +15,7 @@ const meHtml = await parseMd2Html(meMd);
 <HTML>
   <Fragment slot="head">
     <Head title="About - ichi-h.com" url="/about" ogType="article" />
+    <link rel="stylesheet" href={lgStyle} />
   </Fragment>
   <Fragment slot="content">
     <ArticleLayout title="About Me">
@@ -20,3 +23,14 @@ const meHtml = await parseMd2Html(meMd);
     </ArticleLayout>
   </Fragment>
 </HTML>
+
+<script>
+  import lightGallery from "lightgallery";
+
+  const elem= document.getElementById('gallery');
+  if (elem) {
+    lightGallery(elem, {
+      thumbnail: true,
+    });
+  }
+</script>

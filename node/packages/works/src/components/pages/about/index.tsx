@@ -1,7 +1,6 @@
 import { Article, Avatar, Text } from "portfolio-ui";
 
 import me from "../../../assets/me_512x512.webp?url";
-import { Hr } from "../../parts/hr";
 
 import * as styles from "./index.css";
 
@@ -18,7 +17,6 @@ export const About: FC<Props> = ({ body }) => {
       <Text className={styles.name} color="mono.900">
         ichi-h
       </Text>
-      <Hr />
       <Article dangerouslySetInnerHTML={{ __html: body }} />
     </div>
   );

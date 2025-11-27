@@ -3,7 +3,40 @@ import { NotionToMarkdown } from "notion-to-md";
 
 import { useEnv } from "../../utils/env";
 
-const mockedBody = `## Heading 2
+const mockedBody = `## Gallery
+
+{{%
+  "type": "gallery",
+  "images": [
+    {
+      "url": "https://picsum.photos/1280/720",
+      "alt": "Sample Image 2",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "url": "https://picsum.photos/1200/800",
+      "alt": "Sample Image 1",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "url": "https://picsum.photos/640/480",
+      "alt": "Sample Image 4",
+      "width": 640,
+      "height": 480
+    },
+    {
+      "url": "https://picsum.photos/512/512",
+      "alt": "Sample Image 3",
+      "width": 512,
+      "height": 512
+    }
+  ]
+%}}
+
+## Heading 2
+
 親譲りの無鉄砲で小供の時から損ばかりしている。
 小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。
 なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。

@@ -1,6 +1,6 @@
 import { style, globalStyle } from "@vanilla-extract/css";
 
-import { flattenStyle } from "../libs/vanillaExtract";
+import { applyMedia, flattenStyle } from "../libs/vanillaExtract";
 import {
   flex,
   flexDirection,
@@ -60,11 +60,25 @@ globalStyle(
     my[0],
     w["1/1"],
     maxW[192],
+    bg["mono.100"],
     {
       display: "block",
     },
   ]),
 );
+
+globalStyle(`${article} .gallery-item`, flattenStyle([
+  p[1],
+  {
+    maxWidth: "calc(100% / 2 - 8px)",
+    boxSizing: "border-box",
+  },
+  applyMedia({ max: "768" }, flattenStyle([
+    {
+      maxWidth: "calc(100% - 8px)",
+    }
+  ]))
+]));
 
 globalStyle(
   `${article} a`,

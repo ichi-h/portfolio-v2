@@ -1,4 +1,5 @@
 import codeStyle from "highlight.js/styles/base16/snazzy.min.css?url";
+import lgStyle from "lightgallery/css/lightgallery.css?url";
 import { Article, Link, Paragraph, Text } from "portfolio-ui";
 import { type FC } from "react";
 
@@ -30,6 +31,7 @@ export const WorkHead: FC<MetaProps> = ({ slug, title, description }) => {
         ogImage={`${OG_IMAGE_SERVER_URL}?title=${title}`}
       />
       <link rel="stylesheet" href={codeStyle} />
+      <link rel="stylesheet" href={lgStyle} />
     </>
   );
 };

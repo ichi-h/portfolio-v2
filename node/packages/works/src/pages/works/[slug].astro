@@ -41,6 +41,16 @@ const body = await parseMd2Html(bodyMd);
 <script>
   import hljs from "highlight.js";
   import mermaid from "mermaid";
+  import lightGallery from "lightgallery";
+
   hljs.highlightAll();
   mermaid.initialize({ startOnLoad: true });
+
+  const elem= document.getElementById('gallery');
+  if (elem) {
+    lightGallery(elem, {
+      thumbnail: true,
+    });
+  }
+
 </script>

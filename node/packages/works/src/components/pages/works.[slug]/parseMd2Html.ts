@@ -8,21 +8,30 @@ import type { ReactElement } from "react";
 
 type Template =
   | {
-      type: "text";
-      style: string[];
-      text: string;
-    }
+    type: "text";
+    style: string[];
+    text: string;
+  }
   | {
-      type: "youtube";
-      id: string;
-    }
+    type: "youtube";
+    id: string;
+  }
   | {
-      type: "linkCard";
-      href: string;
-      title: string;
-      description: string;
-      thumbnailUrl?: string;
-    };
+    type: "linkCard";
+    href: string;
+    title: string;
+    description: string;
+    thumbnailUrl?: string;
+  }
+  | {
+    type: "gallery";
+    images: {
+      url: string;
+      alt: string;
+      width: number;
+      height: number;
+    }[];
+  };
 
 export const parseMd2Html = async (markdown: string) => {
   const mdToHtml = async (md: string) =>
@@ -58,6 +67,16 @@ export const parseMd2Html = async (markdown: string) => {
           thumbnailUrl: template.thumbnailUrl,
         }) as ReactElement,
       );
+    }
+    if (template.type === "gallery") {
+      return `<div class="gallery" id="gallery">${template.images
+        .map(
+          (image) =>
+            `<a class="gallery-item" href="${image.url}">
+              <img src="${image.url}" alt="${image.alt}" data-lg-size="${image.width}-${image.height}" style="aspect-ratio: ${image.width} / ${image.height}" />
+            </a>`,
+        )
+        .join("")}</div>`;
     }
     return "";
   };

@@ -1,6 +1,6 @@
 ---
 import codeStyle from "highlight.js/styles/base16/snazzy.min.css?url";
-import lgStyle from "lightgallery/css/lightgallery.css?url";
+import bbStyle from "baguettebox.js/dist/baguetteBox.min.css?url";
 
 import { WorkPage } from "../../components/pages/works.[slug]";
 
@@ -40,7 +40,7 @@ const body = await parseMd2Html(bodyMd);
       ogImage={`${OG_IMAGE_SERVER_URL}?title=${work.title}`}
     />
     <link rel="stylesheet" href={codeStyle} />
-    <link rel="stylesheet" href={lgStyle} />
+    <link rel="stylesheet" href={bbStyle} />
   </Fragment>
   <Fragment slot="content">
     <ArticleLayout title={work.title}>
@@ -52,15 +52,16 @@ const body = await parseMd2Html(bodyMd);
 <script>
   import hljs from "highlight.js";
   import mermaid from "mermaid";
-  import lightGallery from "lightgallery";
 
   hljs.highlightAll();
   mermaid.initialize({ startOnLoad: true });
 
-  const elem= document.getElementById('gallery');
-  if (elem) {
-    lightGallery(elem, {
-      thumbnail: true,
+  if (document.getElementById('gallery')) {
+    import('baguettebox.js').then(({ default: baguetteBox }) => {
+      baguetteBox.run('#gallery', {
+        filter: /.*/,
+        overlayBackgroundColor: 'rgba(0, 0, 0, 0.9)',
+      });
     });
   }
 </script>

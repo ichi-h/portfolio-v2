@@ -6,6 +6,7 @@ import {
   flexDirection,
   gap,
   w,
+  h,
   m,
   ml,
   mr,
@@ -87,6 +88,26 @@ globalStyle(
         {
           maxWidth: "calc(100% - 8px)",
         },
+      ]),
+    ),
+  ]),
+);
+
+globalStyle(
+  `${article} .gallery-empty`,
+  flattenStyle([
+    w["1/1"],
+    bg["mono.200"],
+    {
+      aspectRatio: "3 / 2",
+      maxWidth: "calc(100% / 2 - 8px)",
+      boxSizing: "border-box",
+    },
+    applyMedia(
+      { max: "768" },
+      flattenStyle([
+        w["0"],
+        h["0"],
       ]),
     ),
   ]),

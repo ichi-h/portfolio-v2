@@ -1,5 +1,5 @@
 ---
-import lgStyle from "lightgallery/css/lightgallery.css?url";
+import bbStyle from "baguettebox.js/dist/baguetteBox.min.css?url";
 
 import { About as AboutPage } from "../components/pages/about";
 import meMd from "../components/pages/about/me.md?raw";
@@ -15,7 +15,7 @@ const meHtml = await parseMd2Html(meMd);
 <HTML>
   <Fragment slot="head">
     <Head title="About - ichi-h.com" url="/about" ogType="article" />
-    <link rel="stylesheet" href={lgStyle} />
+    <link rel="stylesheet" href={bbStyle} />
   </Fragment>
   <Fragment slot="content">
     <ArticleLayout title="About Me">
@@ -25,12 +25,12 @@ const meHtml = await parseMd2Html(meMd);
 </HTML>
 
 <script>
-  import lightGallery from "lightgallery";
-
-  const elem= document.getElementById('gallery');
-  if (elem) {
-    lightGallery(elem, {
-      thumbnail: true,
+  if (document.getElementById('gallery')) {
+    import('baguettebox.js').then(({ default: baguetteBox }) => {
+      const hoge = baguetteBox.run('#gallery', {
+        filter: /.*/,
+        overlayBackgroundColor: 'rgba(0, 0, 0, 0.9)',
+      });
     });
   }
 </script>

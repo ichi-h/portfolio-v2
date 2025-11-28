@@ -3,7 +3,7 @@ import { NotionToMarkdown } from "notion-to-md";
 
 import { useEnv } from "../../utils/env";
 
-const mockedBody = `## Gallery
+const mockedBody = `## Photograph
 
 {{%
   "type": "gallery",

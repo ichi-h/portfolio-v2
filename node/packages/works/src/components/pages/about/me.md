@@ -3,7 +3,7 @@
 - [Art](#art)
   - [Music](#music)
   - [Literature](#literature)
-  - [Photography](#photography)
+  - [Photograph](#photograph)
 
 ## Philosophy
 
@@ -196,6 +196,14 @@
 
 その他は[こちら](/categories/literature)から。
 
-### Photography
+### Photograph
 
-（準備中）
+{{%
+  "type": "linkCard",
+  "href": "https://ichi-h.com/works/revisiting-2022-to-2023/",
+  "title": "Revisiting 2022 to 2023. - ichi-h.com",
+  "description": "2022年7月および12月、2023年1月に撮影。",
+  "thumbnailUrl": "https://static.ichi-h.com/share/photograph/2023_1/revisiting-2022-to-2023.webp"
+%}}
+
+その他は[こちら](/categories/photograph)から。

@@ -28,9 +28,6 @@ export const Home = () => {
               tech.ichi-h.com
             </Text>
           </Heading>
-          <Text className={styles.description} color="mono.50">
-            Technical articles and development notes
-          </Text>
         </div>
         <div className={styles.content}>
           <div className={styles.contentBox}>

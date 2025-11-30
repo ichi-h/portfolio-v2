@@ -6,7 +6,7 @@ export const html = style([bg["mono.900"], m[0]]);
 // System font stack - no web fonts
 globalStyle(`${html}`, {
   fontFamily:
-    '-apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", "Hiragino Sans", Meiryo, sans-serif',
+    '-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif,"Segoe UI Emoji"',
   fontStyle: "normal",
 });
 

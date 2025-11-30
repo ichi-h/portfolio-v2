@@ -1,0 +1,56 @@
+---
+import codeStyle from "highlight.js/styles/base16/snazzy.min.css?url";
+
+import { PostPage } from "../../components/pages/posts.[slug]";
+
+import HTML from "../../layouts/html.astro";
+import { ArticleLayout } from "../../layouts/articleLayout";
+import { parseMd2Html } from "../../components/pages/parseMd2Html";
+import { getTechPosts } from "../../api/notion/tech";
+import { getMarkdownBody } from "../../api/notion/markdownBody";
+import { useEnv } from "../../utils/env";
+import { Head } from "../../components/parts/head";
+
+const { OG_IMAGE_SERVER_URL } = useEnv();
+
+export async function getStaticPaths() {
+  const posts = await getTechPosts();
+  return posts
+    .filter((post) => post.slug !== "")
+    .map((post) => {
+      return { params: { slug: post.slug } };
+    });
+}
+
+const { slug } = Astro.params;
+
+const post = (await getTechPosts({ slug }))[0];
+const bodyMd = await getMarkdownBody(post.id);
+const body = await parseMd2Html(bodyMd);
+---
+
+<HTML>
+  <Fragment slot="head">
+    <Head
+      url={`/posts/${slug}`}
+      title={`${post.title} - tech.ichi-h.com`}
+      description={post.description}
+      ogType="article"
+      ogImage={post.thumbnailUrl || `${OG_IMAGE_SERVER_URL}?title=${post.title}`}
+    />
+    <link rel="stylesheet" href={codeStyle} />
+  </Fragment>
+  <Fragment slot="content">
+    <ArticleLayout title={post.title}>
+      <PostPage post={post} body={body} />
+    </ArticleLayout>
+  </Fragment>
+</HTML>
+
+<script>
+  import hljs from "highlight.js";
+  import mermaid from "mermaid";
+
+  hljs.highlightAll();
+  mermaid.initialize({ startOnLoad: true });
+</script>

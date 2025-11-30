@@ -1,1 +1,1 @@
-declare module 'baguettebox.js';
+declare module "baguettebox.js";

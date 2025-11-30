@@ -1,0 +1,21 @@
+---
+import { Posts } from "../../components/pages/posts";
+
+import { Head } from "../../components/parts/head";
+import HTML from "../../layouts/html.astro";
+import { ArticleLayout } from "../../layouts/articleLayout";
+import { getTechPosts } from "../../api/notion/tech";
+
+const posts = await getTechPosts();
+---
+
+<HTML>
+  <Fragment slot="head">
+    <Head title="Posts - tech.ichi-h.com" url="/posts" ogType="article" />
+  </Fragment>
+  <Fragment slot="content">
+    <ArticleLayout title="Posts">
+      <Posts posts={posts} />
+    </ArticleLayout>
+  </Fragment>
+</HTML>

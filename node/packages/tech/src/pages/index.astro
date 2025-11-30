@@ -1,0 +1,15 @@
+---
+import { Home } from "../components/pages/home";
+
+import { Head } from "../components/parts/head";
+import HTML from "../layouts/html.astro";
+---
+
+<HTML>
+  <Fragment slot="head">
+    <Head url="/" ogType="website" />
+  </Fragment>
+  <Fragment slot="content">
+    <Home />
+  </Fragment>
+</HTML>

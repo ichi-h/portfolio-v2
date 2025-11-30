@@ -1,5 +1,9 @@
-import { Client } from "@notionhq/client";
-
+import {
+  createNotionClient,
+  excludeByCategory,
+  queryDatabase,
+  type NotionPage,
+} from "portfolio-shared/notion";
 import { useEnv } from "../../utils/env";
 
 interface Props {
@@ -115,104 +119,25 @@ export const getWorks = async (props?: Props): Promise<Work[]> => {
     return mockedWorksResponse;
   }
 
-  const notion = new Client({ auth: `${NOTION_SECRET_KEY}` });
-  const response = await notion.databases.query({
-    database_id: `${NOTION_DATABASE_ID}`,
-    sorts: [
-      {
-        property: "publishedAt",
-        direction: "descending",
-      },
-    ],
-    filter: {
-      and: [
-        {
-          property: "unpublishedAt",
-          date: {
-            is_empty: true,
-          },
-        },
-        {
-          property: "publishedAt",
-          date: {
-            is_not_empty: true,
-          },
-        },
-        ...(props && props.category
-          ? [
-              {
-                property: "category",
-                select: {
-                  equals: props.category,
-                },
-              },
-            ]
-          : []),
-        ...(props && props.slug
-          ? [
-              {
-                property: "slug",
-                rich_text: {
-                  equals: props.slug,
-                },
-              },
-            ]
-          : []),
-      ],
-    },
-  });
-  return response.results
-    .filter((page) => "properties" in page)
-    .map((page) => {
-      return {
-        id: page.id,
-        updatedAt:
-          page.properties.updatedAt.type === "last_edited_time"
-            ? page.properties.updatedAt.last_edited_time
-                .toString()
-                .split("T")[0]
-            : "",
-        description:
-          page.properties.description.type === "rich_text"
-            ? (page.properties.description.rich_text.pop()?.plain_text ?? "")
-            : "",
-        category:
-          page.properties.category.type === "select"
-            ? page.properties.category.select !== null &&
-              "name" in page.properties.category.select
-              ? page.properties.category.select.name
-              : ""
-            : "",
-        unpublishedAt:
-          page.properties.unpublishedAt.type === "date"
-            ? (page.properties.unpublishedAt.date?.start ?? "")
-            : "",
-        slug:
-          page.properties.slug.type === "rich_text"
-            ? (page.properties.slug.rich_text.pop()?.plain_text ?? "")
-            : "",
-        redirectTo:
-          page.properties.redirectTo.type === "url"
-            ? page.properties.redirectTo.url
-              ? page.properties.redirectTo.url.toString()
-              : ""
-            : "",
-        thumbnailUrl:
-          page.properties.thumbnailUrl.type === "rich_text"
-            ? (page.properties.thumbnailUrl.rich_text.pop()?.plain_text ?? "")
-            : "",
-        publishedAt:
-          page.properties.publishedAt.type === "date"
-            ? (page.properties.publishedAt.date?.start ?? "")
-            : "",
-        createdAt:
-          page.properties.createdAt.type === "created_time"
-            ? page.properties.createdAt.created_time.split("T")[0]
-            : "",
-        title:
-          page.properties.title.type === "title"
-            ? (page.properties.title.title.pop()?.plain_text ?? "")
-            : "",
-      };
-    });
+  const notion = createNotionClient(NOTION_SECRET_KEY);
+  const allPages = await queryDatabase(notion, NOTION_DATABASE_ID, props);
+
+  // Exclude development category for works
+  const filteredPages = excludeByCategory(allPages, "development");
+
+  return filteredPages.map(mapNotionPageToWork);
+};
+
+const mapNotionPageToWork = (page: NotionPage): Work => {
+  return {
+    id: page.id,
+    updatedAt: page.updatedAt,
+    description: page.description,
+    category: page.category,
+    slug: page.slug,
+    redirectTo: page.redirectTo,
+    thumbnailUrl: page.thumbnailUrl,
+    publishedAt: page.publishedAt,
+    title: page.title,
+  };
 };

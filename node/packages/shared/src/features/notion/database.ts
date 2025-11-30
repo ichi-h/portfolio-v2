@@ -33,23 +33,23 @@ export const queryDatabase = async (
         },
         ...(props && props.category
           ? [
-            {
-              property: "category",
-              select: {
-                equals: props.category,
+              {
+                property: "category",
+                select: {
+                  equals: props.category,
+                },
               },
-            },
-          ]
+            ]
           : []),
         ...(props && props.slug
           ? [
-            {
-              property: "slug",
-              rich_text: {
-                equals: props.slug,
+              {
+                property: "slug",
+                rich_text: {
+                  equals: props.slug,
+                },
               },
-            },
-          ]
+            ]
           : []),
       ],
     },
@@ -63,8 +63,8 @@ export const queryDatabase = async (
         updatedAt:
           page.properties.updatedAt.type === "last_edited_time"
             ? page.properties.updatedAt.last_edited_time
-              .toString()
-              .split("T")[0]
+                .toString()
+                .split("T")[0]
             : "",
         description:
           page.properties.description.type === "rich_text"

@@ -27,7 +27,7 @@ const meHtml = await parseMd2Html(meMd);
 <script>
   if (document.getElementById('gallery')) {
     import('baguettebox.js').then(({ default: baguetteBox }) => {
-      const hoge = baguetteBox.run('#gallery', {
+      baguetteBox.run('#gallery', {
         filter: /.*/,
         overlayBackgroundColor: 'rgba(0, 0, 0, 0.9)',
       });

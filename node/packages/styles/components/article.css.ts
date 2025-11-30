@@ -103,13 +103,7 @@ globalStyle(
       maxWidth: "calc(100% / 2 - 8px)",
       boxSizing: "border-box",
     },
-    applyMedia(
-      { max: "768" },
-      flattenStyle([
-        w["0"],
-        h["0"],
-      ]),
-    ),
+    applyMedia({ max: "768" }, flattenStyle([w["0"], h["0"]])),
   ]),
 );
 

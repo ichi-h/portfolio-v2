@@ -11,37 +11,37 @@ import type { ReactElement } from "react";
 
 type Template =
   | {
-    type: "text";
-    style: string[];
-    text: string;
-  }
+      type: "text";
+      style: string[];
+      text: string;
+    }
   | {
-    type: "youtube";
-    id: string;
-  }
+      type: "youtube";
+      id: string;
+    }
   | {
-    type: "soundcloud";
-    trackId: string;
-    href: string;
-    title: string;
-    user?: string;
-  }
+      type: "soundcloud";
+      trackId: string;
+      href: string;
+      title: string;
+      user?: string;
+    }
   | {
-    type: "linkCard";
-    href: string;
-    title: string;
-    description: string;
-    thumbnailUrl?: string;
-  }
+      type: "linkCard";
+      href: string;
+      title: string;
+      description: string;
+      thumbnailUrl?: string;
+    }
   | {
-    type: "gallery";
-    images: {
-      url: string;
-      alt: string;
-      width: number;
-      height: number;
-    }[];
-  };
+      type: "gallery";
+      images: {
+        url: string;
+        alt: string;
+        width: number;
+        height: number;
+      }[];
+    };
 
 export const parseMd2Html = async (markdown: string) => {
   const mdToHtml = async (md: string) =>
@@ -92,13 +92,12 @@ export const parseMd2Html = async (markdown: string) => {
       );
     }
     if (template.type === "gallery") {
-      const images = template.images
-        .map(
-          (image) =>
-            `<a class="gallery-item" href="${image.url}">
+      const images = template.images.map(
+        (image) =>
+          `<a class="gallery-item" href="${image.url}">
               <img src="${image.url}" alt="${image.alt}" style="aspect-ratio: 3 / 2; object-fit: cover;" />
             </a>`,
-        );
+      );
       if (images.length % 2 === 1) {
         images.push(`<div class="gallery-empty"></div>`);
       }

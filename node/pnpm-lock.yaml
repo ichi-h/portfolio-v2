@@ -104,6 +104,15 @@ importers:
         specifier: ^4.20240129.0
         version: 4.20250214.0
 
+  packages/shared:
+    dependencies:
+      '@notionhq/client':
+        specifier: ^2.2.14
+        version: 2.2.15
+      notion-to-md:
+        specifier: ^3.1.1
+        version: 3.1.5
+
   packages/styles: {}
 
   packages/ui:

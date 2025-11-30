@@ -1,4 +1,3 @@
-// @ts-check
 import react from "@astrojs/react";
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
 import { defineConfig } from "astro/config";

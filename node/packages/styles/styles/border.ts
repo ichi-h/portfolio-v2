@@ -98,9 +98,6 @@ export const outlineStyle = styleMap({
   double: {
     outlineStyle: "double",
   },
-  hidden: {
-    outlineStyle: "hidden",
-  },
   none: {
     outlineStyle: "none",
   },

@@ -121,8 +121,6 @@ export const getWorks = async (props?: Props): Promise<Work[]> => {
 
   const notion = createNotionClient(NOTION_SECRET_KEY);
   const allPages = await queryDatabase(notion, NOTION_DATABASE_ID, props);
-  console.log(allPages);
-
 
   // Exclude development categories for works
   // const filteredPages = excludeByCategory(allPages, "development");

@@ -31,25 +31,25 @@ export const queryDatabase = async (
             is_not_empty: true,
           },
         },
-        ...(props && props.category
+        ...(props && props.categories
           ? [
-              {
-                property: "category",
-                select: {
-                  equals: props.category,
-                },
+            {
+              property: "categories",
+              select: {
+                equals: props.categories,
               },
-            ]
+            },
+          ]
           : []),
         ...(props && props.slug
           ? [
-              {
-                property: "slug",
-                rich_text: {
-                  equals: props.slug,
-                },
+            {
+              property: "slug",
+              rich_text: {
+                equals: props.slug,
               },
-            ]
+            },
+          ]
           : []),
       ],
     },
@@ -63,20 +63,19 @@ export const queryDatabase = async (
         updatedAt:
           page.properties.updatedAt.type === "last_edited_time"
             ? page.properties.updatedAt.last_edited_time
-                .toString()
-                .split("T")[0]
+              .toString()
+              .split("T")[0]
             : "",
         description:
           page.properties.description.type === "rich_text"
             ? (page.properties.description.rich_text.pop()?.plain_text ?? "")
             : "",
-        category:
-          page.properties.category.type === "select"
-            ? page.properties.category.select !== null &&
-              "name" in page.properties.category.select
-              ? page.properties.category.select.name
-              : ""
-            : "",
+        categories:
+          page.properties.categories.type === "multi_select"
+            ? "options" in page.properties.categories.multi_select
+              ? page.properties.categories.multi_select.options.map((option => option.name))
+              : page.properties.categories.multi_select.map((option) => option.name)
+            : [],
         unpublishedAt:
           page.properties.unpublishedAt.type === "date"
             ? (page.properties.unpublishedAt.date?.start ?? "")
@@ -112,21 +111,21 @@ export const queryDatabase = async (
 };
 
 /**
- * Filter pages by category
+ * Filter pages by categories
  */
 export const filterByCategory = (
   pages: NotionPage[],
-  category: string,
+  categories: string,
 ): NotionPage[] => {
-  return pages.filter((page) => page.category === category);
+  return pages.filter((page) => page.categories.includes(categories));
 };
 
 /**
- * Exclude pages by category
+ * Exclude pages by categories
  */
 export const excludeByCategory = (
   pages: NotionPage[],
-  category: string,
+  categories: string,
 ): NotionPage[] => {
-  return pages.filter((page) => page.category !== category);
+  return pages.filter((page) => !page.categories.includes(categories));
 };

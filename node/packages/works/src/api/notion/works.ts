@@ -15,7 +15,7 @@ export interface Work {
   id: string;
   slug: string;
   redirectTo: string;
-  category: string;
+  categories: string[];
   title: string;
   description: string;
   thumbnailUrl: string;
@@ -28,7 +28,7 @@ const mockedWorksResponse: Work[] = [
     id: "1",
     slug: "slug1",
     redirectTo: "",
-    category: "philosophy",
+    categories: ["philosophy", "music"],
     title: "Example Work 1",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis aliquam ultricies, nisl nisl aliquet nisl, nec ali",
@@ -40,7 +40,7 @@ const mockedWorksResponse: Work[] = [
     id: "2",
     slug: "",
     redirectTo: "https://google.com",
-    category: "development",
+    categories: ["development"],
     title: "Google",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis aliquam ultricies, nisl nisl aliquet nisl, nec ali",
@@ -52,7 +52,7 @@ const mockedWorksResponse: Work[] = [
     id: "3",
     slug: "slug3",
     redirectTo: "",
-    category: "photography",
+    categories: ["photography"],
     title: "Example Work 3",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis aliquam ultricies, nisl nisl aliquet nisl, nec ali",
@@ -64,7 +64,7 @@ const mockedWorksResponse: Work[] = [
     id: "4",
     slug: "slug4",
     redirectTo: "",
-    category: "music",
+    categories: ["music"],
     title: "Example Work 4",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis aliquam ultricies, nisl nisl aliquet nisl, nec ali",
@@ -76,7 +76,7 @@ const mockedWorksResponse: Work[] = [
     id: "5",
     slug: "slug5",
     redirectTo: "",
-    category: "philosophy",
+    categories: ["philosophy"],
     title: "Example Work 5",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis aliquam ultricies, nisl nisl aliquet nisl, nec ali",
@@ -88,7 +88,7 @@ const mockedWorksResponse: Work[] = [
     id: "6",
     slug: "",
     redirectTo: "https://youtu.be/XhfNs3fSm2k?si=NMCefbtk6uN9JPAk",
-    category: "music",
+    categories: ["music"],
     title: "God's Warrior - Move It",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis aliquam ultricies, nisl nisl aliquet nisl, nec ali",
@@ -101,7 +101,7 @@ const mockedWorksResponse: Work[] = [
     slug: "",
     redirectTo:
       "https://soundcloud.com/imkotori/wisteria?si=d2d12a8a0b224d779aef793aa39827cd&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
-    category: "music",
+    categories: ["music"],
     title: "Wisteria by Kotori",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis aliquam ultricies, nisl nisl aliquet nisl, nec ali",
@@ -121,8 +121,10 @@ export const getWorks = async (props?: Props): Promise<Work[]> => {
 
   const notion = createNotionClient(NOTION_SECRET_KEY);
   const allPages = await queryDatabase(notion, NOTION_DATABASE_ID, props);
+  console.log(allPages);
 
-  // Exclude development category for works
+
+  // Exclude development categories for works
   // const filteredPages = excludeByCategory(allPages, "development");
 
   // return filteredPages.map(mapNotionPageToWork);
@@ -134,7 +136,7 @@ const mapNotionPageToWork = (page: NotionPage): Work => {
     id: page.id,
     updatedAt: page.updatedAt,
     description: page.description,
-    category: page.category,
+    categories: page.categories,
     slug: page.slug,
     redirectTo: page.redirectTo,
     thumbnailUrl: page.thumbnailUrl,

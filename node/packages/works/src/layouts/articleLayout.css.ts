@@ -37,7 +37,7 @@ export const layoutStyle = style([
     { max: "1280" },
     flattenStyle([
       {
-        width: `calc(${REM[192]} - ${REM[8]})`,
+        width: `calc(${RATIO["1/1"]} - ${REM[48]})`,
       },
       minW["auto"],
       pt[4],

@@ -110,7 +110,7 @@ export const GridWorks: FC<Props> = ({ works }) => {
                   </Text>
                 </div>
                 <Text fontSize="3" color="mono.500">
-                  # {work.category}
+                  {work.categories.map((category) => `#${category} `)}
                 </Text>
               </div>
               <Paragraph

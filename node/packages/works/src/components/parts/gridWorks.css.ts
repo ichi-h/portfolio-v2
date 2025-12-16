@@ -23,6 +23,7 @@ import {
   position,
   right,
   textDecoration,
+  textWhiteSpace,
   w,
 } from "portfolio-styles";
 
@@ -55,7 +56,7 @@ export const cardGrid = style([
   gridRows[1],
   gap[6],
   applyMedia({ max: "1024" }, flattenStyle([gridCols[2]])),
-  applyMedia({ max: "480" }, flattenStyle([gridCols[1]])),
+  applyMedia({ max: "576" }, flattenStyle([gridCols[1]])),
 ]);
 
 export const card = style([borderRadius[4], dropShadow["md"], h["1/1"]]);
@@ -93,6 +94,6 @@ export const cardTitle = style([
   applyMedia({ max: "768" }, flattenStyle([fontSize[4], lineHeight[4]])),
 ]);
 
-export const cardDateAndCategory = style([flex, flexJustify["between"]]);
+export const cardDateAndCategory = style([flex, flexJustify["between"], gap[1]]);
 
-export const cardPublishedAt = style([flex, flexAlign["center"], gap[1]]);
+export const cardPublishedAt = style([flex, flexAlign["center"], gap[1], flexWrap["nowrap"], textWhiteSpace["nowrap"]]);

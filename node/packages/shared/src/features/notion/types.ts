@@ -2,14 +2,14 @@
 
 export interface DatabaseQueryProps {
   slug?: string;
-  category?: string;
+  categories?: string;
 }
 
 export interface NotionPage {
   id: string;
   slug: string;
   redirectTo: string;
-  category: string;
+  categories: string[];
   title: string;
   description: string;
   thumbnailUrl: string;

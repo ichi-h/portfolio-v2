@@ -17,14 +17,17 @@ interface Props {
 export const WorkPage: FC<Props> = ({ work, body }) => {
   return (
     <div className={styles.layout}>
-      <div className={styles.matter}>
-        <Link
-          as={Anchor}
-          asProps={{ href: `/categories/${work.category}` }}
-          color="mono.500"
-        >
-          #{work.category}
-        </Link>
+      <div className={styles.categories}>
+        {work.categories.map((category) => (
+          <Link
+            as={Anchor}
+            asProps={{ href: `/categories/${category}` }}
+            color="mono.500"
+            key={category}
+          >
+            #{category}
+          </Link>
+        ))}
       </div>
       <div className={styles.matter}>
         <Text color="mono.900">Published: {work.publishedAt}</Text>

@@ -3,12 +3,20 @@ import {
   flex,
   flexAlign,
   flexDirection,
+  flexJustify,
   flexWrap,
   gap,
   mt,
 } from "portfolio-styles";
 
 export const layout = style([flex, flexDirection["column"], gap[2]]);
+
+export const categories = style([
+  flex,
+  flexJustify["end"],
+  flexWrap["wrap"],
+  gap[2],
+]);
 
 export const matter = style([
   flex,

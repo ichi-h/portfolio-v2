@@ -94,6 +94,16 @@ export const cardTitle = style([
   applyMedia({ max: "768" }, flattenStyle([fontSize[4], lineHeight[4]])),
 ]);
 
-export const cardDateAndCategory = style([flex, flexJustify["between"], gap[1]]);
+export const cardDateAndCategory = style([
+  flex,
+  flexJustify["between"],
+  gap[1],
+]);
 
-export const cardPublishedAt = style([flex, flexAlign["center"], gap[1], flexWrap["nowrap"], textWhiteSpace["nowrap"]]);
+export const cardPublishedAt = style([
+  flex,
+  flexAlign["center"],
+  gap[1],
+  flexWrap["nowrap"],
+  textWhiteSpace["nowrap"],
+]);

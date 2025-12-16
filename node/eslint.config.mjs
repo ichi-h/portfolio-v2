@@ -33,6 +33,7 @@ export default defineConfig([
     "**/.storybook",
     "**/.astro",
     "packages/works",
+    "**/.turbo",
     "**/.direnv",
   ]),
   {

@@ -22,4 +22,6 @@ pnpm-lock.yaml
 /**/.wrangler
 /**/storybook-static
 
+/**/.astro/
+/**/.turbo/
 /**/.direnv

@@ -123,9 +123,10 @@ export const getWorks = async (props?: Props): Promise<Work[]> => {
   const allPages = await queryDatabase(notion, NOTION_DATABASE_ID, props);
 
   // Exclude development category for works
-  const filteredPages = excludeByCategory(allPages, "development");
+  // const filteredPages = excludeByCategory(allPages, "development");
 
-  return filteredPages.map(mapNotionPageToWork);
+  // return filteredPages.map(mapNotionPageToWork);
+  return allPages.map(mapNotionPageToWork);
 };
 
 const mapNotionPageToWork = (page: NotionPage): Work => {

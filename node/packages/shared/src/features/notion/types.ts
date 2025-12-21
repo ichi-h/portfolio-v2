@@ -2,7 +2,7 @@
 
 export interface DatabaseQueryProps {
   slug?: string;
-  categories?: string;
+  category?: string;
 }
 
 export interface NotionPage {

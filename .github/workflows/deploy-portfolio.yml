@@ -50,7 +50,7 @@ jobs:
           echo "APP_URL=${{ vars.APP_URL }}" >> .env
           echo "OG_IMAGE_SERVER_URL=${{ vars.OG_IMAGE_SERVER_URL }}" >> .env
           echo "NOTION_SECRET_KEY=${{ secrets.NOTION_SECRET_KEY }}" >> .env
-          echo "NOTION_DATABASE_ID=${{ vars.NOTION_DATABASE_ID }}" >> .env
+          echo "NOTION_DATA_SOURCE_ID=${{ vars.NOTION_DATA_SOURCE_ID }}" >> .env
         working-directory: ./node/packages/works
 
       - name: Build

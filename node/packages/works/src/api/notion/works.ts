@@ -113,14 +113,14 @@ const mockedWorksResponse: Work[] = [
 ];
 
 export const getWorks = async (props?: Props): Promise<Work[]> => {
-  const { ENVIRONMENT, NOTION_SECRET_KEY, NOTION_DATABASE_ID } = useEnv();
+  const { ENVIRONMENT, NOTION_SECRET_KEY, NOTION_DATA_SOURCE_ID } = useEnv();
 
   if (ENVIRONMENT !== "production") {
     return mockedWorksResponse;
   }
 
   const notion = createNotionClient(NOTION_SECRET_KEY);
-  const allPages = await queryDatabase(notion, NOTION_DATABASE_ID, props);
+  const allPages = await queryDatabase(notion, NOTION_DATA_SOURCE_ID, props);
 
   // Exclude development categories for works
   // const filteredPages = excludeByCategory(allPages, "development");

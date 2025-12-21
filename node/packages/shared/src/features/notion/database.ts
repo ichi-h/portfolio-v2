@@ -6,11 +6,11 @@ import type { Client } from "@notionhq/client";
  */
 export const queryDatabase = async (
   client: Client,
-  databaseId: string,
+  dataSourceId: string,
   props?: DatabaseQueryProps,
 ): Promise<NotionPage[]> => {
-  const response = await client.databases.query({
-    database_id: databaseId,
+  const response = await client.dataSources.query({
+    data_source_id: dataSourceId,
     sorts: [
       {
         property: "publishedAt",
@@ -31,25 +31,25 @@ export const queryDatabase = async (
             is_not_empty: true,
           },
         },
-        ...(props && props.categories
+        ...(props?.category
           ? [
-              {
-                property: "categories",
-                select: {
-                  equals: props.categories,
-                },
+            {
+              property: "categories",
+              multi_select: {
+                contains: props.category,
               },
-            ]
+            },
+          ]
           : []),
-        ...(props && props.slug
+        ...(props?.slug
           ? [
-              {
-                property: "slug",
-                rich_text: {
-                  equals: props.slug,
-                },
+            {
+              property: "slug",
+              rich_text: {
+                equals: props.slug,
               },
-            ]
+            },
+          ]
           : []),
       ],
     },
@@ -63,8 +63,8 @@ export const queryDatabase = async (
         updatedAt:
           page.properties.updatedAt.type === "last_edited_time"
             ? page.properties.updatedAt.last_edited_time
-                .toString()
-                .split("T")[0]
+              .toString()
+              .split("T")[0]
             : "",
         description:
           page.properties.description.type === "rich_text"
@@ -74,11 +74,11 @@ export const queryDatabase = async (
           page.properties.categories.type === "multi_select"
             ? "options" in page.properties.categories.multi_select
               ? page.properties.categories.multi_select.options.map(
-                  (option) => option.name,
-                )
+                (option) => option.name,
+              )
               : page.properties.categories.multi_select.map(
-                  (option) => option.name,
-                )
+                (option) => option.name,
+              )
             : [],
         unpublishedAt:
           page.properties.unpublishedAt.type === "date"

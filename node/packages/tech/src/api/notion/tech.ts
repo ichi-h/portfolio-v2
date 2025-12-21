@@ -15,7 +15,7 @@ export interface TechPost {
   id: string;
   slug: string;
   redirectTo: string;
-  category: string;
+  categories: string[];
   title: string;
   description: string;
   thumbnailUrl: string;
@@ -67,14 +67,14 @@ const mockedTechResponse: TechPost[] = [
  * Filters by category: "development"
  */
 export const getTechPosts = async (props?: Props): Promise<TechPost[]> => {
-  const { ENVIRONMENT, NOTION_SECRET_KEY, NOTION_DATABASE_ID } = useEnv();
+  const { ENVIRONMENT, NOTION_SECRET_KEY, NOTION_DATA_SOURCE_ID } = useEnv();
 
   if (ENVIRONMENT !== "production") {
     return mockedTechResponse;
   }
 
   const notion = createNotionClient(NOTION_SECRET_KEY);
-  const allPages = await queryDatabase(notion, NOTION_DATABASE_ID, {
+  const allPages = await queryDatabase(notion, NOTION_DATA_SOURCE_ID, {
     ...props,
     category: "development",
   });
@@ -90,7 +90,7 @@ const mapNotionPageToTechPost = (page: NotionPage): TechPost => {
     id: page.id,
     updatedAt: page.updatedAt,
     description: page.description,
-    category: page.category,
+    categories: page.categories,
     slug: page.slug,
     redirectTo: page.redirectTo,
     thumbnailUrl: page.thumbnailUrl,

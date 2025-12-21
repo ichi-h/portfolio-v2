@@ -30,6 +30,9 @@ importers:
       '@eslint/js':
         specifier: ^9.39.1
         version: 9.39.1
+      '@notionhq/client':
+        specifier: ^5.6.0
+        version: 5.6.0
       '@types/node':
         specifier: 24.10.1
         version: 24.10.1
@@ -75,6 +78,9 @@ importers:
       lint-staged:
         specifier: ^16.2.7
         version: 16.2.7
+      notion-to-md:
+        specifier: ^3.1.9
+        version: 3.1.9
       prettier:
         specifier: ^3.7.3
         version: 3.7.3
@@ -104,14 +110,7 @@ importers:
         specifier: ^4.20240129.0
         version: 4.20250214.0
 
-  packages/shared:
-    dependencies:
-      '@notionhq/client':
-        specifier: ^2.2.14
-        version: 2.2.15
-      notion-to-md:
-        specifier: ^3.1.1
-        version: 3.1.9
+  packages/shared: {}
 
   packages/styles: {}
 
@@ -123,9 +122,6 @@ importers:
       '@astrojs/react':
         specifier: ^4.4.2
         version: 4.4.2(@types/node@24.10.1)(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(yaml@2.8.2)
-      '@notionhq/client':
-        specifier: ^2.2.14
-        version: 2.2.15
       astro:
         specifier: ^5.16.3
         version: 5.16.3(@types/node@24.10.1)(rollup@4.53.3)(typescript@5.9.3)(yaml@2.8.2)
@@ -135,9 +131,6 @@ importers:
       mermaid:
         specifier: ^11.12.1
         version: 11.12.1
-      notion-to-md:
-        specifier: ^3.1.9
-        version: 3.1.9
       portfolio-shared:
         specifier: workspace:*
         version: link:../shared
@@ -208,9 +201,6 @@ importers:
       '@astrojs/react':
         specifier: ^4.4.2
         version: 4.4.2(@types/node@24.10.1)(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(yaml@2.8.2)
-      '@notionhq/client':
-        specifier: ^2.2.14
-        version: 2.2.15
       astro:
         specifier: ^5.16.3
         version: 5.16.3(@types/node@24.10.1)(rollup@4.53.3)(typescript@5.9.3)(yaml@2.8.2)
@@ -223,9 +213,6 @@ importers:
       mermaid:
         specifier: ^11.12.1
         version: 11.12.1
-      notion-to-md:
-        specifier: ^3.1.9
-        version: 3.1.9
       portfolio-shared:
         specifier: workspace:*
         version: link:../shared
@@ -1590,9 +1577,9 @@ packages:
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
 
-  '@notionhq/client@2.2.15':
-    resolution: {integrity: sha512-XhdSY/4B1D34tSco/GION+23GMjaS9S2zszcqYkMHo8RcWInymF6L1x+Gk7EmHdrSxNFva2WM8orhC4BwQCwgw==}
-    engines: {node: '>=12'}
+  '@notionhq/client@5.6.0':
+    resolution: {integrity: sha512-eA3dO87vQJhFmR59utXH8r0nnulW7C7oTcxfp3bpiiTiv59luCkOkbbALCIa8TzBDdELoRD/zJEIfKcynyFR6Q==}
+    engines: {node: '>=18'}
 
   '@oslojs/encoding@1.1.0':
     resolution: {integrity: sha512-70wQhgYmndg4GCPxPPxPGevRKqTIJ2Nh4OkiMWmDAVYsTQ+Ta7Sq+rPevXyXGdzr30/qZBnyOalCszoMxlyldQ==}
@@ -2275,9 +2262,6 @@ packages:
 
   '@types/nlcst@2.0.3':
     resolution: {integrity: sha512-vSYNSDe6Ix3q+6Z7ri9lyWqgGhJTmzRjZRqyq15N0Z/1/UnVsno9G/N40NBijoYx2seFDIl0+B2mgAb9mezUCA==}
-
-  '@types/node-fetch@2.6.12':
-    resolution: {integrity: sha512-8nneRWKCg3rMtF69nLQJnOYUcbafYeFSjqkw3jCRLsqkWFlHaoQrr5mXmofFGOx3DKn7UfmBMyov8ySvLRVldA==}
 
   '@types/node@24.10.1':
     resolution: {integrity: sha512-GNWcUTRBgIRJD5zj+Tq0fKOJ5XZajIiBroOF0yvj2bSU1WvNdYS/dn9UxwsujGW4JX06dnHyjV2y9rRaybH0iQ==}
@@ -7765,12 +7749,7 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.19.0
 
-  '@notionhq/client@2.2.15':
-    dependencies:
-      '@types/node-fetch': 2.6.12
-      node-fetch: 2.7.0
-    transitivePeerDependencies:
-      - encoding
+  '@notionhq/client@5.6.0': {}
 
   '@oslojs/encoding@1.1.0': {}
 
@@ -8530,11 +8509,6 @@ snapshots:
   '@types/nlcst@2.0.3':
     dependencies:
       '@types/unist': 3.0.3
-
-  '@types/node-fetch@2.6.12':
-    dependencies:
-      '@types/node': 24.10.1
-      form-data: 4.0.2
 
   '@types/node@24.10.1':
     dependencies:

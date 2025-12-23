@@ -33,23 +33,23 @@ export const queryDatabase = async (
         },
         ...(props?.category
           ? [
-            {
-              property: "categories",
-              multi_select: {
-                contains: props.category,
+              {
+                property: "categories",
+                multi_select: {
+                  contains: props.category,
+                },
               },
-            },
-          ]
+            ]
           : []),
         ...(props?.slug
           ? [
-            {
-              property: "slug",
-              rich_text: {
-                equals: props.slug,
+              {
+                property: "slug",
+                rich_text: {
+                  equals: props.slug,
+                },
               },
-            },
-          ]
+            ]
           : []),
       ],
     },
@@ -63,8 +63,8 @@ export const queryDatabase = async (
         updatedAt:
           page.properties.updatedAt.type === "last_edited_time"
             ? page.properties.updatedAt.last_edited_time
-              .toString()
-              .split("T")[0]
+                .toString()
+                .split("T")[0]
             : "",
         description:
           page.properties.description.type === "rich_text"
@@ -74,11 +74,11 @@ export const queryDatabase = async (
           page.properties.categories.type === "multi_select"
             ? "options" in page.properties.categories.multi_select
               ? page.properties.categories.multi_select.options.map(
-                (option) => option.name,
-              )
+                  (option) => option.name,
+                )
               : page.properties.categories.multi_select.map(
-                (option) => option.name,
-              )
+                  (option) => option.name,
+                )
             : [],
         unpublishedAt:
           page.properties.unpublishedAt.type === "date"

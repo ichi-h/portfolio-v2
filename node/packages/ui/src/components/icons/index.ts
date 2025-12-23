@@ -7,6 +7,7 @@ import { SoundCloudIcon } from "./soundcloud";
 import { UpdateIcon } from "./update";
 import { XIcon } from "./x";
 import { YouTubeIcon } from "./youtube";
+import { ZennIcon } from "./zenn";
 
 export * from "./github";
 export * from "./icon";
@@ -18,6 +19,7 @@ export * from "./x";
 export * from "./update";
 export * from "./youtube";
 export * from "./soundcloud";
+export * from "./zenn";
 
 export type TIcon =
   | typeof GitHubIcon
@@ -28,4 +30,5 @@ export type TIcon =
   | typeof XIcon
   | typeof UpdateIcon
   | typeof YouTubeIcon
-  | typeof SoundCloudIcon;
+  | typeof SoundCloudIcon
+  | typeof ZennIcon;

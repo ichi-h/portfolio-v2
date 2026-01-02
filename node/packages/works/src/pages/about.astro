@@ -1,13 +1,11 @@
 ---
 import bbStyle from "baguettebox.js/dist/baguetteBox.min.css?url";
-
 import { About as AboutPage } from "../components/pages/about";
 import meMd from "../components/pages/about/me.md?raw";
-
 import { Head } from "../components/parts/head";
 import HTML from "../layouts/html.astro";
 import { ArticleLayout } from "../layouts/articleLayout";
-import { parseMd2Html } from "../components/pages/parseMd2Html";
+import { parseMd2Html } from "portfolio-shared/md";
 
 const meHtml = await parseMd2Html(meMd);
 ---
@@ -25,11 +23,11 @@ const meHtml = await parseMd2Html(meMd);
 </HTML>
 
 <script>
-  if (document.getElementById('gallery')) {
-    import('baguettebox.js').then(({ default: baguetteBox }) => {
-      baguetteBox.run('#gallery', {
+  if (document.getElementById("gallery")) {
+    import("baguettebox.js").then(({ default: baguetteBox }) => {
+      baguetteBox.run("#gallery", {
         filter: /.*/,
-        overlayBackgroundColor: 'rgba(0, 0, 0, 0.9)',
+        overlayBackgroundColor: "rgba(0, 0, 0, 0.9)",
       });
     });
   }

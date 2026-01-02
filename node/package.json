@@ -33,6 +33,7 @@
     "@vitejs/plugin-react": "^5.1.1",
     "eslint": "9.39.1",
     "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-astro": "^1.5.0",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-unused-imports": "^4.3.0",
     "globals": "^16.5.0",
@@ -40,6 +41,7 @@
     "lint-staged": "^16.2.7",
     "notion-to-md": "^3.1.9",
     "prettier": "^3.7.3",
+    "prettier-plugin-astro": "^0.14.1",
     "turbo": "^2.6.1",
     "typescript": "5.9.3",
     "vite": "^7.2.4",
@@ -47,10 +49,10 @@
     "wrangler": "^4.51.0"
   },
   "lint-staged": {
-    "*.{js,ts,.jsx,tsx,json,md}": [
+    "*.{js,ts,.jsx,tsx,json,md,astro}": [
       "prettier --write . --ignore-path .prettierignore"
     ],
-    "*.{js,ts,.jsx,tsx}": [
+    "*.{js,ts,.jsx,tsx,astro}": [
       "eslint . --fix"
     ]
   },

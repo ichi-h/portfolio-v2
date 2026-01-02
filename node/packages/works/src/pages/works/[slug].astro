@@ -37,7 +37,8 @@ const body = await parseMd2Html(bodyMd);
       title={`${work.title} - ichi-h.com`}
       description={work.description}
       ogType="article"
-      ogImage={work.thumbnailUrl || `${OG_IMAGE_SERVER_URL}?title=${work.title}`}
+      ogImage={work.thumbnailUrl ||
+        `${OG_IMAGE_SERVER_URL}?title=${work.title}`}
     />
     <link rel="stylesheet" href={codeStyle} />
     <link rel="stylesheet" href={bbStyle} />
@@ -56,11 +57,11 @@ const body = await parseMd2Html(bodyMd);
   hljs.highlightAll();
   mermaid.initialize({ startOnLoad: true });
 
-  if (document.getElementById('gallery')) {
-    import('baguettebox.js').then(({ default: baguetteBox }) => {
-      baguetteBox.run('#gallery', {
+  if (document.getElementById("gallery")) {
+    import("baguettebox.js").then(({ default: baguetteBox }) => {
+      baguetteBox.run("#gallery", {
         filter: /.*/,
-        overlayBackgroundColor: 'rgba(0, 0, 0, 0.9)',
+        overlayBackgroundColor: "rgba(0, 0, 0, 0.9)",
       });
     });
   }

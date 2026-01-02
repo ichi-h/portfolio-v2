@@ -6,6 +6,8 @@ import { FlatCompat } from "@eslint/eslintrc";
 import js from "@eslint/js";
 import typescriptEslint from "@typescript-eslint/eslint-plugin";
 import { defineConfig, globalIgnores } from "eslint/config";
+import eslintConfigPrettier from "eslint-config-prettier";
+import eslintPluginAstro from "eslint-plugin-astro";
 import _import from "eslint-plugin-import";
 import unusedImports from "eslint-plugin-unused-imports";
 import globals from "globals";
@@ -19,6 +21,7 @@ const compat = new FlatCompat({
 });
 
 export default defineConfig([
+  eslintConfigPrettier,
   globalIgnores([
     "**/*.config.ts",
     "**/*.config.js",
@@ -37,10 +40,7 @@ export default defineConfig([
     "**/.direnv",
   ]),
   {
-    extends: compat.extends(
-      "prettier",
-      "plugin:@typescript-eslint/recommended",
-    ),
+    extends: compat.extends("plugin:@typescript-eslint/recommended"),
 
     plugins: {
       import: fixupPluginRules(_import),
@@ -97,4 +97,6 @@ export default defineConfig([
       ],
     },
   },
+
+  ...eslintPluginAstro.configs["flat/recommended"],
 ]);

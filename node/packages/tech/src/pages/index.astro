@@ -1,8 +1,12 @@
 ---
-import { Home } from "../components/pages/home";
+import { parseMd2Html } from "portfolio-shared/md";
 
+import { Home } from "../components/pages/home";
+import meMd from "../components/pages/home/me.md?raw";
 import { Head } from "../components/parts/head";
 import HTML from "../layouts/html.astro";
+
+const meBody = await parseMd2Html(meMd);
 ---
 
 <HTML>
@@ -10,6 +14,6 @@ import HTML from "../layouts/html.astro";
     <Head url="/" ogType="website" />
   </Fragment>
   <Fragment slot="content">
-    <Home />
+    <Home meBody={meBody} />
   </Fragment>
 </HTML>

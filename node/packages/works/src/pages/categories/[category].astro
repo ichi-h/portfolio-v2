@@ -9,7 +9,9 @@ import { getWorks } from "../../api/notion/works";
 export async function getStaticPaths() {
   const works = await getWorks();
   const categories = new Set(
-    works.flatMap((work) => work.categories).filter((category) => category !== "")
+    works
+      .flatMap((work) => work.categories)
+      .filter((category) => category !== ""),
   );
   return Array.from(categories).map((category) => {
     return { params: { category } };

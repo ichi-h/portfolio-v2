@@ -1,15 +1,14 @@
 ---
 import codeStyle from "highlight.js/styles/base16/snazzy.min.css?url";
+import { parseMd2Html } from "portfolio-shared/md";
 
-import { PostPage } from "../../components/pages/posts.[slug]";
-
-import HTML from "../../layouts/html.astro";
-import { ArticleLayout } from "../../layouts/articleLayout";
-import { parseMd2Html } from "../../components/pages/parseMd2Html";
-import { getTechPosts } from "../../api/notion/tech";
 import { getMarkdownBody } from "../../api/notion/markdownBody";
-import { useEnv } from "../../utils/env";
+import { getTechPosts } from "../../api/notion/tech";
+import { PostPage } from "../../components/pages/posts.[slug]";
 import { Head } from "../../components/parts/head";
+import { ArticleLayout } from "../../layouts/articleLayout";
+import HTML from "../../layouts/html.astro";
+import { useEnv } from "../../utils/env";
 
 const { OG_IMAGE_SERVER_URL } = useEnv();
 
@@ -36,7 +35,8 @@ const body = await parseMd2Html(bodyMd);
       title={`${post.title} - tech.ichi-h.com`}
       description={post.description}
       ogType="article"
-      ogImage={post.thumbnailUrl || `${OG_IMAGE_SERVER_URL}?title=${post.title}`}
+      ogImage={post.thumbnailUrl ||
+        `${OG_IMAGE_SERVER_URL}?title=${post.title}`}
     />
     <link rel="stylesheet" href={codeStyle} />
   </Fragment>

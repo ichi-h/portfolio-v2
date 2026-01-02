@@ -134,19 +134,13 @@ globalStyle(
 );
 
 globalStyle(
-  `${articleVariant['light']} blockquote`,
-  flattenStyle([
-    bg["mono.50"],
-    borderColor["mono.300"],
-  ]),
+  `${articleVariant["light"]} blockquote`,
+  flattenStyle([bg["mono.50"], borderColor["mono.300"]]),
 );
 
 globalStyle(
-  `${articleVariant['dark']} blockquote`,
-  flattenStyle([
-    bg["mono.700"],
-    borderColor["mono.400"],
-  ]),
+  `${articleVariant["dark"]} blockquote`,
+  flattenStyle([bg["mono.700"], borderColor["mono.400"]]),
 );
 
 globalStyle(

@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
+import { COLOR } from "portfolio-styles";
 
 import { Article } from "./article";
-import { COLOR } from "portfolio-styles";
 
 const meta: Meta<typeof Article> = {
   title: "article",
@@ -78,12 +78,15 @@ export const Default: Story = {
     theme: "light",
   },
   render: ({ theme }) => (
-    <div style={{
-      width: '100%',
-      backgroundColor: theme === 'light' ? COLOR['mono.50'] : COLOR['mono.800'],
-      border: `solid 1rem ${theme === 'light' ? COLOR['mono.50'] : COLOR['mono.800']}`,
-      boxSizing: 'border-box',
-    }}>
+    <div
+      style={{
+        width: "100%",
+        backgroundColor:
+          theme === "light" ? COLOR["mono.50"] : COLOR["mono.800"],
+        border: `solid 1rem ${theme === "light" ? COLOR["mono.50"] : COLOR["mono.800"]}`,
+        boxSizing: "border-box",
+      }}
+    >
       <Article dangerouslySetInnerHTML={{ __html }} theme={theme} />
     </div>
   ),

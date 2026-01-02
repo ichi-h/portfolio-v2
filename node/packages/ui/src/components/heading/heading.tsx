@@ -19,7 +19,7 @@ export const Heading = ({
     <Component
       className={clsx([
         styles.heading[level],
-        styles.fontColor[color ?? 'mono.900'],
+        styles.fontColor[color ?? "mono.900"],
         className,
       ])}
       {...props}

@@ -26,7 +26,7 @@ export const Paragraph = ({
     <p
       className={clsx([
         styles.paragraph,
-        styles.fontColor[color ?? 'mono.900'],
+        styles.fontColor[color ?? "mono.900"],
         align && styles.textAlign[align],
         overflow && styles.overflow[overflow],
         textOverflow && styles.textOverflow[textOverflow],

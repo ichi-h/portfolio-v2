@@ -3,7 +3,7 @@ import { style, styleVariants } from "@vanilla-extract/css";
 import { flattenStyle, styleRule } from "../libs/vanillaExtract";
 import {
   fontSize,
-  fontColor,
+  fontColor as fontColorRule,
   m,
   p,
   textAlign as textAlignRule,
@@ -12,9 +12,9 @@ import {
   textWhiteSpace as textWhiteSpaceRule,
 } from "../styles";
 
-export const paragraphRule = styleRule(
-  flattenStyle([fontSize[4], fontColor["mono.900"], m[0], p[0]]),
-);
+export const paragraphRule = styleRule(flattenStyle([fontSize[4], m[0], p[0]]));
+
+export const fontColor = styleVariants(fontColorRule);
 
 export const paragraph = style(paragraphRule);
 

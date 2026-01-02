@@ -4,6 +4,7 @@ import * as styles from "portfolio-styles/components/paragraph.css";
 import { Paragraph } from "./paragraph";
 
 const options = {
+  color: Object.keys(styles.fontColor) as Array<keyof typeof styles.fontColor>,
   align: Object.keys(styles.textAlign) as Array<keyof typeof styles.textAlign>,
   overflow: Object.keys(styles.overflow) as Array<keyof typeof styles.overflow>,
   textOverflow: Object.keys(styles.textOverflow) as Array<
@@ -18,6 +19,12 @@ const meta: Meta<typeof Paragraph> = {
   title: "paragraph",
   component: Paragraph,
   argTypes: {
+    color: {
+      control: {
+        type: "select",
+      },
+      options: options.color,
+    },
     align: {
       control: {
         type: "select",

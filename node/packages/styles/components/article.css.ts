@@ -1,4 +1,4 @@
-import { style, globalStyle } from "@vanilla-extract/css";
+import { style, globalStyle, styleVariants } from "@vanilla-extract/css";
 
 import { applyMedia, flattenStyle } from "../libs/vanillaExtract";
 import {
@@ -40,8 +40,12 @@ export const article = style([
   gap[4],
   w["1/1"],
   fontSize[4],
-  fontColor["mono.900"],
 ]);
+
+export const articleVariant = styleVariants({
+  light: flattenStyle([fontColor["mono.900"]]),
+  dark: flattenStyle([fontColor["mono.50"]]),
+});
 
 globalStyle(`${article} *`, m[0]);
 
@@ -119,8 +123,6 @@ globalStyle(
     flex,
     flexDirection["column"],
     gap[2],
-    bg["mono.50"],
-    borderColor["mono.300"],
     borderStyle["solid"],
     border[0],
     borderL[8],
@@ -128,6 +130,22 @@ globalStyle(
     p[3],
     m[0],
     dropShadow["md"],
+  ]),
+);
+
+globalStyle(
+  `${articleVariant['light']} blockquote`,
+  flattenStyle([
+    bg["mono.50"],
+    borderColor["mono.300"],
+  ]),
+);
+
+globalStyle(
+  `${articleVariant['dark']} blockquote`,
+  flattenStyle([
+    bg["mono.700"],
+    borderColor["mono.400"],
   ]),
 );
 

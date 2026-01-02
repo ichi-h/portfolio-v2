@@ -7,7 +7,7 @@ import {
   styleRule,
 } from "../libs/vanillaExtract";
 import {
-  fontColor,
+  fontColor as fontColorRule,
   textAlign,
   m,
   p,
@@ -17,7 +17,7 @@ import {
 } from "../styles";
 
 const headingBaseRule = styleRule(
-  flattenStyle([fontColor["mono.900"], textAlign["left"], m[0], p[0]]),
+  flattenStyle([textAlign["left"], m[0], p[0]]),
 );
 
 export const headingRule = styleMap({
@@ -55,5 +55,7 @@ export const headingRule = styleMap({
     ),
   ]),
 });
+
+export const fontColor = styleVariants(fontColorRule);
 
 export const heading = styleVariants(headingRule);

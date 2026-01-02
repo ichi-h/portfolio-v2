@@ -3,6 +3,7 @@ import * as styles from "portfolio-styles/components/paragraph.css";
 import { ComponentProps } from "react";
 
 type Props = {
+  color?: keyof (typeof styles)["fontColor"];
   align?: keyof (typeof styles)["textAlign"];
   overflow?: keyof (typeof styles)["overflow"];
   textOverflow?: keyof (typeof styles)["textOverflow"];
@@ -13,6 +14,7 @@ type Props = {
 export const Paragraph = ({
   children,
   className,
+  color,
   align,
   overflow,
   textOverflow,
@@ -24,6 +26,7 @@ export const Paragraph = ({
     <p
       className={clsx([
         styles.paragraph,
+        styles.fontColor[color ?? 'mono.900'],
         align && styles.textAlign[align],
         overflow && styles.overflow[overflow],
         textOverflow && styles.textOverflow[textOverflow],

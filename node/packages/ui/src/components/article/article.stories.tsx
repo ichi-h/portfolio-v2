@@ -1,11 +1,19 @@
 import { Meta, StoryObj } from "@storybook/react";
 
 import { Article } from "./article";
+import { COLOR } from "portfolio-styles";
 
 const meta: Meta<typeof Article> = {
   title: "article",
   component: Article,
-  argTypes: {},
+  argTypes: {
+    theme: {
+      control: {
+        type: "select",
+      },
+      options: ["light", "dark"],
+    },
+  },
 };
 
 export default meta;
@@ -66,5 +74,17 @@ main()
 <p><span class="text-bold text-red text-12">強調</span></p>`;
 
 export const Default: Story = {
-  render: () => <Article dangerouslySetInnerHTML={{ __html }} />,
+  args: {
+    theme: "light",
+  },
+  render: ({ theme }) => (
+    <div style={{
+      width: '100%',
+      backgroundColor: theme === 'light' ? COLOR['mono.50'] : COLOR['mono.800'],
+      border: `solid 1rem ${theme === 'light' ? COLOR['mono.50'] : COLOR['mono.800']}`,
+      boxSizing: 'border-box',
+    }}>
+      <Article dangerouslySetInnerHTML={{ __html }} theme={theme} />
+    </div>
+  ),
 };

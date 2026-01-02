@@ -6,6 +6,7 @@ export * from "./dialog";
 export * from "./heading";
 export * from "./icons";
 export * from "./link";
+export * from "./linkCard";
 export * from "./paragraph";
 export * from "./radio";
 export * from "./text";

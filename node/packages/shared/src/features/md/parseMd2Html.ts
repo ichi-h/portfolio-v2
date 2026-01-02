@@ -1,11 +1,10 @@
+import { LinkCard } from "portfolio-ui";
 import { renderToString } from "react-dom/server";
 import rehypeSlug from "rehype-slug";
 import rehypeStringify from "rehype-stringify";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
-
-import { LinkCard } from "../parts/linkCard";
 
 import type { ReactElement } from "react";
 

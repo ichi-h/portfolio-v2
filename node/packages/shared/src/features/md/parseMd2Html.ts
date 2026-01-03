@@ -26,7 +26,10 @@ type Template =
       thumbnailUrl?: string;
     };
 
-export const parseMd2Html = async (markdown: string) => {
+export const parseMd2Html = async (
+  markdown: string,
+  theme?: "light" | "dark",
+) => {
   const mdToHtml = async (md: string) =>
     (
       await unified()
@@ -65,6 +68,7 @@ export const parseMd2Html = async (markdown: string) => {
           title: template.title,
           description: template.description,
           thumbnailUrl: template.thumbnailUrl,
+          theme,
         }) as ReactElement,
       );
     }

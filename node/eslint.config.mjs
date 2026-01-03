@@ -23,8 +23,6 @@ const compat = new FlatCompat({
 export default defineConfig([
   eslintConfigPrettier,
   globalIgnores([
-    "**/*.config.ts",
-    "**/*.config.js",
     "**/node_modules",
     "**/coverage",
     "**/.next/",

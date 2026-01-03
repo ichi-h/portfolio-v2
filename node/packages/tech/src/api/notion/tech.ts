@@ -28,7 +28,7 @@ const mockedTechResponse: TechPost[] = [
     id: "1",
     slug: "tech-article-1",
     redirectTo: "",
-    category: "development",
+    categories: ["development"],
     title: "Getting Started with TypeScript",
     description:
       "A comprehensive guide to TypeScript fundamentals and best practices for modern web development.",
@@ -40,7 +40,7 @@ const mockedTechResponse: TechPost[] = [
     id: "2",
     slug: "tech-article-2",
     redirectTo: "",
-    category: "development",
+    categories: ["development"],
     title: "Building a Monorepo with pnpm",
     description:
       "Learn how to set up and manage a monorepo using pnpm workspaces and Turborepo for efficient development.",
@@ -52,7 +52,7 @@ const mockedTechResponse: TechPost[] = [
     id: "3",
     slug: "",
     redirectTo: "https://github.com",
-    category: "development",
+    categories: ["development"],
     title: "Open Source Contribution Guide",
     description:
       "Tips and best practices for contributing to open source projects effectively.",

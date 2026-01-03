@@ -3,7 +3,7 @@ import {
   filterByCategory,
   queryDatabase,
   type NotionPage,
-} from "portfolio-shared/notion";
+} from "portfolio-shared";
 
 import { useEnv } from "../../utils/env";
 

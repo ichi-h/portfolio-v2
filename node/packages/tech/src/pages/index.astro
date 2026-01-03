@@ -1,12 +1,12 @@
 ---
-import { parseMd2Html } from "portfolio-shared/md";
+import { parseMd2Html } from "portfolio-shared";
 
 import { Home } from "../components/pages/home";
 import meMd from "../components/pages/home/me.md?raw";
 import { Head } from "../components/parts/head";
 import HTML from "../layouts/html.astro";
 
-const meBody = await parseMd2Html(meMd);
+const meBody = await parseMd2Html(meMd, "dark");
 ---
 
 <HTML>

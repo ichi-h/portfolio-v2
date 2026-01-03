@@ -5,7 +5,7 @@ import meMd from "../components/pages/about/me.md?raw";
 import { Head } from "../components/parts/head";
 import HTML from "../layouts/html.astro";
 import { ArticleLayout } from "../layouts/articleLayout";
-import { parseMd2Html } from "portfolio-shared/md";
+import { parseMd2Html } from "portfolio-shared";
 
 const meHtml = await parseMd2Html(meMd);
 ---

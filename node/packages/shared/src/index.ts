@@ -1,3 +1,2 @@
-// Re-export all features and utilities
-export * from "./features/notion/index.js";
-export * from "./utils/index.js";
+export * from "./features";
+export * from "./utils";

@@ -11,10 +11,10 @@ Shared resources for portfolio projects (works and tech applications).
 
 ```typescript
 // Import Notion features
-import { getDatabase, filterByCategory } from "portfolio-shared/notion";
+import { getDatabase, filterByCategory } from "portfolio-shared";
 
 // Import utilities
-import { Result, formatDate } from "portfolio-shared/utils";
+import { Result, formatDate } from "portfolio-shared";
 ```
 
 ## Development

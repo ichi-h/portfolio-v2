@@ -1,4 +1,4 @@
-import { validateEnv } from "portfolio-shared/utils";
+import { validateEnv } from "portfolio-shared";
 
 export const useEnv = () => {
   return validateEnv({

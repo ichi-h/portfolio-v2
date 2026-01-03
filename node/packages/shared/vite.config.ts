@@ -1,4 +1,5 @@
 import { resolve } from "path";
+
 import { defineConfig } from "vite";
 import Dts from "vite-plugin-dts";
 
@@ -13,7 +14,10 @@ export default defineConfig({
     lib: {
       entry: {
         index: resolve(__dirname, "src/index.ts"),
-        "features/notion/index": resolve(__dirname, "src/features/notion/index.ts"),
+        "features/notion/index": resolve(
+          __dirname,
+          "src/features/notion/index.ts",
+        ),
         "utils/index": resolve(__dirname, "src/utils/index.ts"),
       },
       formats: ["es"],
@@ -22,7 +26,15 @@ export default defineConfig({
       },
     },
     rollupOptions: {
-      external: ["@notionhq/client", "notion-to-md"],
+      external: [
+        "@notionhq/client",
+        "notion-to-md",
+        "rehype-slug",
+        "rehype-stringify",
+        "remark-parse",
+        "remark-rehype",
+        "unified",
+      ],
     },
   },
 });

@@ -11,7 +11,7 @@ interface Props {
 export const Head = ({
   title = "tech.ichi-h.com",
   url,
-  description = "Technical articles and development notes by ichi-h",
+  description = "tech.ichi-h.com",
   ogImage,
   ogType,
 }: Props) => {
@@ -35,7 +35,12 @@ export const Head = ({
       <meta name="twitter:site" content="@ichi_h3" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:domain" content="tech.ichi-h.com" />
-      {/* No web fonts - using system font stack */}
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" />
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New&display=swap"
+      />
     </>
   );
 };

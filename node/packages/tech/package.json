@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "_build": "astro build",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
     "deploy": "wrangler pages deploy dist/ --project-name portfolio-tech"

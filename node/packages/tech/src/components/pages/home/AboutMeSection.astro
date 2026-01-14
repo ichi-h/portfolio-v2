@@ -1,0 +1,191 @@
+---
+import { Heading, Text, Article } from "portfolio-ui";
+
+import { companies } from "../../../data/career";
+import { skillCategories } from "../../../data/skills";
+
+import TypingAnimationWrapper from "./TypingAnimationWrapper.astro";
+import * as styles from "./AboutMeSection.css";
+
+interface Props {
+  meBody: string;
+}
+
+const { meBody } = Astro.props;
+---
+
+<div class={styles.contentSection}>
+  {/* Profile Info */}
+  <div class={styles.aboutContent}>
+    <div class={styles.profileSection}>
+      {/* Motto / Typing Animation */}
+      <div class={styles.mottoSection} id="about-me">
+        <Heading level="2">
+          <TypingAnimationWrapper
+            words={[
+              "設計で人をハッピーにする。",
+              "Make people happy through design.",
+            ]}
+            className={styles.typingText}
+          />
+        </Heading>
+      </div>
+
+      <div class={styles.profileGrid}>
+        <div class={styles.profileRow}>
+          <Text color="mono.300" className={styles.profileLabel}> Name </Text>
+          <Text color="mono.50">ichi-h</Text>
+        </div>
+        <div class={styles.profileRow}>
+          <Text color="mono.300" className={styles.profileLabel}>
+            Birthday
+          </Text>
+          <Text color="mono.50">1997/5/14</Text>
+        </div>
+        <div class={styles.profileRow}>
+          <Text color="mono.300" className={styles.profileLabel}>
+            Birthplace
+          </Text>
+          <Text color="mono.50">北海道札幌市</Text>
+        </div>
+        <div class={styles.profileRow}>
+          <Text color="mono.300" className={styles.profileLabel}>
+            Residence
+          </Text>
+          <Text color="mono.50">兵庫県神戸市</Text>
+        </div>
+        <div class={styles.profileRow}>
+          <Text color="mono.300" className={styles.profileLabel}>
+            Education
+          </Text>
+          <Text color="mono.50">同志社大学 文化情報学部 中退</Text>
+        </div>
+        <div class={styles.profileRow}>
+          <Text color="mono.300" className={styles.profileLabel}> MBTI </Text>
+          <Text color="mono.50">INTJ-T（建築家）</Text>
+        </div>
+      </div>
+
+      <Article dangerouslySetInnerHTML={{ __html: meBody }} theme="dark" />
+    </div>
+
+    {/* Career History */}
+    <div class={styles.careerSection} id="resume">
+      <Heading level="3">
+        <Text className={styles.heading} color="mono.50">Resume</Text>
+      </Heading>
+
+      <div class={styles.careerList}>
+        {
+          companies.map((company) => (
+            <div class={styles.companyCard}>
+              <div class={styles.companyHeader}>
+                <Text color="mono.50" className={styles.companyName}>
+                  {company.name}
+                </Text>
+                <Text color="mono.300" className={styles.companyRole}>
+                  {company.role}
+                </Text>
+                <Text color="mono.400" className={styles.companyPeriod}>
+                  {company.period}
+                </Text>
+              </div>
+
+              {/* Overview - 概要の箇条書き */}
+              <ul class={styles.overviewList}>
+                {company.overview.map((item) => (
+                  <li>
+                    <Text color="mono.50">{item}</Text>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Categories - カテゴリーごとの詳細 */}
+              {company.categories.map((category) => (
+                <div class={styles.categorySection}>
+                  <Heading level="4">
+                    <Text className={styles.categoryTitle} color="mono.50">
+                      {category.title}
+                    </Text>
+                  </Heading>
+
+                  {/* Category description */}
+                  <div class={styles.categoryDescription}>
+                    {category.description.split("\\n").map((paragraph) => (
+                      <Text color="mono.50">{paragraph}</Text>
+                    ))}
+                  </div>
+
+                  {/* Category items */}
+                  <ul class={styles.categoryItemList}>
+                    {category.items.map((item) => (
+                      <li>
+                        {item.details ? (
+                          <details class={styles.detailsElement}>
+                            <summary class={styles.summaryElement}>
+                              <Text
+                                color="mono.50"
+                                className={styles.summaryText}
+                              >
+                                {item.details.summary}
+                              </Text>
+                            </summary>
+                            <div class={styles.detailsContent}>
+                              {item.details.content.map((paragraph) => (
+                                <Text
+                                  color="mono.50"
+                                  className={styles.detailParagraph}
+                                >
+                                  {paragraph}
+                                </Text>
+                              ))}
+                            </div>
+                          </details>
+                        ) : (
+                          <Text color="mono.50">{item.text}</Text>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    {/* Skills */}
+    <div class={styles.skillSection} id="skills">
+      <Heading level="3">
+        <Text className={styles.heading} color="mono.50">Skills</Text>
+      </Heading>
+
+      <div class={styles.skillLegend}>
+        <Text color="mono.50" className={styles.legendText}>
+          👑: 3年以上の実務経験 | 💪: 1年以上の実務経験 | 🌱: 1年未満の実務経験
+          | 🎨: 個人開発にて使用
+        </Text>
+      </div>
+
+      <div class={styles.skillGrid}>
+        {
+          skillCategories.map((category) => (
+            <div class={styles.skillCategory}>
+              <Text color="mono.50" className={styles.skillCategoryTitle}>
+                {category.title}
+              </Text>
+              <ul class={styles.skillList}>
+                {category.skills.map((skill) => (
+                  <li>
+                    <Text color="mono.50">{skill}</Text>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</div>

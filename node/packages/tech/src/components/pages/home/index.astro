@@ -1,0 +1,32 @@
+---
+import { Footer } from "../../parts/footer";
+
+import AboutMeSection from "./AboutMeSection.astro";
+import { PostsSection } from "./PostsSection";
+import { TopSection } from "./TopSection";
+import * as styles from "./common.css";
+
+import type { TechPost } from "../../../api/notion/tech";
+
+interface Props {
+  meBody: string;
+  posts: TechPost[];
+}
+
+const { meBody, posts } = Astro.props;
+---
+
+<>
+  <div class={styles.contentAnimation}>
+    <TopSection />
+
+    <AboutMeSection meBody={meBody} />
+
+    <PostsSection posts={posts} />
+
+    <div class={styles.footer}>
+      <Footer />
+    </div>
+  </div>
+  <div class={styles.overlay}></div>
+</>

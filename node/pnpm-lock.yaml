@@ -118,6 +118,9 @@ importers:
 
   packages/shared:
     dependencies:
+      portfolio-styles:
+        specifier: workspace:*
+        version: link:../styles
       portfolio-ui:
         specifier: workspace:*
         version: link:../ui

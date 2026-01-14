@@ -1,0 +1,18 @@
+---
+import { TypingAnimation } from "./TypingAnimation";
+
+interface Props {
+  words: string[];
+  className?: string;
+}
+
+const { words, className } = Astro.props;
+---
+
+<TypingAnimation
+  words={words}
+  className={className}
+  typingSpeed={50}
+  deletingSpeed={50}
+  client:load
+/>

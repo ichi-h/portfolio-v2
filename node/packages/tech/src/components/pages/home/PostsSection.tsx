@@ -1,29 +1,37 @@
-import { Heading, Link, Text } from "portfolio-ui";
-import * as styles from "./index.css";
+import { GridPosts, type Post } from "portfolio-shared";
+import { Heading, Text } from "portfolio-ui";
 
-// Sample Posts - In a real app, these might be fetched.
-const posts = [
-  { title: "技術記事 1", url: "https://zenn.dev/ichi_h" },
-  { title: "技術記事 2", url: "https://zenn.dev/ichi_h" },
-  { title: "技術記事 3", url: "https://zenn.dev/ichi_h" },
-];
+import * as styles from "./PostsSection.css";
 
-export const PostsSection = () => {
+import type { TechPost } from "../../../api/notion/tech";
+
+interface Props {
+  posts: TechPost[];
+}
+
+export const PostsSection = ({ posts }: Props) => {
+  // Convert TechPost to Post format for GridPosts component
+  const gridPosts: Post[] = posts.map((post) => ({
+    id: post.id,
+    slug: post.slug,
+    redirectTo: post.redirectTo,
+    categories: post.categories,
+    title: post.title,
+    description: post.description,
+    thumbnailUrl: post.thumbnailUrl,
+    publishedAt: post.publishedAt,
+    updatedAt: post.updatedAt,
+  }));
+
   return (
-    <div className={styles.contentSection}>
+    <div className={styles.contentSection} id="posts">
       <Heading level="2">
         <Text className={styles.heading} color="mono.50">
           Posts
         </Text>
       </Heading>
-      
-      <div className={styles.postList}>
-         {posts.map((post, i) => (
-           <Link key={i} href={post.url} className={styles.postLink} openInNewTab>
-             <Text color="mono.50">{post.title}</Text>
-           </Link>
-         ))}
-      </div>
+
+      <GridPosts posts={gridPosts} theme="dark" baseUrl="/posts" />
     </div>
   );
 };

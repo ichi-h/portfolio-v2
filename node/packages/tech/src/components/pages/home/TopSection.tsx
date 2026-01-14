@@ -8,8 +8,10 @@ import {
   XIcon,
   ZennIcon,
 } from "portfolio-ui";
+
 import me from "../../../assets/me_512x512.webp?url";
-import * as styles from "./index.css";
+
+import * as styles from "./TopSection.css";
 
 export const TopSection = () => {
   return (
@@ -32,11 +34,7 @@ export const TopSection = () => {
               href="https://x.com/ichi_h3"
               openInNewTab
             >
-              <Icon
-                className={styles.snsIcon}
-                icon={XIcon}
-                color="mono.50"
-              />
+              <Icon className={styles.snsIcon} icon={XIcon} color="mono.50" />
             </Link>
             <Link
               className={styles.snsLink}
@@ -61,12 +59,26 @@ export const TopSection = () => {
               />
             </Link>
           </div>
+          <nav className={styles.navigation}>
+            <Link href="#about-me" color="mono.50">
+              <Text className={styles.navText}>About Me</Text>
+            </Link>
+            <Link href="#resume" color="mono.50">
+              <Text className={styles.navText}>Resume</Text>
+            </Link>
+            <Link href="#skills" color="mono.50">
+              <Text className={styles.navText}>Skills</Text>
+            </Link>
+            <Link href="#posts" color="mono.50">
+              <Text className={styles.navText}>Posts</Text>
+            </Link>
+          </nav>
         </div>
       </div>
       <div className={styles.topLink}>
-          <Link href="https://ichi-h.com" openInNewTab color="mono.50">
-             <Text className={styles.description}>Philosophy, Art & Life &gt;</Text>
-          </Link>
+        <Link href="https://ichi-h.com" openInNewTab color="mono.50">
+          <Text className={styles.description}>Philosophy, Art & Life →</Text>
+        </Link>
       </div>
     </div>
   );

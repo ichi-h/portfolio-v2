@@ -9,7 +9,8 @@
     ".": {
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
-    }
+    },
+    "./style.css": "./dist/portfolio-shared.css"
   },
   "scripts": {
     "build": "tsc --noEmit && vite build",
@@ -21,6 +22,7 @@
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.1.2",
     "unified": "^11.0.5",
-    "portfolio-ui": "workspace:*"
+    "portfolio-ui": "workspace:*",
+    "portfolio-styles": "workspace:*"
   }
 }

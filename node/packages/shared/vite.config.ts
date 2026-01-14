@@ -1,14 +1,18 @@
 import { resolve } from "path";
 
+import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
+import React from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import Dts from "vite-plugin-dts";
 
 export default defineConfig({
   plugins: [
+    React(),
     Dts({
       entryRoot: resolve(__dirname, "src"),
       outDir: "dist",
     }),
+    vanillaExtractPlugin(),
   ],
   build: {
     lib: {
@@ -34,6 +38,8 @@ export default defineConfig({
         "remark-parse",
         "remark-rehype",
         "unified",
+        "portfolio-ui",
+        "portfolio-styles",
       ],
     },
   },

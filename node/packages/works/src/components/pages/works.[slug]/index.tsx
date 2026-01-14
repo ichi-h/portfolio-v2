@@ -1,8 +1,6 @@
 import { Article, Link, Paragraph, Text } from "portfolio-ui";
 import { type FC } from "react";
 
-import "../../parts/linkCard.css";
-
 import { Anchor } from "../../parts/anchor";
 
 import * as styles from "./index.css";

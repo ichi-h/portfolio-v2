@@ -8,7 +8,6 @@ import {
   flexAlign,
   flexDirection,
   gap,
-  bottom,
   animateZoomOnHover,
   dropShadow,
   applyMedia,
@@ -25,6 +24,7 @@ import {
   animationTimingFunction,
   animationFillMode,
   animationDelay,
+  minH,
 } from "portfolio-styles";
 import {
   buttonLgSizeProps,
@@ -55,15 +55,7 @@ export const overlay = style([
   animationFillMode["forwards"],
 ]);
 
-export const outer = style([
-  position["relative"],
-  flex,
-  flexJustify["center"],
-  flexAlign["center"],
-  flexDirection["column"],
-  gap[12],
-  w["1/1"],
-  h["vh"],
+export const contentAnimation = style([
   opacity[0],
   applyMedia({ max: "1280" }, flattenStyle([gap[6]])),
   applyMedia({ max: "480" }, flattenStyle([gap[4]])),
@@ -72,6 +64,16 @@ export const outer = style([
   animationTimingFunction["easeInOut"],
   animationFillMode["forwards"],
   animationDelay["500"],
+]);
+
+export const contentSection = style([
+  flex,
+  flexJustify["center"],
+  flexAlign["center"],
+  flexDirection["column"],
+  gap[6],
+  w["1/1"],
+  minH["svh"],
 ]);
 
 export const me = style([
@@ -93,6 +95,12 @@ export const avatar = style([
 ]);
 
 export const title = style([
+  lineHeight[12],
+  fontSize[16],
+  applyMedia({ max: "480" }, flattenStyle([fontSize[12], lineHeight[3]])),
+]);
+
+export const heading = style([
   lineHeight[12],
   fontSize[16],
   applyMedia({ max: "480" }, flattenStyle([fontSize[12], lineHeight[3]])),
@@ -154,4 +162,4 @@ export const enterButton = style([
   applyMedia({ max: "375" }, flattenStyle(buttonMdSizeProps)),
 ]);
 
-export const footer = style([position["absolute"], bottom[0], w["1/1"]]);
+export const footer = style([w["1/1"]]);

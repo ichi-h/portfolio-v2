@@ -7,6 +7,7 @@ export * from "./heading";
 export * from "./icons";
 export * from "./link";
 export * from "./linkCard";
+export * from "./table";
 export * from "./paragraph";
 export * from "./radio";
 export * from "./text";

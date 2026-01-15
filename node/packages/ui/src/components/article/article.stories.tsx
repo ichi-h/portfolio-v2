@@ -64,6 +64,33 @@ This is a quote.</p>
     <span class="hljs-built_in">print</span>(<span class="hljs-string">"Hello World!"</span>)
 main()
 </code></pre>
+<h2>Table</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Role</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>John Doe</td>
+      <td>Software Engineer</td>
+      <td>john.doe@example.com</td>
+    </tr>
+    <tr>
+      <td>Jane Smith</td>
+      <td>Product Manager</td>
+      <td>jane.smith@example.com</td>
+    </tr>
+    <tr>
+      <td>Mike Johnson</td>
+      <td>Designer</td>
+      <td>mike.johnson@example.com</td>
+    </tr>
+  </tbody>
+</table>
 <h2>Expand</h2>
 <p><span class="text-bold">強調</span></p>
 <p><span class="text-bold text-blue">強調</span></p>

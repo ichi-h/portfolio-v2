@@ -33,6 +33,14 @@ import {
 import { headingRule } from "./heading.css";
 import { defaultFontColor, linkHoverRule, linkRule } from "./link.css";
 import { paragraphRule } from "./paragraph.css";
+import {
+  tableRule,
+  thRule,
+  tdRule,
+  theadThRule,
+  thTdBorderRule,
+  theadBackgroundRule,
+} from "./table.css";
 
 export const article = style([
   flex,
@@ -135,7 +143,7 @@ globalStyle(
 
 globalStyle(
   `${articleVariant["light"]} blockquote`,
-  flattenStyle([bg["mono.50"], borderColor["mono.300"]]),
+  flattenStyle([bg["mono.50"], borderColor["mono.200"]]),
 );
 
 globalStyle(
@@ -187,3 +195,29 @@ globalStyle(
     my[0],
   ]),
 );
+
+// Table styles
+globalStyle(`${article} table`, flattenStyle([
+  w["fit"],
+  tableRule,
+]));
+
+globalStyle(`${article} th`, thRule);
+
+globalStyle(`${article} td`, tdRule);
+
+globalStyle(`${article} thead th`, theadThRule);
+
+globalStyle(
+  `${articleVariant["light"]} th, ${articleVariant["light"]} td`,
+  thTdBorderRule.light,
+);
+
+globalStyle(
+  `${articleVariant["dark"]} th, ${articleVariant["dark"]} td`,
+  thTdBorderRule.dark,
+);
+
+globalStyle(`${articleVariant["light"]} thead`, theadBackgroundRule.light);
+
+globalStyle(`${articleVariant["dark"]} thead`, theadBackgroundRule.dark);

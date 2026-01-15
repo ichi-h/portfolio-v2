@@ -59,6 +59,8 @@ globalStyle(`${article} *`, m[0]);
 
 globalStyle(`${article} p`, flattenStyle([paragraphRule, lineHeight["7"]]));
 
+globalStyle(`${article} ul, ${article} ol`, flattenStyle([pl[6], m[0]]));
+
 globalStyle(`${article} h1`, headingRule[1]);
 globalStyle(`${article} h2`, flattenStyle([headingRule[2], mt[2]]));
 globalStyle(`${article} h3`, flattenStyle([headingRule[3], mt[2]]));

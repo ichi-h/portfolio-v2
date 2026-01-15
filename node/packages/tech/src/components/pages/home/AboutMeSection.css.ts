@@ -20,8 +20,6 @@ import {
   fontWeight,
   px,
   py,
-  COLOR,
-  COLOR_OPACITY,
   dropShadow,
   grid,
   gridCols,

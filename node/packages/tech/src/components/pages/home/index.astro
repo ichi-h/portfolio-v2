@@ -15,17 +15,15 @@ interface Props {
 const { posts } = Astro.props;
 ---
 
-<>
-  <div class={styles.contentAnimation}>
-    <TopSection />
+<div class={styles.contentAnimation}>
+  <TopSection />
 
-    <AboutMeSection />
+  <AboutMeSection />
 
-    <PostsSection posts={posts} />
+  <PostsSection posts={posts} />
 
-    <div class={styles.footer}>
-      <Footer />
-    </div>
+  <div class={styles.footer}>
+    <Footer />
   </div>
-  <div class={styles.overlay}></div>
-</>
+</div>
+<div class={styles.overlay}></div>

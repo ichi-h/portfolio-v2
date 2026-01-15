@@ -33,7 +33,6 @@ import {
 } from "portfolio-styles";
 
 const itemBorder = [
-  p[4],
   border["2"],
   borderColor["mono.700"],
   borderStyle["solid"],
@@ -70,7 +69,14 @@ export const heading = style([mt[2]]);
 
 export const careerList = style([flex, flexDirection["column"], gap[4], mt[4]]);
 
-export const careerItem = style([w["auto"], ...itemBorder]);
+export const careerItem = style([
+  w["auto"],
+  py[6],
+  px[8],
+  applyMedia({ max: "768" }, flattenStyle([py[5], px[5]])),
+  applyMedia({ max: "480" }, flattenStyle([py[4], px[4]])),
+  ...itemBorder,
+]);
 
 export const skillGrid = style([
   grid,
@@ -86,6 +92,7 @@ export const skillGrid = style([
 export const skillCategory = style([
   flex,
   flexDirection["column"],
+  p[4],
   ...itemBorder,
 ]);
 
@@ -99,7 +106,7 @@ export const skillCategoryTitle = style([
 export const skillList = style([
   flex,
   flexDirection["column"],
-  pl[5],
+  pl[6],
   m[0],
   fontSize[4],
   fontColor["mono.50"],

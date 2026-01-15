@@ -15,6 +15,8 @@ import {
   lineHeight,
   py,
   REM,
+  position,
+  top,
 } from "portfolio-styles";
 
 export const topSection = style([
@@ -30,7 +32,10 @@ export const topSection = style([
     boxSizing: "border-box",
     height: `calc(100dvh - ${REM[12]})`,
   },
-  applyMedia({ max: "768" }, flattenStyle([py[12], gap[8]])),
+  applyMedia(
+    { max: "768" },
+    flattenStyle([position["sticky"], top[0], py[12], gap[8]]),
+  ),
   applyMedia({ max: "480" }, flattenStyle([py[8], gap[6]])),
 ]);
 

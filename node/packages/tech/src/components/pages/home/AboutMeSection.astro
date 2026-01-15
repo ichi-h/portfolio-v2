@@ -30,11 +30,13 @@ const resumeBodies = await Promise.all(
       <div class={styles.careerList}>
         {
           resumeBodies.map((body) => (
-            <Article
-              className={styles.careerItem}
-              dangerouslySetInnerHTML={{ __html: body }}
-              theme="dark"
-            />
+            <div class={styles.careerItem}>
+              <Article
+                className={styles.article}
+                dangerouslySetInnerHTML={{ __html: body }}
+                theme="dark"
+              />
+            </div>
           ))
         }
       </div>

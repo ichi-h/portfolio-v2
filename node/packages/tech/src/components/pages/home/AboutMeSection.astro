@@ -3,10 +3,10 @@ import { parseMd2Html } from "portfolio-shared";
 import { Heading, Text, Article, Paragraph } from "portfolio-ui";
 
 import * as styles from "./AboutMeSection.css";
-import { profile, resume } from "./md";
+import { aboutMe, resume } from "./md";
 import { skills } from "./skills";
 
-const profileBody = await parseMd2Html(profile.default, "dark");
+const profileBody = await parseMd2Html(aboutMe.default, "dark");
 const resumeBodies = await Promise.all(
   resume.map(async (item) => await parseMd2Html(item, "dark")),
 );

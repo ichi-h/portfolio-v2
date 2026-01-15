@@ -18,6 +18,8 @@ export const mottoSection = style([
   h["dvh"],
 ]);
 
+export const margin = style([w["1/1"], { height: "25vh" }]);
+
 export const mottoText = style([
   fontSize[7],
   applyMedia({ max: "576" }, flattenStyle([fontSize[4]])),

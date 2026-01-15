@@ -1,4 +1,9 @@
-import { DownArrowIcon, LeftArrowIcon, RightArrowIcon, UpArrowIcon } from "./arrows";
+import {
+  DownArrowIcon,
+  LeftArrowIcon,
+  RightArrowIcon,
+  UpArrowIcon,
+} from "./arrows";
 import { GitHubIcon } from "./github";
 import { OpenInNewIcon } from "./openInNew";
 import { PageIcon } from "./page";

@@ -1,4 +1,4 @@
-import { flattenStyle, styleMap } from "../libs/vanillaExtract";
+import { flattenStyle, styleMap, styleRule } from "../libs/vanillaExtract";
 
 export const animationName = (name: string) => {
   return flattenStyle([
@@ -49,6 +49,18 @@ const createDurationStyleMap = (property: "transition" | "animation") => {
     },
     1000: {
       [duration]: "1000ms",
+    },
+    2000: {
+      [duration]: "2000ms",
+    },
+    3000: {
+      [duration]: "3000ms",
+    },
+    4000: {
+      [duration]: "4000ms",
+    },
+    5000: {
+      [duration]: "5000ms",
     },
   });
 };
@@ -113,6 +125,10 @@ const createDelayStyleMap = (property: "transition" | "animation") => {
 };
 export const delay = createDelayStyleMap("transition");
 export const animationDelay = createDelayStyleMap("animation");
+
+export const animationLoop = styleRule({
+  animationIterationCount: "infinite",
+});
 
 export const animateZoomOnHover = styleMap({
   sm: {

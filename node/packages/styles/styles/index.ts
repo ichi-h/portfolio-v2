@@ -7,6 +7,7 @@ export {
   animationDuration,
   animationTimingFunction,
   animationDelay,
+  animationLoop,
   animateZoomOnHover,
 } from "./animation";
 export { bg, bgSize, bgPosition } from "./background";

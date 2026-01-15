@@ -17,11 +17,7 @@ export const skills: SkillCategory[] = [
   },
   {
     title: "フロントエンドフレームワーク",
-    skills: [
-      "React, Vue 👑",
-      "Next.js, Remix, Nuxt.js 💪",
-      "Astro 🎨",
-    ],
+    skills: ["React, Vue 👑", "Next.js, Remix, Nuxt.js 💪", "Astro 🎨"],
   },
   {
     title: "バックエンドフレームワーク",

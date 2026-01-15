@@ -1,6 +1,6 @@
 ---
 interface Props {
-  words: string[];
+  words: (string | string[])[];
   className?: string;
   typingSpeed?: number;
   deletingSpeed?: number;
@@ -12,8 +12,8 @@ const {
   words,
   className = "",
   typingSpeed = 50,
-  deletingSpeed = 50,
-  pauseTime = 5000,
+  deletingSpeed = 30,
+  pauseTime = 3000,
 } = Astro.props;
 
 const dataAttrs = {
@@ -36,7 +36,7 @@ const dataAttrs = {
     elements.forEach((element) => {
       const words = JSON.parse(
         element.getAttribute("data-words") || "[]",
-      ) as string[];
+      ) as (string | string[])[];
       const typingSpeed = parseInt(
         element.getAttribute("data-typing-speed") || "150",
         10,
@@ -73,32 +73,74 @@ const dataAttrs = {
       }, 500);
 
       function type() {
-        const currentWord = words[index];
+        const currentWordEntry = words[index];
+        const isStepArray = Array.isArray(currentWordEntry);
 
-        // Typing forward
-        if (!reverse && subIndex < currentWord.length) {
-          textElement.textContent = currentWord.substring(0, subIndex + 1);
-          subIndex++;
-          timeout = setTimeout(type, typingSpeed);
-        }
-        // Pause after typing complete
-        else if (!reverse && subIndex === currentWord.length) {
-          timeout = setTimeout(() => {
-            reverse = true;
-            type();
-          }, pauseTime);
-        }
-        // Deleting backward
-        else if (reverse && subIndex > 0) {
-          subIndex--;
-          textElement.textContent = currentWord.substring(0, subIndex);
-          timeout = setTimeout(type, deletingSpeed);
-        }
-        // Move to next word after deleting complete
-        else if (reverse && subIndex === 0) {
-          reverse = false;
-          index = (index + 1) % words.length;
-          timeout = setTimeout(type, 50);
+        if (isStepArray) {
+          // Step-by-step transformation mode (e.g., ["r", "ri", "rin", "ringo", "林檎"])
+          const steps = currentWordEntry as string[];
+          const stepCount = steps.length;
+
+          // Typing forward through steps
+          if (!reverse && subIndex < stepCount) {
+            textElement.textContent = steps[subIndex];
+            subIndex++;
+            timeout = setTimeout(type, typingSpeed);
+          }
+          // Pause after completing all steps
+          else if (!reverse && subIndex === stepCount) {
+            timeout = setTimeout(() => {
+              reverse = true;
+              type();
+            }, pauseTime);
+          }
+          // Deleting backward - delete characters from the last step only
+          else if (reverse) {
+            const lastStep = steps[stepCount - 1];
+            const currentStepText = textElement.textContent || "";
+            
+            // Delete one character at a time from the last step
+            if (currentStepText.length > 0) {
+              textElement.textContent = currentStepText.slice(0, -1);
+              timeout = setTimeout(type, deletingSpeed);
+            }
+            // Fully deleted, move to next word
+            else {
+              reverse = false;
+              subIndex = 0;
+              index = (index + 1) % words.length;
+              timeout = setTimeout(type, 50);
+            }
+          }
+        } else {
+          // Original single-string mode
+          const currentWord = currentWordEntry as string;
+
+          // Typing forward
+          if (!reverse && subIndex < currentWord.length) {
+            textElement.textContent = currentWord.substring(0, subIndex + 1);
+            subIndex++;
+            timeout = setTimeout(type, typingSpeed);
+          }
+          // Pause after typing complete
+          else if (!reverse && subIndex === currentWord.length) {
+            timeout = setTimeout(() => {
+              reverse = true;
+              type();
+            }, pauseTime);
+          }
+          // Deleting backward
+          else if (reverse && subIndex > 0) {
+            subIndex--;
+            textElement.textContent = currentWord.substring(0, subIndex);
+            timeout = setTimeout(type, deletingSpeed);
+          }
+          // Move to next word after deleting complete
+          else if (reverse && subIndex === 0) {
+            reverse = false;
+            index = (index + 1) % words.length;
+            timeout = setTimeout(type, 50);
+          }
         }
       }
 

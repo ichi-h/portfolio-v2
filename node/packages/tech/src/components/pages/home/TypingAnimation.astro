@@ -13,7 +13,7 @@ const {
   className = "",
   typingSpeed = 50,
   deletingSpeed = 30,
-  pauseTime = 3000,
+  pauseTime = 2000,
 } = Astro.props;
 
 const dataAttrs = {
@@ -34,9 +34,10 @@ const dataAttrs = {
     const elements = document.querySelectorAll("[data-typing-animation]");
 
     elements.forEach((element) => {
-      const words = JSON.parse(
-        element.getAttribute("data-words") || "[]",
-      ) as (string | string[])[];
+      const words = JSON.parse(element.getAttribute("data-words") || "[]") as (
+        | string
+        | string[]
+      )[];
       const typingSpeed = parseInt(
         element.getAttribute("data-typing-speed") || "150",
         10,
@@ -94,11 +95,10 @@ const dataAttrs = {
               type();
             }, pauseTime);
           }
-          // Deleting backward - delete characters from the last step only
+          // Deleting backward
           else if (reverse) {
-            const lastStep = steps[stepCount - 1];
             const currentStepText = textElement.textContent || "";
-            
+
             // Delete one character at a time from the last step
             if (currentStepText.length > 0) {
               textElement.textContent = currentStepText.slice(0, -1);

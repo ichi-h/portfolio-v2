@@ -30,7 +30,11 @@ const resumeBodies = await Promise.all(
       <div class={styles.careerList}>
         {
           resumeBodies.map((body) => (
-            <Article dangerouslySetInnerHTML={{ __html: body }} theme="dark" />
+            <Article
+              className={styles.careerItem}
+              dangerouslySetInnerHTML={{ __html: body }}
+              theme="dark"
+            />
           ))
         }
       </div>
@@ -62,8 +66,9 @@ const resumeBodies = await Promise.all(
 
       <Paragraph align="right">
         <Text color="mono.200" fontSize="4">
-          （👑: 3年以上の実務経験 | 💪: 3年未満の実務経験 | 🎨:
-          個人開発にて使用）
+          👑: 3年以上の実務経験<br />
+          💪: 3年未満の実務経験<br />
+          🎨: 個人開発にて使用
         </Text>
       </Paragraph>
     </div>

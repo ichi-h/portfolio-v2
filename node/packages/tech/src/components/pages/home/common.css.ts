@@ -58,7 +58,7 @@ export const contentAnimation = style([
   animationTimingFunction["easeInOut"],
   animationFillMode["forwards"],
   animationDelay["500"],
-  { maxWidth: "100vw", overflowX: "hidden" },
+  { maxWidth: "100vw" },
 ]);
 
 export const footer = style([w["1/1"]]);

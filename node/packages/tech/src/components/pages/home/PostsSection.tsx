@@ -1,5 +1,5 @@
 import { GridPosts, type Post } from "portfolio-shared";
-import { Heading, Text } from "portfolio-ui";
+import { Heading } from "portfolio-ui";
 
 import * as styles from "./PostsSection.css";
 

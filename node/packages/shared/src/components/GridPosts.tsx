@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import {
   Paragraph,
   Text,
@@ -13,7 +14,6 @@ import * as styles from "./GridPosts.css";
 
 import type { COLOR } from "portfolio-styles";
 import type { ComponentProps, FC } from "react";
-import clsx from "clsx";
 
 export interface Post {
   id: string;

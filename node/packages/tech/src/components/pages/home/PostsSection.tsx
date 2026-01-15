@@ -25,13 +25,16 @@ export const PostsSection = ({ posts }: Props) => {
 
   return (
     <div className={styles.contentSection} id="posts">
-      <Heading level="2">
-        <Text className={styles.heading} color="mono.50">
-          Posts
-        </Text>
+      <Heading level="2" color="mono.50">
+        Posts
       </Heading>
 
-      <GridPosts posts={gridPosts} theme="dark" baseUrl="/posts" />
+      <GridPosts
+        className={styles.posts}
+        posts={gridPosts}
+        theme="dark"
+        baseUrl="/posts"
+      />
     </div>
   );
 };

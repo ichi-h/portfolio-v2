@@ -12,6 +12,7 @@ import {
   flattenStyle,
   fontSize,
   lineHeight,
+  w,
 } from "portfolio-styles";
 
 export const contentSection = style([
@@ -27,6 +28,8 @@ export const contentSection = style([
   applyMedia({ max: "768" }, flattenStyle([py[12], gap[8]])),
   applyMedia({ max: "480" }, flattenStyle([py[8], gap[6]])),
 ]);
+
+export const posts = style([w["1/1"]]);
 
 export const heading = style([
   lineHeight[12],

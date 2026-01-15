@@ -12,7 +12,8 @@ import {
 import * as styles from "./GridPosts.css";
 
 import type { COLOR } from "portfolio-styles";
-import type { FC } from "react";
+import type { ComponentProps, FC } from "react";
+import clsx from "clsx";
 
 export interface Post {
   id: string;
@@ -26,7 +27,7 @@ export interface Post {
   updatedAt: string;
 }
 
-interface Props {
+interface Props extends ComponentProps<"div"> {
   posts: Post[];
   theme?: "light" | "dark";
   baseUrl?: string;
@@ -87,10 +88,12 @@ const ThumbnailIcon: FC<ThumbnailIconProps> = ({ post }) => {
 };
 
 export const GridPosts: FC<Props> = ({
+  className,
   posts,
   theme = "light",
   baseUrl = "/posts",
   ogImageServerUrl,
+  ...props
 }) => {
   const cardStyle = theme === "dark" ? styles.cardDark : styles.cardLight;
   const titleStyle =
@@ -101,7 +104,7 @@ export const GridPosts: FC<Props> = ({
   const iconColor = theme === "dark" ? "mono.300" : "mono.500";
 
   return (
-    <div className={styles.cardGrid}>
+    <div className={clsx(styles.cardGrid, className)} {...props}>
       {posts.map((post) => (
         <Link
           className={styles.cardLink}

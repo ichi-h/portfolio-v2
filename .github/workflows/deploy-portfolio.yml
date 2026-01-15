@@ -66,6 +66,15 @@ jobs:
           command: pages deploy dist/ --project-name portfolio
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Publish tech
+        uses: cloudflare/wrangler-action@v3
+        with:
+          accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          workingDirectory: ./node/packages/tech
+          command: pages deploy dist/ --project-name portfolio-tech
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Publish ui
         if: steps.changes.outputs.ui == 'true'
         uses: cloudflare/wrangler-action@v3

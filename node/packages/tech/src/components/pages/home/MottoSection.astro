@@ -1,0 +1,17 @@
+---
+import { Text } from "portfolio-ui";
+
+import * as styles from "./MottoSection.css";
+import TypingAnimation from "./TypingAnimation.astro";
+---
+
+<div class={styles.mottoSection}>
+  <Text className={styles.mottoText} color="mono.50">
+    <TypingAnimation
+      words={[
+        "　設計で人をハッピーにする。",
+        " Make people happy through design.",
+      ]}
+    />
+  </Text>
+</div>

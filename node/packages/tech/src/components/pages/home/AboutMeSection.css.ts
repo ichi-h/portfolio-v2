@@ -20,7 +20,6 @@ import {
   fontWeight,
   px,
   py,
-  dropShadow,
   grid,
   gridCols,
   gridRows,
@@ -29,7 +28,6 @@ import {
   my,
   fontColor,
   pl,
-  bg,
 } from "portfolio-styles";
 
 const itemBorder = [
@@ -52,11 +50,8 @@ export const content = style([
   flexDirection["column"],
   gap[2],
   maxW[256],
-  borderRadius[4],
   py[4],
   px[8],
-  dropShadow["md"],
-  bg["mono.900"],
   applyMedia({ max: "768" }, flattenStyle([px[5]])),
   applyMedia({ max: "480" }, flattenStyle([px[4]])),
 ]);

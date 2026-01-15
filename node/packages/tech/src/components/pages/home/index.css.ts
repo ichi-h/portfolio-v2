@@ -14,11 +14,12 @@ import {
   animationFillMode,
   animationDelay,
   flattenStyle,
+  dropShadow,
+  zIndex,
 } from "portfolio-styles";
 
 // Global fix for horizontal scrollbar
 globalStyle("html, body", {
-  overflowX: "hidden",
   maxWidth: "100vw",
 });
 
@@ -59,6 +60,13 @@ export const contentAnimation = style([
   animationFillMode["forwards"],
   animationDelay["500"],
   { maxWidth: "100vw" },
+]);
+
+export const content = style([
+  position["relative"],
+  zIndex[10],
+  dropShadow["md"],
+  bg["mono.900"],
 ]);
 
 export const footer = style([w["1/1"]]);

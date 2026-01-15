@@ -14,29 +14,28 @@ import {
   fontSize,
   lineHeight,
   py,
-  REM,
   position,
   top,
+  maxW,
 } from "portfolio-styles";
 
 export const topSection = style([
+  position["sticky"],
+  top[0],
   flex,
   flexJustify["center"],
   flexAlign["center"],
   flexDirection["column"],
   gap[8],
   w["1/1"],
-  py[16],
+  maxW["dvw"],
+  h["dvh"],
   {
-    maxWidth: "100vw",
     boxSizing: "border-box",
-    height: `calc(100dvh - ${REM[12]})`,
   },
-  applyMedia(
-    { max: "768" },
-    flattenStyle([position["sticky"], top[0], py[12], gap[8]]),
-  ),
-  applyMedia({ max: "480" }, flattenStyle([py[8], gap[6]])),
+  applyMedia({ max: "768" }, flattenStyle([gap[8]])),
+  applyMedia({ max: "480" }, flattenStyle([gap[6]])),
+  applyMedia({ max: "375" }, flattenStyle([gap[4]])),
 ]);
 
 export const me = style([
@@ -45,6 +44,7 @@ export const me = style([
   flexAlign["center"],
   flexDirection["column"],
   gap[6],
+  applyMedia({ max: "375" }, flattenStyle([gap[2]])),
 ]);
 
 export const avatarLink = style([animateZoomOnHover["md"]]);
@@ -54,20 +54,15 @@ export const avatar = style([
   w[64],
   h[64],
   applyMedia({ max: "1512" }, flattenStyle([w[48], h[48]])),
-  applyMedia({ max: "480" }, flattenStyle([w[32], h[32]])),
+  applyMedia({ max: "480" }, flattenStyle([w[48], h[48]])),
+  applyMedia({ max: "375" }, flattenStyle([w[32], h[32]])),
 ]);
 
 export const title = style([
   lineHeight[12],
   fontSize[16],
   applyMedia({ max: "480" }, flattenStyle([fontSize[12], lineHeight[3]])),
-]);
-
-export const description = style([
-  lineHeight[7],
-  fontSize[6],
-  applyMedia({ max: "768" }, flattenStyle([fontSize[5], lineHeight[4]])),
-  applyMedia({ max: "480" }, flattenStyle([fontSize[4], lineHeight[3]])),
+  applyMedia({ max: "375" }, flattenStyle([fontSize[8], lineHeight[3]])),
 ]);
 
 export const content = style([

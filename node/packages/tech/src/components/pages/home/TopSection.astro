@@ -13,7 +13,6 @@ import {
 import me from "../../../assets/me_512x512.webp?url";
 
 import * as styles from "./TopSection.css";
-import TypingAnimation from "./TypingAnimation.astro";
 ---
 
 <div class={styles.topSection}>
@@ -22,14 +21,6 @@ import TypingAnimation from "./TypingAnimation.astro";
     <Heading level="1">
       <Text className={styles.title} color="mono.50"> tech.ichi-h.com </Text>
     </Heading>
-    <Text color="mono.50" fontSize="7">
-      <TypingAnimation
-        words={[
-          "　設計で人をハッピーにする。",
-          " Make people happy through design.",
-        ]}
-      />
-    </Text>
   </div>
   <div class={styles.content}>
     <div class={styles.contentBox}>

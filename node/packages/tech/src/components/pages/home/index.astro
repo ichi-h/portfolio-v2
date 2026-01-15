@@ -2,9 +2,10 @@
 import { Footer } from "../../parts/footer";
 
 import AboutMeSection from "./AboutMeSection.astro";
+import MottoSection from "./MottoSection.astro";
 import { PostsSection } from "./PostsSection";
 import TopSection from "./TopSection.astro";
-import * as styles from "./common.css";
+import * as styles from "./index.css";
 
 import type { TechPost } from "../../../api/notion/tech";
 
@@ -18,12 +19,16 @@ const { posts } = Astro.props;
 <div class={styles.contentAnimation}>
   <TopSection />
 
-  <AboutMeSection />
+  <div class={styles.content}>
+    <MottoSection />
 
-  <PostsSection posts={posts} />
+    <AboutMeSection />
 
-  <div class={styles.footer}>
-    <Footer />
+    <PostsSection posts={posts} />
+
+    <div class={styles.footer}>
+      <Footer />
+    </div>
   </div>
 </div>
 <div class={styles.overlay}></div>

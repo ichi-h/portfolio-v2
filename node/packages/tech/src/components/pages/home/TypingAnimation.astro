@@ -35,28 +35,28 @@ const dataAttrs = {
 
     elements.forEach((element) => {
       const words = JSON.parse(
-        element.getAttribute("data-words") || "[]"
+        element.getAttribute("data-words") || "[]",
       ) as string[];
       const typingSpeed = parseInt(
         element.getAttribute("data-typing-speed") || "150",
-        10
+        10,
       );
       const deletingSpeed = parseInt(
         element.getAttribute("data-deleting-speed") || "100",
-        10
+        10,
       );
       const pauseTime = parseInt(
         element.getAttribute("data-pause-time") || "5000",
-        10
+        10,
       );
 
       if (words.length === 0) return;
 
       const textElement = element.querySelector(
-        "[data-typing-text]"
+        "[data-typing-text]",
       ) as HTMLElement;
       const cursorElement = element.querySelector(
-        "[data-typing-cursor]"
+        "[data-typing-cursor]",
       ) as HTMLElement;
 
       if (!textElement || !cursorElement) return;

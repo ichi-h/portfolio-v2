@@ -1,6 +1,9 @@
-import type { SkillCategory } from "../types/career";
+interface SkillCategory {
+  title: string;
+  skills: string[];
+}
 
-export const skillCategories: SkillCategory[] = [
+export const skills: SkillCategory[] = [
   {
     title: "プログラミング言語",
     skills: [
@@ -8,20 +11,20 @@ export const skillCategories: SkillCategory[] = [
       "PHP 👑",
       "Go 💪",
       "Python 💪",
-      "Elm 🌱",
+      "Elm 💪",
       "Rust, F#, Haskell, PureScript 🎨",
     ],
   },
   {
-    title: "フロントエンドライブラリ",
+    title: "フロントエンドフレームワーク",
     skills: [
-      "React, Vue, Vanilla Extract, Zod 👑",
-      "Next.js, Remix, Nuxt.js 🌱",
-      "Astro, Tailwind CSS 🎨",
+      "React, Vue 👑",
+      "Next.js, Remix, Nuxt.js 💪",
+      "Astro 🎨",
     ],
   },
   {
-    title: "バックエンドライブラリ",
+    title: "バックエンドフレームワーク",
     skills: ["Laravel 👑", "Echo 💪", "Hono 🎨"],
   },
   {
@@ -29,7 +32,8 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       "Clean Architecture, Layered Architecture, MVC 👑",
       "RESTful API, RPC API 👑",
-      "DDD, CQS/CQRS 💪",
+      "DDD 💪",
+      "CQS/CQRS 💪",
     ],
   },
   {
@@ -62,10 +66,10 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     title: "生成AI / AIエージェント",
-    skills: ["Devin, Dify 🌱"],
+    skills: ["Devin 💪", "Dify 💪"],
   },
   {
     title: "連携サービス",
-    skills: ["Zoom API, Google Calendar API 💪"],
+    skills: ["Zoom API 💪", "Google Calendar API 💪"],
   },
 ];

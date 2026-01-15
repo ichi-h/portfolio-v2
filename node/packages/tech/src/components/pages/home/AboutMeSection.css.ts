@@ -1,7 +1,6 @@
 import { style, globalStyle } from "@vanilla-extract/css";
 import {
   w,
-  position,
   flex,
   flexJustify,
   flexAlign,
@@ -12,11 +11,8 @@ import {
   fontSize,
   lineHeight,
   p,
-  px,
-  py,
   flexWrap,
   fontColor,
-  minH,
   maxW,
   m,
   mt,
@@ -26,36 +22,37 @@ import {
   border,
   fontWeight,
   pt,
+  px,
+  py,
+  COLOR,
+  COLOR_OPACITY,
+  dropShadow,
 } from "portfolio-styles";
 
-export const contentSection = style([
+export const aboutMe = style([
   flex,
   flexJustify["center"],
   flexAlign["center"],
   flexDirection["column"],
-  gap[8],
   w["1/1"],
-  minH["svh"],
-  position["relative"],
-  py[16],
-  { maxWidth: "100vw", boxSizing: "border-box" },
-  applyMedia({ max: "768" }, flattenStyle([py[12], gap[8]])),
-  applyMedia({ max: "480" }, flattenStyle([py[8], gap[6]])),
 ]);
 
-// About Content Container
-export const aboutContent = style([
-  flex,
-  flexDirection["column"],
-  gap[16],
-  w["1/1"],
-  maxW[256], // 1024px max width for readability
+export const content = style([
+  maxW[256],
   borderRadius[4],
+  py[4],
   px[8],
-  { boxSizing: "border-box" },
-  applyMedia({ max: "768" }, flattenStyle([px[6], gap[12]])),
-  applyMedia({ max: "480" }, flattenStyle([px[4], gap[8]])),
+  dropShadow["md"],
+  { backgroundColor: COLOR["mono.800"] + COLOR_OPACITY[90] },
+  applyMedia({ max: "768" }, flattenStyle([px[5]])),
+  applyMedia({ max: "480" }, flattenStyle([px[4]])),
 ]);
+
+export const article = style([mt[-2]]);
+
+export const section = style([mb[4]]);
+
+export const heading = style([mt[2]]);
 
 // Profile Section
 export const profileSection = style([
@@ -105,12 +102,6 @@ export const typingText = style([
   { textAlign: "center" },
   applyMedia({ max: "768" }, flattenStyle([fontSize[8], lineHeight[12]])),
   applyMedia({ max: "480" }, flattenStyle([fontSize[6], lineHeight[8]])),
-]);
-
-export const heading = style([
-  lineHeight[12],
-  fontSize[16],
-  applyMedia({ max: "480" }, flattenStyle([fontSize[12], lineHeight[3]])),
 ]);
 
 // Career Section
@@ -291,16 +282,7 @@ export const skillSection = style([
   { boxSizing: "border-box" },
 ]);
 
-export const skillLegend = style([
-  flex,
-  flexJustify["center"],
-  mb[6],
-  p[4],
-  { borderRadius: "8px" },
-]);
-
 export const legendText = style([
-  fontSize[3],
   { textAlign: "center" },
   applyMedia({ max: "480" }, flattenStyle([fontSize[3]])),
 ]);
@@ -338,7 +320,6 @@ export const skillCategory = style([
 export const skillCategoryTitle = style([
   fontSize[5],
   lineHeight[6],
-  fontColor["mono.200"],
   fontWeight["bold"],
   mb[2],
   applyMedia({ max: "480" }, flattenStyle([fontSize[4]])),

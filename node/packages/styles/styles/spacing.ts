@@ -1,4 +1,4 @@
-import { REM } from "../constants/rem";
+import { NEGATIVE_REM, REM } from "../constants/rem";
 import { styleMapFromData } from "../libs/vanillaExtract";
 
 export const p = styleMapFromData(REM, (value) => ({
@@ -33,6 +33,7 @@ export const py = styleMapFromData(REM, (value) => ({
 
 const marginData = {
   ...REM,
+  ...NEGATIVE_REM,
   auto: "auto",
 };
 

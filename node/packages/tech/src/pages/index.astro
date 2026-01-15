@@ -1,14 +1,11 @@
 ---
-import { parseMd2Html } from "portfolio-shared";
 import "portfolio-shared/style.css";
 
 import { getTechPosts } from "../api/notion/tech";
 import Home from "../components/pages/home/index.astro";
-import meMd from "../components/pages/home/me.md?raw";
 import { Head } from "../components/parts/head";
 import HTML from "../layouts/html.astro";
 
-const meBody = await parseMd2Html(meMd, "dark");
 const posts = await getTechPosts();
 ---
 
@@ -17,6 +14,6 @@ const posts = await getTechPosts();
     <Head url="/" ogType="website" />
   </Fragment>
   <Fragment slot="content">
-    <Home meBody={meBody} posts={posts} />
+    <Home posts={posts} />
   </Fragment>
 </HTML>

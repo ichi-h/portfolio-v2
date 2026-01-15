@@ -1,0 +1,62 @@
+---
+import {
+  Heading,
+  Link,
+  Text,
+  Avatar,
+  Icon,
+  GitHubIcon,
+  XIcon,
+  ZennIcon,
+} from "portfolio-ui";
+
+import me from "../../../assets/me_512x512.webp?url";
+
+import * as styles from "./TopSection.css";
+import TypingAnimation from "./TypingAnimation.astro";
+---
+
+<div class={styles.topSection}>
+  <div class={styles.me}>
+    <Avatar className={styles.avatar} src={me} />
+    <Heading level="1">
+      <Text className={styles.title} color="mono.50"> tech.ichi-h.com </Text>
+    </Heading>
+    <Text color="mono.50" fontSize="7">
+      <TypingAnimation
+        words={[
+          "fun resolve(issue, solution): happiness outcome",
+          "　設計で人をハッピーにする。",
+          " Make people happy through design.",
+        ]}
+      />
+    </Text>
+  </div>
+  <div class={styles.content}>
+    <div class={styles.contentBox}>
+      <div class={styles.links}>
+        <Link
+          className={styles.snsLink}
+          href="https://x.com/ichi_h3"
+          openInNewTab
+        >
+          <Icon className={styles.snsIcon} icon={XIcon} color="mono.50" />
+        </Link>
+        <Link
+          className={styles.snsLink}
+          href="https://github.com/ichi-h"
+          openInNewTab
+        >
+          <Icon className={styles.snsIcon} icon={GitHubIcon} color="mono.50" />
+        </Link>
+        <Link
+          className={styles.snsLink}
+          href="https://zenn.dev/ichi_h"
+          openInNewTab
+        >
+          <Icon className={styles.snsIcon} icon={ZennIcon} color="mono.50" />
+        </Link>
+      </div>
+    </div>
+  </div>
+</div>

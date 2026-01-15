@@ -56,5 +56,6 @@ export const COLOR_OPACITY = {
   40: "66",
   60: "99",
   80: "cc",
+  90: "e6",
   100: "ff",
 } as const;

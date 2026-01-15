@@ -15,11 +15,7 @@ import {
   animationDelay,
   flattenStyle,
 } from "portfolio-styles";
-import {
-  buttonLgSizeProps,
-  buttonMdSizeProps,
-  buttonXlSizeProps,
-} from "portfolio-styles/components/button.css";
+import { buttonXlSizeProps } from "portfolio-styles/components/button.css";
 
 // Global fix for horizontal scrollbar
 globalStyle("html, body", {
@@ -66,8 +62,6 @@ export const contentAnimation = style([
   { maxWidth: "100vw", overflowX: "hidden" },
 ]);
 
-export const enterButton = style([
-  flattenStyle(buttonXlSizeProps),
-]);
+export const enterButton = style([flattenStyle(buttonXlSizeProps)]);
 
 export const footer = style([w["1/1"]]);

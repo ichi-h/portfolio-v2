@@ -2,7 +2,6 @@ import { style } from "@vanilla-extract/css";
 import {
   w,
   h,
-  position,
   flex,
   flexJustify,
   flexAlign,
@@ -14,10 +13,8 @@ import {
   flattenStyle,
   fontSize,
   lineHeight,
-  bottom,
-  right,
   py,
-  minH,
+  REM,
 } from "portfolio-styles";
 
 export const topSection = style([
@@ -27,19 +24,14 @@ export const topSection = style([
   flexDirection["column"],
   gap[8],
   w["1/1"],
-  minH["svh"],
-  position["relative"],
   py[16],
-  { maxWidth: "100vw", boxSizing: "border-box" },
+  {
+    maxWidth: "100vw",
+    boxSizing: "border-box",
+    height: `calc(100dvh - ${REM[12]})`,
+  },
   applyMedia({ max: "768" }, flattenStyle([py[12], gap[8]])),
   applyMedia({ max: "480" }, flattenStyle([py[8], gap[6]])),
-]);
-
-export const topLink = style([
-  position["absolute"],
-  bottom[8],
-  right[8],
-  applyMedia({ max: "480" }, flattenStyle([bottom[4], right[4]])),
 ]);
 
 export const me = style([

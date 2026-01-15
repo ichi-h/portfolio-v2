@@ -1,3 +1,4 @@
+import { DownArrowIcon, LeftArrowIcon, RightArrowIcon, UpArrowIcon } from "./arrows";
 import { GitHubIcon } from "./github";
 import { OpenInNewIcon } from "./openInNew";
 import { PageIcon } from "./page";
@@ -9,6 +10,7 @@ import { XIcon } from "./x";
 import { YouTubeIcon } from "./youtube";
 import { ZennIcon } from "./zenn";
 
+export * from "./arrows";
 export * from "./github";
 export * from "./icon";
 export * from "./openInNew";
@@ -22,6 +24,10 @@ export * from "./soundcloud";
 export * from "./zenn";
 
 export type TIcon =
+  | typeof DownArrowIcon
+  | typeof LeftArrowIcon
+  | typeof RightArrowIcon
+  | typeof UpArrowIcon
   | typeof GitHubIcon
   | typeof OpenInNewIcon
   | typeof PageIcon

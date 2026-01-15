@@ -3,6 +3,10 @@ import * as styles from "portfolio-styles/components/icon.css";
 import { COLOR } from "portfolio-styles/constants";
 
 import {
+  DownArrowIcon,
+  LeftArrowIcon,
+  RightArrowIcon,
+  UpArrowIcon,
   GitHubIcon,
   OpenInNewIcon,
   PageIcon,
@@ -17,6 +21,10 @@ import {
 } from "./";
 
 const icons = {
+  DownArrowIcon,
+  LeftArrowIcon,
+  RightArrowIcon,
+  UpArrowIcon,
   GitHubIcon,
   OpenInNewIcon,
   PageIcon,

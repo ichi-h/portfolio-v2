@@ -19,15 +19,17 @@ const { posts } = Astro.props;
 <div class={styles.contentAnimation}>
   <TopSection />
 
-  <div class={styles.content}>
-    <MottoSection />
+  <div class={styles.contentBg}>
+    <div class={styles.content}>
+      <MottoSection />
 
-    <AboutMeSection />
+      <AboutMeSection />
 
-    <PostsSection posts={posts} />
+      <PostsSection posts={posts} />
 
-    <div class={styles.footer}>
-      <Footer />
+      <div class={styles.footer}>
+        <Footer />
+      </div>
     </div>
   </div>
 </div>

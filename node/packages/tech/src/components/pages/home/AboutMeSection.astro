@@ -13,66 +13,64 @@ const resumeBodies = await Promise.all(
 ---
 
 <div class={styles.aboutMe}>
-  <div class={styles.content}>
-    <div class={styles.section}>
-      <Article
-        className={styles.article}
-        dangerouslySetInnerHTML={{ __html: profileBody }}
-        theme="dark"
-      />
+  <div class={styles.section}>
+    <Article
+      className={styles.article}
+      dangerouslySetInnerHTML={{ __html: profileBody }}
+      theme="dark"
+    />
+  </div>
+
+  <div class={styles.section}>
+    <Heading className={styles.heading} level="2" color="mono.50">
+      Resume
+    </Heading>
+
+    <div class={styles.careerList}>
+      {
+        resumeBodies.map((body) => (
+          <div class={styles.careerItem}>
+            <Article
+              className={styles.article}
+              dangerouslySetInnerHTML={{ __html: body }}
+              theme="dark"
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class={styles.section}>
+    <Heading className={styles.heading} level="2" color="mono.50">
+      Skills
+    </Heading>
+
+    <div class={styles.skillGrid}>
+      {
+        skills.map((category) => (
+          <div class={styles.skillCategory}>
+            <Text color="mono.50" className={styles.skillCategoryTitle}>
+              {category.title}
+            </Text>
+            <ul class={styles.skillList}>
+              {category.skills.map((skill) => (
+                <li>
+                  <Text color="mono.50">{skill}</Text>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
     </div>
 
-    <div class={styles.section}>
-      <Heading className={styles.heading} level="2" color="mono.50">
-        Resume
-      </Heading>
-
-      <div class={styles.careerList}>
-        {
-          resumeBodies.map((body) => (
-            <div class={styles.careerItem}>
-              <Article
-                className={styles.article}
-                dangerouslySetInnerHTML={{ __html: body }}
-                theme="dark"
-              />
-            </div>
-          ))
-        }
-      </div>
-    </div>
-
-    <div class={styles.section}>
-      <Heading className={styles.heading} level="2" color="mono.50">
-        Skills
-      </Heading>
-
-      <div class={styles.skillGrid}>
-        {
-          skills.map((category) => (
-            <div class={styles.skillCategory}>
-              <Text color="mono.50" className={styles.skillCategoryTitle}>
-                {category.title}
-              </Text>
-              <ul class={styles.skillList}>
-                {category.skills.map((skill) => (
-                  <li>
-                    <Text color="mono.50">{skill}</Text>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))
-        }
-      </div>
-
-      <Paragraph align="right">
-        <Text color="mono.200" fontSize="4">
-          👑: 3年以上の実務経験<br />
-          💪: 3年未満の実務経験<br />
-          🎨: 個人開発にて使用
-        </Text>
-      </Paragraph>
-    </div>
+    <Paragraph align="right">
+      <Text color="mono.200" fontSize="4">
+        👑: 3年以上の実務経験<br />
+        💪: 3年未満の実務経験<br />
+        🎨: 個人開発にて使用
+      </Text>
+    </Paragraph>
   </div>
 </div>

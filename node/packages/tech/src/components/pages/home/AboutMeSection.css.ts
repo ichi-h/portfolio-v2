@@ -2,8 +2,6 @@ import { style } from "@vanilla-extract/css";
 import {
   w,
   flex,
-  flexJustify,
-  flexAlign,
   flexDirection,
   gap,
   applyMedia,
@@ -11,7 +9,6 @@ import {
   fontSize,
   lineHeight,
   p,
-  maxW,
   m,
   mt,
   mb,
@@ -37,24 +34,7 @@ const itemBorder = [
   borderRadius[4],
 ];
 
-export const aboutMe = style([
-  flex,
-  flexJustify["center"],
-  flexAlign["center"],
-  flexDirection["column"],
-  w["1/1"],
-]);
-
-export const content = style([
-  flex,
-  flexDirection["column"],
-  gap[2],
-  maxW[256],
-  py[4],
-  px[8],
-  applyMedia({ max: "768" }, flattenStyle([px[5]])),
-  applyMedia({ max: "480" }, flattenStyle([px[4]])),
-]);
+export const aboutMe = style([flex, flexDirection["column"], gap[2]]);
 
 export const article = style([mt[-2]]);
 

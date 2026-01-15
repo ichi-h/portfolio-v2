@@ -16,6 +16,14 @@ import {
   flattenStyle,
   dropShadow,
   zIndex,
+  maxW,
+  py,
+  px,
+  applyMedia,
+  flex,
+  flexJustify,
+  flexAlign,
+  flexDirection,
 } from "portfolio-styles";
 
 // Global fix for horizontal scrollbar
@@ -62,11 +70,24 @@ export const contentAnimation = style([
   { maxWidth: "100vw" },
 ]);
 
-export const content = style([
+export const contentBg = style([
   position["relative"],
   zIndex[10],
+  flex,
+  flexJustify["center"],
+  flexAlign["center"],
+  flexDirection["column"],
+  w["1/1"],
   dropShadow["md"],
   bg["mono.900"],
+]);
+
+export const content = style([
+  maxW[256],
+  py[4],
+  px[8],
+  applyMedia({ max: "768" }, flattenStyle([px[5]])),
+  applyMedia({ max: "480" }, flattenStyle([px[4]])),
 ]);
 
 export const footer = style([w["1/1"]]);

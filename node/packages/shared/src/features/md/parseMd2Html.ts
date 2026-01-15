@@ -2,6 +2,7 @@ import { LinkCard } from "portfolio-ui";
 import { renderToString } from "react-dom/server";
 import rehypeSlug from "rehype-slug";
 import rehypeStringify from "rehype-stringify";
+import remarkGfm from 'remark-gfm'
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
@@ -10,21 +11,21 @@ import type { ReactElement } from "react";
 
 type Template =
   | {
-      type: "text";
-      style: string[];
-      text: string;
-    }
+    type: "text";
+    style: string[];
+    text: string;
+  }
   | {
-      type: "youtube";
-      id: string;
-    }
+    type: "youtube";
+    id: string;
+  }
   | {
-      type: "linkCard";
-      href: string;
-      title: string;
-      description: string;
-      thumbnailUrl?: string;
-    };
+    type: "linkCard";
+    href: string;
+    title: string;
+    description: string;
+    thumbnailUrl?: string;
+  };
 
 export const parseMd2Html = async (
   markdown: string,
@@ -34,6 +35,7 @@ export const parseMd2Html = async (
     (
       await unified()
         .use(remarkParse)
+        .use(remarkGfm)
         .use(remarkRehype)
         .use(rehypeSlug)
         .use(rehypeStringify)

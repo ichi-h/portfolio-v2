@@ -41,7 +41,7 @@ export const cardDark = style([
   borderRadius[4],
   dropShadow["md"],
   h["1/1"],
-  bg["mono.800"],
+  bg["mono.900"],
   {
     transition: "all 0.2s ease-in-out",
   },

@@ -57,7 +57,7 @@ export const content = style([
   py[4],
   px[8],
   dropShadow["md"],
-  bg["mono.800"],
+  bg["mono.900"],
   applyMedia({ max: "768" }, flattenStyle([px[5]])),
   applyMedia({ max: "480" }, flattenStyle([px[4]])),
 ]);

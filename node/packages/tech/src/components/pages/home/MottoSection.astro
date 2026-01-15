@@ -3,9 +3,10 @@ import { Text } from "portfolio-ui";
 
 import * as styles from "./MottoSection.css";
 import TypingAnimation from "./TypingAnimation.astro";
+import { ScrollIcon } from "../../parts/scroll-icon";
 ---
 
-<div class={styles.margin}></div>
+<div class={styles.marginTop}></div>
 <div class={styles.mottoSection} id="motto">
   <Text className={styles.mottoText} color="mono.50">
     <TypingAnimation
@@ -45,5 +46,6 @@ import TypingAnimation from "./TypingAnimation.astro";
       ]}
     />
   </Text>
+  <ScrollIcon className={styles.scrollIcon} to="#about-me" variant="small" />
 </div>
-<div class={styles.margin}></div>
+<div class={styles.marginBottom}></div>

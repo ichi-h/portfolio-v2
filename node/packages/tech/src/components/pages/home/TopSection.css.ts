@@ -1,4 +1,4 @@
-import { keyframes, style } from "@vanilla-extract/css";
+import { style } from "@vanilla-extract/css";
 import {
   w,
   h,
@@ -16,11 +16,6 @@ import {
   position,
   top,
   maxW,
-  animationName,
-  animationDuration,
-  animationTimingFunction,
-  animationFillMode,
-  animationLoop,
 } from "portfolio-styles";
 
 export const topSection = style([
@@ -124,22 +119,5 @@ export const snsLink = style([animateZoomOnHover["lg"]]);
 export const snsIcon = style([
   h[12],
   w[12],
-  applyMedia({ max: "375" }, flattenStyle([h[8], w[8]])),
-]);
-
-export const pulseAnimation = keyframes({
-  "0%": { transform: "scale(1)" },
-  "50%": { transform: "scale(1.3)" },
-  "100%": { transform: "scale(1)" },
-});
-
-export const downIcon = style([
-  h[12],
-  w[12],
-  animationName(pulseAnimation),
-  animationDuration["2000"],
-  animationTimingFunction["easeInOut"],
-  animationFillMode["forwards"],
-  animationLoop,
   applyMedia({ max: "375" }, flattenStyle([h[8], w[8]])),
 ]);

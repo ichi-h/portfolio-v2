@@ -17,6 +17,7 @@ import {
   border,
   borderL,
   p,
+  pl,
   dropShadow,
   textAlign,
   fontColor,
@@ -199,10 +200,7 @@ globalStyle(
 );
 
 // Table styles
-globalStyle(`${article} table`, flattenStyle([
-  w["fit"],
-  tableRule,
-]));
+globalStyle(`${article} table`, flattenStyle([w["fit"], tableRule]));
 
 globalStyle(`${article} th`, thRule);
 

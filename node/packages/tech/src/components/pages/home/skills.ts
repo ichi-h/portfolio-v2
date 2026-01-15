@@ -5,26 +5,23 @@ interface SkillCategory {
 
 export const skills: SkillCategory[] = [
   {
-    title: "プログラミング言語",
+    title: "Language",
     skills: [
-      "TypeScript 👑",
-      "PHP 👑",
-      "Go 💪",
-      "Python 💪",
-      "Elm 💪",
+      "TypeScript, PHP 👑",
+      "Go, Python, Elm 💪",
       "Rust, F#, Haskell, PureScript 🎨",
     ],
   },
   {
-    title: "フロントエンドフレームワーク",
+    title: "Frontend Framework",
     skills: ["React, Vue 👑", "Next.js, Remix, Nuxt.js 💪", "Astro 🎨"],
   },
   {
-    title: "バックエンドフレームワーク",
+    title: "Backend Framework",
     skills: ["Laravel 👑", "Echo 💪", "Hono 🎨"],
   },
   {
-    title: "アーキテクチャ",
+    title: "Architecture",
     skills: [
       "Clean Architecture, Layered Architecture, MVC 👑",
       "RESTful API, RPC API 👑",
@@ -33,39 +30,39 @@ export const skills: SkillCategory[] = [
     ],
   },
   {
-    title: "データベース",
+    title: "Database",
     skills: ["MySQL 👑"],
   },
   {
-    title: "Webサーバー/リバースプロキシ",
+    title: "Web Server / Proxy",
     skills: ["Nginx 👑"],
   },
   {
-    title: "API基盤",
+    title: "API",
     skills: ["OpenAPI/Swagger/Redoc 👑", "Protocol Buffers/Connect 🎨"],
   },
   {
-    title: "クラウド",
+    title: "Cloud",
     skills: ["Vercel 👑", "AWS, GCP 💪", "Cloudflare 🎨"],
   },
   {
-    title: "コンテナ / オーケストレーション / OS・構成管理",
-    skills: ["Docker 👑", "Kubernetes 🎨", "Nix/NixOS 🎨"],
-  },
-  {
-    title: "認証・認可",
+    title: "Auth",
     skills: ["Auth0 👑"],
   },
   {
-    title: "開発周辺ツール / コラボレーション",
-    skills: ["Git/GitHub, Figma, Notion, Slack 👑", "Sentry 💪"],
+    title: "Development Tool",
+    skills: ["Git 👑", "Docker 👑", "Kubernetes 🎨", "Nix/NixOS 🎨"],
   },
   {
-    title: "生成AI / AIエージェント",
+    title: "Collaboration",
+    skills: ["GitHub, Figma, Notion, Slack 👑", "Sentry 💪"],
+  },
+  {
+    title: "Generative AI / AI Agent",
     skills: ["Devin 💪", "Dify 💪"],
   },
   {
-    title: "連携サービス",
+    title: "Integration Service",
     skills: ["Zoom API 💪", "Google Calendar API 💪"],
   },
 ];

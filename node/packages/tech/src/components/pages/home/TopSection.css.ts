@@ -129,7 +129,7 @@ export const snsIcon = style([
 
 export const pulseAnimation = keyframes({
   "0%": { transform: "scale(1)" },
-  "50%": { transform: "scale(1.2)" },
+  "50%": { transform: "scale(1.3)" },
   "100%": { transform: "scale(1)" },
 });
 

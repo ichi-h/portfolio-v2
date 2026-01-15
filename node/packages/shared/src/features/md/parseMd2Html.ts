@@ -79,13 +79,23 @@ export const parseMd2Html = async (
 
   return docs
     .replace(/<p>{{%([\s\S]*?)%}}<\/p>/g, (value) => {
-      const template = JSON.parse(
-        value
-          .replace(/<p>/, "")
-          .replace(/<\/p>/, "")
-          .replace(/{{%([\s\S]*?)%}}/g, "{$1}"),
-      ) as Template;
-      return templateToHtml(template);
+      const replaced = value
+        .replace(/<p>/, "")
+        .replace(/<\/p>/, "")
+        .replace(/{{%([\s\S]*?)%}}/g, "{$1}")
+        .replace(
+          /thumbnailUrl\": \"<a href=.*?>(.*?)<\/a>/g,
+          'thumbnailUrl": "$1',
+        )
+        .replace(/href\": \"<a href=.*?>(.*?)<\/a>/g, 'href": "$1')
+        .replace(/url\": \"<a href=.*?>(.*?)<\/a>/g, 'url": "$1');
+
+      try {
+        const template = JSON.parse(replaced) as Template;
+        return templateToHtml(template);
+      } catch {
+        throw new Error(`Failed to parse template: ${replaced}`);
+      }
     })
     .replace(/{{%([\s\S]*?)%}}/g, (value) => {
       const template = JSON.parse(

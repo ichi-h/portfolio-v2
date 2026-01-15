@@ -44,7 +44,7 @@ jobs:
               - 'node/packages/ui/**'
               - .github/workflows/deploy-portfolio.yml
 
-      - name: Create .env file
+      - name: Create .env file for works
         run: |
           echo "ENVIRONMENT=production" > .env
           echo "APP_URL=${{ vars.APP_URL }}" >> .env
@@ -52,6 +52,15 @@ jobs:
           echo "NOTION_SECRET_KEY=${{ secrets.NOTION_SECRET_KEY }}" >> .env
           echo "NOTION_DATA_SOURCE_ID=${{ vars.NOTION_DATA_SOURCE_ID }}" >> .env
         working-directory: ./node/packages/works
+
+      - name: Create .env file for tech
+        run: |
+          echo "ENVIRONMENT=production" > .env
+          echo "APP_URL=${{ vars.TECH_WORK_URL }}" >> .env
+          echo "OG_IMAGE_SERVER_URL=${{ vars.OG_IMAGE_SERVER_URL }}" >> .env
+          echo "NOTION_SECRET_KEY=${{ secrets.NOTION_SECRET_KEY }}" >> .env
+          echo "NOTION_DATA_SOURCE_ID=${{ vars.NOTION_DATA_SOURCE_ID }}" >> .env
+        working-directory: ./node/packages/tech
 
       - name: Build
         run: pnpm build

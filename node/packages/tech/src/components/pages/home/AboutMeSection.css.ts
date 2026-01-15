@@ -101,6 +101,7 @@ export const mottoSection = style([
 export const typingText = style([
   fontSize[12],
   lineHeight[16],
+  fontColor["mono.50"],
   { textAlign: "center" },
   applyMedia({ max: "768" }, flattenStyle([fontSize[8], lineHeight[12]])),
   applyMedia({ max: "480" }, flattenStyle([fontSize[6], lineHeight[8]])),

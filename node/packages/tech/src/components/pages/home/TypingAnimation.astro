@@ -1,0 +1,120 @@
+---
+interface Props {
+  words: string[];
+  className?: string;
+  typingSpeed?: number;
+  deletingSpeed?: number;
+  pauseTime?: number;
+  textColor?: string;
+}
+
+const {
+  words,
+  className = "",
+  typingSpeed = 50,
+  deletingSpeed = 50,
+  pauseTime = 5000,
+} = Astro.props;
+
+const dataAttrs = {
+  "data-words": JSON.stringify(words),
+  "data-typing-speed": typingSpeed.toString(),
+  "data-deleting-speed": deletingSpeed.toString(),
+  "data-pause-time": pauseTime.toString(),
+};
+---
+
+<span class={className} data-typing-animation {...dataAttrs}>
+  <span data-typing-text></span>
+  <span data-typing-cursor style="opacity: 1;">|</span>
+</span>
+
+<script>
+  function initTypingAnimation() {
+    const elements = document.querySelectorAll("[data-typing-animation]");
+
+    elements.forEach((element) => {
+      const words = JSON.parse(
+        element.getAttribute("data-words") || "[]"
+      ) as string[];
+      const typingSpeed = parseInt(
+        element.getAttribute("data-typing-speed") || "150",
+        10
+      );
+      const deletingSpeed = parseInt(
+        element.getAttribute("data-deleting-speed") || "100",
+        10
+      );
+      const pauseTime = parseInt(
+        element.getAttribute("data-pause-time") || "5000",
+        10
+      );
+
+      if (words.length === 0) return;
+
+      const textElement = element.querySelector(
+        "[data-typing-text]"
+      ) as HTMLElement;
+      const cursorElement = element.querySelector(
+        "[data-typing-cursor]"
+      ) as HTMLElement;
+
+      if (!textElement || !cursorElement) return;
+
+      let index = 0;
+      let subIndex = 0;
+      let reverse = false;
+      let timeout: ReturnType<typeof setTimeout>;
+
+      // Blinking cursor
+      setInterval(() => {
+        cursorElement.style.opacity =
+          cursorElement.style.opacity === "0" ? "1" : "0";
+      }, 500);
+
+      function type() {
+        const currentWord = words[index];
+
+        // Typing forward
+        if (!reverse && subIndex < currentWord.length) {
+          textElement.textContent = currentWord.substring(0, subIndex + 1);
+          subIndex++;
+          timeout = setTimeout(type, typingSpeed);
+        }
+        // Pause after typing complete
+        else if (!reverse && subIndex === currentWord.length) {
+          timeout = setTimeout(() => {
+            reverse = true;
+            type();
+          }, pauseTime);
+        }
+        // Deleting backward
+        else if (reverse && subIndex > 0) {
+          subIndex--;
+          textElement.textContent = currentWord.substring(0, subIndex);
+          timeout = setTimeout(type, deletingSpeed);
+        }
+        // Move to next word after deleting complete
+        else if (reverse && subIndex === 0) {
+          reverse = false;
+          index = (index + 1) % words.length;
+          timeout = setTimeout(type, 50);
+        }
+      }
+
+      // Start typing animation
+      type();
+
+      // Cleanup on navigation (for SPA-like behavior)
+      document.addEventListener("astro:before-swap", () => {
+        clearTimeout(timeout);
+      });
+    });
+  }
+
+  // Run on initial load
+  initTypingAnimation();
+
+  // Re-run after view transitions
+  document.addEventListener("astro:page-load", initTypingAnimation);
+</script>

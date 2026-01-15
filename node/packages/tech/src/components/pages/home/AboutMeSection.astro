@@ -4,7 +4,7 @@ import { Heading, Text, Article } from "portfolio-ui";
 import { companies } from "../../../data/career";
 import { skillCategories } from "../../../data/skills";
 
-import TypingAnimationWrapper from "./TypingAnimationWrapper.astro";
+import TypingAnimation from "./TypingAnimation.astro";
 import * as styles from "./AboutMeSection.css";
 
 interface Props {
@@ -21,7 +21,7 @@ const { meBody } = Astro.props;
       {/* Motto / Typing Animation */}
       <div class={styles.mottoSection} id="about-me">
         <Heading level="2">
-          <TypingAnimationWrapper
+          <TypingAnimation
             words={[
               "設計で人をハッピーにする。",
               "Make people happy through design.",

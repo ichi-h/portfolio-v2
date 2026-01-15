@@ -60,6 +60,42 @@ const mockedTechResponse: TechPost[] = [
     publishedAt: "2024-02-15",
     updatedAt: "2024-02-15",
   },
+  {
+    id: "4",
+    slug: "tech-article-4",
+    redirectTo: "",
+    categories: ["development"],
+    title: "Mastering React Hooks",
+    description:
+      "An in-depth look at React Hooks and how to use them to build functional components.",
+    thumbnailUrl: "https://picsum.photos/200",
+    publishedAt: "2024-03-01",
+    updatedAt: "2024-03-01",
+  },
+  {
+    id: "5",
+    slug: "tech-article-5",
+    redirectTo: "",
+    categories: ["development"],
+    title: "CSS-in-JS with Vanilla Extract",
+    description:
+      "Explore the benefits of using Vanilla Extract for styling your React applications with TypeScript support.",
+    thumbnailUrl: "https://picsum.photos/200",
+    publishedAt: "2024-03-15",
+    updatedAt: "2024-03-15",
+  },
+  {
+    id: "6",
+    slug: "tech-article-6",
+    redirectTo: "",
+    categories: ["development"],
+    title: "Optimizing Web Performance",
+    description:
+      "Techniques and tools for improving the performance of your web applications.",
+    thumbnailUrl: "https://picsum.photos/200",
+    publishedAt: "2024-04-01",
+    updatedAt: "2024-04-01",
+  },
 ];
 
 /**

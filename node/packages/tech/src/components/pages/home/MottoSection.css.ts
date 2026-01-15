@@ -33,7 +33,4 @@ export const mottoText = style([
   applyMedia({ max: "576" }, flattenStyle([fontSize[4]])),
 ]);
 
-export const scrollIcon = style([
-  position["absolute"],
-  bottom[8],
-]);
+export const scrollIcon = style([position["absolute"], bottom[8]]);

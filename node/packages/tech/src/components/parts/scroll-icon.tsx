@@ -2,7 +2,7 @@ import { Link, Icon, DownArrowIcon } from "portfolio-ui";
 
 import * as styles from "./scroll-icon.css";
 
-import type { ComponentProps, FC } from "react";
+import type { FC } from "react";
 
 interface Props {
   to: string;

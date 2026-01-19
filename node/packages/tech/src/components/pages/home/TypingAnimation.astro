@@ -6,6 +6,7 @@ interface Props {
   deletingSpeed?: number;
   pauseTime?: number;
   textColor?: string;
+  renderInitialText?: boolean;
 }
 
 const {
@@ -13,19 +14,30 @@ const {
   className = "",
   typingSpeed = 50,
   deletingSpeed = 30,
-  pauseTime = 2000,
+  pauseTime = 3000,
+  renderInitialText = false,
 } = Astro.props;
+
+// Get initial text to render (if renderInitialText is true)
+const getInitialText = () => {
+  if (!renderInitialText || words.length === 0) return "";
+  const firstWord = words[0];
+  return Array.isArray(firstWord) ? firstWord[firstWord.length - 1] : firstWord;
+};
+
+const initialText = getInitialText();
 
 const dataAttrs = {
   "data-words": JSON.stringify(words),
   "data-typing-speed": typingSpeed.toString(),
   "data-deleting-speed": deletingSpeed.toString(),
   "data-pause-time": pauseTime.toString(),
+  "data-render-initial": renderInitialText.toString(),
 };
 ---
 
 <span class={className} data-typing-animation {...dataAttrs}>
-  <span data-typing-text></span>
+  <span data-typing-text>{initialText}</span>
   <span data-typing-cursor style="opacity: 1;">|</span>
 </span>
 
@@ -50,6 +62,8 @@ const dataAttrs = {
         element.getAttribute("data-pause-time") || "5000",
         10,
       );
+      const renderInitial =
+        element.getAttribute("data-render-initial") === "true";
 
       if (words.length === 0) return;
 
@@ -66,6 +80,23 @@ const dataAttrs = {
       let subIndex = 0;
       let reverse = false;
       let timeout: ReturnType<typeof setTimeout>;
+
+      // If initial text is rendered, start from completed state of first word
+      if (renderInitial) {
+        const firstWord = words[0];
+        if (Array.isArray(firstWord)) {
+          // For step array, start from the last step (completed state)
+          subIndex = firstWord.length;
+        } else {
+          // For string, start from the full length (completed state)
+          subIndex = firstWord.length;
+        }
+        // Start with reverse (deleting) after pause
+        timeout = setTimeout(() => {
+          reverse = true;
+          type();
+        }, pauseTime);
+      }
 
       // Blinking cursor
       setInterval(() => {
@@ -144,8 +175,10 @@ const dataAttrs = {
         }
       }
 
-      // Start typing animation
-      type();
+      // Start typing animation (only if not starting from rendered initial state)
+      if (!renderInitial) {
+        type();
+      }
 
       // Cleanup on navigation (for SPA-like behavior)
       document.addEventListener("astro:before-swap", () => {

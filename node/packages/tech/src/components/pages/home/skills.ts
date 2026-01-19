@@ -24,7 +24,8 @@ export const skills: SkillCategory[] = [
     title: "Architecture",
     skills: [
       "Clean Architecture, Layered Architecture, MVC 👑",
-      "RESTful API, RPC API 👑",
+      "Monorepo 👑",
+      "Modular Monolith 💪",
       "DDD 💪",
       "CQS/CQRS 💪",
     ],
@@ -39,7 +40,7 @@ export const skills: SkillCategory[] = [
   },
   {
     title: "API",
-    skills: ["OpenAPI/Swagger/Redoc 👑", "Protocol Buffers/Connect 🎨"],
+    skills: ["RESTful API, RPC API 👑", "OpenAPI/Swagger/Redoc 👑", "Protocol Buffers/Connect 🎨"],
   },
   {
     title: "Cloud",

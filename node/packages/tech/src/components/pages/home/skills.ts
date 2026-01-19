@@ -40,7 +40,11 @@ export const skills: SkillCategory[] = [
   },
   {
     title: "API",
-    skills: ["RESTful API, RPC API 👑", "OpenAPI/Swagger/Redoc 👑", "Protocol Buffers/Connect 🎨"],
+    skills: [
+      "RESTful API, RPC API 👑",
+      "OpenAPI/Swagger/Redoc 👑",
+      "Protocol Buffers/Connect 🎨",
+    ],
   },
   {
     title: "Cloud",

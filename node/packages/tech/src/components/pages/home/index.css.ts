@@ -53,7 +53,7 @@ export const overlay = style([
   top[0],
   left[0],
   w["1/1"],
-  h["svh"],
+  h["vh"],
   bg["mono.900"],
   animationName(fadeOut),
   animationDuration["500"],

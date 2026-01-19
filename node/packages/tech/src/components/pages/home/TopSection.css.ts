@@ -70,7 +70,6 @@ export const footer = style([
   w["1/1"],
   mb[6],
   applyMedia({ max: "768" }, flattenStyle([mb[4]])),
-  applyMedia({ max: "480" }, flattenStyle([mb[2]])),
 ]);
 
 export const footerLeft = style([]);

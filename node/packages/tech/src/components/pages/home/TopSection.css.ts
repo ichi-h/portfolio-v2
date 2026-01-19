@@ -19,7 +19,6 @@ import {
   mx,
   mt,
   mb,
-  bg,
 } from "portfolio-styles";
 
 export const topSection = style([
@@ -41,18 +40,10 @@ export const inner = style([
   flexJustify["center"],
   flexAlign["center"],
   flexDirection["column"],
-  applyMedia({ max: "1024" }, flattenStyle([
-    mx["8"],
-  ])),
-  applyMedia({ max: "768" }, flattenStyle([
-    mx["8"],
-  ])),
-  applyMedia({ max: "480" }, flattenStyle([
-    mx["4"],
-  ])),
-  applyMedia({ max: "375" }, flattenStyle([
-    mx["4"],
-  ])),
+  applyMedia({ max: "1024" }, flattenStyle([mx["8"]])),
+  applyMedia({ max: "768" }, flattenStyle([mx["8"]])),
+  applyMedia({ max: "480" }, flattenStyle([mx["4"]])),
+  applyMedia({ max: "375" }, flattenStyle([mx["4"]])),
 ]);
 
 export const header = style([
@@ -63,9 +54,7 @@ export const header = style([
   flexAlign["end"],
   w["1/1"],
   mt[2],
-  applyMedia({ max: "480" }, flattenStyle([
-    mt[1],
-  ])),
+  applyMedia({ max: "480" }, flattenStyle([mt[1]])),
 ]);
 
 export const headerLeft = style([]);
@@ -80,12 +69,8 @@ export const footer = style([
   flexAlign["center"],
   w["1/1"],
   mb[6],
-  applyMedia({ max: "768" }, flattenStyle([
-    mb[4],
-  ])),
-  applyMedia({ max: "480" }, flattenStyle([
-    mb[2],
-  ])),
+  applyMedia({ max: "768" }, flattenStyle([mb[4]])),
+  applyMedia({ max: "480" }, flattenStyle([mb[2]])),
 ]);
 
 export const footerLeft = style([]);
@@ -97,31 +82,20 @@ export const worksLinkText = style([
   flexAlign["center"],
   gap[1],
   fontSize[6],
-  applyMedia({ max: "768" }, flattenStyle([
-    fontSize[4],
-  ])),
+  applyMedia({ max: "768" }, flattenStyle([fontSize[4]])),
 ]);
 
 export const worksLinkIcon = style([
   w[6],
   h[6],
-  applyMedia({ max: "768" }, flattenStyle([
-    w[4],
-    h[4],
-  ])),
+  applyMedia({ max: "768" }, flattenStyle([w[4], h[4]])),
 ]);
 
 export const scrollIcon = style([
   w[12],
   h[12],
-  applyMedia({ max: "768" }, flattenStyle([
-    w[8],
-    h[8],
-  ])),
-  applyMedia({ max: "480" }, flattenStyle([
-    w[6],
-    h[6],
-  ])),
+  applyMedia({ max: "768" }, flattenStyle([w[8], h[8]])),
+  applyMedia({ max: "480" }, flattenStyle([w[6], h[6]])),
 ]);
 
 export const title = style([
@@ -225,5 +199,5 @@ export const overlay = style([
   h["1/1"],
   {
     pointerEvents: "none",
-  }
+  },
 ]);

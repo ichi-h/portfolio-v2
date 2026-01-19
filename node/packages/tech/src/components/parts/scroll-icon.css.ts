@@ -1,8 +1,5 @@
-import { keyframes, style, styleVariants } from "@vanilla-extract/css";
+import { keyframes, style } from "@vanilla-extract/css";
 import {
-  w,
-  h,
-  applyMedia,
   flattenStyle,
   animationName,
   animationDuration,
@@ -25,6 +22,6 @@ export const downIcon = style([
   animationFillMode["forwards"],
   animationLoop,
   {
-    cursor: "s-resize"
+    cursor: "s-resize",
   },
 ]);

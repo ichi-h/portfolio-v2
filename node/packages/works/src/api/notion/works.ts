@@ -40,7 +40,7 @@ const mockedWorksResponse: Work[] = [
     id: "2",
     slug: "",
     redirectTo: "https://google.com",
-    categories: ["development"],
+    categories: ["philosophy"],
     title: "Google",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis aliquam ultricies, nisl nisl aliquet nisl, nec ali",
@@ -123,10 +123,9 @@ export const getWorks = async (props?: Props): Promise<Work[]> => {
   const allPages = await queryDatabase(notion, NOTION_DATA_SOURCE_ID, props);
 
   // Exclude development categories for works
-  // const filteredPages = excludeByCategory(allPages, "development");
+  const filteredPages = excludeByCategory(allPages, "development");
 
-  // return filteredPages.map(mapNotionPageToWork);
-  return allPages.map(mapNotionPageToWork);
+  return filteredPages.map(mapNotionPageToWork);
 };
 
 const mapNotionPageToWork = (page: NotionPage): Work => {

@@ -7,18 +7,14 @@ import type { FC } from "react";
 interface Props {
   to: string;
   className?: string;
-  variant?: "medium" | "small";
+  classNameForIcon?: string;
 }
 
-export const ScrollIcon: FC<Props> = ({
-  className,
-  to,
-  variant = "medium",
-}) => {
+export const ScrollIcon: FC<Props> = ({ className, classNameForIcon, to }) => {
   return (
     <Link type="a" href={to} className={className}>
       <Icon
-        className={`${styles.downIcon} ${styles.downIconVariant[variant]}`}
+        className={`${styles.downIcon} ${classNameForIcon ?? ""}`}
         icon={DownArrowIcon}
         color="mono.50"
       />

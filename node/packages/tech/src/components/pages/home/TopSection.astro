@@ -8,47 +8,138 @@ import {
   GitHubIcon,
   XIcon,
   ZennIcon,
+  LeftArrowIcon,
 } from "portfolio-ui";
 
 import me from "../../../assets/me_512x512.webp?url";
 import { ScrollIcon } from "../../parts/scroll-icon";
 
 import * as styles from "./TopSection.css";
+import TypingAnimation from "./TypingAnimation.astro";
 ---
 
 <div class={styles.topSection}>
-  <div class={styles.me}>
-    <Avatar className={styles.avatar} src={me} />
-    <Heading level="1">
-      <Text className={styles.title} color="mono.50"> tech.ichi-h.com </Text>
-    </Heading>
-  </div>
-  <div class={styles.content}>
-    <div class={styles.contentBox}>
-      <div class={styles.links}>
-        <Link
-          className={styles.snsLink}
-          href="https://x.com/ichi_h3"
-          openInNewTab
-        >
-          <Icon className={styles.snsIcon} icon={XIcon} color="mono.50" />
-        </Link>
-        <Link
-          className={styles.snsLink}
-          href="https://github.com/ichi-h"
-          openInNewTab
-        >
-          <Icon className={styles.snsIcon} icon={GitHubIcon} color="mono.50" />
-        </Link>
-        <Link
-          className={styles.snsLink}
-          href="https://zenn.dev/ichi_h"
-          openInNewTab
-        >
-          <Icon className={styles.snsIcon} icon={ZennIcon} color="mono.50" />
-        </Link>
+  <div class={styles.inner}>
+    <div class={styles.header}>
+      <div class={styles.headerLeft}>
+        <Heading level="1">
+          <Text className={styles.title} color="mono.50">
+            tech.ichi-h.com
+          </Text>
+        </Heading>
+      </div>
+      <div class={styles.headerRight}>
+        <div class={styles.links}>
+          <Link
+            className={styles.snsLink}
+            href="https://x.com/ichi_h3"
+            openInNewTab
+          >
+            <Icon className={styles.snsIcon} icon={XIcon} color="mono.50" />
+          </Link>
+          <Link
+            className={styles.snsLink}
+            href="https://github.com/ichi-h"
+            openInNewTab
+          >
+            <Icon
+              className={styles.snsIcon}
+              icon={GitHubIcon}
+              color="mono.50"
+            />
+          </Link>
+          <Link
+            className={styles.snsLink}
+            href="https://zenn.dev/ichi_h"
+            openInNewTab
+          >
+            <Icon className={styles.snsIcon} icon={ZennIcon} color="mono.50" />
+          </Link>
+        </div>
       </div>
     </div>
+
+    <div class={styles.me}>
+      <Avatar className={styles.avatar} src={me} />
+      <Text className={styles.name} color="mono.50"> ichi-h </Text>
+      <Text className={styles.mottoText} color="mono.50">
+        <TypingAnimation
+          words={[
+            [
+              "　",
+              "　ｓ",
+              "　せ",
+              "　せｋ",
+              "　せｋｋ",
+              "　せっけ",
+              "　せっけい",
+              "　せっけいｋ",
+              "　せっけいか",
+              "　せっけいかｒ",
+              "　せっけいから",
+              "　設計から",
+              "　設計からｈ",
+              "　設計からひ",
+              "　設計からひｔ",
+              "　設計からひと",
+              "　設計からひとを",
+              "　設計から人を",
+              "　設計から人をｈ",
+              "　設計から人をは",
+              "　設計から人をはｐ",
+              "　設計から人をはっぴ",
+              "　設計から人をはっぴー",
+              "　設計から人をはっぴーｎ",
+              "　設計から人をはっぴーに",
+              "　設計から人をハッピーに",
+              "　設計から人をハッピーにｓ",
+              "　設計から人をハッピーにす",
+              "　設計から人をハッピーにすｒ",
+              "　設計から人をハッピーにする",
+              "　設計から人をハッピーにする。",
+            ],
+            " Make people happy, starting with design.",
+          ]}
+        />
+      </Text>
+    </div>
+    <div class={styles.content}>
+      <div class={styles.contentBox}></div>
+    </div>
+
+    <div class={styles.footer}>
+      <div class={styles.footerLeft}>
+        <Link href="https://ichi-h.com" color="mono.50">
+          <Text className={styles.worksLinkText}>
+            <Icon className={styles.worksLinkIcon} icon={LeftArrowIcon} size={6} color="mono.50" />
+            Philosophy, Art & Life
+          </Text>
+        </Link>
+      </div>
+      <div class={styles.footerRight}>
+        <ScrollIcon classNameForIcon={styles.scrollIcon} to="#about-me" />
+      </div>
+    </div>
+
+    <div class={styles.overlay} id="overlay" />
   </div>
-  <ScrollIcon to="#motto" />
 </div>
+
+<script>
+  const elem = document.getElementById("overlay");
+
+  document.addEventListener("scroll", () => {
+    if (!elem) return;
+
+    const scrollY = window.scrollY;
+    const vh = window.innerHeight;
+
+    const opacity = Math.min(scrollY / (vh * 0.5), 1);
+    elem.style.backgroundColor = `rgba(26, 26, 26, ${opacity})`;
+    if (opacity === 1) {
+      elem.style.pointerEvents = "auto";
+    } else {
+      elem.style.pointerEvents = "none";
+    }
+  });
+</script>

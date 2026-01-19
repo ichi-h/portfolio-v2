@@ -9,31 +9,22 @@ import {
   animationTimingFunction,
   animationFillMode,
   animationLoop,
+  opacity,
 } from "portfolio-styles";
 
 export const pulseAnimation = keyframes({
-  "0%": { transform: "scale(1)" },
-  "50%": { transform: "scale(1.2)" },
-  "100%": { transform: "scale(1)" },
+  "0%": flattenStyle([opacity["20"]]),
+  "50%": flattenStyle([opacity["100"]]),
+  "100%": flattenStyle([opacity["20"]]),
 });
 
 export const downIcon = style([
   animationName(pulseAnimation),
-  animationDuration["2000"],
+  animationDuration["3000"],
   animationTimingFunction["easeInOut"],
   animationFillMode["forwards"],
   animationLoop,
+  {
+    cursor: "s-resize"
+  },
 ]);
-
-export const downIconVariant = styleVariants({
-  medium: flattenStyle([
-    h[16],
-    w[16],
-    applyMedia({ max: "375" }, flattenStyle([h[12], w[12]])),
-  ]),
-  small: flattenStyle([
-    h[8],
-    w[8],
-    applyMedia({ max: "375" }, flattenStyle([h[6], w[6]])),
-  ]),
-});

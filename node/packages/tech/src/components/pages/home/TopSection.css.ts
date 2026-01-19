@@ -15,7 +15,11 @@ import {
   lineHeight,
   position,
   top,
-  maxW,
+  bottom,
+  mx,
+  mt,
+  mb,
+  bg,
 } from "portfolio-styles";
 
 export const topSection = style([
@@ -24,17 +28,107 @@ export const topSection = style([
   flex,
   flexJustify["center"],
   flexAlign["center"],
-  flexDirection["column"],
-  gap[8],
   w["1/1"],
-  maxW["dvw"],
-  h["dvh"],
-  {
-    boxSizing: "border-box",
-  },
-  applyMedia({ max: "768" }, flattenStyle([gap[8]])),
-  applyMedia({ max: "480" }, flattenStyle([gap[6]])),
-  applyMedia({ max: "375" }, flattenStyle([gap[4]])),
+  h["vh"],
+]);
+
+export const inner = style([
+  position["relative"],
+  w["1/1"],
+  h["1/1"],
+  mx["16"],
+  flex,
+  flexJustify["center"],
+  flexAlign["center"],
+  flexDirection["column"],
+  applyMedia({ max: "1024" }, flattenStyle([
+    mx["8"],
+  ])),
+  applyMedia({ max: "768" }, flattenStyle([
+    mx["8"],
+  ])),
+  applyMedia({ max: "480" }, flattenStyle([
+    mx["4"],
+  ])),
+  applyMedia({ max: "375" }, flattenStyle([
+    mx["4"],
+  ])),
+]);
+
+export const header = style([
+  position["absolute"],
+  top[0],
+  flex,
+  flexJustify["between"],
+  flexAlign["end"],
+  w["1/1"],
+  mt[2],
+  applyMedia({ max: "480" }, flattenStyle([
+    mt[1],
+  ])),
+]);
+
+export const headerLeft = style([]);
+
+export const headerRight = style([]);
+
+export const footer = style([
+  position["absolute"],
+  bottom[0],
+  flex,
+  flexJustify["between"],
+  flexAlign["center"],
+  w["1/1"],
+  mb[6],
+  applyMedia({ max: "768" }, flattenStyle([
+    mb[4],
+  ])),
+  applyMedia({ max: "480" }, flattenStyle([
+    mb[2],
+  ])),
+]);
+
+export const footerLeft = style([]);
+
+export const footerRight = style([]);
+
+export const worksLinkText = style([
+  flex,
+  flexAlign["center"],
+  gap[1],
+  fontSize[6],
+  applyMedia({ max: "768" }, flattenStyle([
+    fontSize[4],
+  ])),
+]);
+
+export const worksLinkIcon = style([
+  w[6],
+  h[6],
+  applyMedia({ max: "768" }, flattenStyle([
+    w[4],
+    h[4],
+  ])),
+]);
+
+export const scrollIcon = style([
+  w[12],
+  h[12],
+  applyMedia({ max: "768" }, flattenStyle([
+    w[8],
+    h[8],
+  ])),
+  applyMedia({ max: "480" }, flattenStyle([
+    w[6],
+    h[6],
+  ])),
+]);
+
+export const title = style([
+  lineHeight[12],
+  fontSize[8],
+  applyMedia({ max: "480" }, flattenStyle([fontSize[6], lineHeight[3]])),
+  applyMedia({ max: "375" }, flattenStyle([fontSize[6], lineHeight[3]])),
 ]);
 
 export const me = style([
@@ -42,26 +136,28 @@ export const me = style([
   flexJustify["center"],
   flexAlign["center"],
   flexDirection["column"],
-  gap[6],
-  applyMedia({ max: "375" }, flattenStyle([gap[2]])),
+  gap[4],
+  w["1/1"],
+  applyMedia({ max: "480" }, flattenStyle([gap[2]])),
 ]);
 
 export const avatarLink = style([animateZoomOnHover["md"]]);
 
 export const avatar = style([
   dropShadow["md"],
-  w[64],
-  h[64],
-  applyMedia({ max: "1512" }, flattenStyle([w[48], h[48]])),
-  applyMedia({ max: "480" }, flattenStyle([w[48], h[48]])),
-  applyMedia({ max: "375" }, flattenStyle([w[32], h[32]])),
+  w[48],
+  h[48],
+  applyMedia({ max: "480" }, flattenStyle([w[32], h[32]])),
 ]);
 
-export const title = style([
-  lineHeight[12],
-  fontSize[16],
-  applyMedia({ max: "480" }, flattenStyle([fontSize[12], lineHeight[3]])),
-  applyMedia({ max: "375" }, flattenStyle([fontSize[8], lineHeight[3]])),
+export const name = style([
+  fontSize[12],
+  applyMedia({ max: "480" }, flattenStyle([fontSize[8]])),
+]);
+
+export const mottoText = style([
+  fontSize[6],
+  applyMedia({ max: "576" }, flattenStyle([fontSize[4]])),
 ]);
 
 export const content = style([
@@ -117,7 +213,17 @@ export const navText = style([
 export const snsLink = style([animateZoomOnHover["lg"]]);
 
 export const snsIcon = style([
-  h[12],
-  w[12],
-  applyMedia({ max: "375" }, flattenStyle([h[8], w[8]])),
+  h[8],
+  w[8],
+  applyMedia({ max: "480" }, flattenStyle([h[6], w[6]])),
+]);
+
+export const overlay = style([
+  position["fixed"],
+  top[0],
+  w["1/1"],
+  h["1/1"],
+  {
+    pointerEvents: "none",
+  }
 ]);

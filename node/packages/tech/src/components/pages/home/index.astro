@@ -2,7 +2,6 @@
 import { Footer } from "../../parts/footer";
 
 import AboutMeSection from "./AboutMeSection.astro";
-import MottoSection from "./MottoSection.astro";
 import { PostsSection } from "./PostsSection";
 import TopSection from "./TopSection.astro";
 import * as styles from "./index.css";
@@ -21,8 +20,6 @@ const { posts } = Astro.props;
 
   <div class={styles.contentBg}>
     <div class={styles.content}>
-      <MottoSection />
-
       <AboutMeSection />
 
       <PostsSection posts={posts} />

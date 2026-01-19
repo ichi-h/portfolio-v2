@@ -17,6 +17,14 @@
   "thumbnailUrl": "https://og-image.ichi-h.com?title=実存と構造、そして遊びへ"
 %}}
 
+{{%
+  "type": "linkCard",
+  "href": "https://ichi-h.com/works/bonhoeffer-adulthood/",
+  "title": "ボンヘッファーの成人性から実存的態度の模索 - ichi-h.com",
+  "description": "ボンヘッファーの成人性、つまり「神の前で、神とともに、神なしに生きる」という逆説的な言葉から彼の思想を読み直す。そのうえでボンヘッファーが提示する世界観をどのように生きるべきかという実存的態度を模索する。",
+  "thumbnailUrl": "https://og-image.ichi-h.com?title=ボンヘッファーの成人性から実存的態度の模索"
+%}}
+
 その他は[こちら](/categories/philosophy)から。
 
 特に影響を受けている人物

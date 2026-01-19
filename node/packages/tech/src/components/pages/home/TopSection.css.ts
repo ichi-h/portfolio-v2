@@ -125,6 +125,7 @@ export const avatar = style([
 
 export const name = style([
   fontSize[12],
+  mt["-2"],
   applyMedia({ max: "480" }, flattenStyle([fontSize[8]])),
 ]);
 

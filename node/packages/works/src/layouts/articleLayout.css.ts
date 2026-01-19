@@ -20,10 +20,7 @@ export const layoutParentStyle = style([
   flex,
   flexJustify["center"],
   w["1/1"],
-  h["svh"],
-  {
-    overflowY: "scroll",
-  },
+  h["vh"],
 ]);
 
 export const layoutStyle = style([

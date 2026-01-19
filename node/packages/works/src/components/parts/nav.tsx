@@ -23,18 +23,18 @@ export const Nav: FC<Props> = ({ ...props }) => (
       <Link
         className={navLinkStyle}
         as={Anchor}
-        asProps={{ href: "/works" }}
-        color="mono.50"
-      >
-        Works
-      </Link>
-      <Link
-        className={navLinkStyle}
-        as={Anchor}
         asProps={{ href: "/about" }}
         color="mono.50"
       >
         About
+      </Link>
+      <Link
+        className={navLinkStyle}
+        as={Anchor}
+        asProps={{ href: "/works" }}
+        color="mono.50"
+      >
+        Works
       </Link>
     </div>
   </nav>

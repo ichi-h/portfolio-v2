@@ -24,6 +24,8 @@ import {
   flexJustify,
   flexAlign,
   flexDirection,
+  COLOR,
+  COLOR_OPACITY,
 } from "portfolio-styles";
 
 // Global fix for horizontal scrollbar
@@ -91,3 +93,13 @@ export const content = style([
 ]);
 
 export const footer = style([w["1/1"]]);
+
+export const marginTop = style([
+  position["relative"],
+  zIndex[10],
+  w["1/1"],
+  h[1],
+  {
+    background: `linear-gradient(0deg, ${COLOR["mono.900"]} 0%, ${COLOR["mono.900"]}${COLOR_OPACITY["0"]} 100%);`,
+  },
+]);

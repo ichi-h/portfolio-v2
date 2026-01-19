@@ -25,6 +25,7 @@ import {
   my,
   fontColor,
   pl,
+  pt,
 } from "portfolio-styles";
 
 const itemBorder = [
@@ -34,7 +35,7 @@ const itemBorder = [
   borderRadius[4],
 ];
 
-export const aboutMe = style([flex, flexDirection["column"], gap[2]]);
+export const aboutMe = style([flex, flexDirection["column"], gap[2], pt[4]]);
 
 export const article = style([mt[-2]]);
 

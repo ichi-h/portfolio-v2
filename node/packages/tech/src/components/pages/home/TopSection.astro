@@ -111,7 +111,12 @@ import TypingAnimation from "./TypingAnimation.astro";
       <div class={styles.footerLeft}>
         <Link href="https://ichi-h.com" color="mono.50">
           <Text className={styles.worksLinkText}>
-            <Icon className={styles.worksLinkIcon} icon={LeftArrowIcon} size={6} color="mono.50" />
+            <Icon
+              className={styles.worksLinkIcon}
+              icon={LeftArrowIcon}
+              size={6}
+              color="mono.50"
+            />
             Philosophy, Art & Life
           </Text>
         </Link>
@@ -121,14 +126,14 @@ import TypingAnimation from "./TypingAnimation.astro";
       </div>
     </div>
 
-    <div class={styles.overlay} id="overlay" />
+    <div class={styles.overlay} id="overlay"></div>
   </div>
 </div>
 
 <script>
   const elem = document.getElementById("overlay");
 
-  document.addEventListener("scroll", () => {
+  const changeOverlayOpacity = () => {
     if (!elem) return;
 
     const scrollY = window.scrollY;
@@ -141,5 +146,8 @@ import TypingAnimation from "./TypingAnimation.astro";
     } else {
       elem.style.pointerEvents = "none";
     }
-  });
+  };
+
+  document.addEventListener("scroll", changeOverlayOpacity);
+  document.addEventListener("DOMContentLoaded", changeOverlayOpacity);
 </script>

@@ -24,8 +24,8 @@ export const PostsSection = ({ posts }: Props) => {
   }));
 
   return (
-    <div className={styles.contentSection} id="posts">
-      <Heading level="2" color="mono.50">
+    <div className={styles.postSection} id="posts">
+      <Heading className={styles.alignCenter} level="2" color="mono.50">
         Posts
       </Heading>
 

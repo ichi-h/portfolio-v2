@@ -26,6 +26,7 @@ import {
   fontColor,
   pl,
   pt,
+  textAlign,
 } from "portfolio-styles";
 
 const itemBorder = [
@@ -35,13 +36,15 @@ const itemBorder = [
   borderRadius[4],
 ];
 
-export const aboutMe = style([flex, flexDirection["column"], gap[2], pt[4]]);
+export const aboutMe = style([flex, flexDirection["column"], gap[16], pt[4]]);
 
 export const article = style([mt[-2]]);
 
 export const section = style([mb[4]]);
 
 export const heading = style([mt[2]]);
+
+export const alignCenter = style([textAlign["center"]]);
 
 export const careerList = style([flex, flexDirection["column"], gap[4], mt[4]]);
 

@@ -103,7 +103,11 @@ const ogpUseCase = async (title: string, imageUrl: string) => {
   return await generateOgpSvg();
 };
 
-const app = new Hono();
+const app = new Hono<{
+  Bindings: {
+    RESOURCE_SERVER_ORIGIN: string;
+  }
+}>();
 
 app.get(
   "/",

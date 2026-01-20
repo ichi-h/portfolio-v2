@@ -20,7 +20,7 @@ export const layoutParentStyle = style([
   flex,
   flexJustify["center"],
   w["1/1"],
-  h["vh"],
+  h["svh"],
 ]);
 
 export const layoutStyle = style([

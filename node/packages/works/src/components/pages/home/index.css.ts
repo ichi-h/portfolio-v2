@@ -60,7 +60,7 @@ export const outer = style([
   flexAlign["center"],
   flexDirection["column"],
   maxW["vw"],
-  h["vh"],
+  h["svh"],
 
   mx["16"],
   applyMedia({ max: "1024" }, flattenStyle([mx["8"]])),

@@ -5,9 +5,10 @@
     "deploy": "wrangler deploy --minify index.ts"
   },
   "dependencies": {
+    "@resvg/resvg-wasm": "^2.6.2",
     "satori": "^0.7.3"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20240129.0"
+    "@cloudflare/workers-types": "^4.20260120.0"
   }
 }

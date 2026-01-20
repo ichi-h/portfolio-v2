@@ -1,8 +1,15 @@
 name = "portfolio-og-image"
-compatibility_date = "2023-12-01"
+main = "index.ts"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
 
 [vars]
 RESOURCE_SERVER_ORIGIN = "https://static.ichi-h.com"
+
+[[rules]]
+type = "CompiledWasm"
+globs = ["**/*.wasm"]
+fallthrough = true
 
 # [[kv_namespaces]]
 # binding = "MY_KV_NAMESPACE"

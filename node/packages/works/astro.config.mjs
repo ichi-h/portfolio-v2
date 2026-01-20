@@ -8,4 +8,7 @@ export default defineConfig({
   vite: {
     plugins: [vanillaExtractPlugin()],
   },
+  server: {
+    host: "0.0.0.0",
+  },
 });

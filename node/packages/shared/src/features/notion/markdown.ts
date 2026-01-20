@@ -18,14 +18,14 @@ export const pageToMarkdown = async (
         if (b.type === "quote") {
           return {
             ...b,
-            parent: `${b.parent}\\n>\\n${b.children
+            parent: `${b.parent}\n>\n${b.children
               .map((c) => {
                 if (c.type === "bulleted_list_item") {
                   return `> ${c.parent}  `;
                 }
-                return `> ${c.parent}  \\n>`;
+                return `> ${c.parent}  \n>`;
               })
-              .join("\\n")}`,
+              .join("\n")}`,
             children: [],
           };
         }
@@ -33,6 +33,7 @@ export const pageToMarkdown = async (
       }),
     )
     .parent.replace(/```f#/g, "```fsharp")
-    .replace(/((^> +- .+\\n)+)(> +[^-]*)$/gm, "$1>\\n$3")
-    .replaceAll("\t>", ">");
+    .replace(/((^> +- .+\n)+)(> +[^-]*)$/gm, "$1>\n$3")
+    .replaceAll("	>", ">")
+    .replace(/^(#{1,5}) /gm, "#$1 ");
 };

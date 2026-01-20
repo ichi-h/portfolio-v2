@@ -30,13 +30,13 @@ async function fetchFont({
   ).text();
 
   const resource = css.match(
-    /src: url\((.+)\) format\('(opentype|truetype)'\)/
+    /src: url\((.+)\) format\('(opentype|truetype)'\)/,
   );
 
   if (!resource) return null;
   const res = await fetch(resource[1]);
   return res.arrayBuffer();
-};
+}
 
 const genModuleInit = () => {
   let isInit = false;
@@ -153,13 +153,13 @@ const ogpUseCase = async (title: string, imageUrl: string) => {
 const app = new Hono<{ Bindings: Env }>();
 
 app.get(
-  "/",
+  "/:title",
   cache({
-    cacheName: (c) => c.req.query("title") || "ogp",
+    cacheName: (c) => c.req.param("title") || "ogp",
     cacheControl: "public, max-age=86400",
   }),
   async (c) => {
-    const title = c.req.query("title") || "";
+    const title = c.req.param("title") || "";
     const imageUrl = `${c.env.RESOURCE_SERVER_ORIGIN}/bg_ogp.jpg`;
     const png = await ogpUseCase(title, imageUrl);
     return new Response(png, {

@@ -14,7 +14,7 @@
   "href": "https://ichi-h.com/works/existence-structure-play/",
   "title": "実存と構造、そして遊びへ - ichi-h.com",
   "description": "実存の保証として神を基礎づける在り方から、実存ありきで本質を求める在り方まで歴史は辿っていたものの、結局のところどちらが正しいということはなく、それらは単なる差異でしかない。二項対立が崩壊した世界を生きるには、この対立から逃げ、差異を差異として肯定し、楽しむ在り方が重要なのではないか。",
-  "thumbnailUrl": "https://og-image.ichi-h.com?title=実存と構造、そして遊びへ"
+  "thumbnailUrl": "https://og-image.ichi-h.com/実存と構造、そして遊びへ"
 %}}
 
 {{%
@@ -22,7 +22,7 @@
   "href": "https://ichi-h.com/works/bonhoeffer-adulthood/",
   "title": "ボンヘッファーの成人性から実存的態度の模索 - ichi-h.com",
   "description": "ボンヘッファーの成人性、つまり「神の前で、神とともに、神なしに生きる」という逆説的な言葉から彼の思想を読み直す。そのうえでボンヘッファーが提示する世界観をどのように生きるべきかという実存的態度を模索する。",
-  "thumbnailUrl": "https://og-image.ichi-h.com?title=ボンヘッファーの成人性から実存的態度の模索"
+  "thumbnailUrl": "https://og-image.ichi-h.com/ボンヘッファーの成人性から実存的態度の模索"
 %}}
 
 その他は[こちら](/categories/philosophy)から。

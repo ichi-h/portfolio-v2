@@ -97,7 +97,7 @@ export const GridWorks: FC<Props> = ({ works }) => {
                   className={styles.cardThumbnail}
                   src={
                     work.thumbnailUrl ||
-                    `${useEnv().OG_IMAGE_SERVER_URL}?title=${work.title}`
+                    `${useEnv().OG_IMAGE_SERVER_URL}/${work.title}`
                   }
                   alt={work.title}
                 />

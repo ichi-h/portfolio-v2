@@ -124,7 +124,7 @@ export const GridPosts: FC<Props> = ({
                   src={
                     post.thumbnailUrl ||
                     (ogImageServerUrl
-                      ? `${ogImageServerUrl}?title=${post.title}`
+                      ? `${ogImageServerUrl}/${post.title}`
                       : "")
                   }
                   alt={post.title}

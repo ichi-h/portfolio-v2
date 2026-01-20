@@ -24,9 +24,9 @@ export const YouTubeIcon = ({ color, ...props }: Props) => {
         <g
           id="Page-1"
           stroke="none"
-          stroke-width="1"
+          strokeWidth="1"
           fill={color && COLOR[color]}
-          fill-rule="evenodd"
+          fillRule="evenodd"
         >
           <g
             id="Dribbble-Light-Preview"

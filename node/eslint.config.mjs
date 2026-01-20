@@ -36,6 +36,7 @@ export default defineConfig([
     "packages/works",
     "**/.turbo",
     "**/.direnv",
+    "**/.wrangler",
   ]),
   {
     extends: compat.extends("plugin:@typescript-eslint/recommended"),

@@ -28,7 +28,7 @@ export const topSection = style([
   flexJustify["center"],
   flexAlign["center"],
   w["1/1"],
-  h["vh"],
+  h["svh"],
 ]);
 
 export const inner = style([

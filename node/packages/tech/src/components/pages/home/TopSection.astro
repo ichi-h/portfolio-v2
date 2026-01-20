@@ -138,7 +138,7 @@ import TypingAnimation from "./TypingAnimation.astro";
     if (!elem) return;
 
     const scrollY = window.scrollY;
-    const vh = window.innerHeight;
+    const vh = window.document.documentElement.clientHeight;
 
     const opacity = Math.min(scrollY / (vh * 0.5), 1);
     elem.style.backgroundColor = `rgba(26, 26, 26, ${opacity})`;

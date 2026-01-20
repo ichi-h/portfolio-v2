@@ -56,8 +56,7 @@ jobs:
       - name: Create .env file for tech
         run: |
           echo "ENVIRONMENT=production" > .env
-          echo "APP_URL=${{ vars.TECH_WORK_URL }}" >> .env
-          echo "OG_IMAGE_SERVER_URL=${{ vars.OG_IMAGE_SERVER_URL }}" >> .env
+          echo "APP_URL=${{ vars.TECH_APP_URL }}" >> .env
           echo "NOTION_SECRET_KEY=${{ secrets.NOTION_SECRET_KEY }}" >> .env
           echo "NOTION_DATA_SOURCE_ID=${{ vars.NOTION_DATA_SOURCE_ID }}" >> .env
         working-directory: ./node/packages/tech

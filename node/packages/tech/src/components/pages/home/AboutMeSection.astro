@@ -12,8 +12,8 @@ const resumeBodies = await Promise.all(
 );
 ---
 
-<div class={styles.aboutMe} id="about-me">
-  <div class={styles.section}>
+<div class={styles.aboutMe}>
+  <div class={styles.section} id="about-me">
     <Article
       className={styles.article}
       dangerouslySetInnerHTML={{ __html: profileBody }}
@@ -21,7 +21,7 @@ const resumeBodies = await Promise.all(
     />
   </div>
 
-  <div class={styles.section}>
+  <div class={styles.section} id="resume">
     <Heading className={styles.heading} level="2" color="mono.50">
       Resume
     </Heading>
@@ -41,7 +41,7 @@ const resumeBodies = await Promise.all(
     </div>
   </div>
 
-  <div class={styles.section}>
+  <div class={styles.section} id="skills">
     <Heading
       className={`${styles.heading} ${styles.alignCenter}`}
       level="2"

@@ -1,27 +1,30 @@
-import { keyframes, style } from "@vanilla-extract/css";
+import { style } from "@vanilla-extract/css";
 import {
   flattenStyle,
-  animationName,
-  animationDuration,
-  animationTimingFunction,
-  animationFillMode,
-  animationLoop,
-  opacity,
+  w,
+  h,
+  bg,
+  border,
+  borderColor,
+  borderStyle,
+  borderRadius,
+  fill,
+  duration,
+  dropShadow,
 } from "portfolio-styles";
 
-export const pulseAnimation = keyframes({
-  "0%": flattenStyle([opacity["20"]]),
-  "50%": flattenStyle([opacity["100"]]),
-  "100%": flattenStyle([opacity["20"]]),
-});
-
-export const downIcon = style([
-  animationName(pulseAnimation),
-  animationDuration["3000"],
-  animationTimingFunction["easeInOut"],
-  animationFillMode["forwards"],
-  animationLoop,
+export const arrowIcon = style([
+  w[8],
+  h[8],
+  bg["mono.900"],
+  border[2],
+  borderColor["mono.700"],
+  borderStyle["solid"],
+  borderRadius["full"],
+  fill["mono.700"],
+  dropShadow["hard"],
+  duration[200],
   {
-    cursor: "s-resize",
+    ":hover": flattenStyle([borderColor["mono.400"], fill["mono.400"]]),
   },
 ]);

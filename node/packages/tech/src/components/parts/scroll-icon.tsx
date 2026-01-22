@@ -1,4 +1,4 @@
-import { Link, Icon, DownArrowIcon } from "portfolio-ui";
+import { Link, Icon, DownArrowIcon, UpArrowIcon } from "portfolio-ui";
 
 import * as styles from "./scroll-icon.css";
 
@@ -6,17 +6,17 @@ import type { FC } from "react";
 
 interface Props {
   to: string;
+  direction: "up" | "down";
+  id?: string;
   className?: string;
-  classNameForIcon?: string;
 }
 
-export const ScrollIcon: FC<Props> = ({ className, classNameForIcon, to }) => {
+export const ScrollIcon: FC<Props> = ({ to, direction, className, id }) => {
   return (
-    <Link type="a" href={to} className={className}>
+    <Link type="a" href={to} className={className} id={id}>
       <Icon
-        className={`${styles.downIcon} ${classNameForIcon ?? ""}`}
-        icon={DownArrowIcon}
-        color="mono.50"
+        className={styles.arrowIcon}
+        icon={direction === "up" ? UpArrowIcon : DownArrowIcon}
       />
     </Link>
   );

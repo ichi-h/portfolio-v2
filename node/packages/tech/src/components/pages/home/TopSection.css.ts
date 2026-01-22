@@ -65,16 +65,14 @@ export const footer = style([
   position["absolute"],
   bottom[0],
   flex,
-  flexJustify["between"],
+  flexJustify["end"],
   flexAlign["center"],
   w["1/1"],
   mb[6],
   applyMedia({ max: "768" }, flattenStyle([mb[4]])),
 ]);
 
-export const footerLeft = style([]);
-
-export const footerRight = style([]);
+export const toc = style([]);
 
 export const worksLinkText = style([
   flex,
@@ -88,13 +86,6 @@ export const worksLinkIcon = style([
   w[6],
   h[6],
   applyMedia({ max: "768" }, flattenStyle([w[4], h[4]])),
-]);
-
-export const scrollIcon = style([
-  w[12],
-  h[12],
-  applyMedia({ max: "768" }, flattenStyle([w[8], h[8]])),
-  applyMedia({ max: "480" }, flattenStyle([w[6], h[6]])),
 ]);
 
 export const title = style([
@@ -117,7 +108,7 @@ export const me = style([
 export const avatarLink = style([animateZoomOnHover["md"]]);
 
 export const avatar = style([
-  dropShadow["md"],
+  dropShadow["hard"],
   w[48],
   h[48],
   applyMedia({ max: "480" }, flattenStyle([w[32], h[32]])),

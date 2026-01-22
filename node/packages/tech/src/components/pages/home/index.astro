@@ -1,5 +1,6 @@
 ---
 import { Footer } from "../../parts/footer";
+import { ScrollIcon } from "../../parts/scroll-icon";
 
 import AboutMeSection from "./AboutMeSection.astro";
 import { PostsSection } from "./PostsSection";
@@ -18,8 +19,6 @@ const { posts } = Astro.props;
 <div class={styles.contentAnimation}>
   <TopSection />
 
-  <div class={styles.marginTop}></div>
-
   <div class={styles.contentBg}>
     <div class={styles.content}>
       <AboutMeSection />
@@ -32,4 +31,28 @@ const { posts } = Astro.props;
     </div>
   </div>
 </div>
+<ScrollIcon
+  className={styles.scrollIcon}
+  id="scroll-icon"
+  direction="up"
+  to="#"
+/>
 <div class={styles.overlay}></div>
+
+<script>
+  const scrollIcon = document.getElementById("scroll-icon");
+
+  document.addEventListener("scroll", () => {
+    if (!scrollIcon) return;
+
+    const scrollY = window.scrollY;
+
+    if (scrollY > 100) {
+      scrollIcon.style.opacity = "1";
+      scrollIcon.style.pointerEvents = "auto";
+    } else {
+      scrollIcon.style.opacity = "0";
+      scrollIcon.style.pointerEvents = "none";
+    }
+  });
+</script>

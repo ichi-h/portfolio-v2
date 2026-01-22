@@ -37,8 +37,7 @@ const body = await parseMd2Html(bodyMd);
       title={`${work.title} - ichi-h.com`}
       description={work.description}
       ogType="article"
-      ogImage={work.thumbnailUrl ||
-        `${OG_IMAGE_SERVER_URL}/${work.title}`}
+      ogImage={work.thumbnailUrl || `${OG_IMAGE_SERVER_URL}/${work.title}`}
     />
     <link rel="stylesheet" href={codeStyle} />
     <link rel="stylesheet" href={bbStyle} />

@@ -14,7 +14,6 @@ import {
   animationFillMode,
   animationDelay,
   flattenStyle,
-  dropShadow,
   zIndex,
   maxW,
   py,
@@ -26,6 +25,9 @@ import {
   flexDirection,
   COLOR,
   COLOR_OPACITY,
+  bottom,
+  right,
+  duration,
 } from "portfolio-styles";
 
 // Global fix for horizontal scrollbar
@@ -80,7 +82,6 @@ export const contentBg = style([
   flexAlign["center"],
   flexDirection["column"],
   w["1/1"],
-  dropShadow["md"],
   bg["mono.900"],
 ]);
 
@@ -101,5 +102,16 @@ export const marginTop = style([
   h[1],
   {
     background: `linear-gradient(0deg, ${COLOR["mono.900"]} 0%, ${COLOR["mono.900"]}${COLOR_OPACITY["0"]} 100%);`,
+  },
+]);
+
+export const scrollIcon = style([
+  position["fixed"],
+  bottom[6],
+  right[6],
+  duration[200],
+  opacity[0],
+  {
+    pointerEvents: "none",
   },
 ]);

@@ -68,6 +68,7 @@ export {
   mx,
   my,
 } from "./spacing";
+export { fill } from "./svg";
 export {
   fontSize,
   fontColor,

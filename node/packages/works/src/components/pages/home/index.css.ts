@@ -127,7 +127,7 @@ export const pageLink = style([
 ]);
 
 export const avatar = style([
-  dropShadow["md"],
+  dropShadow["soft"],
   w[48],
   h[48],
   applyMedia({ max: "480" }, flattenStyle([w[32], h[32]])),

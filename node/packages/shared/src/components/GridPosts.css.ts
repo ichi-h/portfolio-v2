@@ -42,7 +42,7 @@ export const cardGrid = style([
 // Dark theme variant for tech pages
 export const cardDark = style([
   borderRadius[4],
-  dropShadow["md"],
+  dropShadow["hard"],
   h["1/1"],
   bg["mono.900"],
   border[2],
@@ -56,7 +56,7 @@ export const cardDark = style([
 // Light theme variant for works pages
 export const cardLight = style([
   borderRadius[4],
-  dropShadow["md"],
+  dropShadow["soft"],
   h["1/1"],
   bg["mono.50"],
 ]);

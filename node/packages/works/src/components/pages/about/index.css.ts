@@ -33,7 +33,7 @@ export const subtext = style([
 ]);
 
 export const avatar = style([
-  dropShadow["md"],
+  dropShadow["soft"],
   w[64],
   h[64],
   applyMedia({ max: "768" }, flattenStyle([w[32], h[32]])),

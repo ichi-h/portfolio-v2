@@ -59,7 +59,7 @@ export const cardGrid = style([
   applyMedia({ max: "576" }, flattenStyle([gridCols[1]])),
 ]);
 
-export const card = style([borderRadius[4], dropShadow["md"], h["1/1"]]);
+export const card = style([borderRadius[4], dropShadow["soft"], h["1/1"]]);
 
 export const cardLayout = style([flex, flexDirection["column"], gap[3], p[5]]);
 

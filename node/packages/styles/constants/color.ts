@@ -48,6 +48,8 @@ export const COLOR = {
 
   youtube: "#FF0000",
   soundcloud: "#F26F23",
+  pureBlack: "#000000",
+  pureWhite: "#FFFFFF",
 } as const;
 
 export const COLOR_OPACITY = {

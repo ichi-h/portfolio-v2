@@ -140,7 +140,7 @@ globalStyle(
     borderRadius[1],
     p[3],
     m[0],
-    dropShadow["md"],
+    dropShadow["soft"],
   ]),
 );
 

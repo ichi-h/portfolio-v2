@@ -27,7 +27,7 @@ export const linkCard = style([
   border["1"],
   borderColor["mono.500"],
   borderRadius["1"],
-  dropShadow["md"],
+  dropShadow["soft"],
   p[4],
 ]);
 export const linkCardVariant = styleVariants({

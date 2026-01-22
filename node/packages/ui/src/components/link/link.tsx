@@ -28,13 +28,16 @@ export const Link = <T extends ElementType>({
   color = styles.defaultFontColor,
   openInNewTab,
   decoration,
+  href,
+  as: asComponent,
+  asProps,
   ...props
 }: Props<T>) => {
-  const isAnchor = "href" in props;
-  const Component = isAnchor || !props.as ? "a" : props.as;
+  const isAnchor = typeof href === "string";
+  const Component = isAnchor || !asComponent ? "a" : asComponent;
   const anchorProps = isAnchor
     ? {
-        href: props.href,
+        href,
         target: openInNewTab ? "_blank" : undefined,
         rel: openInNewTab ? "noopener noreferrer" : undefined,
       }
@@ -50,7 +53,8 @@ export const Link = <T extends ElementType>({
         className,
       ])}
       {...anchorProps}
-      {...props.asProps}
+      {...asProps}
+      {...props}
     >
       {children}
     </Component>

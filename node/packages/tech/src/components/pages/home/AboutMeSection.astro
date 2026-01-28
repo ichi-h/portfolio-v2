@@ -27,10 +27,7 @@ const resumeBodies = await Promise.all(
       Resume
     </Heading>
 
-    <Article
-      dangerouslySetInnerHTML={{ __html: summaryBody }}
-      theme="dark"
-    />
+    <Article dangerouslySetInnerHTML={{ __html: summaryBody }} theme="dark" />
 
     <div class={styles.careerList}>
       {

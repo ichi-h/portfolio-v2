@@ -67,7 +67,21 @@ export function genResumePdf(options: GenResumePdfOptions = {}): Plugin {
       try {
         const mdResume = genMdResume(name);
 
-        const pdf = await mdToPdf({ content: mdResume }, { css: pdfCss });
+        const pdf = await mdToPdf(
+          { content: mdResume },
+          {
+            css: pdfCss,
+            pdf_options: {
+              format: "A4",
+              margin: {
+                top: "20mm",
+                bottom: "20mm",
+                left: "15mm",
+                right: "15mm",
+              },
+            },
+          },
+        );
 
         if (pdf) {
           if (!fs.existsSync(outputDir)) {

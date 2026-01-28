@@ -44,6 +44,8 @@ export const section = style([mb[4]]);
 
 export const heading = style([mt[2]]);
 
+export const resumeHeading = style([my[2]]);
+
 export const alignCenter = style([textAlign["center"]]);
 
 export const careerList = style([flex, flexDirection["column"], gap[4], mt[4]]);

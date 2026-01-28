@@ -3,10 +3,11 @@ import { parseMd2Html } from "portfolio-shared";
 import { Heading, Text, Article, Paragraph } from "portfolio-ui";
 
 import * as styles from "./AboutMeSection.css";
-import { aboutMe, resume } from "./md";
+import { aboutMe, resume, summary } from "./md";
 import { skills } from "./skills";
 
 const profileBody = await parseMd2Html(aboutMe.default, "dark");
+const summaryBody = await parseMd2Html(summary.default, "dark");
 const resumeBodies = await Promise.all(
   resume.map(async (item) => await parseMd2Html(item, "dark")),
 );
@@ -22,9 +23,14 @@ const resumeBodies = await Promise.all(
   </div>
 
   <div class={styles.section} id="resume">
-    <Heading className={styles.heading} level="2" color="mono.50">
+    <Heading className={styles.resumeHeading} level="2" color="mono.50">
       Resume
     </Heading>
+
+    <Article
+      dangerouslySetInnerHTML={{ __html: summaryBody }}
+      theme="dark"
+    />
 
     <div class={styles.careerList}>
       {
@@ -47,7 +53,7 @@ const resumeBodies = await Promise.all(
       level="2"
       color="mono.50"
     >
-      Skills
+      Technical Skills
     </Heading>
 
     <div class={styles.skillGrid}>

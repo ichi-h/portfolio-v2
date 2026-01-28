@@ -7,7 +7,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "deploy": "wrangler pages deploy dist/ --project-name portfolio-tech"
+    "deploy": "wrangler pages deploy dist/ --project-name portfolio-tech",
+    "postinstall": "puppeteer browsers install chrome"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.6",
@@ -23,5 +24,10 @@
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.1.2",
     "unified": "^11.0.5"
+  },
+  "devDependencies": {
+    "dotenv": "^17.2.3",
+    "md-to-pdf": "^5.2.5",
+    "puppeteer": "^24.2.0"
   }
 }

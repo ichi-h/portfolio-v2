@@ -30,6 +30,11 @@ ${resume.join("\n\n").replaceAll("# ", " ")}
 - 🎨: 個人開発にて使用
 
 ${skills.map((skill) => `### ${skill.title}\n\n${skill.skills.map((item) => `- ${item}`).join("\n")}`).join("\n\n")}
+
+## URLs
+
+- GitHub: https://github.com/ichi-h
+- Zenn: https://zenn.dev/ichi_h
 `;
 };
 

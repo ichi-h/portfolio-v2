@@ -121,8 +121,12 @@ export const name = style([
 ]);
 
 export const mottoText = style([
+  {
+    display: "inline-block",
+  },
+  h[7],
   fontSize[6],
-  applyMedia({ max: "576" }, flattenStyle([fontSize[4]])),
+  applyMedia({ max: "576" }, flattenStyle([fontSize[4], h[5]])),
 ]);
 
 export const content = style([

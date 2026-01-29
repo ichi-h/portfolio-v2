@@ -58,12 +58,17 @@ h4 { font-size: 0.75rem; }
 h5 { font-size: 0.5rem; }
 `;
 
+let hasGeneratedResumePdf = false;
+
 export function genResumePdf(options: GenResumePdfOptions = {}): Plugin {
   const { outputDir = "dist", name = "ichi-h" } = options;
 
   return {
     name: "vite-plugin-gen-resume-pdf",
     async closeBundle() {
+      if (hasGeneratedResumePdf) return;
+      hasGeneratedResumePdf = true;
+
       try {
         const mdResume = genMdResume(name);
 
@@ -83,20 +88,18 @@ export function genResumePdf(options: GenResumePdfOptions = {}): Plugin {
           },
         );
 
-        if (pdf) {
-          if (!fs.existsSync(outputDir)) {
-            fs.mkdirSync(outputDir, { recursive: true });
-          }
-
-          const pdfPath = path.join(outputDir, "resume.pdf");
-          const mdPath = path.join(outputDir, "resume.md");
-
-          fs.writeFileSync(mdPath, mdResume);
-          console.log(`Markdown saved successfully: ${mdPath}`);
-
-          fs.writeFileSync(pdfPath, pdf.content);
-          console.log(`PDF generated successfully: ${pdfPath}`);
+        if (!fs.existsSync(outputDir)) {
+          fs.mkdirSync(outputDir, { recursive: true });
         }
+
+        const pdfPath = path.join(outputDir, "resume.pdf");
+        const mdPath = path.join(outputDir, "resume.md");
+
+        fs.writeFileSync(mdPath, mdResume);
+        console.log(`Markdown saved successfully: ${mdPath}`);
+
+        fs.writeFileSync(pdfPath, pdf.content);
+        console.log(`PDF generated successfully: ${pdfPath}`);
       } catch (error) {
         console.error("Failed to generate resume:", error);
       }

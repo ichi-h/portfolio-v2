@@ -1,19 +1,20 @@
 # portfolio-shared
 
-Shared resources for portfolio projects (works and tech applications).
+Shared domain features and utilities used by the `works` and `tech` apps.
 
 ## Structure
 
-- `features/` - Domain-specific features (e.g., Notion API integration)
+- `components/` - Shared UI helpers (non-framework)
+- `features/` - Domain-specific features (e.g., Notion, markdown)
 - `utils/` - Domain-independent utilities
 
 ## Usage
 
 ```typescript
-// Import Notion features
+// Domain features
 import { getDatabase, filterByCategory } from "portfolio-shared";
 
-// Import utilities
+// Utilities
 import { Result, formatDate } from "portfolio-shared";
 ```
 

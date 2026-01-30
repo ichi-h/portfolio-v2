@@ -2,10 +2,12 @@
 
 ## Purpose
 This is a portfolio website project for ichi-h.com. It includes:
-- Main portfolio site (works page)
+- Works/portfolio site (Astro)
+- Tech profile site (Astro)
 - UI component library
 - OG image generation service
 - Design system using vanilla-extract
+- Shared domain/features library for apps
 
 ## URL
 - Main site: https://ichi-h.com
@@ -14,29 +16,27 @@ This is a portfolio website project for ichi-h.com. It includes:
 ## Tech Stack
 
 ### Main Technologies
-- **Runtime**: Node.js (>=20.0.0)
-- **Package Manager**: pnpm@10.10.0
-- **Language**: TypeScript 5.8.3
+- **Runtime**: Node.js
+- **Package Manager**: pnpm (workspaces)
+- **Language**: TypeScript
 - **Build Tool**: Turbo (monorepo)
 - **Frontend Frameworks**:
-  - Remix (React) for main app
-  - Astro for works page
-  - React 19.1.0
+  - Astro (works, tech)
+  - React (UI library / Astro integration)
 - **Styling**: vanilla-extract
-- **API Framework**: Hono
 
 ### Cloud Services
 - **Cloudflare**: Pages & Workers, DNS
 
 ### CMS
-- **Notion**: Content management
+- **Notion**: Content management (via shared features)
 
 ### Development Tools
-- Vite 6.2.5
-- ESLint 9.24.0
-- Prettier 3.5.3
+- Vite
+- ESLint
+- Prettier
 - Husky & lint-staged for pre-commit hooks
-- Wrangler 4.7.2 (Cloudflare CLI)
+- Wrangler (Cloudflare CLI)
 
 ## Monorepo Structure
 
@@ -48,20 +48,28 @@ The project is organized as a monorepo under the `node/` directory with the foll
    - Generates og:image from query parameters
    - Cloudflare Worker
 
-2. **styles**
+2. **shared**
+   - Shared domain features and utilities
+   - Used by `works` and `tech`
+
+3. **styles**
    - Design system and styles using vanilla-extract
-   - Framework-agnostic (can support React, Vue, etc.)
+   - Framework-agnostic (can support React, Astro, etc.)
    - Contains design tokens and utility styles
 
-3. **ui**
+4. **ui**
    - React UI components
    - Uses styles from the `styles` package
    - Has Storybook for component documentation
 
-4. **works**
-   - Implementation of the works page
+5. **works**
+   - Implementation of the works/portfolio page
    - Built with Astro and React
    - Uses vanilla-extract for styling
+
+6. **tech**
+   - Tech profile site (profile, skills, posts)
+   - Built with Astro
 
 ## Development Environment
 

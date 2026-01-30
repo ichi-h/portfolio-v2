@@ -14,9 +14,11 @@ portfolio-v2/
     ├── tsconfig.base.json    # Base TypeScript config
     └── packages/             # Monorepo packages
         ├── og-image/
+        ├── shared/
         ├── styles/
         ├── ui/
-        └── works/
+        ├── works/
+        └── tech/
 ```
 
 ## Package Details
@@ -31,7 +33,21 @@ packages/og-image/
 ```
 **Purpose**: Generate Open Graph images from query parameters
 
-### 2. styles (Design System)
+### 2. shared (Shared Domain/Utilities)
+```
+packages/shared/
+├── package.json
+├── tsconfig.json
+├── vite.config.ts
+└── src/
+    ├── index.ts
+    ├── components/   # Shared UI helpers (non-framework)
+    ├── features/     # Domain features (md, notion)
+    └── utils/        # Utilities (date, env, query params, result, etc.)
+```
+**Purpose**: Shared features and utilities used by `works` and `tech` apps
+
+### 3. styles (Design System)
 ```
 packages/styles/
 ├── index.ts
@@ -76,7 +92,7 @@ packages/styles/
 ```
 **Purpose**: Framework-agnostic design system using vanilla-extract
 
-### 3. ui (React Components)
+### 4. ui (React Components)
 ```
 packages/ui/
 ├── package.json
@@ -103,7 +119,7 @@ packages/ui/
 **Purpose**: React UI component library
 **Note**: Depends on `styles` package
 
-### 4. works (Astro Site)
+### 5. works (Astro Site)
 ```
 packages/works/
 ├── astro.config.mjs
@@ -116,10 +132,30 @@ packages/works/
     ├── components/   # Astro/React components
     ├── layouts/      # Page layouts
     ├── pages/        # Astro pages
+    ├── types/        # Types
     └── utils/        # Utility functions
 ```
 **Purpose**: Works/portfolio page implementation
 **Framework**: Astro with React integration
+
+### 6. tech (Astro Site)
+```
+packages/tech/
+├── astro.config.mjs
+├── package.json
+├── tsconfig.json
+├── public/           # Static assets
+└── src/
+    ├── api/          # API endpoints
+    ├── assets/       # Assets
+    ├── components/   # Page/part components
+    ├── layouts/      # Layout templates
+    ├── pages/        # Astro pages
+    ├── plugins/      # Build-time helpers (e.g., resume PDF)
+    └── utils/        # Utility functions
+```
+**Purpose**: Tech profile site with sections on profile, skills, and posts
+**Framework**: Astro
 
 ## Key Architecture Patterns
 
@@ -127,6 +163,10 @@ packages/works/
 - **Tool**: Turborepo for task orchestration
 - **Package Manager**: pnpm with workspaces
 - **Dependencies**: Managed through workspace protocol
+
+### Shared Domain Layer
+- `shared` package centralizes domain features and utilities
+- `works` and `tech` import shared features (e.g., Notion, markdown helpers)
 
 ### Styling Architecture
 - **System**: vanilla-extract (CSS-in-TypeScript)
@@ -139,7 +179,7 @@ packages/works/
 - Styles defined in separate `styles` package
 
 ### Build Pipeline
-- Vite for bundling (styles, ui packages)
+- Vite for bundling (styles, ui, shared)
 - Turbo for parallel builds
 - Cloudflare Wrangler for Worker deployment
 

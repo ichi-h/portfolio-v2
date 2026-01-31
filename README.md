@@ -1,6 +1,7 @@
 # portfolio-v2
 
-- URL: https://ichi-h.com
+- Works: https://ichi-h.com
+- Tech: https://tech.ichi-h.com
 - Storybook: https://portfolio-ui-40i.pages.dev
 
 ## Overview

@@ -19,7 +19,7 @@ Astro sites, a React UI library, a design system, a shared domain library, and a
 
 ## Requirements
 
-- Node.js >= 20
+- Node.js >= 24
 - pnpm (workspace root is `node/`)
 
 ## Development

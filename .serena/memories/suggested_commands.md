@@ -95,4 +95,4 @@ Standard Linux/Unix commands are available:
 
 - All commands should be run from the `node/` directory unless otherwise specified
 - Package manager is pnpm (not npm or yarn)
-- Node version requirement: >=20.0.0
+- Node version requirement: >=24.0.0

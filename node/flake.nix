@@ -17,6 +17,7 @@
             buildInputs = with packages; [
               nodejs_24
               nodePackages.pnpm
+              bashInteractive
             ];
 
             shellHook = ''

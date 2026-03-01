@@ -6,6 +6,8 @@ import { FlatCompat } from "@eslint/eslintrc";
 import js from "@eslint/js";
 import typescriptEslint from "@typescript-eslint/eslint-plugin";
 import { defineConfig, globalIgnores } from "eslint/config";
+import nextVitals from "eslint-config-next/core-web-vitals";
+import nextTs from "eslint-config-next/typescript";
 import eslintConfigPrettier from "eslint-config-prettier";
 import eslintPluginAstro from "eslint-plugin-astro";
 import _import from "eslint-plugin-import";
@@ -37,6 +39,8 @@ export default defineConfig([
     "**/.turbo",
     "**/.direnv",
     "**/.wrangler",
+    "**/.next/**",
+    "**/next-env.d.ts",
   ]),
   {
     extends: compat.extends("plugin:@typescript-eslint/recommended"),
@@ -45,6 +49,8 @@ export default defineConfig([
       import: fixupPluginRules(_import),
       "unused-imports": unusedImports,
       "@typescript-eslint": typescriptEslint,
+      "nextVitals": nextVitals,
+      "nextTs": nextTs,
     },
 
     languageOptions: {

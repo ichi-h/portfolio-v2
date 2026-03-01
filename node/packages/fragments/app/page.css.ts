@@ -6,9 +6,7 @@ import {
   maxW,
   minH,
   mx,
-  px,
-  py,
-  mt,
+  my,
 } from "portfolio-styles";
 
 export const main = style([
@@ -17,10 +15,9 @@ export const main = style([
   minH["dvh"],
   maxW[160],
   mx["auto"],
-  py[16],
-  px[8],
-  gap[12],
 ]);
+
+export const content = style([flex, flexDirection["column"], gap[12], my[16]]);
 
 export const list = style([
   flex,
@@ -31,9 +28,4 @@ export const list = style([
 
 export const listItem = style({ lineHeight: "1.75" });
 
-export const footer = style([
-  flex,
-  flexDirection["column"],
-  gap[1],
-  mt["auto"],
-]);
+export const footer = style([flex, flexDirection["column"], gap[1]]);

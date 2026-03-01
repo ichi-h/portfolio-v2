@@ -6,36 +6,39 @@ import * as styles from "./page.css";
 export default function Home() {
   return (
     <main className={styles.main}>
-      <Heading level="1" color="mono.50">
-        fragments.ichi-h.com
-      </Heading>
+      <div className={styles.content}>
+        <Heading level="1" color="mono.50">
+          fragments.ichi-h.com
+        </Heading>
 
-      <ul className={styles.list}>
-        {FRAGMENTS.map((fragment) => (
-          <li key={fragment.id} className={styles.listItem}>
-            <Link href={`/${fragment.id}`} color="mono.50">
-              {fragment.title}
+        <ul className={styles.list}>
+          {FRAGMENTS.map((fragment) => (
+            <li key={fragment.id} className={styles.listItem}>
+              <Link href={`/${fragment.id}`} color="mono.50">
+                {fragment.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        <footer className={styles.footer}>
+          <Text fontSize="3" color="mono.500">
+            Copyright ©{` ${new Date().getFullYear()} `}ichi-h All rights
+            reserved.
+          </Text>
+          <Text fontSize="3" color="mono.500">
+            All works are published under{" "}
+            <Link
+              href="https://creativecommons.org/licenses/by-nc-nd/4.0/"
+              color="mono.500"
+              openInNewTab
+            >
+              CC BY-NC-ND 4.0
             </Link>
-          </li>
-        ))}
-      </ul>
-
-      <footer className={styles.footer}>
-        <Text fontSize="3" color="mono.500">
-          © ichi-h.com
-        </Text>
-        <Text fontSize="3" color="mono.500">
-          All works are published under{" "}
-          <Link
-            href="https://creativecommons.org/licenses/by-nc-nd/4.0/"
-            color="mono.500"
-            openInNewTab
-          >
-            CC BY-NC-ND 4.0
-          </Link>
-          .
-        </Text>
-      </footer>
+            .
+          </Text>
+        </footer>
+      </div>
     </main>
   );
 }

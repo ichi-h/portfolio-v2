@@ -49,8 +49,8 @@ export default defineConfig([
       import: fixupPluginRules(_import),
       "unused-imports": unusedImports,
       "@typescript-eslint": typescriptEslint,
-      "nextVitals": nextVitals,
-      "nextTs": nextTs,
+      nextVitals: nextVitals,
+      nextTs: nextTs,
     },
 
     languageOptions: {

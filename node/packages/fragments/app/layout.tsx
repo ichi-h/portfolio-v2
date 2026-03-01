@@ -17,6 +17,16 @@ export default function RootLayout({
   return (
     <html lang="ja" className={styles.html}>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique&display=swap"
+          rel="stylesheet"
+        />
         <link rel="stylesheet" href={uiStyle} />
       </head>
       <body>{children}</body>

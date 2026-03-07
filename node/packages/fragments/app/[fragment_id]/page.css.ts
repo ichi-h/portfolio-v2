@@ -31,7 +31,7 @@ export const main = style([
 
 export const dataSection = style([flex, flexDirection["column"], gap[4]]);
 
-export const dataTitle = style([fontSize["3"], fontColor["mono.400"]]);
+export const dataTitle = style([fontSize["3"], fontColor["mono.800"]]);
 
 export const dataList = style({
   margin: 0,
@@ -44,19 +44,19 @@ export const dataList = style({
 
 export const dt = style([
   fontSize["3"],
-  fontColor["mono.400"],
+  fontColor["mono.800"],
   { paddingTop: "0.125rem" },
 ]);
 
 export const dd = style([
   fontSize["4"],
-  fontColor["mono.50"],
+  fontColor["mono.900"],
   { margin: 0, wordBreak: "break-all" },
 ]);
 
 export const ddContent = style([
   fontSize["4"],
-  fontColor["mono.50"],
+  fontColor["mono.900"],
   { margin: 0, whiteSpace: "pre-wrap", lineHeight: "1.75" },
 ]);
 

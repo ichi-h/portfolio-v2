@@ -22,7 +22,7 @@ export default async function FragmentPage({ params }: Props) {
     <div className={styles.wrapper}>
       <main className={styles.main}>
         <section className={styles.dataSection}>
-          <Heading level="6" color="mono.400">
+          <Heading level="6" color="mono.900">
             Fragment (placeholder)
           </Heading>
           <dl className={styles.dataList}>

@@ -212,7 +212,7 @@ const fragmentsOgpUseCase = async (title: string) => {
           alignItems: "center",
           width: "100%",
           height: "100%",
-          backgroundColor: "#999999",
+          backgroundColor: "#B3B3B3",
         },
       },
     },

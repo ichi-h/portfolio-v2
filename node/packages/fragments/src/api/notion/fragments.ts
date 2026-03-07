@@ -20,6 +20,7 @@ export interface NotionFragment {
   description: string;
   thumbnailUrl: string;
   publishedAt: string;
+  writtenAt: string;
   updatedAt: string;
 }
 
@@ -33,6 +34,7 @@ const mockedFragmentsResponse: NotionFragment[] = [
     description: "静寂の中 白い幕が降りてきた 街の音が消えていく",
     thumbnailUrl: "https://picsum.photos/200",
     publishedAt: "2024-01-01",
+    writtenAt: "2024-01-01",
     updatedAt: "2024-01-01",
   },
   {
@@ -44,6 +46,7 @@ const mockedFragmentsResponse: NotionFragment[] = [
     description: "月光が地面を染める 影は長く伸びて 行き先を指し示す",
     thumbnailUrl: "https://picsum.photos/200",
     publishedAt: "2024-01-01",
+    writtenAt: "2024-01-01",
     updatedAt: "2024-01-01",
   },
   {
@@ -55,6 +58,7 @@ const mockedFragmentsResponse: NotionFragment[] = [
     description: "枯れ葉が舞い落ちる それぞれの色が 地面に溶けていく",
     thumbnailUrl: "https://picsum.photos/200",
     publishedAt: "2024-01-01",
+    writtenAt: "2024-01-01",
     updatedAt: "2024-01-01",
   },
 ];
@@ -81,7 +85,10 @@ export const getFragments = async (
     category: "fragment",
   });
 
-  return allPages.map(mapNotionPageToFragment).filter((f) => f.slug !== "");
+  return allPages
+    .map(mapNotionPageToFragment)
+    .filter((f) => f.slug !== "")
+    .sort((a, b) => (a.publishedAt < b.publishedAt ? -1 : 1));
 };
 
 const sanitizeUrl = (url: string): string => {
@@ -105,6 +112,7 @@ const mapNotionPageToFragment = (page: NotionPage): NotionFragment => {
     redirectTo: sanitizeUrl(page.redirectTo),
     thumbnailUrl: sanitizeUrl(page.thumbnailUrl),
     publishedAt: page.publishedAt,
+    writtenAt: page.writtenAt,
     title: page.title,
   };
 };

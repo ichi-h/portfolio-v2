@@ -153,7 +153,10 @@ const ogpUseCase = async (title: string, imageUrl: string) => {
 const fragmentsOgpUseCase = async (title: string) => {
   await moduleInit();
 
-  const fontData = await fetchFont({ text: title, family: "Zen+Kaku+Gothic+Antique" });
+  const fontData = await fetchFont({
+    text: title,
+    family: "Zen+Kaku+Gothic+Antique",
+  });
 
   const svg = await satori(
     {

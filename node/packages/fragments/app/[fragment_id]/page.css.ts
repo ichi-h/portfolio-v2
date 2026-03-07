@@ -10,8 +10,6 @@ import {
   px,
   py,
   pb,
-  bottom,
-  left,
   fontColor,
   fontSize,
   flattenStyle,
@@ -53,14 +51,9 @@ export const main = style([
   applyMedia({ max: "480" }, flattenStyle([px[4], py[8], pb[16], gap[4]])),
 ]);
 
-export const title = style([
-  flex,
-  flexJustify["center"],
-]);
+export const title = style([flex, flexJustify["center"]]);
 
-export const writtenAt = style([
-  textAlign["right"],
-]);
+export const writtenAt = style([textAlign["right"]]);
 
 export const backButton = style([
   {

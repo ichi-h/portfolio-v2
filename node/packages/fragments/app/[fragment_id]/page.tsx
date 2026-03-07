@@ -1,7 +1,7 @@
+import NextLink from "next/link";
 import { notFound } from "next/navigation";
 import { parseMd2Html } from "portfolio-shared";
 
-import NextLink from "next/link";
 import { getFragments, getMarkdownBody } from "@/src/api/notion/fragments";
 
 import { Heading, Text, Link, Icon, LeftArrowIcon } from "./_components";

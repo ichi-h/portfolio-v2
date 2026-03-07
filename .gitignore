@@ -6,3 +6,5 @@ credentials
 .direnv
 
 tsconfig.tsbuildinfo
+
+multi-agent-shogun

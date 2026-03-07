@@ -102,6 +102,10 @@ export const queryDatabase = async (
           page.properties.publishedAt.type === "date"
             ? (page.properties.publishedAt.date?.start ?? "")
             : "",
+        writtenAt:
+          page.properties.writtenAt.type === "date"
+            ? (page.properties.writtenAt.date?.start ?? "")
+            : "",
         createdAt:
           page.properties.createdAt.type === "created_time"
             ? page.properties.createdAt.created_time.split("T")[0]

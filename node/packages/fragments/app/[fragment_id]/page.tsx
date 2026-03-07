@@ -1,9 +1,10 @@
 import { notFound } from "next/navigation";
 import { parseMd2Html } from "portfolio-shared";
 
+import NextLink from "next/link";
 import { getFragments, getMarkdownBody } from "@/src/api/notion/fragments";
 
-import { BackButton } from "./_components/BackButton";
+import { Heading, Text, Link, Icon, LeftArrowIcon } from "./_components";
 import * as styles from "./page.css";
 
 type Props = {
@@ -30,15 +31,31 @@ export default async function FragmentPage({ params }: Props) {
   return (
     <div className={styles.wrapper}>
       <main className={styles.main}>
-        <h1 className={styles.title}>{fragment.title}</h1>
+        <div className={styles.title}>
+          <Heading level="1">{fragment.title}</Heading>
+        </div>
         <div
           className={styles.fragment}
           dangerouslySetInnerHTML={{ __html: body }}
         />
-        <p className={styles.writtenAt}>{fragment.publishedAt}</p>
+        <Text color="mono.800" className={styles.writtenAt}>
+          （{fragment.writtenAt}）
+        </Text>
+        <footer>
+          <Link
+            className={styles.backButton}
+            color="mono.900"
+            as={NextLink}
+            asProps={{
+              href: "/",
+              "aria-label": "トップページへ戻る",
+            }}
+          >
+            <Icon icon={LeftArrowIcon} color="mono.900" size={4} />
+            戻る
+          </Link>
+        </footer>
       </main>
-
-      <BackButton />
     </div>
   );
 }

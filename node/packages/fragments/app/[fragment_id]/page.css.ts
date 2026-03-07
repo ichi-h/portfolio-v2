@@ -34,6 +34,8 @@ import {
   borderRadius,
   bg,
   p,
+  flexJustify,
+  flexAlign,
 } from "portfolio-styles";
 
 export const wrapper = style([position["relative"], minH["dvh"]]);
@@ -51,24 +53,20 @@ export const main = style([
   applyMedia({ max: "480" }, flattenStyle([px[4], py[8], pb[16], gap[4]])),
 ]);
 
-export const backNav = style([position["fixed"], bottom[8], left[8]]);
-
-export const backLink = style([
-  flex,
-  { opacity: 0.8, transition: "opacity 0.15s" },
-  { selectors: { "&:hover": { opacity: 1 } } },
-]);
-
 export const title = style([
-  textAlign["center"],
-  fontSize[12],
-  fontWeight["bold"],
+  flex,
+  flexJustify["center"],
 ]);
 
 export const writtenAt = style([
   textAlign["right"],
-  fontColor["mono.800"],
-  fontSize[3],
+]);
+
+export const backButton = style([
+  {
+    display: "inline-flex",
+  },
+  flexAlign["center"],
 ]);
 
 // Scoped styles for dangerouslySetInnerHTML content

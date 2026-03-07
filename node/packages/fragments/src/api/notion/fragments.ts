@@ -1,3 +1,4 @@
+import { cacheLife, cacheTag } from "next/cache";
 import {
   createNotionClient,
   pageToMarkdown,
@@ -70,7 +71,7 @@ const mockedFragmentsResponse: NotionFragment[] = [
 export const getFragments = async (
   props?: Props,
 ): Promise<NotionFragment[]> => {
-  const { ENVIRONMENT, NOTION_SECRET_KEY, NOTION_DATA_SOURCE_ID } = useEnv();
+  const { ENVIRONMENT } = useEnv();
 
   if (ENVIRONMENT !== "production") {
     if (props?.slug) {
@@ -79,6 +80,17 @@ export const getFragments = async (
     return mockedFragmentsResponse;
   }
 
+  return _getFragmentsCached(props);
+};
+
+const _getFragmentsCached = async (
+  props: Props | undefined,
+): Promise<NotionFragment[]> => {
+  "use cache";
+  cacheLife("hours");
+  cacheTag("fragments");
+
+  const { NOTION_SECRET_KEY, NOTION_DATA_SOURCE_ID } = useEnv();
   const notion = createNotionClient(NOTION_SECRET_KEY);
   const allPages = await queryDatabase(notion, NOTION_DATA_SOURCE_ID, {
     ...props,
@@ -129,7 +141,7 @@ const NOTION_PAGE_ID_PATTERN =
  * Get Markdown body of a fragment page from Notion
  */
 export const getMarkdownBody = async (pageId: string): Promise<string> => {
-  const { ENVIRONMENT, NOTION_SECRET_KEY } = useEnv();
+  const { ENVIRONMENT } = useEnv();
 
   if (ENVIRONMENT !== "production") {
     return mockedMarkdownBody;
@@ -139,6 +151,15 @@ export const getMarkdownBody = async (pageId: string): Promise<string> => {
     throw new Error("Invalid pageId format");
   }
 
+  return _getMarkdownBodyCached(pageId);
+};
+
+const _getMarkdownBodyCached = async (pageId: string): Promise<string> => {
+  "use cache";
+  cacheLife("days");
+  cacheTag(`fragment-${pageId}`);
+
+  const { NOTION_SECRET_KEY } = useEnv();
   const notion = createNotionClient(NOTION_SECRET_KEY);
   return pageToMarkdown(notion, pageId);
 };

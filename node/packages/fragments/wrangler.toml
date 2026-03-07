@@ -1,0 +1,6 @@
+name = "portfolio-fragments"
+compatibility_date = "2025-01-01"
+
+[[kv_namespaces]]
+binding = "FRAGMENTS_KV"
+id = "df6ca256bf7a4996a9383bf558964e6f"

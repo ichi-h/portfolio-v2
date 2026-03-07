@@ -121,14 +121,14 @@ const NOTION_PAGE_ID_PATTERN =
  * Get Markdown body of a fragment page from Notion
  */
 export const getMarkdownBody = async (pageId: string): Promise<string> => {
-  if (!NOTION_PAGE_ID_PATTERN.test(pageId)) {
-    throw new Error("Invalid pageId format");
-  }
-
   const { ENVIRONMENT, NOTION_SECRET_KEY } = useEnv();
 
   if (ENVIRONMENT !== "production") {
     return mockedMarkdownBody;
+  }
+
+  if (!NOTION_PAGE_ID_PATTERN.test(pageId)) {
+    throw new Error("Invalid pageId format");
   }
 
   const notion = createNotionClient(NOTION_SECRET_KEY);

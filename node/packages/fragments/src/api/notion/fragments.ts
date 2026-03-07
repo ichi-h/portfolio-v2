@@ -69,6 +69,9 @@ export const getFragments = async (
   const { ENVIRONMENT, NOTION_SECRET_KEY, NOTION_DATA_SOURCE_ID } = useEnv();
 
   if (ENVIRONMENT !== "production") {
+    if (props?.slug) {
+      return mockedFragmentsResponse.filter((f) => f.slug === props.slug);
+    }
     return mockedFragmentsResponse;
   }
 
@@ -84,10 +87,10 @@ export const getFragments = async (
 const sanitizeUrl = (url: string): string => {
   try {
     const parsed = new URL(url);
-    if (!["https:", "http:"].includes(parsed.protocol)) return "";
+    if (parsed.protocol !== "https:") return "";
     if (parsed.username || parsed.password) return "";
     return parsed.href;
-  } catch (e) {
+  } catch {
     return "";
   }
 };

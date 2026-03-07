@@ -30,7 +30,12 @@ export default async function FragmentPage({ params }: Props) {
   return (
     <div className={styles.wrapper}>
       <main className={styles.main}>
-        <div className="fragment" dangerouslySetInnerHTML={{ __html: body }} />
+        <h1 className={styles.title}>{fragment.title}</h1>
+        <div
+          className={styles.fragment}
+          dangerouslySetInnerHTML={{ __html: body }}
+        />
+        <p className={styles.writtenAt}>{fragment.publishedAt}</p>
       </main>
 
       <BackButton />

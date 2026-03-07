@@ -1,3 +1,4 @@
+import { headers } from "next/headers";
 import uiStyle from "portfolio-ui/style.css?url";
 
 import * as styles from "@/app/layout.css";
@@ -9,13 +10,14 @@ export const metadata: Metadata = {
   description: "ichi-h が執筆した詩などの文学作品の断片集",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const nonce = (await headers()).get("x-nonce") ?? undefined;
   return (
-    <html lang="ja" className={styles.html}>
+    <html lang="ja" className={styles.html} nonce={nonce}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link

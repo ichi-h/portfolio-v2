@@ -1,15 +1,20 @@
 "use client";
 
-import { LeftArrowIcon } from "portfolio-ui";
+import Link from "next/link";
+import { Icon, LeftArrowIcon } from "portfolio-ui";
 
 import * as styles from "../page.css";
 
 export function BackButton() {
   return (
     <nav className={styles.backNav}>
-      <a href="/" aria-label="トップページへ戻る" className={styles.backLink}>
-        <LeftArrowIcon color="mono.900" />
-      </a>
+      <Link
+        href="/"
+        aria-label="トップページへ戻る"
+        className={styles.backLink}
+      >
+        <Icon icon={LeftArrowIcon} color="mono.900" size={4} />
+      </Link>
     </nav>
   );
 }

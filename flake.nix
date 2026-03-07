@@ -16,6 +16,7 @@
           default = packages.mkShell {
             buildInputs = with packages; [
               inotify-tools
+              bashInteractive
             ];
           };
         };

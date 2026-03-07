@@ -1,9 +1,11 @@
 import { Heading, Link, Text } from "@/app/_components";
-import { FRAGMENTS } from "@/data/fragments";
+import { getFragments } from "@/src/api/notion/fragments";
 
 import * as styles from "./page.css";
 
-export default function Home() {
+export default async function Home() {
+  const fragments = await getFragments();
+
   return (
     <main className={styles.main}>
       <div className={styles.content}>
@@ -12,9 +14,9 @@ export default function Home() {
         </Heading>
 
         <ul className={styles.list}>
-          {FRAGMENTS.map((fragment) => (
+          {fragments.map((fragment) => (
             <li key={fragment.id} className={styles.listItem}>
-              <Link href={`/${fragment.id}`} color="mono.900">
+              <Link href={`/${fragment.slug}`} color="mono.900">
                 {fragment.title}
               </Link>
             </li>

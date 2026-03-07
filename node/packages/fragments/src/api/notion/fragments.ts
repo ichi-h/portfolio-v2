@@ -1,5 +1,6 @@
 import {
   createNotionClient,
+  pageToMarkdown,
   queryDatabase,
   type NotionPage,
 } from "portfolio-shared";
@@ -62,7 +63,9 @@ const mockedFragmentsResponse: NotionFragment[] = [
  * Get fragments from Notion database
  * Filters by category: "fragment"
  */
-export const getFragments = async (props?: Props): Promise<NotionFragment[]> => {
+export const getFragments = async (
+  props?: Props,
+): Promise<NotionFragment[]> => {
   const { ENVIRONMENT, NOTION_SECRET_KEY, NOTION_DATA_SOURCE_ID } = useEnv();
 
   if (ENVIRONMENT !== "production") {
@@ -75,12 +78,19 @@ export const getFragments = async (props?: Props): Promise<NotionFragment[]> => 
     category: "fragment",
   });
 
-  return allPages.map(mapNotionPageToFragment);
+  return allPages.map(mapNotionPageToFragment).filter((f) => f.slug !== "");
 };
 
-const SAFE_URL_PATTERN = /^https?:\/\//i;
-const sanitizeUrl = (url: string): string =>
-  SAFE_URL_PATTERN.test(url) ? url : "";
+const sanitizeUrl = (url: string): string => {
+  try {
+    const parsed = new URL(url);
+    if (!["https:", "http:"].includes(parsed.protocol)) return "";
+    if (parsed.username || parsed.password) return "";
+    return parsed.href;
+  } catch (e) {
+    return "";
+  }
+};
 
 const mapNotionPageToFragment = (page: NotionPage): NotionFragment => {
   return {
@@ -94,4 +104,30 @@ const mapNotionPageToFragment = (page: NotionPage): NotionFragment => {
     publishedAt: page.publishedAt,
     title: page.title,
   };
+};
+
+const mockedMarkdownBody = `静寂の中
+白い幕が降りてきた
+街の音が消えていく
+`;
+
+const NOTION_PAGE_ID_PATTERN =
+  /^(?:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|[0-9a-f]{32})$/i;
+
+/**
+ * Get Markdown body of a fragment page from Notion
+ */
+export const getMarkdownBody = async (pageId: string): Promise<string> => {
+  if (!NOTION_PAGE_ID_PATTERN.test(pageId)) {
+    throw new Error("Invalid pageId format");
+  }
+
+  const { ENVIRONMENT, NOTION_SECRET_KEY } = useEnv();
+
+  if (ENVIRONMENT !== "production") {
+    return mockedMarkdownBody;
+  }
+
+  const notion = createNotionClient(NOTION_SECRET_KEY);
+  return pageToMarkdown(notion, pageId);
 };

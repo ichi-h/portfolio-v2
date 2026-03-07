@@ -17,7 +17,7 @@ async function fetchFont({
   family?: string;
 }): Promise<ArrayBuffer | null> {
   const googleFontsUrl = `https://fonts.googleapis.com/css2?family=${family}&text=${encodeURIComponent(
-    text + "ichi-h.com",
+    text + "fragments.ichi-h.com",
   )}`;
 
   const css = await (
@@ -150,7 +150,106 @@ const ogpUseCase = async (title: string, imageUrl: string) => {
   return new Resvg(svg).render().asPng();
 };
 
+const fragmentsOgpUseCase = async (title: string) => {
+  await moduleInit();
+
+  const fontData = await fetchFont({ text: title, family: "Zen+Kaku+Gothic+Antique" });
+
+  const svg = await satori(
+    {
+      type: "div",
+      key: "root",
+      props: {
+        children: [
+          {
+            type: "div",
+            props: {
+              children: [
+                {
+                  type: "div",
+                  props: {
+                    children: title,
+                    style: {
+                      display: "flex",
+                      justifyContent: "center",
+                      fontSize: "72px",
+                      width: "100%",
+                    },
+                  },
+                },
+              ],
+              style: {
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                flexDirection: "column",
+                width: "70%",
+                color: "#1A1A1A",
+              },
+            },
+          },
+          {
+            type: "div",
+            props: {
+              children: "fragments.ichi-h.com",
+              style: {
+                position: "absolute",
+                bottom: "32px",
+                left: "873px",
+                fontSize: "32px",
+                width: "100%",
+              },
+            },
+          },
+        ],
+        style: {
+          position: "relative",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "100%",
+          height: "100%",
+          backgroundColor: "#999999",
+        },
+      },
+    },
+    {
+      width: 1200,
+      height: 630,
+      fonts: [
+        {
+          name: "Zen Kaku Gothic Antique",
+          data: fontData,
+          weight: 400,
+          style: "normal",
+        },
+      ],
+    },
+  );
+
+  return new Resvg(svg).render().asPng();
+};
+
 const app = new Hono<{ Bindings: Env }>();
+
+app.get(
+  "/fragments/:title",
+  cache({
+    cacheName: (c) => `fragments.${c.req.param("title")}` || "fragments.ogp",
+    cacheControl: "public, max-age=86400",
+  }),
+  async (c) => {
+    const title = c.req.param("title") || "";
+    const png = await fragmentsOgpUseCase(title);
+    return new Response(png, {
+      status: 200,
+      headers: {
+        "Content-Type": "image/png",
+        Vary: "Accept-Encoding",
+      },
+    });
+  },
+);
 
 app.get(
   "/:title",

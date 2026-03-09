@@ -1,5 +1,5 @@
 {
-  "name": "fragments",
+  "name": "portfolio-fragments",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -7,7 +7,7 @@
     "dev": "vinext dev -H 0.0.0.0",
     "build": "vinext build",
     "start": "vinext start",
-    "lint": "eslint"
+    "deploy": "vinext deploy"
   },
   "dependencies": {
     "next": "16.1.6",
@@ -16,8 +16,9 @@
     "portfolio-ui": "workspace:*"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.26.1",
     "@vanilla-extract/next-plugin": "^2.4.17",
     "@vitejs/plugin-rsc": "^0.5.21",
-    "vinext": "^0.0.24"
+    "vinext": "^0.0.25"
   }
 }

@@ -1,5 +1,11 @@
 name = "portfolio-fragments"
+main = "worker/index.ts"
 compatibility_date = "2025-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+[assets]
+not_found_handling = "none"
+binding = "ASSETS"
 
 [[kv_namespaces]]
 binding = "FRAGMENTS_KV"

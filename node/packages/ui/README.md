@@ -5,9 +5,9 @@ React UI component library for the portfolio apps. Built on top of `portfolio-st
 ## Scripts
 
 ```bash
-pnpm dev        # Storybook dev server
-pnpm build      # Build library + Storybook
-pnpm deploy     # Deploy Storybook to Cloudflare Pages
+pnpm dev # Storybook dev server
+pnpm build # Build library + Storybook
+pnpm deploy # Deploy Storybook to Cloudflare Pages
 ```
 
 ## Usage

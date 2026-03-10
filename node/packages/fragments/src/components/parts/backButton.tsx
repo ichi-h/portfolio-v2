@@ -1,19 +1,15 @@
-"use client";
-
-import NextLink from "next/link";
-
-import { Link, Icon, LeftArrowIcon } from "portfolio-ui";
+import { Icon, LeftArrowIcon, Link } from "portfolio-ui";
 
 interface Props {
   className?: string;
 }
 
-export function BackButton({ className }: Props) {
+export const BackButton = ({ className }: Props) => {
   return (
     <Link
       className={className}
       color="mono.900"
-      as={NextLink}
+      as="a"
       asProps={{
         href: "/",
         "aria-label": "トップページへ戻る",
@@ -23,4 +19,4 @@ export function BackButton({ className }: Props) {
       戻る
     </Link>
   );
-}
+};

@@ -1,0 +1,44 @@
+---
+import { FragmentPage } from "../components/pages/fragment";
+
+import { Head } from "../components/parts/head";
+import HTML from "../layouts/html.astro";
+import { parseMd2Html } from "portfolio-shared";
+import { getFragments, getMarkdownBody } from "../api/notion/fragments";
+
+export async function getStaticPaths() {
+  const fragments = await getFragments();
+  return fragments.map((f) => ({
+    params: { fragment_id: f.slug },
+  }));
+}
+
+const { fragment_id } = Astro.params;
+
+const fragments = await getFragments({ slug: fragment_id });
+const fragment = fragments[0];
+
+if (!fragment) return Astro.redirect("/404");
+
+const markdownBody = await getMarkdownBody(fragment.id);
+const body = await parseMd2Html(markdownBody);
+
+const descriptionBase = markdownBody.replaceAll("\n", " ");
+const description = descriptionBase.length >= 50
+  ? descriptionBase.slice(0, 47) + "..."
+  : descriptionBase;
+---
+
+<HTML>
+  <Fragment slot="head">
+    <Head
+      title={`${fragment.title} - fragments.ichi-h.com`}
+      description={description}
+      url={`/${fragment.slug}`}
+      ogType="article"
+    />
+  </Fragment>
+  <Fragment slot="content">
+    <FragmentPage fragment={fragment} body={body} />
+  </Fragment>
+</HTML>

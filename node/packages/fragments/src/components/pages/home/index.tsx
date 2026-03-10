@@ -1,11 +1,14 @@
-import { Heading, Link, Text } from "@/app/_components";
-import { getFragments } from "@/src/api/notion/fragments";
+import { Heading, Link, Text } from "portfolio-ui";
 
-import * as styles from "./page.css";
+import type { NotionFragment } from "../../../api/notion/fragments";
 
-export default async function Home() {
-  const fragments = await getFragments();
+import * as styles from "./index.css";
 
+interface Props {
+  fragments: NotionFragment[];
+}
+
+export const Home = ({ fragments }: Props) => {
   return (
     <main className={styles.main}>
       <div className={styles.content}>
@@ -43,4 +46,4 @@ export default async function Home() {
       </div>
     </main>
   );
-}
+};

@@ -1,0 +1,17 @@
+---
+import uiStyle from "portfolio-ui/style.css?url";
+
+import { html } from "./html.css";
+---
+
+<!doctype html>
+<html class={html} lang="ja">
+  <head>
+    <meta name="generator" content={Astro.generator} />
+    <link rel="stylesheet" href={uiStyle} />
+    <slot name="head" />
+  </head>
+  <body>
+    <slot name="content" />
+  </body>
+</html>

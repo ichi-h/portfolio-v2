@@ -150,7 +150,7 @@ const ogpUseCase = async (title: string, imageUrl: string) => {
   return new Resvg(svg).render().asPng();
 };
 
-const fragmentsOgpUseCase = async (title: string) => {
+const fragmentOgpUseCase = async (title: string) => {
   await moduleInit();
 
   const fontData = await fetchFont({
@@ -233,6 +233,76 @@ const fragmentsOgpUseCase = async (title: string) => {
   return new Resvg(svg).render().asPng();
 };
 
+const fragmentsOgpUseCase = async () => {
+  await moduleInit();
+
+  const fontData = await fetchFont({
+    text: "",
+    family: "Zen+Kaku+Gothic+Antique",
+  });
+
+  const svg = await satori(
+    {
+      type: "div",
+      key: "root",
+      props: {
+        children: [
+          {
+            type: "div",
+            props: {
+              children: [
+                {
+                  type: "div",
+                  props: {
+                    children: "fragments.ichi-h.com",
+                    style: {
+                      display: "flex",
+                      justifyContent: "center",
+                      fontSize: "72px",
+                      width: "100%",
+                    },
+                  },
+                },
+              ],
+              style: {
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                flexDirection: "column",
+                width: "70%",
+                color: "#1A1A1A",
+              },
+            },
+          },
+        ],
+        style: {
+          position: "relative",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "100%",
+          height: "100%",
+          backgroundColor: "#B3B3B3",
+        },
+      },
+    },
+    {
+      width: 1200,
+      height: 630,
+      fonts: [
+        {
+          name: "Zen Kaku Gothic Antique",
+          data: fontData,
+          weight: 400,
+          style: "normal",
+        },
+      ],
+    },
+  );
+
+  return new Resvg(svg).render().asPng();
+};
+
 const app = new Hono<{ Bindings: Env }>();
 
 app.get(
@@ -243,7 +313,25 @@ app.get(
   }),
   async (c) => {
     const title = c.req.param("title") || "";
-    const png = await fragmentsOgpUseCase(title);
+    const png = await fragmentOgpUseCase(title);
+    return new Response(png, {
+      status: 200,
+      headers: {
+        "Content-Type": "image/png",
+        Vary: "Accept-Encoding",
+      },
+    });
+  },
+);
+
+app.get(
+  "/fragments",
+  cache({
+    cacheName: () => `fragments`,
+    cacheControl: "public, max-age=86400",
+  }),
+  async (c) => {
+    const png = await fragmentsOgpUseCase();
     return new Response(png, {
       status: 200,
       headers: {

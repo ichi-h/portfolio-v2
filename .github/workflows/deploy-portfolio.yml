@@ -131,5 +131,5 @@ jobs:
           accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           workingDirectory: ./node/packages/og-image
-          command: deploy --minify index.ts
+          command: deploy --minify src/index.ts
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}

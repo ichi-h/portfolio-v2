@@ -8,7 +8,6 @@
 | Residence  | 兵庫県神戸市                 |
 | Education  | 同志社大学 文化情報学部 中退 |
 | Hobbies    | 料理、哲学、創作             |
-| MBTI       | INTJ-T                       |
 
 ### 設計や問題解決のアプローチ
 

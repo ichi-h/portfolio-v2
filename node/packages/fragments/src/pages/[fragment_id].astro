@@ -28,9 +28,7 @@ const content = markdownBody
   .replaceAll(" ", "")
   .replaceAll(/!\[.*\]\(.*\)/g, "");
 const description =
-  content.length >= 60
-    ? content.slice(0, 58) + "……"
-    : content;
+  content.length >= 60 ? content.slice(0, 58) + "……" : content;
 ---
 
 <HTML>

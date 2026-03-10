@@ -1,4 +1,3 @@
-import { cacheLife, cacheTag } from "next/cache";
 import {
   createNotionClient,
   pageToMarkdown,
@@ -86,10 +85,6 @@ export const getFragments = async (
 const _getFragmentsCached = async (
   props: Props | undefined,
 ): Promise<NotionFragment[]> => {
-  "use cache";
-  cacheLife("hours");
-  cacheTag("fragments");
-
   const { NOTION_SECRET_KEY, NOTION_DATA_SOURCE_ID } = useEnv();
   const notion = createNotionClient(NOTION_SECRET_KEY);
   const allPages = await queryDatabase(notion, NOTION_DATA_SOURCE_ID, {
@@ -155,10 +150,6 @@ export const getMarkdownBody = async (pageId: string): Promise<string> => {
 };
 
 const _getMarkdownBodyCached = async (pageId: string): Promise<string> => {
-  "use cache";
-  cacheLife("days");
-  cacheTag(`fragment-${pageId}`);
-
   const { NOTION_SECRET_KEY } = useEnv();
   const notion = createNotionClient(NOTION_SECRET_KEY);
   return pageToMarkdown(notion, pageId);

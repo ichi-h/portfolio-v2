@@ -1,29 +1,29 @@
-import NextLink from "next/link";
 import { notFound } from "next/navigation";
 import { parseMd2Html } from "portfolio-shared";
 
 import { getFragments, getMarkdownBody } from "@/src/api/notion/fragments";
 
-import { Heading, Text, Link, Icon, LeftArrowIcon } from "./_components";
+import { Heading, Text, BackButton } from "./_components";
 import * as styles from "./page.css";
 
 type Props = {
   params: Promise<{ fragment_id: string }>;
 };
 
-const SLUG_PATTERN = /^[a-zA-Z0-9_-]{1,200}$/;
+export async function generateStaticParams() {
+  const fragments = await getFragments();
+  return fragments.map((f) => ({ fragment_id: f.slug }));
+}
 
 export default async function FragmentPage({ params }: Props) {
   const { fragment_id } = await params;
-  if (!SLUG_PATTERN.test(fragment_id)) {
-    notFound();
-  }
+  // TODO: N+1 Notion API呼び出し: generateStaticParams() でも getFragments() を呼んでいるため、
+  // ビルド時に fragment 数 + 1 回の API 呼び出しが発生する。
+  // コンテンツ数が増えた場合はビルド時にまとめて取得してキャッシュする方式を検討すること。
   const fragments = await getFragments({ slug: fragment_id });
   const fragment = fragments[0];
 
-  if (!fragment) {
-    notFound();
-  }
+  if (!fragment) notFound();
 
   const markdownBody = await getMarkdownBody(fragment.id);
   const body = await parseMd2Html(markdownBody);
@@ -42,18 +42,7 @@ export default async function FragmentPage({ params }: Props) {
           （{fragment.writtenAt}）
         </Text>
         <footer>
-          <Link
-            className={styles.backButton}
-            color="mono.900"
-            as={NextLink}
-            asProps={{
-              href: "/",
-              "aria-label": "トップページへ戻る",
-            }}
-          >
-            <Icon icon={LeftArrowIcon} color="mono.900" size={4} />
-            戻る
-          </Link>
+          <BackButton className={styles.backButton} />
         </footer>
       </main>
     </div>

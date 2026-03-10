@@ -37,11 +37,21 @@ jobs:
         id: changes
         with:
           filters: |
+            works:
+              - 'node/packages/works/**'
+              - .github/workflows/deploy-portfolio.yml
+            tech:
+              - 'node/packages/tech/**'
+              - .github/workflows/deploy-portfolio.yml
+            fragments:
+              - 'node/packages/fragments/**'
+              - .github/workflows/deploy-portfolio.yml
             og-image:
               - 'node/packages/og-image/**'
               - .github/workflows/deploy-portfolio.yml
             ui:
               - 'node/packages/ui/**'
+              - 'node/packages/styles/**'
               - .github/workflows/deploy-portfolio.yml
 
       - name: Create .env file for works
@@ -61,11 +71,21 @@ jobs:
           echo "NOTION_DATA_SOURCE_ID=${{ vars.NOTION_DATA_SOURCE_ID }}" >> .env
         working-directory: ./node/packages/tech
 
+      - name: Create .env file for fragments
+        run: |
+          echo "ENVIRONMENT=production" > .env
+          echo "APP_URL=${{ vars.FRAGMENTS_APP_URL }}" >> .env
+          echo "OG_IMAGE_SERVER_URL=${{ vars.OG_IMAGE_SERVER_URL }}" >> .env
+          echo "NOTION_SECRET_KEY=${{ secrets.NOTION_SECRET_KEY }}" >> .env
+          echo "NOTION_DATA_SOURCE_ID=${{ vars.NOTION_DATA_SOURCE_ID }}" >> .env
+        working-directory: ./node/packages/fragments
+
       - name: Build
         run: pnpm build
         working-directory: ./node
 
       - name: Publish works
+        if: steps.changes.outputs.works == 'true' || steps.changes.outputs.ui == 'true'
         uses: cloudflare/wrangler-action@v3
         with:
           accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
@@ -75,12 +95,23 @@ jobs:
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish tech
+        if: steps.changes.outputs.tech == 'true' || steps.changes.outputs.ui == 'true'
         uses: cloudflare/wrangler-action@v3
         with:
           accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           workingDirectory: ./node/packages/tech
           command: pages deploy dist/ --project-name portfolio-tech
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish fragments
+        if: steps.changes.outputs.fragments == 'true' || steps.changes.outputs.ui == 'true'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          workingDirectory: ./node/packages/fragments
+          command: pages deploy dist/ --project-name portfolio-fragments
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish ui

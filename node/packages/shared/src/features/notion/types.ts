@@ -14,5 +14,6 @@ export interface NotionPage {
   description: string;
   thumbnailUrl: string;
   publishedAt: string;
+  writtenAt: string;
   updatedAt: string;
 }

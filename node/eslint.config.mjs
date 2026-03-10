@@ -25,7 +25,6 @@ export default defineConfig([
   globalIgnores([
     "**/node_modules",
     "**/coverage",
-    "**/.next/",
     "**/out/",
     "**/dist",
     "**/build",

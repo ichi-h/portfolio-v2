@@ -1,0 +1,17 @@
+---
+import { getFragments } from "../api/notion/fragments";
+import { Home } from "../components/pages/home";
+import { Head } from "../components/parts/head";
+import HTML from "../layouts/html.astro";
+
+const fragments = await getFragments();
+---
+
+<HTML>
+  <Fragment slot="head">
+    <Head url="/" ogType="website" />
+  </Fragment>
+  <Fragment slot="content">
+    <Home fragments={fragments} />
+  </Fragment>
+</HTML>

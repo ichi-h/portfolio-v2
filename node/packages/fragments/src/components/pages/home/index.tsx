@@ -1,8 +1,8 @@
 import { Heading, Link, Text } from "portfolio-ui";
 
-import type { NotionFragment } from "../../../api/notion/fragments";
-
 import * as styles from "./index.css";
+
+import type { NotionFragment } from "../../../api/notion/fragments";
 
 interface Props {
   fragments: NotionFragment[];

@@ -1,10 +1,10 @@
 ---
-import { FragmentPage } from "../components/pages/fragment";
+import { parseMd2Html } from "portfolio-shared";
 
+import { getFragments, getMarkdownBody } from "../api/notion/fragments";
+import { FragmentPage } from "../components/pages/fragment";
 import { Head } from "../components/parts/head";
 import HTML from "../layouts/html.astro";
-import { parseMd2Html } from "portfolio-shared";
-import { getFragments, getMarkdownBody } from "../api/notion/fragments";
 
 export async function getStaticPaths() {
   const fragments = await getFragments();
@@ -24,9 +24,10 @@ const markdownBody = await getMarkdownBody(fragment.id);
 const body = await parseMd2Html(markdownBody);
 
 const descriptionBase = markdownBody.replaceAll("\n", " ");
-const description = descriptionBase.length >= 50
-  ? descriptionBase.slice(0, 47) + "..."
-  : descriptionBase;
+const description =
+  descriptionBase.length >= 50
+    ? descriptionBase.slice(0, 47) + "..."
+    : descriptionBase;
 ---
 
 <HTML>

@@ -13,6 +13,7 @@ portfolio-v2/
     ├── eslint.config.mjs     # ESLint configuration
     ├── tsconfig.base.json    # Base TypeScript config
     └── packages/             # Monorepo packages
+        ├── fragments/
         ├── og-image/
         ├── shared/
         ├── styles/
@@ -157,6 +158,27 @@ packages/tech/
 **Purpose**: Tech profile site with sections on profile, skills, and posts
 **Framework**: Astro
 
+### 7. fragments (Astro Site)
+```
+packages/fragments/
+├── astro.config.mjs
+├── package.json
+├── tsconfig.json
+├── public/           # Static assets
+└── src/
+    ├── api/          # API endpoints (Notion integration)
+    │   └── notion/   # Fragment data from Notion
+    ├── components/   # Page/part components
+    │   ├── pages/    # Page components (home, fragment)
+    │   └── parts/    # Shared parts (head, backButton)
+    ├── layouts/      # Layout templates
+    ├── pages/        # Astro pages (index, [fragment_id])
+    └── utils/        # Utility functions (env)
+```
+**Purpose**: Short-form writing and creative pieces site
+**Framework**: Astro with React integration
+**Dependencies**: portfolio-shared, portfolio-styles, portfolio-ui
+
 ## Key Architecture Patterns
 
 ### Monorepo Strategy
@@ -166,7 +188,7 @@ packages/tech/
 
 ### Shared Domain Layer
 - `shared` package centralizes domain features and utilities
-- `works` and `tech` import shared features (e.g., Notion, markdown helpers)
+- `works`, `tech`, and `fragments` import shared features (e.g., Notion, markdown helpers)
 
 ### Styling Architecture
 - **System**: vanilla-extract (CSS-in-TypeScript)

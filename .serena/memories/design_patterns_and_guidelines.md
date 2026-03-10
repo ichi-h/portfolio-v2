@@ -6,7 +6,8 @@
 The project follows a clear separation between:
 - **Styling** (`styles` package): Design system, tokens, component styles
 - **Components** (`ui` package): React component implementations
-- **Applications** (`works` package): Page implementations and business logic
+- **Applications** (`works`, `tech`, `fragments` packages): Page implementations and business logic
+- **Shared** (`shared` package): Domain features and utilities (Notion, markdown, etc.)
 - **Services** (`og-image` package): Utility services
 
 This allows:

@@ -2,6 +2,7 @@
 
 - Works: https://ichi-h.com
 - Tech: https://tech.ichi-h.com
+- Fragments: https://fragments.ichi-h.com
 - Storybook: https://portfolio-ui-40i.pages.dev
 
 ## Overview
@@ -13,6 +14,7 @@ Astro sites, a React UI library, a design system, a shared domain library, and a
 
 - `node/packages/works` - Astro portfolio/works site
 - `node/packages/tech` - Astro tech profile site
+- `node/packages/fragments` - Astro fragments/short-form writing site
 - `node/packages/ui` - React UI component library (Storybook)
 - `node/packages/styles` - Design system with vanilla-extract
 - `node/packages/shared` - Shared domain features and utilities

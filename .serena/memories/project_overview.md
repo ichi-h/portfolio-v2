@@ -4,6 +4,7 @@
 This is a portfolio website project for ichi-h.com. It includes:
 - Works/portfolio site (Astro)
 - Tech profile site (Astro)
+- Fragments/short-form writing site (Astro)
 - UI component library
 - OG image generation service
 - Design system using vanilla-extract
@@ -11,6 +12,8 @@ This is a portfolio website project for ichi-h.com. It includes:
 
 ## URL
 - Main site: https://ichi-h.com
+- Tech: https://tech.ichi-h.com
+- Fragments: https://fragments.ichi-h.com
 - Storybook (UI components): https://portfolio-ui-40i.pages.dev
 
 ## Tech Stack
@@ -50,7 +53,7 @@ The project is organized as a monorepo under the `node/` directory with the foll
 
 2. **shared**
    - Shared domain features and utilities
-   - Used by `works` and `tech`
+   - Used by `works`, `tech`, and `fragments`
 
 3. **styles**
    - Design system and styles using vanilla-extract
@@ -70,6 +73,12 @@ The project is organized as a monorepo under the `node/` directory with the foll
 6. **tech**
    - Tech profile site (profile, skills, posts)
    - Built with Astro
+
+7. **fragments**
+   - Short-form writing and creative pieces site
+   - Built with Astro and React
+   - Uses Notion as CMS (via shared package)
+   - Deployed on Cloudflare Pages
 
 ## Development Environment
 

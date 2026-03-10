@@ -10,6 +10,8 @@ import {
   OpenInNewIcon,
 } from "portfolio-ui";
 
+import { formatDate } from "../utils";
+
 import * as styles from "./GridPosts.css";
 
 import type { COLOR } from "portfolio-styles";
@@ -134,7 +136,7 @@ export const GridPosts: FC<Props> = ({
                 <div className={styles.cardPublishedAt}>
                   <Icon size={3} icon={UpdateIcon} color={iconColor} />
                   <Text fontSize="3" color={dateColor}>
-                    {post.publishedAt}
+                    {formatDate(post.publishedAt)}
                   </Text>
                 </div>
                 <Text fontSize="3" color={categoryColor}>

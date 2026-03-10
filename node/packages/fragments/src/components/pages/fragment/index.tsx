@@ -1,3 +1,4 @@
+import { formatDate } from "portfolio-shared";
 import { Heading, Text } from "portfolio-ui";
 
 import { BackButton } from "../../parts/backButton";
@@ -23,7 +24,7 @@ export const FragmentPage = ({ fragment, body }: Props) => {
           dangerouslySetInnerHTML={{ __html: body }}
         />
         <Text color="mono.800" className={styles.writtenAt}>
-          （{fragment.writtenAt}）
+          （{formatDate(fragment.writtenAt)}）
         </Text>
         <footer>
           <BackButton className={styles.backButton} />

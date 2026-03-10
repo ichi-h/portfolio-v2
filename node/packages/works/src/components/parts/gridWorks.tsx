@@ -8,6 +8,7 @@ import {
   SoundCloudIcon,
   OpenInNewIcon,
 } from "portfolio-ui";
+import { formatDate } from "portfolio-shared";
 
 import { useEnv } from "../../utils/env";
 
@@ -106,7 +107,7 @@ export const GridWorks: FC<Props> = ({ works }) => {
                 <div className={styles.cardPublishedAt}>
                   <Icon size={3} icon={UpdateIcon} />
                   <Text fontSize="3" color="mono.900">
-                    {work.publishedAt}
+                    {formatDate(work.publishedAt)}
                   </Text>
                 </div>
                 <Text fontSize="3" color="mono.500">

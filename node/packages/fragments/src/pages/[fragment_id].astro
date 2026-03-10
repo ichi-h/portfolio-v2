@@ -23,11 +23,14 @@ if (!fragment) return Astro.redirect("/404");
 const markdownBody = await getMarkdownBody(fragment.id);
 const body = await parseMd2Html(markdownBody);
 
-const descriptionBase = markdownBody.replaceAll("\n", " ");
+const content = markdownBody
+  .replaceAll("\n", "")
+  .replaceAll(" ", "")
+  .replaceAll(/!\[.*\]\(.*\)/g, "");
 const description =
-  descriptionBase.length >= 50
-    ? descriptionBase.slice(0, 47) + "..."
-    : descriptionBase;
+  content.length >= 60
+    ? content.slice(0, 58) + "……"
+    : content;
 ---
 
 <HTML>

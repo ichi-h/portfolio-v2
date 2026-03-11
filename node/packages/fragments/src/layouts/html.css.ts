@@ -1,7 +1,7 @@
 import { globalStyle, style } from "@vanilla-extract/css";
 import { bg, m } from "portfolio-styles";
 
-export const html = style([bg["mono.300"], m[0]]);
+export const html = style([bg["mono.800"], m[0]]);
 
 globalStyle(`${html}`, {
   fontFamily:

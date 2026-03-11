@@ -17,13 +17,15 @@ export const FragmentPage = ({ fragment, body }: Props) => {
     <div className={styles.wrapper}>
       <main className={styles.main}>
         <div className={styles.title}>
-          <Heading level="1">{fragment.title}</Heading>
+          <Heading level="1" color="mono.200">
+            {fragment.title}
+          </Heading>
         </div>
         <div
           className={styles.fragment}
           dangerouslySetInnerHTML={{ __html: body }}
         />
-        <Text color="mono.800" className={styles.writtenAt}>
+        <Text color="mono.300" className={styles.writtenAt}>
           （{formatDate(fragment.writtenAt)}）
         </Text>
         <footer>

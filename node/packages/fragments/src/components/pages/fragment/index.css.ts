@@ -70,7 +70,7 @@ export const fragment = style([
   fontSize[4],
 ]);
 
-globalStyle(`${fragment} *`, flattenStyle([m[0]]));
+globalStyle(`${fragment} *`, flattenStyle([m[0], fontColor["mono.200"]]));
 
 globalStyle(
   `${fragment} p`,

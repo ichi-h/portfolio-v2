@@ -12,14 +12,14 @@ export const Home = ({ fragments }: Props) => {
   return (
     <main className={styles.main}>
       <div className={styles.content}>
-        <Heading level="1" color="mono.900">
+        <Heading level="1" color="mono.200">
           fragments.ichi-h.com
         </Heading>
 
         <ul className={styles.list}>
           {fragments.map((fragment) => (
             <li key={fragment.id} className={styles.listItem}>
-              <Link href={`/${fragment.slug}`} color="mono.900">
+              <Link href={`/${fragment.slug}`} color="mono.200">
                 {fragment.title}
               </Link>
             </li>
@@ -27,15 +27,15 @@ export const Home = ({ fragments }: Props) => {
         </ul>
 
         <footer className={styles.footer}>
-          <Text fontSize="3" color="mono.800">
+          <Text fontSize="3" color="mono.300">
             Copyright ©{` ${new Date().getFullYear()} `}ichi-h All rights
             reserved.
           </Text>
-          <Text fontSize="3" color="mono.800">
+          <Text fontSize="3" color="mono.300">
             All works are published under{" "}
             <Link
               href="https://creativecommons.org/licenses/by-nc-nd/4.0/"
-              color="mono.800"
+              color="mono.300"
               openInNewTab
             >
               CC BY-NC-ND 4.0

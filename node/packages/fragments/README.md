@@ -24,13 +24,13 @@ Copy `.env.example` to `.env` and fill in the required values.
 
 ## Environment Variables
 
-| Variable               | Description                    |
-| ---------------------- | ------------------------------ |
-| `ENVIRONMENT`          | `development` or `production`  |
-| `NOTION_SECRET_KEY`    | Notion integration secret      |
-| `NOTION_DATA_SOURCE_ID`| Notion database ID            |
-| `APP_URL`              | Application URL                |
-| `OG_IMAGE_SERVER_URL`  | OG image generation server URL |
+| Variable                | Description                    |
+| ----------------------- | ------------------------------ |
+| `ENVIRONMENT`           | `development` or `production`  |
+| `NOTION_SECRET_KEY`     | Notion integration secret      |
+| `NOTION_DATA_SOURCE_ID` | Notion database ID             |
+| `APP_URL`               | Application URL                |
+| `OG_IMAGE_SERVER_URL`   | OG image generation server URL |
 
 In development mode (`ENVIRONMENT !== "production"`), mock data is used instead of Notion.
 

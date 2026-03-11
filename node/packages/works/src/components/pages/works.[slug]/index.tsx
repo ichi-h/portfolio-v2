@@ -1,4 +1,5 @@
 import { Article, Link, Paragraph, Text } from "portfolio-ui";
+import { formatDate } from "portfolio-shared";
 import { type FC } from "react";
 
 import { Anchor } from "../../parts/anchor";
@@ -28,8 +29,8 @@ export const WorkPage: FC<Props> = ({ work, body }) => {
         ))}
       </div>
       <div className={styles.matter}>
-        <Text color="mono.900">Published: {work.publishedAt}</Text>
-        <Text color="mono.900">Updated: {work.updatedAt}</Text>
+        <Text color="mono.900">Published: {formatDate(work.publishedAt)}</Text>
+        <Text color="mono.900">Updated: {formatDate(work.updatedAt)}</Text>
       </div>
       <Article dangerouslySetInnerHTML={{ __html: body }} />
       <Paragraph align="right">

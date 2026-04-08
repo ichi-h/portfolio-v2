@@ -37,14 +37,8 @@ jobs:
         id: changes
         with:
           filters: |
-            works:
-              - 'node/packages/works/**'
-              - .github/workflows/deploy-portfolio.yml
             tech:
               - 'node/packages/tech/**'
-              - .github/workflows/deploy-portfolio.yml
-            fragments:
-              - 'node/packages/fragments/**'
               - .github/workflows/deploy-portfolio.yml
             og-image:
               - 'node/packages/og-image/**'
@@ -85,13 +79,21 @@ jobs:
         working-directory: ./node
 
       - name: Publish works
-        if: steps.changes.outputs.works == 'true' || steps.changes.outputs.ui == 'true'
         uses: cloudflare/wrangler-action@v3
         with:
           accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           workingDirectory: ./node/packages/works
           command: pages deploy dist/ --project-name portfolio
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish fragments
+        uses: cloudflare/wrangler-action@v3
+        with:
+          accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          workingDirectory: ./node/packages/fragments
+          command: pages deploy dist/ --project-name portfolio-fragments
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish tech
@@ -102,16 +104,6 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           workingDirectory: ./node/packages/tech
           command: pages deploy dist/ --project-name portfolio-tech
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Publish fragments
-        if: steps.changes.outputs.fragments == 'true' || steps.changes.outputs.ui == 'true'
-        uses: cloudflare/wrangler-action@v3
-        with:
-          accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          workingDirectory: ./node/packages/fragments
-          command: pages deploy dist/ --project-name portfolio-fragments
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish ui

@@ -2,6 +2,7 @@ import { useEnv } from "../../utils/env";
 
 interface Props {
   title?: string;
+  ogImageText?: string;
   url: string;
   description?: string;
   ogType: "website" | "article";
@@ -9,6 +10,7 @@ interface Props {
 
 export const Head = ({
   title = "fragments.ichi-h.com",
+  ogImageText = "fragments.ichi-h.com",
   description = "fragments.ichi-h.com",
   url,
   ogType,
@@ -17,7 +19,7 @@ export const Head = ({
   const ogImageUrl =
     url === "/"
       ? `${APP_URL}/ogp.webp`
-      : `${OG_IMAGE_SERVER_URL}/fragments${url}`;
+      : `${OG_IMAGE_SERVER_URL}/fragments/${ogImageText}`;
 
   return (
     <>

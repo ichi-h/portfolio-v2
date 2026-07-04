@@ -3,7 +3,7 @@ import path from "node:path";
 
 import { mdToPdf } from "md-to-pdf";
 
-import { summary, resume } from "../components/pages/home/md";
+import { summary, resume } from "../components/pages/home/md/resume";
 import { skills } from "../components/pages/home/skills";
 
 import type { Plugin } from "vite";

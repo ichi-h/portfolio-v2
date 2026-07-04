@@ -1,15 +1,15 @@
 import react from "@astrojs/react";
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
 import { defineConfig } from "astro/config";
-import dotenv from "dotenv";
+// import dotenv from "dotenv";
 
-import { genResumePdf } from "./src/plugins/gen-resume-pdf";
+// import { genResumePdf } from "./src/plugins/gen-resume-pdf";
 
-dotenv.config();
+// dotenv.config();
 
-const ACTUAL_NAME = process.env.ACTUAL_NAME;
-const ENABLE_GENERATING_RESUME =
-  process.env.ENABLE_GENERATING_RESUME === "true";
+// const ACTUAL_NAME = process.env.ACTUAL_NAME;
+// const ENABLE_GENERATING_RESUME =
+//   process.env.ENABLE_GENERATING_RESUME === "true";
 
 // https://astro.build/config
 export default defineConfig({
@@ -17,8 +17,8 @@ export default defineConfig({
   vite: {
     plugins: [
       vanillaExtractPlugin(),
-      ENABLE_GENERATING_RESUME &&
-        genResumePdf({ outputDir: "out", name: ACTUAL_NAME }),
+      // ENABLE_GENERATING_RESUME &&
+      //   genResumePdf({ outputDir: "out", name: ACTUAL_NAME }),
     ],
   },
   server: {

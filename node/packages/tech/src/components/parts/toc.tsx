@@ -8,9 +8,9 @@ export const Toc = () => {
       <Link color="mono.50" href="#about-me">
         About Me
       </Link>
-      <Link color="mono.50" href="#resume">
+      {/* <Link color="mono.50" href="#resume">
         Resume
-      </Link>
+      </Link> */}
       <Link color="mono.50" href="#skills">
         Skills
       </Link>

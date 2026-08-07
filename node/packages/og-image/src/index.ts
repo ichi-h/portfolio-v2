@@ -51,8 +51,7 @@ app.get(
   }),
   async (c) => {
     const title = c.req.param("title") || "";
-    const imageUrl = `${c.env.RESOURCE_SERVER_ORIGIN}/bg_ogp.jpg`;
-    const png = await ogpUseCase(title, imageUrl);
+    const png = await ogpUseCase(title);
     return pngResponse(png);
   },
 );

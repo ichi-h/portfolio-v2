@@ -1,6 +1,8 @@
 import { PROFILE_DESCRIPTIONS } from "../../constants/profile";
 import { useEnv } from "../../utils/env";
 
+import ogp from "../../assets/ogp.webp?url";
+
 interface Props {
   title?: string;
   url: string;
@@ -17,7 +19,7 @@ export const Head = ({
   ogType,
 }: Props) => {
   const { APP_URL } = useEnv();
-  const ogImageUrl = ogImage ?? `${APP_URL}/ogp.webp`;
+  const ogImageUrl = ogImage ?? ogp;
   const descriptionValue = description ?? PROFILE_DESCRIPTIONS.join("");
   return (
     <>

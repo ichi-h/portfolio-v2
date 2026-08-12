@@ -16,7 +16,7 @@ export const Head = ({
   ogType,
 }: Props) => {
   const { APP_URL } = useEnv();
-  const ogImageUrl = ogImage ?? `${APP_URL}/ogp.jpg`;
+  const ogImageUrl = ogImage ?? `${APP_URL}/ogp.webp`;
   return (
     <>
       <title>{title}</title>

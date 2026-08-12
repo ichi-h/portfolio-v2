@@ -1,4 +1,11 @@
-import { Link, Icon, XIcon, YouTubeIcon, SoundCloudIcon } from "portfolio-ui";
+import {
+  Link,
+  Icon,
+  VRCIcon,
+  XIcon,
+  YouTubeIcon,
+  SoundCloudIcon,
+} from "portfolio-ui";
 
 import * as styles from "./sns-links.css";
 import type { ComponentProps, FC } from "react";
@@ -27,6 +34,13 @@ export const SNSLinks: FC<Props> = ({
         openInNewTab
       >
         <Icon className={styles.snsIcon} icon={XIcon} color={color} />
+      </Link>
+      <Link
+        className={styles.snsLink}
+        href="https://vrchat.com/home/user/usr_a1a9f558-fe09-4222-8b19-3e7d8cf4ad65"
+        openInNewTab
+      >
+        <Icon className={styles.snsIcon} icon={VRCIcon} color={color} />
       </Link>
       <Link
         className={styles.snsLink}

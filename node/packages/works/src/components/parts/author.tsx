@@ -18,9 +18,15 @@ export const Author = () => (
           </Text>
         </Link>
       </Paragraph>
-      <Paragraph>{PROFILE_DESCRIPTIONS[0]}</Paragraph>
-      <Paragraph>{PROFILE_DESCRIPTIONS[1]}</Paragraph>
-      <Paragraph>{PROFILE_DESCRIPTIONS[2]}</Paragraph>
+      <Paragraph>
+        {PROFILE_DESCRIPTIONS[0]}
+        <br />
+        {PROFILE_DESCRIPTIONS[1]}
+        <br />
+        {PROFILE_DESCRIPTIONS[2]}
+        <br />
+        {PROFILE_DESCRIPTIONS[3]}
+      </Paragraph>
       <SNSLinks className={styles.snsLinks} variant="dark" gap="small" />
     </div>
   </div>

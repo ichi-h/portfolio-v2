@@ -11,7 +11,6 @@ import {
   gap,
   h,
   w,
-  flexJustify,
 } from "portfolio-styles";
 
 export const layout = style([
@@ -19,6 +18,7 @@ export const layout = style([
   flexDirection["column"],
   flexAlign["center"],
   gap[4],
+  w["1/1"],
 ]);
 
 export const profileBox = style([
@@ -26,6 +26,7 @@ export const profileBox = style([
   flexDirection["column"],
   flexAlign["center"],
   gap[2],
+  w["1/1"],
 ]);
 
 export const name = style([
@@ -33,7 +34,7 @@ export const name = style([
   applyMedia({ max: "768" }, fontSize["6"]),
 ]);
 
-export const subtext = style([flex, flexDirection["column"], gap[2]]);
+export const subtext = style([flex, flexDirection["column"], gap[2], w["1/1"]]);
 
 export const avatar = style([
   dropShadow["soft"],

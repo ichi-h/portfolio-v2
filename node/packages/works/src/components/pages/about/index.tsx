@@ -25,6 +25,7 @@ export const About: FC<Props> = ({ body }) => {
           <Paragraph>{PROFILE_DESCRIPTIONS[0]}</Paragraph>
           <Paragraph>{PROFILE_DESCRIPTIONS[1]}</Paragraph>
           <Paragraph>{PROFILE_DESCRIPTIONS[2]}</Paragraph>
+          <Paragraph>{PROFILE_DESCRIPTIONS[3]}</Paragraph>
         </div>
       </div>
       <Article dangerouslySetInnerHTML={{ __html: body }} />

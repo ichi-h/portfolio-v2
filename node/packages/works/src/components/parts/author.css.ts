@@ -17,7 +17,7 @@ import {
 
 export const authorBox = style([
   flex,
-  gap[4],
+  gap[6],
   p[2],
   applyMedia({ max: "480" }, flattenStyle([flexDirection["column"], gap[2]])),
 ]);

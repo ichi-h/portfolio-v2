@@ -1,18 +1,10 @@
-import {
-  Heading,
-  Link,
-  Text,
-  Avatar,
-  Icon,
-  XIcon,
-  YouTubeIcon,
-  SoundCloudIcon,
-} from "portfolio-ui";
+import { Heading, Link, Text, Avatar } from "portfolio-ui";
 
 import me from "../../../assets/me_512x512.webp?url";
 import { Footer } from "../../parts/footer";
 
 import * as styles from "./index.css";
+import { SNSLinks } from "../../parts/sns-links";
 
 export const Home = () => {
   return (
@@ -27,37 +19,7 @@ export const Home = () => {
             </Heading>
           </div>
           <div className={styles.headerRight}>
-            <div className={styles.links}>
-              <Link
-                className={styles.snsLink}
-                href="https://x.com/ichi_h4"
-                openInNewTab
-              >
-                <Icon className={styles.snsIcon} icon={XIcon} color="mono.50" />
-              </Link>
-              <Link
-                className={styles.snsLink}
-                href="https://www.youtube.com/@ichi-h"
-                openInNewTab
-              >
-                <Icon
-                  className={styles.snsIcon}
-                  icon={YouTubeIcon}
-                  color="mono.50"
-                />
-              </Link>
-              <Link
-                className={styles.snsLink}
-                href="https://soundcloud.com/ichi-h"
-                openInNewTab
-              >
-                <Icon
-                  className={styles.snsIcon}
-                  icon={SoundCloudIcon}
-                  color="mono.50"
-                />
-              </Link>
-            </div>
+            <SNSLinks />
           </div>
         </div>
 

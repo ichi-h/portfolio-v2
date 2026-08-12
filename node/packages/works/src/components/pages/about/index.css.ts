@@ -11,7 +11,7 @@ import {
   gap,
   h,
   w,
-  textAlign,
+  flexJustify,
 } from "portfolio-styles";
 
 export const layout = style([
@@ -21,21 +21,24 @@ export const layout = style([
   gap[4],
 ]);
 
-export const name = style([
-  fontSize["12"],
-  applyMedia({ max: "768" }, fontSize["8"]),
+export const profileBox = style([
+  flex,
+  flexDirection["column"],
+  flexAlign["center"],
+  gap[2],
 ]);
 
-export const subtext = style([
-  fontSize["5"],
-  textAlign["center"],
-  applyMedia({ max: "768" }, fontSize["4"]),
+export const name = style([
+  fontSize["8"],
+  applyMedia({ max: "768" }, fontSize["6"]),
 ]);
+
+export const subtext = style([flex, flexDirection["column"], gap[2]]);
 
 export const avatar = style([
   dropShadow["soft"],
-  w[64],
-  h[64],
+  w[48],
+  h[48],
   applyMedia({ max: "768" }, flattenStyle([w[32], h[32]])),
 ]);
 

@@ -11,18 +11,34 @@
 
 {{%
   "type": "linkCard",
-  "href": "https://ichi-h.com/works/existence-structure-play/",
-  "title": "実存と構造、そして遊びへ - ichi-h.com",
-  "description": "実存の保証として神を基礎づける在り方から、実存ありきで本質を求める在り方まで歴史は辿っていたものの、結局のところどちらが正しいということはなく、それらは単なる差異でしかない。二項対立が崩壊した世界を生きるには、この対立から逃げ、差異を差異として肯定し、楽しむ在り方が重要なのではないか。",
-  "thumbnailUrl": "https://og-image.ichi-h.com/実存と構造、そして遊びへ"
-%}}
-
-{{%
-  "type": "linkCard",
   "href": "https://ichi-h.com/works/bonhoeffer-adulthood/",
   "title": "ボンヘッファーの成人性から実存的態度の模索 - ichi-h.com",
   "description": "ボンヘッファーの成人性、つまり「神の前で、神とともに、神なしに生きる」という逆説的な言葉から彼の思想を読み直す。そのうえでボンヘッファーが提示する世界観をどのように生きるべきかという実存的態度を模索する。",
   "thumbnailUrl": "https://og-image.ichi-h.com/ボンヘッファーの成人性から実存的態度の模索"
+%}}
+
+{{%
+  "type": "linkCard",
+  "href": "https://ichi-h.com/works/hojoki-suspension/",
+  "title": "『方丈記』と保留の思想 - ichi-h.com",
+  "description": "鴨長明が『方丈記』の隠遁生活において描いたものとは、悲観的な厭世観などでは決してない。それは諸行無常な世の中や、自分自身の矛盾や至らなさを解決せずにそのまま保留できる強さである。",
+  "thumbnailUrl": "https://og-image.ichi-h.com/『方丈記』と保留の思想"
+%}}
+
+{{%
+  "type": "linkCard",
+  "href": "https://ichi-h.com/works/loving-ethics-eroticism/",
+  "title": "愛、倫理、エロティシズム - ichi-h.com",
+  "description": "フロムは愛を技術として捉えるが、それは倫理による他者のへ配慮とエゴイスティックに他者を犯しうる冒険との表裏一体のうちに行われる営為である。後者の側面は、倫理という名の禁止を解除するバタイユのエロティシズムへ、さらにその反転としてナンシーの説く〈触〉と「ノリ・メ・タンゲレ」へと繋がっている。三者三様の切り口で見る愛は、思うに信と疑の反復の最中で、それぞれに立ちふさがる語り得ぬ何かを見ているのではないか。",
+  "thumbnailUrl": "https://og-image.ichi-h.com/愛、倫理、エロティシズム"
+%}}
+
+{{%
+  "type": "linkCard",
+  "href": "https://ichi-h.com/works/amour-propre-as-nothingness/",
+  "title": "自己愛という無─ラ・ロシュフコーについて - ichi-h.com",
+  "description": "ラ・ロシュフコー『箴言集』は全体性を帯びた書物であるが、その自覚なしにこれが真実と疑わない人々がある。ここでは『箴言集』の概要を説明しつつ、その形而上学的解釈と脱構築を試みる。その果てに見えたものは、自己愛とは、自他を愛することで自身を生成する無であり、『箴言集』はこの差し出した無を埋めるよう強要し、読者の感覚＝方向（サンス）をもって挑発している。",
+  "thumbnailUrl": "https://og-image.ichi-h.com/自己愛という無─ラ・ロシュフコーについて"
 %}}
 
 その他は[こちら](/categories/philosophy)から。
@@ -70,10 +86,10 @@
       "height": 1387
     },
     {
-      "url": "https://static.ichi-h.com/share/private_studio/DSCF0550_2.webp",
-      "alt": "Roland JC-60A",
-      "width": 2084,
-      "height": 1392
+      "url": "https://static.ichi-h.com/share/private_studio/DSCF1884.webp",
+      "alt": "Jaguar, Roland JC-60A",
+      "width": 1707,
+      "height": 2560
     }
   ]
 %}}
@@ -122,27 +138,58 @@
 - Guitar Amp
   - Roland JC-60A
 - Effects Pedals
-  - BOSS GT-1000CORE
-  - BOSS BD-2W
-  - idea sound product IDEA-BMX ver.1
-  - flyingteapot Rum and Coke RED
-  - Fender Hammertone Fuzz
-  - Effects Bakery Bagel OverDrive
-  - Eden WTDI
-  - Universal Audio OX Stomp
+  - Overdrive
+    - BOSS BD-2W
+    - Effects Bakery Bagel OverDrive
+    - Hermida Audio Zendrive
+    - idea sound product IDEA-BMX ver.1
+    - Walrus Audio Warhorn
+    - Warm Audio Centavo
+  - Fuzz
+    - Fender Hammertone Fuzz
+    - flyingteapot Rum and Coke RED
+  - Bass Preamp
+    - Darkglass Electronics Alpha Omega
+    - Eden WTDI
+  - Emulator
+    - BOSS GT-1000CORE
+    - Universal Audio OX Stomp
   - etc.
 
 #### Instruments
 
 - Electric Guitar
   - Fender Made in Japan Traditional 60s Jaguar 2017
-  - Fujigen Neo Classic Telecaster
 - Electric Bass
   - Black Smoker Standard Series Beta PJ4
 - Acoustic Guitar
   - Martin D-18E Retro
 
 ## Literature
+
+{{%
+  "type": "linkCard",
+  "href": "https://fragments.ichi-h.com/in-the-train/",
+  "title": "車内 - fragments.ichi-h.com",
+  "description": "梅雨入りの電車が駅に止まる。ドアが開くと、びしょ濡れになった人々がなだれ込み、人が人で押し合っている。隣に渡された中……",
+  "thumbnailUrl": "https://og-image.ichi-h.com/fragments/車内"
+%}}
+
+{{%
+  "type": "linkCard",
+  "href": "https://fragments.ichi-h.com/the-way-home/",
+  "title": "帰り道 - fragments.ichi-h.com",
+  "description": "小山の向こうに夜明けが広がりつつある。家々へと降りる階段を前に、八月の湿度と朝露の匂いを乗せたそよ風が顔を撫でる。田……",
+  "thumbnailUrl": "https://og-image.ichi-h.com/fragments/帰り道"
+%}}
+
+{{%
+  "type": "linkCard",
+  "href": "https://fragments.ichi-h.com/in-tombo/",
+  "title": "とんぼの中に - fragments.ichi-h.com",
+  "description": "とんぼの両羽をつまみ、上下に揺れる体の左右から背中を開く。ベンチに落とす二つの体は、薄卵色の筋に滲む透明な汁を擦り付……",
+  "thumbnailUrl": "https://og-image.ichi-h.com/fragments/とんぼの中に"
+%}}
 
 {{%
   "type": "linkCard",

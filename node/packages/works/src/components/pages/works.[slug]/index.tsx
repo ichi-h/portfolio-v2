@@ -7,6 +7,8 @@ import { Anchor } from "../../parts/anchor";
 import * as styles from "./index.css";
 
 import type { Work } from "../../../api/notion/works";
+import { Hr } from "../../parts/hr";
+import { Author } from "../../parts/author";
 
 interface Props {
   work: Work;
@@ -46,6 +48,8 @@ export const WorkPage: FC<Props> = ({ work, body }) => {
           />
         </Link>
       </Paragraph>
+      <Hr />
+      <Author />
     </div>
   );
 };

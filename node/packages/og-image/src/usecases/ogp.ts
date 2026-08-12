@@ -68,7 +68,10 @@ export const ogpUseCase = async (title: string): Promise<Uint8Array> => {
           alignItems: "center",
           width: "100%",
           height: "100%",
-          backgroundColor: "#1a1a1a",
+          backgroundColor: "#0B0D14",
+          backgroundImage:
+            "linear-gradient(180deg, #05060A 0%, #0D1310 55%, #1B2E1C 100%)",
+
         },
       },
     },

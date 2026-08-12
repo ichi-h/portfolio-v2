@@ -1,7 +1,7 @@
 import { PROFILE_DESCRIPTIONS } from "../../constants/profile";
 import { useEnv } from "../../utils/env";
 
-import ogp from "../../assets/ogp.webp?url";
+import ogp from "../../assets/ogp.jpg?url";
 
 interface Props {
   title?: string;

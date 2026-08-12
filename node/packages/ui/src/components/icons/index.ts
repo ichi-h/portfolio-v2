@@ -11,6 +11,7 @@ import { PublishIcon } from "./publish";
 import { SearchIcon } from "./search";
 import { SoundCloudIcon } from "./soundcloud";
 import { UpdateIcon } from "./update";
+import { VRCIcon } from "./vrc";
 import { XIcon } from "./x";
 import { YouTubeIcon } from "./youtube";
 import { ZennIcon } from "./zenn";
@@ -24,6 +25,7 @@ export * from "./publish";
 export * from "./search";
 export * from "./x";
 export * from "./update";
+export * from "./vrc";
 export * from "./youtube";
 export * from "./soundcloud";
 export * from "./zenn";
@@ -40,6 +42,7 @@ export type TIcon =
   | typeof SearchIcon
   | typeof XIcon
   | typeof UpdateIcon
+  | typeof VRCIcon
   | typeof YouTubeIcon
   | typeof SoundCloudIcon
   | typeof ZennIcon;

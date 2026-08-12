@@ -1,8 +1,6 @@
 import { renderToImage } from "../lib/render";
 
-export const ogpUseCase = async (
-  title: string,
-): Promise<Uint8Array> => {
+export const ogpUseCase = async (title: string): Promise<Uint8Array> => {
   return renderToImage(
     {
       type: "div",

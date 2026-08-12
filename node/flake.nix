@@ -16,7 +16,7 @@
           default = packages.mkShell {
             buildInputs = with packages; [
               nodejs_24
-              nodePackages.pnpm
+              pnpm
               bashInteractive
             ];
 

@@ -71,7 +71,6 @@ export const ogpUseCase = async (title: string): Promise<Uint8Array> => {
           backgroundColor: "#0B0D14",
           backgroundImage:
             "linear-gradient(180deg, #05060A 0%, #0D1310 55%, #1B2E1C 100%)",
-
         },
       },
     },

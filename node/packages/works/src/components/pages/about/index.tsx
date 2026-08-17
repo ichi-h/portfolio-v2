@@ -22,10 +22,11 @@ export const About: FC<Props> = ({ body }) => {
         </Text>
         <SNSLinks variant="dark" />
         <div className={styles.subtext}>
-          <Paragraph>{PROFILE_DESCRIPTIONS[0]}</Paragraph>
-          <Paragraph>{PROFILE_DESCRIPTIONS[1]}</Paragraph>
-          <Paragraph>{PROFILE_DESCRIPTIONS[2]}</Paragraph>
-          <Paragraph>{PROFILE_DESCRIPTIONS[3]}</Paragraph>
+          <Paragraph>
+            {PROFILE_DESCRIPTIONS.flatMap((item, index) =>
+              index === 0 ? [item] : [<br key={`br-${index}`} />, item],
+            )}
+          </Paragraph>
         </div>
       </div>
       <Article dangerouslySetInnerHTML={{ __html: body }} />

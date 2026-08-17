@@ -19,13 +19,9 @@ export const Author = () => (
         </Link>
       </Paragraph>
       <Paragraph>
-        {PROFILE_DESCRIPTIONS[0]}
-        <br />
-        {PROFILE_DESCRIPTIONS[1]}
-        <br />
-        {PROFILE_DESCRIPTIONS[2]}
-        <br />
-        {PROFILE_DESCRIPTIONS[3]}
+        {PROFILE_DESCRIPTIONS.flatMap((item, index) =>
+          index === 0 ? [item] : [<br key={`br-${index}`} />, item],
+        )}
       </Paragraph>
       <SNSLinks className={styles.snsLinks} variant="dark" gap="small" />
     </div>

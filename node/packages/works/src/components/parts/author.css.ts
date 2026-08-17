@@ -9,7 +9,6 @@ import {
   flexJustify,
   gap,
   h,
-  mb,
   p,
   textAlign,
   w,
@@ -23,6 +22,7 @@ export const authorBox = style([
 ]);
 
 export const avatarBox = style([
+  w["fit"],
   h["fit"],
   applyMedia({ max: "480" }, flattenStyle([textAlign["center"]])),
 ]);

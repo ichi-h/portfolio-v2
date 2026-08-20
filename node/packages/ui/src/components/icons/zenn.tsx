@@ -8,6 +8,7 @@ type Props = {
 
 export const ZennIcon = ({ color, ...props }: Props) => {
   return (
+    // Original source: https://zenn.dev/mediakit
     <svg
       width={styles.w[4]}
       height={styles.h[4]}

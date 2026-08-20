@@ -8,6 +8,7 @@ type Props = {
 
 export const XIcon = ({ color = "mono.900", ...props }: Props) => {
   return (
+    // Original source: https://about.x.com/en/who-we-are/brand-toolkit
     <svg
       width={styles.w[4]}
       height={styles.h[4]}

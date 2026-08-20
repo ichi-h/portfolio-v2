@@ -8,6 +8,7 @@ import {
   maxW,
   minH,
   mx,
+  mb,
   my,
   px,
 } from "portfolio-styles";
@@ -31,10 +32,14 @@ export const content = style([
   applyMedia({ max: "480" }, flattenStyle([gap[6], my[8]])),
 ]);
 
+export const yearHeading = style([
+  mb[4],
+]);
+
 export const list = style([
   flex,
   flexDirection["column"],
-  gap[4],
+  gap[2],
   { listStyle: "none", padding: 0, margin: 0 },
 ]);
 

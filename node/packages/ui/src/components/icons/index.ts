@@ -5,6 +5,7 @@ import {
   UpArrowIcon,
 } from "./arrows";
 import { GitHubIcon } from "./github";
+import { KeepIcon } from "./keep";
 import { OpenInNewIcon } from "./openInNew";
 import { PageIcon } from "./page";
 import { PublishIcon } from "./publish";
@@ -19,6 +20,7 @@ import { ZennIcon } from "./zenn";
 export * from "./arrows";
 export * from "./github";
 export * from "./icon";
+export * from "./keep";
 export * from "./openInNew";
 export * from "./page";
 export * from "./publish";
@@ -36,6 +38,7 @@ export type TIcon =
   | typeof RightArrowIcon
   | typeof UpArrowIcon
   | typeof GitHubIcon
+  | typeof KeepIcon
   | typeof OpenInNewIcon
   | typeof PageIcon
   | typeof PublishIcon

@@ -7,6 +7,7 @@ export interface DatabaseQueryProps {
 
 export interface NotionPage {
   id: string;
+  pinned: boolean;
   slug: string;
   redirectTo: string;
   categories: string[];

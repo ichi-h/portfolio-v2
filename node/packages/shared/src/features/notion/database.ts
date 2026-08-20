@@ -60,6 +60,12 @@ export const queryDatabase = async (
     .map((page) => {
       return {
         id: page.id,
+        pinned:
+          page.properties.pinned.type === "checkbox"
+            ? typeof page.properties.pinned.checkbox === "boolean"
+              ? page.properties.pinned.checkbox
+              : false
+            : false,
         updatedAt:
           page.properties.updatedAt.type === "last_edited_time"
             ? page.properties.updatedAt.last_edited_time

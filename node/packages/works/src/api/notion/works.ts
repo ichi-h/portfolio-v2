@@ -13,6 +13,7 @@ interface Props {
 
 export interface Work {
   id: string;
+  pinned: boolean;
   slug: string;
   redirectTo: string;
   categories: string[];
@@ -26,6 +27,7 @@ export interface Work {
 const mockedWorksResponse: Work[] = [
   {
     id: "1",
+    pinned: false,
     slug: "slug1",
     redirectTo: "",
     categories: ["philosophy", "music"],
@@ -38,6 +40,7 @@ const mockedWorksResponse: Work[] = [
   },
   {
     id: "2",
+    pinned: false,
     slug: "",
     redirectTo: "https://google.com",
     categories: ["philosophy"],
@@ -50,6 +53,7 @@ const mockedWorksResponse: Work[] = [
   },
   {
     id: "3",
+    pinned: false,
     slug: "slug3",
     redirectTo: "",
     categories: ["photography"],
@@ -62,6 +66,7 @@ const mockedWorksResponse: Work[] = [
   },
   {
     id: "4",
+    pinned: false,
     slug: "slug4",
     redirectTo: "",
     categories: ["music"],
@@ -74,6 +79,7 @@ const mockedWorksResponse: Work[] = [
   },
   {
     id: "5",
+    pinned: true,
     slug: "slug5",
     redirectTo: "",
     categories: ["philosophy"],
@@ -86,6 +92,7 @@ const mockedWorksResponse: Work[] = [
   },
   {
     id: "6",
+    pinned: false,
     slug: "",
     redirectTo: "https://youtu.be/XhfNs3fSm2k?si=NMCefbtk6uN9JPAk",
     categories: ["music"],
@@ -98,6 +105,7 @@ const mockedWorksResponse: Work[] = [
   },
   {
     id: "6",
+    pinned: false,
     slug: "",
     redirectTo:
       "https://soundcloud.com/imkotori/wisteria?si=d2d12a8a0b224d779aef793aa39827cd&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
@@ -131,6 +139,7 @@ export const getWorks = async (props?: Props): Promise<Work[]> => {
 const mapNotionPageToWork = (page: NotionPage): Work => {
   return {
     id: page.id,
+    pinned: page.pinned,
     updatedAt: page.updatedAt,
     description: page.description,
     categories: page.categories,

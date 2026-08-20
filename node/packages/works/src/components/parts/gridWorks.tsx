@@ -3,6 +3,7 @@ import {
   Text,
   Link,
   Icon,
+  KeepIcon,
   UpdateIcon,
   YouTubeIcon,
   SoundCloudIcon,
@@ -21,6 +22,7 @@ import type { COLOR } from "@/packages/styles/constants";
 
 interface Props {
   works: Work[];
+  enablePinned?: boolean;
 }
 
 const youtubeLinks = [
@@ -75,10 +77,14 @@ const ThumbnailIcon: FC<ThumbnailIconProps> = ({ work }) => {
   );
 };
 
-export const GridWorks: FC<Props> = ({ works }) => {
+export const GridWorks: FC<Props> = ({ works, enablePinned = false }) => {
+  const sortedWorks = enablePinned
+    ? [...works.filter((w) => w.pinned), ...works.filter((w) => !w.pinned)]
+    : works;
+
   return (
     <div className={styles.cardGrid}>
-      {works.map((work) => (
+      {sortedWorks.map((work) => (
         <Link
           className={styles.cardLink}
           key={work.slug}
@@ -119,6 +125,9 @@ export const GridWorks: FC<Props> = ({ works }) => {
                 textOverflow="ellipsis"
                 lineClamp={3}
               >
+                {enablePinned && work.pinned && (
+                  <Icon icon={KeepIcon} size={5} color="mono.500" />
+                )}
                 <Text className={styles.cardTitle}>{work.title}</Text>
                 {work.redirectTo !== "" && (
                   <Icon size={4} icon={OpenInNewIcon} color="mono.500" />

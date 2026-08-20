@@ -20,7 +20,7 @@ export const Works: FC<Props> = ({ works }) => {
           All categories &gt;
         </Link>
       </div>
-      <GridWorks works={works} />
+      <GridWorks works={works} enablePinned />
     </>
   );
 };

@@ -5,6 +5,7 @@ import {
   dropShadow,
   flattenStyle,
   flex,
+  flexAlign,
   flexDirection,
   flexJustify,
   gap,
@@ -18,7 +19,7 @@ export const authorBox = style([
   flex,
   gap[6],
   p[2],
-  applyMedia({ max: "480" }, flattenStyle([flexDirection["column"], gap[2]])),
+  applyMedia({ max: "480" }, flattenStyle([flexDirection["column"], flexAlign["center"], gap[2]])),
 ]);
 
 export const avatarBox = style([

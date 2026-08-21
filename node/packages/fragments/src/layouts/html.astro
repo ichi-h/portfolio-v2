@@ -2,15 +2,24 @@
 import uiStyle from "portfolio-ui/style.css?url";
 
 import { html } from "./html.css";
+
+const href = "https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New&display=swap";
 ---
 
 <!doctype html>
 <html class={html} lang="ja">
   <head>
+    <slot name="head" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" fetchpriority="high" href={href} />
+    <link rel="stylesheet" href={href} media="print" onload="this.media='all'" />
+    <noscript>
+      <link rel="stylesheet" href={href} />
+    </noscript>
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <link rel="stylesheet" href={uiStyle} />
-    <slot name="head" />
   </head>
   <body>
     <slot name="content" />

@@ -36,12 +36,6 @@ export const Head = ({
       <meta name="twitter:creator" content="@ichi_h3" />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:domain" content="tech.ichi-h.com" />
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" />
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New&display=swap"
-      />
     </>
   );
 };

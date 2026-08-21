@@ -32,9 +32,7 @@ export const content = style([
   applyMedia({ max: "480" }, flattenStyle([gap[6], my[8]])),
 ]);
 
-export const yearHeading = style([
-  mb[4],
-]);
+export const yearHeading = style([mb[4]]);
 
 export const list = style([
   flex,

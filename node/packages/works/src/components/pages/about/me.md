@@ -6,9 +6,6 @@
 
 ## Philosophy
 
-哲学というものの、そもそもの定義が難しいですが、私が哲学を行うということは、単に哲学書を読むという意味ではなく、**数ある視座の中から自分自身はどこに身を置き、どのように世界を捉え、どのように行動すべきかの指針を考えること**と仮定しています。  
-その上で様々な哲学者や思想家の考えを自分なりに咀嚼したり再構築するわけですが、そこにおいて彼らの思想を正確に理解することや、構築する論理の一貫性や正しさなどは必ずしも重要ではなく、**それらの論理や思想を現実に応用し、その実践の過程において自分自身が幸福であり続けることや、周りとの調和が取れることを最も重視します**。
-
 {{%
   "type": "linkCard",
   "href": "https://ichi-h.com/works/bonhoeffer-adulthood/",
@@ -193,10 +190,10 @@
 
 {{%
   "type": "linkCard",
-  "href": "https://myochikirin.ichi-h.com/",
-  "title": "めうちきりんのメトロポリス",
-  "description": "この地球のどこかに、空と星とがゆめみ遊ぶという「めうちきりん」な街があるらしい――",
-  "thumbnailUrl": "https://myochikirin.ichi-h.com/thumbnail.webp"
+  "href": "https://fragments.ichi-h.com/intersection/",
+  "title": "交差点 - fragments.ichi-h.com",
+  "description": "歩いていた　あなたは雨と　ヘッドライトにさらされて雑踏から　遠ざかる背中へほほえんで　伸ばした手の　拳銃私たちは永遠……",
+  "thumbnailUrl": "https://og-image.ichi-h.com/fragments/交差点"
 %}}
 
 その他は[こちら](/categories/literature)から。

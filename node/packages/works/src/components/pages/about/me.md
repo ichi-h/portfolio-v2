@@ -1,71 +1,4 @@
-- [Philosophy](#philosophy)
-- [Music](#music)
-  - [Private Studio](#private-studio)
-- [Literature](#literature)
-- [Photograph](#photograph)
-
-## Philosophy
-
-{{%
-  "type": "linkCard",
-  "href": "https://ichi-h.com/works/bonhoeffer-adulthood/",
-  "title": "ボンヘッファーの成人性から実存的態度の模索 - ichi-h.com",
-  "description": "ボンヘッファーの成人性、つまり「神の前で、神とともに、神なしに生きる」という逆説的な言葉から彼の思想を読み直す。そのうえでボンヘッファーが提示する世界観をどのように生きるべきかという実存的態度を模索する。",
-  "thumbnailUrl": "https://og-image.ichi-h.com/ボンヘッファーの成人性から実存的態度の模索"
-%}}
-
-{{%
-  "type": "linkCard",
-  "href": "https://ichi-h.com/works/hojoki-suspension/",
-  "title": "『方丈記』と保留の思想 - ichi-h.com",
-  "description": "鴨長明が『方丈記』の隠遁生活において描いたものとは、悲観的な厭世観などでは決してない。それは諸行無常な世の中や、自分自身の矛盾や至らなさを解決せずにそのまま保留できる強さである。",
-  "thumbnailUrl": "https://og-image.ichi-h.com/『方丈記』と保留の思想"
-%}}
-
-{{%
-  "type": "linkCard",
-  "href": "https://ichi-h.com/works/loving-ethics-eroticism/",
-  "title": "愛、倫理、エロティシズム - ichi-h.com",
-  "description": "フロムは愛を技術として捉えるが、それは倫理による他者のへ配慮とエゴイスティックに他者を犯しうる冒険との表裏一体のうちに行われる営為である。後者の側面は、倫理という名の禁止を解除するバタイユのエロティシズムへ、さらにその反転としてナンシーの説く〈触〉と「ノリ・メ・タンゲレ」へと繋がっている。三者三様の切り口で見る愛は、思うに信と疑の反復の最中で、それぞれに立ちふさがる語り得ぬ何かを見ているのではないか。",
-  "thumbnailUrl": "https://og-image.ichi-h.com/愛、倫理、エロティシズム"
-%}}
-
-{{%
-  "type": "linkCard",
-  "href": "https://ichi-h.com/works/ombre-de-l-amour-propre/",
-  "title": "自己愛の影を追って─ラ・ロシュフコーについて - ichi-h.com",
-  "description": "ラ・ロシュフコー『箴言集』は全体性を帯びた書物であるが、その自覚なしにこれが真実と疑わない人々がある。ここでは『箴言集』の概要を説明しつつ、その形而上学的解釈と脱構築を試みる。その果てに見えたものは、自己愛とは、自他を愛することで自身を生成する運動であり、我々はその影を追うことしかできないことがわかる。『箴言集』はこの捉えがたい自己愛を埋めるよう強要し、読者の感覚＝方向（サンス）をもって挑発している。",
-  "thumbnailUrl": "https://og-image.ichi-h.com/自己愛の影を追って─ラ・ロシュフコーについて"
-%}}
-
-その他は[こちら](/categories/philosophy)から。
-
-## Music
-
-{{%
-  "type": "soundcloud",
-  "trackId": "1190011546",
-  "href": "https://soundcloud.com/ichi-h/good-bye-sunset",
-  "title": "Good Bye Sunset"
-%}}
-
-{{%
-  "type": "soundcloud",
-  "trackId": "1141541056",
-  "href": "https://soundcloud.com/ichi-h/beige",
-  "title": "Beige"
-%}}
-
-{{%
-  "type": "soundcloud",
-  "trackId": "1141541029",
-  "href": "https://soundcloud.com/ichi-h/outlaw",
-  "title": "Outlaw"
-%}}
-
-その他は[こちら](/categories/music)から。
-
-### Private Studio
+## Private Studio
 
 {{%
   "type": "gallery",
@@ -91,7 +24,7 @@
   ]
 %}}
 
-#### Software
+### Software
 
 - OS
   - Windows 11 Pro
@@ -106,7 +39,7 @@
   - iZotope
   - etc.
 
-#### Hardware
+### Hardware
 
 - Audio Interface
   - MOTU 828 5th Gen
@@ -153,7 +86,7 @@
     - Universal Audio OX Stomp
   - etc.
 
-#### Instruments
+### Instruments
 
 - Electric Guitar
   - Fender Made in Japan Traditional 60s Jaguar 2017
@@ -161,51 +94,3 @@
   - Black Smoker Standard Series Beta PJ4
 - Acoustic Guitar
   - Martin D-18E Retro
-
-## Literature
-
-{{%
-  "type": "linkCard",
-  "href": "https://fragments.ichi-h.com/in-the-train/",
-  "title": "車内 - fragments.ichi-h.com",
-  "description": "梅雨入りの電車が駅に止まる。ドアが開くと、びしょ濡れになった人々がなだれ込み、人が人で押し合っている。隣に渡された中……",
-  "thumbnailUrl": "https://og-image.ichi-h.com/fragments/車内"
-%}}
-
-{{%
-  "type": "linkCard",
-  "href": "https://fragments.ichi-h.com/the-way-home/",
-  "title": "帰り道 - fragments.ichi-h.com",
-  "description": "小山の向こうに夜明けが広がりつつある。家々へと降りる階段を前に、八月の湿度と朝露の匂いを乗せたそよ風が顔を撫でる。田……",
-  "thumbnailUrl": "https://og-image.ichi-h.com/fragments/帰り道"
-%}}
-
-{{%
-  "type": "linkCard",
-  "href": "https://fragments.ichi-h.com/in-tombo/",
-  "title": "とんぼの中に - fragments.ichi-h.com",
-  "description": "とんぼの両羽をつまみ、上下に揺れる体の左右から背中を開く。ベンチに落とす二つの体は、薄卵色の筋に滲む透明な汁を擦り付……",
-  "thumbnailUrl": "https://og-image.ichi-h.com/fragments/とんぼの中に"
-%}}
-
-{{%
-  "type": "linkCard",
-  "href": "https://fragments.ichi-h.com/intersection/",
-  "title": "交差点 - fragments.ichi-h.com",
-  "description": "歩いていた　あなたは雨と　ヘッドライトにさらされて雑踏から　遠ざかる背中へほほえんで　伸ばした手の　拳銃私たちは永遠……",
-  "thumbnailUrl": "https://og-image.ichi-h.com/fragments/交差点"
-%}}
-
-その他は[こちら](/categories/literature)から。
-
-## Photograph
-
-{{%
-  "type": "linkCard",
-  "href": "https://ichi-h.com/works/revisiting-2022-to-2023/",
-  "title": "Revisiting 2022 to 2023. - ichi-h.com",
-  "description": "2022年7月および12月、2023年1月に撮影。",
-  "thumbnailUrl": "https://static.ichi-h.com/share/photograph/2023_1/revisiting-2022-to-2023.webp"
-%}}
-
-その他は[こちら](/categories/photograph)から。

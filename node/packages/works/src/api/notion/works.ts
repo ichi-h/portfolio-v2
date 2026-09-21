@@ -9,6 +9,7 @@ import { useEnv } from "../../utils/env";
 interface Props {
   slug?: string;
   category?: string;
+  pinned?: boolean;
 }
 
 export interface Work {

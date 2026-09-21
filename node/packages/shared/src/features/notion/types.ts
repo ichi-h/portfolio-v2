@@ -3,6 +3,7 @@
 export interface DatabaseQueryProps {
   slug?: string;
   category?: string;
+  pinned?: boolean;
 }
 
 export interface NotionPage {

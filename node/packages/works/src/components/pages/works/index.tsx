@@ -22,7 +22,7 @@ export const Works: FC<Props> = ({ pickups, worksByCategory }) => {
   return (
     <>
       <Heading level="2">Pickups</Heading>
-      <GridWorks works={pickups} />
+      <GridWorks works={pickups} enablePinned />
       {worksByCategory.map(({ category, works }) => (
         <>
           <Heading level="2">

@@ -1,31 +1,41 @@
-import { GridWorks } from "../../parts/gridWorks";
-
-import type { Work } from "../../../api/notion/works";
+import { Heading, Link } from "portfolio-ui";
 import type { FC } from "react";
 
-import { Heading } from "portfolio-ui";
+import type { Work } from "../../../api/notion/works";
+import { GridWorks } from "../../parts/gridWorks";
+import { Anchor } from "../../parts/anchor";
+import { Hr } from "../../parts/hr";
 
 import * as style from "./index.css";
 
-import { Link } from "portfolio-ui";
-import { Anchor } from "../../parts/anchor";
-
 export interface Props {
   pickups: Work[];
+  latestWorks: Work[];
   worksByCategory: {
     category: string;
     works: Work[];
   }[];
 }
 
-export const Works: FC<Props> = ({ pickups, worksByCategory }) => {
+export const Works: FC<Props> = ({ pickups, latestWorks, worksByCategory }) => {
   return (
     <>
-      <Heading level="2">Pickups</Heading>
-      <GridWorks works={pickups} enablePinned />
+      {pickups.length !== 0 && (
+        <>
+          <Heading level="2">Pickups</Heading>
+          <GridWorks works={pickups} enablePinned />
+          <Hr />
+        </>
+      )}
+
+      <Heading level="2">Latest</Heading>
+      <GridWorks works={latestWorks} />
+      <Hr />
+
+      <Heading level="2">Categories</Heading>
       {worksByCategory.map(({ category, works }) => (
         <>
-          <Heading level="2">
+          <Heading level="3">
             {category.charAt(0).toUpperCase() + category.slice(1)}
           </Heading>
           <GridWorks works={works} />

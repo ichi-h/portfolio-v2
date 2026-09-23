@@ -17,6 +17,18 @@ export interface Props {
   }[];
 }
 
+interface SeeMoreContainerProps {
+  href: string;
+}
+
+const SeeMoreContainer: FC<SeeMoreContainerProps> = ({ href }) => (
+  <div className={style.seeMoreContainer}>
+    <Link as={Anchor} asProps={{ href }}>
+      See more &gt;
+    </Link>
+  </div>
+);
+
 export const Works: FC<Props> = ({ pickups, latestWorks, worksByCategory }) => {
   return (
     <>
@@ -30,6 +42,7 @@ export const Works: FC<Props> = ({ pickups, latestWorks, worksByCategory }) => {
 
       <Heading level="2">Latest</Heading>
       <GridWorks works={latestWorks} />
+      <SeeMoreContainer href="/works/all" />
       <Hr />
 
       <Heading level="2">Categories</Heading>
@@ -39,11 +52,7 @@ export const Works: FC<Props> = ({ pickups, latestWorks, worksByCategory }) => {
             {category.charAt(0).toUpperCase() + category.slice(1)}
           </Heading>
           <GridWorks works={works} />
-          <div className={style.tagLinkContainer}>
-            <Link as={Anchor} asProps={{ href: `/categories/${category}` }}>
-              See more &gt;
-            </Link>
-          </div>
+          <SeeMoreContainer href={`/categories/${category}`} />
         </>
       ))}
     </>

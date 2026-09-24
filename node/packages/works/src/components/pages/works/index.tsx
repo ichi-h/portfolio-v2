@@ -9,52 +9,26 @@ import { Hr } from "../../parts/hr";
 import * as style from "./index.css";
 
 export interface Props {
-  pickups: Work[];
-  latestWorks: Work[];
-  worksByCategory: {
-    category: string;
-    works: Work[];
-  }[];
+  works: Work[];
 }
 
-interface SeeMoreContainerProps {
+interface AllCategoriesContainerProps {
   href: string;
 }
 
-const SeeMoreContainer: FC<SeeMoreContainerProps> = ({ href }) => (
-  <div className={style.seeMoreContainer}>
+const AllCategoriesContainer: FC<AllCategoriesContainerProps> = ({ href }) => (
+  <div className={style.allCategoriesContainer}>
     <Link as={Anchor} asProps={{ href }}>
-      See more &gt;
+      All Categories &gt;
     </Link>
   </div>
 );
 
-export const Works: FC<Props> = ({ pickups, latestWorks, worksByCategory }) => {
+export const Works: FC<Props> = ({ works }) => {
   return (
     <>
-      {pickups.length !== 0 && (
-        <>
-          <Heading level="2">Pickups</Heading>
-          <GridWorks works={pickups} enablePinned />
-          <Hr />
-        </>
-      )}
-
-      <Heading level="2">Latest</Heading>
-      <GridWorks works={latestWorks} />
-      <SeeMoreContainer href="/works/all" />
-      <Hr />
-
-      <Heading level="2">Categories</Heading>
-      {worksByCategory.map(({ category, works }) => (
-        <>
-          <Heading level="3">
-            {category.charAt(0).toUpperCase() + category.slice(1)}
-          </Heading>
-          <GridWorks works={works} />
-          <SeeMoreContainer href={`/categories/${category}`} />
-        </>
-      ))}
+      <AllCategoriesContainer href="/categories" />
+      <GridWorks works={works} />
     </>
   );
 };

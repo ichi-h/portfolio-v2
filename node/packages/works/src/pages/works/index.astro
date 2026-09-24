@@ -7,18 +7,7 @@ import HTML from "../../layouts/html.astro";
 import { ArticleLayout } from "../../layouts/articleLayout";
 import { getWorks } from "../../api/notion/works";
 
-const categories = ["philosophy", "literature", "music", "photograph", "life"];
-
-const pickups = await getWorks({ pinned: true });
-
-const latestWorks = (await getWorks()).slice(0, 6);
-
-const worksByCategory: Props["worksByCategory"] = await Promise.all(
-  categories.map(async (category) => {
-    const works = (await getWorks({ category })).slice(0, 6);
-    return { category, works };
-  }),
-);
+const works = await getWorks();
 ---
 
 <HTML>
@@ -27,11 +16,7 @@ const worksByCategory: Props["worksByCategory"] = await Promise.all(
   </Fragment>
   <Fragment slot="content">
     <ArticleLayout title="Works">
-      <Works
-        pickups={pickups}
-        latestWorks={latestWorks}
-        worksByCategory={worksByCategory}
-      />
+      <Works works={works} />
     </ArticleLayout>
   </Fragment>
 </HTML>
